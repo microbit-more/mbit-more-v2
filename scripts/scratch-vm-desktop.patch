@@ -1,0 +1,10 @@
+diff --git a/src/io/ble.js b/src/io/ble.js
+index 60ec7ace..bd4fdb8a 100644
+--- a/src/io/ble.js
++++ b/src/io/ble.js
+@@ -236,4 +236,4 @@ class BLE extends JSONRPC {
+     }
+ }
+ 
+-module.exports = navigator.bluetooth ? WebBLE : BLE;
++module.exports = BLE;

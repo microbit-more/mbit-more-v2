@@ -1,0 +1,99 @@
+diff --git a/electron-builder.yaml b/electron-builder.yaml
+index e52e662..44ff2b6 100644
+--- a/electron-builder.yaml
++++ b/electron-builder.yaml
+@@ -1,8 +1,8 @@
+ directories:
+   buildResources: buildResources
+   output: dist
+-appId: edu.mit.scratch.scratch-desktop
+-productName: "Scratch 3"
++appId: com.yengawa.mbitmore
++productName: "MicrobitMore Desktop"
+ publish: # empty provider list = don't publish
+ mac:
+   category: public.app-category.education
+@@ -16,12 +16,12 @@ mac:
+   hardenedRuntime: true
+   icon: buildResources/ScratchDesktop.icns
+   provisioningProfile: embedded.provisionprofile
+-  artifactName: "Scratch ${version}.${ext}"
++  artifactName: "MicrobitMore Desktop ${version}.${ext}"
+   target:
+     - dmg
+     - mas
+ dmg:
+-  title: "Scratch ${version}"
++  title: "MicrobitMore Desktop ${version}"
+ mas:
+   category: public.app-category.education
+   entitlements: buildResources/entitlements.mas.plist
+@@ -37,10 +37,10 @@ win:
+     - appx
+     - nsis
+ appx:
+-  identityName: ScratchFoundation.ScratchDesktop
+-  publisherDisplayName: "Scratch Foundation"
+-  publisher: "CN=2EC43DF1-469A-4119-9AB9-568A0A1FF65F"
+-  artifactName: "Scratch ${version}.${ext}"
++  identityName: YengawaLab.MicrobitMoreDesktop
++  publisherDisplayName: "YengawaLab"
++  publisher: "CN=YENGAWA-LAB"
++  artifactName: "MicrobitMore Desktop ${version}.${ext}"
+ nsis:
+   oneClick: false # allow user to choose per-user or per-machine
+-  artifactName: "Scratch ${version} Setup.${ext}"
++  artifactName: "MicrobitMore Desktop ${version} Setup.${ext}"
+diff --git a/scripts/afterSign.js b/scripts/afterSign.js
+index fbe4fb0..326fe89 100644
+--- a/scripts/afterSign.js
++++ b/scripts/afterSign.js
+@@ -2,7 +2,7 @@ const {notarize} = require('electron-notarize');
+ 
+ const notarizeMacBuild = async function (context) {
+     // keep this in sync with appId in the electron-builder config
+-    const appId = 'edu.mit.scratch.scratch-desktop';
++    const appId = 'com.yengawa.mbitmore';
+ 
+     if (!process.env.AC_USERNAME) {
+         console.error([
+diff --git a/src/main/index.js b/src/main/index.js
+index 1688313..c3ff6a4 100644
+--- a/src/main/index.js
++++ b/src/main/index.js
+@@ -43,6 +43,7 @@ const _windows = {};
+ // enable connecting to Scratch Link even if we DNS / Internet access is not available
+ // this must happen BEFORE the app ready event!
+ app.commandLine.appendSwitch('host-resolver-rules', 'MAP device-manager.scratch.mit.edu 127.0.0.1');
++app.commandLine.appendSwitch('enable-experimental-web-platform-features');
+ 
+ const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
+     let title;
+@@ -309,6 +310,27 @@ const createMainWindow = () => {
+         window.show();
+     });
+ 
++    // receive found devices from navigator.bluetooth.requestDevice()
++    webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
++        event.preventDefault();
++        if (window.bluetoothDeviceIdToConnect) {
++            callback(window.bluetoothDeviceIdToConnect);
++            window.bluetoothDeviceIdToConnect = null;
++            return;
++        }
++        webContents.send('discovered-bluetooth-devices', JSON.stringify(deviceList));
++    });
++
++    // receive device to connect from renderer
++    ipcMain.on('connect-bluetooth-device', (_event, deviceId) => {
++        window.bluetoothDeviceIdToConnect = deviceId;
++    });
++
++    // receive device to connect from renderer
++    ipcMain.on('cancel-select-bluetooth-device', () => {
++        window.bluetoothDeviceIdToConnect = ''; // Cancel to requestDevice() reffered by document of Electron.
++    });
++
+     return window;
+ };
+ 

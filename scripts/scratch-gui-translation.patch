@@ -1,0 +1,19 @@
+diff --git a/src/containers/extension-library.jsx b/src/containers/extension-library.jsx
+index b46d992c0..b742e03c5 100644
+--- a/src/containers/extension-library.jsx
++++ b/src/containers/extension-library.jsx
+@@ -51,6 +51,14 @@ class ExtensionLibrary extends React.PureComponent {
+             rawURL: extension.iconURL || extensionIcon,
+             ...extension
+         }));
++        extensionLibraryContent.forEach(extension => {
++            if (extension.translationMap) {
++                Object.assign(
++                    this.props.intl.messages,
++                    extension.translationMap[this.props.intl.locale]
++                );
++            }
++        });
+         return (
+             <LibraryComponent
+                 data={extensionLibraryThumbnailData}

@@ -1,0 +1,39 @@
+name: Start Site
+on:
+  push:
+    branches:
+      - trunk
+    tags:
+      - "!*"
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: yokobond/scratch-gui
+          ref: xcratch
+          path: ./scratch-gui
+      - run: npm install
+        working-directory: ./scratch-gui
+      - uses: actions/checkout@v2
+        with:
+          repository: yokobond/scratch-microbit-more
+          ref: trunk
+          path: ./scratch-microbit-more
+      - run: node ./scripts/install.js --vm=../scratch-gui/node_modules/scratch-vm --gui=../scratch-gui --url="https://yokobond.github.io/scratch-microbit-more/dist/microbitMore.mjs" -C
+        working-directory: ./scratch-microbit-more
+      - run: node ./scripts/change-logo.js -gui=../scratch-gui
+        working-directory: ./scratch-microbit-more
+      - run: npm run build
+        working-directory: ./scratch-gui
+      - run: cp ./scratch-microbit-more/site/index.html ./scratch-gui/build/index.html
+      - run: cp ./scratch-microbit-more/site/favicon.ico ./scratch-gui/build/static/favicon.ico
+      - run: cp -r ./scratch-microbit-more/dist ./scratch-gui/build/dist
+      - run: cp -r ./scratch-microbit-more/example ./scratch-gui/build/example
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./scratch-gui/build
+          keep_files: true
