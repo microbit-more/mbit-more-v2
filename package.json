@@ -3,25 +3,21 @@
   "version": "0.5.0",
   "description": "Full-functional extension of micro:bit for Scratch3",
   "module": "./dist/microbitMore.mjs",
-  "scratchExtension": {
-    "block": "./dist/microbitMore.mjs",
-    "entry": "./dist/microbitMore.entry.mjs"
-  },
   "scripts": {
     "setup:local": "node ./scripts/setup-local.js && npm run install:local",
     "setup:desktop": "node ./scripts/setup-desktop.js",
     "build:local": "rimraf ./build && mkdirp ./build && node ./scripts/build.js --name=microbitMore --block=\"./src/block\" --entry=\"./src/entry\" --vm=\"../scratch-vm\" --gui=\"../scratch-gui\" --output=\"./build\" --debug",
     "build:dist": "rimraf ./dist && mkdirp ./dist && node ./scripts/build.js --name=microbitMore --block=\"./src/block\" --entry=\"./src/entry\" --vm=\"../scratch-vm\" --gui=\"../scratch-gui\" --output=\"./dist\"",
     "install:local": "node ./scripts/install.js --link -C --vm=\"../scratch-vm\" --gui=\"../scratch-gui\" --url=\"http://127.0.0.1:5500/build/microbitMore.mjs\" && node ./scripts/change-logo.js --gui=\"../scratch-gui\"",
-    "install:dev": "node ./scripts/install.js -C --gui=\"../scratch-gui\" --vm=\"../scratch-gui/node_modules/scratch-vm\" --url=\"https://yokobond.github.io/scratch-microbit-more/dev/dist/microbitMore.mjs\" && node ./scripts/change-logo.js --gui=\"../scratch-gui\"",
-    "install:dist": "node ./scripts/install.js -C --gui=\"../scratch-gui\" --vm=\"../scratch-gui/node_modules/scratch-vm\" --url=\"https://yokobond.github.io/scratch-microbit-more/dist/microbitMore.mjs\" && node ./scripts/change-logo.js --gui=\"../scratch-gui\"",
-    "install:desktop": "node ./scripts/install.js --link -C --vm=\"../scratch-desktop/node_modules/scratch-vm\" --gui=\"../scratch-desktop/node_modules/scratch-gui\" --url=\"https://yokobond.github.io/scratch-microbit-more/dist/microbitMore.mjs\" && node ./scripts/change-logo.js --gui=\"../scratch-desktop/node_modules/scratch-gui\"",
+    "install:dev": "node ./scripts/install.js -C --gui=\"../scratch-gui\" --vm=\"../scratch-gui/node_modules/scratch-vm\" --url=\"https://yokobond.github.io/mbit-more/dev/dist/microbitMore.mjs\" && node ./scripts/change-logo.js --gui=\"../scratch-gui\"",
+    "install:dist": "node ./scripts/install.js -C --gui=\"../scratch-gui\" --vm=\"../scratch-gui/node_modules/scratch-vm\" --url=\"https://yokobond.github.io/mbit-more/dist/microbitMore.mjs\" && node ./scripts/change-logo.js --gui=\"../scratch-gui\"",
+    "install:desktop": "node ./scripts/install.js --link -C --vm=\"../scratch-desktop/node_modules/scratch-vm\" --gui=\"../scratch-desktop/node_modules/scratch-gui\" --url=\"https://yokobond.github.io/mbit-more/dist/microbitMore.mjs\" && node ./scripts/change-logo.js --gui=\"../scratch-desktop/node_modules/scratch-gui\"",
     "start:local": "cd ../scratch-gui && npm run start -- --https",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yokobond/scratch-microbit-more.git"
+    "url": "git+https://github.com/yokobond/mbit-more.git"
   },
   "keywords": [
     "scratch",
@@ -30,9 +26,9 @@
   "author": "Koji Yokokawa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yokobond/scratch-microbit-more/issues"
+    "url": "https://github.com/yokobond/mbit-more/issues"
   },
-  "homepage": "https://github.com/yokobond/scratch-microbit-more#readme",
+  "homepage": "https://github.com/yokobond/mbit-more#readme",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-transform-react-jsx": "^7.10.4",

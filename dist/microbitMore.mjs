@@ -8244,7 +8244,7 @@ var entry = {
     id: "gui.extension.microbitMore.name"
   }),
   extensionId: 'microbitMore',
-  extensionURL: 'https://yokobond.github.io/scratch-microbit-more/dist/microbitMore.mjs',
+  extensionURL: 'https://yokobond.github.io/mbit-more/dist/microbitMore.mjs',
   collaborator: 'Yengawa Lab',
   iconURL: img,
   insetIconURL: img$1,
@@ -14950,7 +14950,7 @@ var EXTENSION_ID = 'microbitMore';
  * @type {string}
  */
 
-var extensionURL = 'https://yokobond.github.io/scratch-microbit-more/dist/microbitMore.mjs';
+var extensionURL = 'https://yokobond.github.io/mbit-more/dist/microbitMore.mjs';
 /**
  * Icon png to be displayed at the left edge of each extension block, encoded as a data URI.
  * @type {string}
