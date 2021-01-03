@@ -138,6 +138,27 @@ const MMButtonEvent = {
     DOUBLE_CLICK: 6
 };
 
+
+/**
+ * Enum for event value of gesture.
+ * @readonly
+ * @enum {number}
+ */
+const MbitMoreGestureEvent =
+{
+    TILT_UP: 1,
+    TILT_DOWN: 2,
+    TILT_LEFT: 3,
+    TILT_RIGHT: 4,
+    FACE_UP: 5,
+    FACE_DOWN: 6,
+    FREEFALL: 7,
+    G3: 8,
+    G6: 9,
+    G8: 10,
+    SHAKE: 11
+};
+
 /**
  * Enum for event type in the micro:bit runtime.
  * @readonly
@@ -206,17 +227,6 @@ const PinMode = {
     PULL_DOWN: 'pullDown'
 };
 
-
-/**
- * Enum for micro:bit gestures.
- * @readonly
- * @enum {string}
- */
-const MicroBitGestures = {
-    MOVED: 'moved',
-    SHAKEN: 'shaken',
-    JUMPED: 'jumped'
-};
 
 // /**
 //  * Enum for micro:bit touch pins.
@@ -327,6 +337,14 @@ class MbitMore {
         });
 
         /**
+         * The most recently received gesture events.
+         * @type {Object <number, number>} - Store of gesture ID and timestamp.
+         * @private
+         */
+        this.gestureEvents = {};
+
+
+        /**
          * The most recently received events for each pin.
          * @type {Object} - Store of pins which has events.
          * @private
@@ -349,27 +367,6 @@ class MbitMore {
         });
 
         this.sharedDataLength = this._sensors.sharedData.length;
-
-        /**
-         * The most recently received value for each gesture.
-         * @type {Object.<string, Object>}
-         * @private
-         */
-        this._gestures = {
-            moving: false,
-            move: {
-                active: false,
-                timeout: false
-            },
-            shake: {
-                active: false,
-                timeout: false
-            },
-            jump: {
-                active: false,
-                timeout: false
-            }
-        };
 
         /**
          * Interval ID for data reading timeout.
@@ -960,22 +957,24 @@ class MbitMore {
         const dataView = new DataView(data.buffer, 0);
         const dataFormat = dataView.getUint8(19);
         if (dataFormat === MMDataFormat.ACTION_EVENT) {
-            if (dataView.getUint8(0) === MbitMoreActionEvent.BUTTON) {
+            const actionEventType = dataView.getUint8(0);
+            if (actionEventType === MbitMoreActionEvent.BUTTON) {
                 const buttonID = dataView.getUint8(1);
-                const event = dataView.getUint16(2, true);
+                const event = dataView.getUint8(2, true);
                 this.buttonEvents[MMButtonID.ANY][event] =
                  this.buttonEvents[buttonID][event] =
-                  dataView.getUint32(4, true);
-            } else if (dataView.getUint8(0) === MbitMoreActionEvent.GESTURE) {
-                // should be implemented.
+                  dataView.getUint32(3, true); // Timestamp
+            } else if (actionEventType === MbitMoreActionEvent.GESTURE) {
+                const event = dataView.getUint8(1);
+                this.gestureEvents[event] = dataView.getUint32(2, true); // Timestamp
             }
         } else if (dataFormat === MMDataFormat.PIN_EVENT) {
             const pinIndex = dataView.getUint8(0);
             if (!this._pinEvents[pinIndex]) {
                 this._pinEvents[pinIndex] = {};
             }
-            const event = dataView.getUint16(1, true);
-            this._pinEvents[pinIndex][event] = dataView.getUint32(3, true);
+            const event = dataView.getUint8(1, true);
+            this._pinEvents[pinIndex][event] = dataView.getUint32(2, true); // Timestamp
         } else if (dataFormat === MMDataFormat.SHARED_DATA) {
             this._sensors.sharedData[0] = dataView.getInt16(0, true);
             this._sensors.sharedData[1] = dataView.getInt16(2, true);
@@ -1038,29 +1037,41 @@ class MbitMore {
     }
 
     /**
-     * Return the last timestamp of the button event or 0 when the event is not sent.
+     * Return the last timestamp of the button event or null when the event is not received.
      * @param {MMButtonID} buttonID - ID of the button to get the event.
      * @param {MMButtonEvent} event - event to get.
-     * @return {number} Timestamp of the last event or 0.
+     * @return {?number} Timestamp of the last event or null.
      */
     getButtonEventTimestamp (buttonID, event) {
         if (this.buttonEvents[buttonID] && this.buttonEvents[buttonID][event]) {
             return this.buttonEvents[buttonID][event];
         }
-        return 0;
+        return null;
     }
 
     /**
-     * Return the last timestamp of the pin event or 0 when the event is not sent.
+     * Return the last timestamp of the gesture event or null when the event is not received.
+     * @param {MbitMoreGestureEvent} gestureID - ID of the event.
+     * @return {?number} Timestamp of the last event or null.
+     */
+    getGestureEventTimestamp (gestureID) {
+        if (this.gestureEvents[gestureID]) {
+            return this.gestureEvents[gestureID];
+        }
+        return null;
+    }
+
+    /**
+     * Return the last timestamp of the pin event or null when the event is not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MMPinEvent} event - event to get.
-     * @return {number} Timestamp of the last event or 0.
+     * @return {?number} Timestamp of the last event or null.
      */
     getPinEventTimestamp (pinIndex, event) {
         if (this._pinEvents[pinIndex] && this._pinEvents[pinIndex][event]) {
             return this._pinEvents[pinIndex][event];
         }
-        return 0;
+        return null;
     }
 
     /**
@@ -1122,59 +1133,124 @@ class MbitMoreBlocks {
         return [
             {
                 text: formatMessage({
-                    id: 'microbit.gesturesMenu.moved',
-                    default: 'moved',
-                    description: 'label for moved gesture in gesture picker for micro:bit extension'
+                    id: 'mbitMore.gesturesMenu.tiltUp',
+                    default: 'titl up',
+                    description: 'label for tilt up gesture in gesture picker for microbit more extension'
                 }),
-                value: MicroBitGestures.MOVED
+                value: MbitMoreGestureEvent.TILT_UP
             },
             {
                 text: formatMessage({
-                    id: 'microbit.gesturesMenu.shaken',
-                    default: 'shaken',
-                    description: 'label for shaken gesture in gesture picker for micro:bit extension'
+                    id: 'mbitMore.gesturesMenu.tiltDown',
+                    default: 'titl down',
+                    description: 'label for tilt down gesture in gesture picker for microbit more extension'
                 }),
-                value: MicroBitGestures.SHAKEN
+                value: MbitMoreGestureEvent.TILT_DOWN
             },
             {
                 text: formatMessage({
-                    id: 'microbit.gesturesMenu.jumped',
-                    default: 'jumped',
-                    description: 'label for jumped gesture in gesture picker for micro:bit extension'
+                    id: 'mbitMore.gesturesMenu.tiltLeft',
+                    default: 'titl left',
+                    description: 'label for tilt left gesture in gesture picker for microbit more extension'
                 }),
-                value: MicroBitGestures.JUMPED
+                value: MbitMoreGestureEvent.TILT_LEFT
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.tiltRight',
+                    default: 'titl right',
+                    description: 'label for tilt right gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.TILT_RIGHT
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.faceUp',
+                    default: 'face up',
+                    description: 'label for face up gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.FACE_UP
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.faceDown',
+                    default: 'face down',
+                    description: 'label for face down gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.FACE_DOWN
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.freefall',
+                    default: 'freefall',
+                    description: 'label for freefall gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.FREEFALL
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.g3',
+                    default: '3G',
+                    description: 'label for 3G gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.G3
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.g6',
+                    default: '6G',
+                    description: 'label for 6G gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.G6
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.g8',
+                    default: '8G',
+                    description: 'label for 3G gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.G8
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.gesturesMenu.shake',
+                    default: 'shake',
+                    description: 'label for shaken gesture in gesture picker for microbit more extension'
+                }),
+                value: MbitMoreGestureEvent.SHAKE
             }
+
         ];
     }
 
     /**
      * @return {array} - text and values for each buttons menu element
      */
-    get BUTTON_NAME_MENU () {
+    get BUTTON_ID_MENU () {
         return [
             {
                 text: formatMessage({
-                    id: 'mbitMore.buttonNameMenu.a',
+                    id: 'mbitMore.buttonIDMenu.a',
                     default: 'A',
                     description: 'label for "A" element in button picker for micro:bit more extension'
                 }),
-                value: 'A'
+                value: MMButtonID.A
             },
             {
                 text: formatMessage({
-                    id: 'mbitMore.buttonNameMenu.b',
+                    id: 'mbitMore.buttonIDMenu.b',
                     default: 'B',
                     description: 'label for "B" element in button picker for micro:bit more extension'
                 }),
-                value: 'B'
+                value: MMButtonID.B
             },
             {
                 text: formatMessage({
-                    id: 'mbitMore.buttonNameMenu.any',
+                    id: 'mbitMore.buttonIDMenu.any',
                     default: 'any',
                     description: 'label for "any" element in button picker for micro:bit more extension'
                 }),
-                value: 'ANY'
+                value: MMButtonID.ANY
             }
         ];
     }
@@ -1190,7 +1266,7 @@ class MbitMoreBlocks {
                     default: 'down',
                     description: 'label for button down event'
                 }),
-                value: 'DOWN'
+                value: MMButtonEvent.DOWN
             },
             {
                 text: formatMessage({
@@ -1198,7 +1274,7 @@ class MbitMoreBlocks {
                     default: 'up',
                     description: 'label for button up event'
                 }),
-                value: 'UP'
+                value: MMButtonEvent.UP
             },
             {
                 text: formatMessage({
@@ -1206,16 +1282,16 @@ class MbitMoreBlocks {
                     default: 'click',
                     description: 'label for button click event'
                 }),
-                value: 'CLICK'
+                value: MMButtonEvent.CLICK
             // },
-            // These events are not in use because they are unstable in coal-microbit-v2.
+            // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
             //     text: formatMessage({
             //         id: 'mbitMore.buttonEventMenu.longClick',
             //         default: 'long click',
             //         description: 'label for button long click event'
             //     }),
-            //     value: 'LONG_CLICK'
+            //     value: MMButtonEvent.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
@@ -1223,7 +1299,7 @@ class MbitMoreBlocks {
             //         default: 'hold',
             //         description: 'label for button hold event'
             //     }),
-            //     value: 'HOLD'
+            //     value: MMButtonEvent.HOLD
             // },
             // {
             //     text: formatMessage({
@@ -1231,7 +1307,7 @@ class MbitMoreBlocks {
             //         default: 'double click',
             //         description: 'label for button double click event'
             //     }),
-            //     value: 'DOUBLE_CLICK'
+            //     value: MMButtonEvent.DOUBLE_CLICK
             }
         ];
     }
@@ -1533,16 +1609,22 @@ class MbitMoreBlocks {
         this._peripheral = new MbitMore(this.runtime, MbitMoreBlocks.EXTENSION_ID);
 
         /**
-         * The last timestamps of button events.
+         * The previous timestamps of button events.
          * @type {Object.<number, Object.<number, number>>} button ID to object with event and timestamp.
          */
-        this.lastButtonEvents = {};
+        this.prevButtonEvents = {};
 
         /**
-         * The last timestamps of pin events.
+         * The previous timestamps of gesture events.
+         * @type {Object.<number, number>} key: event ID, value: timestamp.
+         */
+        this.prevGestureEvents = {};
+
+        /**
+         * The previous timestamps of pin events.
          * @type {Object.<number, Object.<number, number>>} pin index to object with event and timestamp.
          */
-        this.lastPinEvents = {};
+        this.prevPinEvents = {};
 
     }
 
@@ -1568,14 +1650,14 @@ class MbitMoreBlocks {
                     blockType: BlockType.HAT,
                     arguments: {
                         BUTTON: {
-                            type: ArgumentType.STRING,
-                            menu: 'buttonNameMenu',
-                            defaultValue: 'A'
+                            type: ArgumentType.NUMBER,
+                            menu: 'buttonIDMenu',
+                            defaultValue: MMButtonID.A
                         },
                         EVENT: {
-                            type: ArgumentType.STRING,
+                            type: ArgumentType.NUMBER,
                             menu: 'buttonEventMenu',
-                            defaultValue: 'DOWN'
+                            defaultValue: MMButtonEvent.DOWN
                         }
                     }
                 },
@@ -1589,9 +1671,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.BOOLEAN,
                     arguments: {
                         BUTTON: {
-                            type: ArgumentType.STRING,
-                            menu: 'buttonNameMenu',
-                            defaultValue: 'A'
+                            type: ArgumentType.NUMBER,
+                            menu: 'buttonIDMenu',
+                            defaultValue: MMButtonID.A
                         }
                     }
                 },
@@ -1622,9 +1704,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.HAT,
                     arguments: {
                         GESTURE: {
-                            type: ArgumentType.STRING,
+                            type: ArgumentType.NUMBER,
                             menu: 'gestures',
-                            defaultValue: MicroBitGestures.MOVED
+                            defaultValue: MbitMoreGestureEvent.SHAKE
                         }
                     }
                 },
@@ -2008,16 +2090,16 @@ class MbitMoreBlocks {
                 }
             ],
             menus: {
-                buttonNameMenu: {
+                buttonIDMenu: {
                     acceptReporters: false,
-                    items: this.BUTTON_NAME_MENU
+                    items: this.BUTTON_ID_MENU
                 },
                 buttonEventMenu: {
                     acceptReporters: false,
                     items: this.BUTTON_EVENT_MENU
                 },
                 gestures: {
-                    acceptReporters: true,
+                    acceptReporters: false,
                     items: this.GESTURES_MENU
                 },
                 pinState: {
@@ -2071,14 +2153,14 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Update the last occured time of all button events.
+     * Update the previous occured time of all button events.
      */
-    updateLastButtonEvents () {
-        this.lastButtonEvents = {};
+    updatePrevButtonEvents () {
+        this.prevButtonEvents = {};
         Object.entries(this._peripheral.buttonEvents).forEach(([componentID, events]) => {
-            this.lastButtonEvents[componentID] = {};
+            this.prevButtonEvents[componentID] = {};
             Object.entries(events).forEach(([eventID, timestamp]) => {
-                this.lastButtonEvents[componentID][eventID] = timestamp;
+                this.prevButtonEvents[componentID][eventID] = timestamp;
             });
         });
     }
@@ -2086,43 +2168,46 @@ class MbitMoreBlocks {
     /**
      * Test whether the event raised at the button.
      * @param {object} args - the block's arguments.
-     * @param {string} args.BUTTON - name of the button.
-     * @param {string} args.EVENT - event to catch.
+     * @param {number} args.BUTTON - ID of the button.
+     * @param {number} args.EVENT - event to catch.
      * @return {boolean} - true if the event raised.
      */
     whenButtonEvent (args) {
         if (!this.updateLastButtonEventTimer) {
             this.updateLastButtonEventTimer = setTimeout(() => {
-                this.updateLastButtonEvents();
+                this.updatePrevButtonEvents();
                 this.updateLastButtonEventTimer = null;
             }, this.runtime.currentStepTime);
         }
+        const buttonID = args.BUTTON;
+        const eventID = args.EVENT;
         const lastTimestamp =
-            this._peripheral.getButtonEventTimestamp(MMButtonID[args.BUTTON], MMButtonEvent[args.EVENT]);
-        if (lastTimestamp === 0) return false;
-        if (!this.lastButtonEvents[MMButtonID[args.BUTTON]]) return true;
-        const prevTimestamp = this.lastButtonEvents[MMButtonID[args.BUTTON]][MMButtonEvent[args.EVENT]];
-        return prevTimestamp !== lastTimestamp;
+            this._peripheral.getButtonEventTimestamp(buttonID, eventID);
+        if (lastTimestamp === null) return false;
+        if (!this.prevButtonEvents[buttonID]) return true;
+        return lastTimestamp !== this.prevButtonEvents[buttonID][eventID];
     }
 
     /**
      * Test whether the A or B button is pressed
      * @param {object} args - the block's arguments.
-     * @param {string} args.BUTTON - name of the button.
+     * @param {number} args.BUTTON - ID of the button.
      * @return {Promise} - Promise that resolve whether the button is pressed or not.
      */
     isButtonPressed (args) {
         if (!this._peripheral.isConnected()) return Promise.resolve(false);
-        if (args.BUTTON === 'ANY') {
-            return (
-                this._peripheral.readDititalLevel(MMButtonID.A)
-                    .then(valueA =>
-                        this._peripheral.readDititalLevel(MMButtonID.B)
-                            .then(valueB => valueA === 0 || valueB === 0)
-                    )
-            );
+        const buttonID = args.BUTTON;
+        if (buttonID === MMButtonID.ANY) {
+            return this._peripheral.readDititalLevel(MMButtonID.A)
+                .then(stateA => {
+                    if (stateA === 0) {
+                        return true;
+                    }
+                    return this._peripheral.readDititalLevel(MMButtonID.B)
+                        .then(stateB => stateB === 0);
+                });
         }
-        return this._peripheral.readDititalLevel(MMButtonID[args.BUTTON])
+        return this._peripheral.readDititalLevel(buttonID)
             .then(value => value === 0);
     }
 
@@ -2139,20 +2224,34 @@ class MbitMoreBlocks {
     // }
 
     /**
-     * Test whether the micro:bit is moving
+     * Update the last occured time of all gesture events.
+     */
+    updatePrevGestureEvents () {
+        this.prevGestureEvents = {};
+        Object.entries(this._peripheral.gestureEvents).forEach(([gestureID, timestamp]) => {
+            this.prevGestureEvents[gestureID] = timestamp;
+        });
+    }
+
+    /**
+     * Test whether the gesture event raised.
      * @param {object} args - the block's arguments.
-     * @return {boolean} - true if the micro:bit is moving.
+     * @param {number} args.GESTURE - ID of the gesture.
+     * @return {boolean} - true if the event raised.
      */
     whenGesture (args) {
-        const gesture = cast.toString(args.GESTURE);
-        if (gesture === 'moved') {
-            return (this._peripheral.gestureState >> 2) & 1;
-        } else if (gesture === 'shaken') {
-            return this._peripheral.gestureState & 1;
-        } else if (gesture === 'jumped') {
-            return (this._peripheral.gestureState >> 1) & 1;
+        if (!this.updateLastGestureEventTimer) {
+            this.updateLastGestureEventTimer = setTimeout(() => {
+                this.updatePrevGestureEvents();
+                this.updateLastGestureEventTimer = null;
+            }, this.runtime.currentStepTime);
         }
-        return false;
+        const gestureID = args.GESTURE;
+        const lastTimestamp =
+            this._peripheral.getGestureEventTimestamp(gestureID);
+        if (lastTimestamp === null) return false;
+        if (!this.prevGestureEvents[gestureID]) return true;
+        return lastTimestamp !== this.prevGestureEvents[gestureID];
     }
 
     /**
@@ -2451,26 +2550,27 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Rerutn timestamp value (micro senonds) of the event.
+     * Rerutn timestamp value (micro senonds) of the event or 0 when the event is not received.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {string} args.EVENT - event value to get.
      * @param {object} util - utility object provided by the runtime.
-     * @return {number} - timestamp of the event.
+     * @return {number} - timestamp of the event or 0.
      */
     getPinEventTimestamp (args) {
-        return this._peripheral.getPinEventTimestamp(args.PIN, MMPinEvent[args.EVENT]);
+        const timestamp = this._peripheral.getPinEventTimestamp(args.PIN, MMPinEvent[args.EVENT]);
+        return timestamp ? timestamp : 0;
     }
 
     /**
-     * Update the last occured time of all pin events.
+     * Update the previous occured time of all pin events.
      */
-    updateLastPinEvents () {
-        this.lastPinEvents = {};
+    updatePrevPinEvents () {
+        this.prevPinEvents = {};
         Object.entries(this._peripheral._pinEvents).forEach(([componentID, events]) => {
-            this.lastPinEvents[componentID] = {};
+            this.prevPinEvents[componentID] = {};
             Object.entries(events).forEach(([eventID, timestamp]) => {
-                this.lastPinEvents[componentID][eventID] = timestamp;
+                this.prevPinEvents[componentID][eventID] = timestamp;
             });
         });
     }
@@ -2484,32 +2584,17 @@ class MbitMoreBlocks {
      */
     whenPinEvent (args) {
         if (!this.updateLastPinEventTimer) {
-            this.updateLastPinEvents = setTimeout(() => {
-                this.updateLastButtonEvents();
+            this.updatePrevPinEvents = setTimeout(() => {
+                this.updatePrevPinEvents();
                 this.updateLastPinEventTimer = null;
             }, this.runtime.currentStepTime);
         }
         const pinIndex = args.PIN;
         const lastTimestamp =
             this._peripheral.getPinEventTimestamp(pinIndex, MMPinEvent[args.EVENT]);
-        if (lastTimestamp === 0) return false;
-        if (!this.lastPinEvents[pinIndex]) return true;
-        const prevTimestamp = this.lastPinEvents[pinIndex][MMPinEvent[args.EVENT]];
-        return prevTimestamp !== lastTimestamp;
-    }
-
-    /**
-     * Hold timestamp of the event at the pin.
-     * @param {number} pinIndex - index of the pin.
-     * @param {number} event - event to be save.
-     * @param {number} timestamp - timestamp value of the event.
-     * @return {number} - previous timestamp or 0 when the event is first time.
-     */
-    setLastEventTimestamp (pinIndex, event, timestamp) {
-        if (!this.lastPinEvents[pinIndex]) this.lastPinEvents[pinIndex] = {};
-        const prev = this.lastPinEvents[pinIndex][event];
-        this.lastPinEvents[pinIndex][event] = timestamp;
-        return prev ? prev : 0;
+        if (lastTimestamp === null) return false;
+        if (!this.prevPinEvents[pinIndex]) return true;
+        return lastTimestamp !== this.prevPinEvents[pinIndex][MMPinEvent[args.EVENT]];
     }
 
     /**
@@ -2541,9 +2626,9 @@ class MbitMoreBlocks {
 const extensionTranslations = {
     'ja': {
         'mbitMore.whenButtonEvent': '[BUTTON] ボタンが[EVENT]とき',
-        'mbitMore.buttonNameMenu.a': 'A',
-        'mbitMore.buttonNameMenu.B': 'B',
-        'mbitMore.buttonNameMenu.any': 'どれかの',
+        'mbitMore.buttonIDMenu.a': 'A',
+        'mbitMore.buttonIDMenu.B': 'B',
+        'mbitMore.buttonIDMenu.any': 'どれかの',
         'mbitMore.buttonEventMenu.down': '押された',
         'mbitMore.buttonEventMenu.up': '放された',
         'mbitMore.buttonEventMenu.click': 'クリックされた',
@@ -2597,9 +2682,9 @@ const extensionTranslations = {
     },
     'ja-Hira': {
         'mbitMore.whenButtonEvent': '[BUTTON] ボタンが[EVENT]とき',
-        'mbitMore.buttonNameMenu.a': 'A',
-        'mbitMore.buttonNameMenu.B': 'B',
-        'mbitMore.buttonNameMenu.any': 'どれかの',
+        'mbitMore.buttonIDMenu.a': 'A',
+        'mbitMore.buttonIDMenu.B': 'B',
+        'mbitMore.buttonIDMenu.any': 'どれかの',
         'mbitMore.buttonEventMenu.down': 'おされた',
         'mbitMore.buttonEventMenu.up': 'はなされた',
         'mbitMore.buttonEventMenu.click': 'クリックされた',
