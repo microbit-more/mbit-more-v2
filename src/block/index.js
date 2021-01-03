@@ -342,7 +342,7 @@ class MbitMore {
         this.gpio = [
             0, 1, 2,
             8,
-            13, 14, 15, 16
+            12, 13, 14, 15, 16
         ];
         this.gpio.forEach(pinIndex => {
             this.digitalLevel[pinIndex] = 0;
