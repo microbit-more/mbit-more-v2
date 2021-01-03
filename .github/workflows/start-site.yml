@@ -34,6 +34,6 @@ jobs:
       - run: cp -r ./mbit-more/example ./scratch-gui/build/example
       - uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./scratch-gui/build
           keep_files: true
