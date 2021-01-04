@@ -21,7 +21,7 @@ const EXTENSION_ID = 'microbitMore';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-let extensionURL = 'http://127.0.0.1:5500/build/microbitMore.mjs';
+let extensionURL = 'https://yokobond.github.io/mbit-more/dist/microbitMore.mjs';
 
 /**
  * Icon png to be displayed at the left edge of each extension block, encoded as a data URI.
@@ -37,13 +37,10 @@ const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYA
  * @enum {number}
  */
 const BLECommand = {
-    CMD_PIN_CONFIG: 0x80,
-    CMD_DISPLAY_TEXT: 0x81,
-    CMD_DISPLAY_LED: 0x82,
-    CMD_PROTOCOL: 0x90,
-    CMD_PIN: 0x91,
-    CMD_SHARED_DATA: 0x92,
-    CMD_LIGHT_SENSING: 0x93
+    CMD_CONFIG: 0x10,
+    CMD_PIN: 0x11,
+    CMD_DISPLAY: 0x12,
+    CMD_SHARED_DATA: 0x13
 };
 
 
@@ -60,6 +57,18 @@ const MMPinCommand =
     SET_PULL: 0x04,
     SET_EVENT: 0x05,
     SET_TOUCH: 0x06
+};
+
+/**
+ * Enum for command about gpio pins.
+ * @readonly
+ * @enum {number}
+ */
+const MbitMoreDisplayCommand =
+{
+    CLEAR: 0x00,
+    TEXT: 0x01,
+    PIXELS: 0x02
 };
 
 
@@ -181,6 +190,16 @@ const MMPinEvent = {
     FALL: 3,
     PULSE_HIGH: 4,
     PULSE_LOW: 5
+};
+
+/**
+ * Enum for write mode of display pixels.
+ * @readonly
+ * @enum {number}
+ */
+const MbitMoreDisplayWriteMode = {
+    LAYER: 0,
+    OVER_WRITE: 1
 };
 
 /**
@@ -408,13 +427,40 @@ class MbitMore {
      * @return {Promise} - a Promise that resolves when writing to peripheral.
      */
     displayText (text, delay) {
-        const textLength = Math.min(18, text.length);
+        const textLength = Math.min(17, text.length);
         const output = new Uint8Array(textLength + 1);
         output[0] = delay;
         for (let i = 0; i < text.length; i++) {
             output[i + 1] = text.charCodeAt(i);
         }
-        return this.send(BLECommand.CMD_DISPLAY_TEXT, output);
+        return this.send(
+            BLECommand.CMD_DISPLAY,
+            new Uint8Array([
+                MbitMoreDisplayCommand.TEXT,
+                ...output
+            ])
+        );
+    }
+
+    /**
+     * Send display pixcels command to micro:bit.
+     * @param {Uint8Array} matrix - the matrix to display.
+     * @param {number} length - size of the matrix data.
+     * @param {number} brightness - brightness of all the pixcels.
+     * @param {number} writeMode - ID of write mode the pixcels.
+     * @return {Promise} - a Promise that resolves when writing to peripheral.
+     */
+    displayPixels (matrix, length, brightness, writeMode) {
+        return this.send(
+            BLECommand.CMD_DISPLAY,
+            new Uint8Array([
+                MbitMoreDisplayCommand.PIXELS,
+                writeMode,
+                brightness,
+                length,
+                ...matrix
+            ])
+        );
     }
 
     /**
@@ -422,7 +468,7 @@ class MbitMore {
      * @return {Promise} - a Promise that resolves when writing to peripheral.
      */
     displayMatrix (matrix) {
-        return this.send(BLECommand.CMD_DISPLAY_LED, matrix);
+        return this.displayPixels(matrix, 25, 255, MbitMoreDisplayWriteMode.OVER_WRITE);
     }
 
     setPinMode (pinIndex, mode, util) {
@@ -1223,6 +1269,27 @@ class MbitMoreBlocks {
         ];
     }
 
+    get DISPLAY_PIXELS_WRITE_MODE_MENU () {
+        return [
+            {
+                text: formatMessage({
+                    id: 'mbitMore.displayPixelsWriteModeMenu.overWrite',
+                    default: 'over write',
+                    description: 'label for write mode "over write" in display pixels'
+                }),
+                value: MbitMoreDisplayWriteMode.OVER_WRITE
+            },
+            {
+                text: formatMessage({
+                    id: 'mbitMore.displayPixelsWriteModeMenu.layer',
+                    default: 'layer',
+                    description: 'label for write mode "layer" in display pixels'
+                }),
+                value: MbitMoreDisplayWriteMode.LAYER
+            }
+        ];
+    }
+
     /**
      * @return {array} - text and values for each buttons menu element
      */
@@ -1712,10 +1779,10 @@ class MbitMoreBlocks {
                 },
                 '---',
                 {
-                    opcode: 'displaySymbol',
+                    opcode: 'displayPixels',
                     text: formatMessage({
-                        id: 'mbitMore.displaySymbol',
-                        default: 'display [MATRIX]',
+                        id: 'mbitMore.displayPixels',
+                        default: '[WRITE_MODE] pattern [MATRIX] with brightness [BRIGHTNESS] ',
                         description: 'display a pattern on the micro:bit display'
                     }),
                     blockType: BlockType.COMMAND,
@@ -1723,6 +1790,15 @@ class MbitMoreBlocks {
                         MATRIX: {
                             type: ArgumentType.MATRIX,
                             defaultValue: '0101010101100010101000100'
+                        },
+                        BRIGHTNESS: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 100
+                        },
+                        WRITE_MODE: {
+                            type: ArgumentType.NUMBER,
+                            menu: 'displayPixelsWriteModeMenu',
+                            defaultValue: MbitMoreDisplayWriteMode.OVER_WRITE
                         }
                     }
                 },
@@ -2102,6 +2178,10 @@ class MbitMoreBlocks {
                     acceptReporters: false,
                     items: this.GESTURES_MENU
                 },
+                displayPixelsWriteModeMenu: {
+                    acceptReporters: false,
+                    items: this.DISPLAY_PIXELS_WRITE_MODE_MENU
+                },
                 pinState: {
                     acceptReporters: true,
                     items: this.PIN_STATE_MENU
@@ -2252,6 +2332,47 @@ class MbitMoreBlocks {
         if (lastTimestamp === null) return false;
         if (!this.prevGestureEvents[gestureID]) return true;
         return lastTimestamp !== this.prevGestureEvents[gestureID];
+    }
+
+    /**
+     * Display pixcel pattern on the 5x5 LED matrix with brightness and write mode.
+     * @param {object} args - the block's arguments.
+     * @param {string} args.MATRIX - the pattern of the pixels.
+     * @param {number} args.BRIGHTNESS - brightness of all pixels.
+     * @param {MbitMoreDisplayWriteMode} args.WRITE_MODE - ID of wirte mode.
+     * @return {Promise} - a Promise that resolves after a tick.
+     */
+    displayPixels (args) {
+        const symbol = cast.toString(args.MATRIX).replace(/\s/g, '');
+        const reducer = (accumulator, c, index) => {
+            const value = (c === '0') ? accumulator : accumulator + Math.pow(2, index);
+            return value;
+        };
+        let brightness = Number(args.BRIGHTNESS);
+        if (isNaN(brightness)) {
+            brightness = 100;
+        }
+        brightness = Math.max(0, Math.min(100, brightness));
+        const hex = symbol.split('').reduce(reducer, 0);
+        if (hex !== null) {
+            this._peripheral.ledMatrixState[0] = hex & 0x1F;
+            this._peripheral.ledMatrixState[1] = (hex >> 5) & 0x1F;
+            this._peripheral.ledMatrixState[2] = (hex >> 10) & 0x1F;
+            this._peripheral.ledMatrixState[3] = (hex >> 15) & 0x1F;
+            this._peripheral.ledMatrixState[4] = (hex >> 20) & 0x1F;
+            this._peripheral.displayPixels(
+                this._peripheral.ledMatrixState,
+                25,
+                Math.round(255 * brightness / 100),
+                args.WRITE_MODE
+            );
+        }
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve();
+            }, BLESendInterval);
+        });
     }
 
     /**
@@ -2648,7 +2769,9 @@ const extensionTranslations = {
         'mbitMore.gesturesMenu.g6': '6Gかかった',
         'mbitMore.gesturesMenu.g8': '8Gかかった',
         'mbitMore.gesturesMenu.shake': 'ゆさぶられた',
-        'mbitMore.displaySymbol': 'パターン [MATRIX] を表示する',
+        'mbitMore.displayPixels': 'パターン [MATRIX] を明るさ [BRIGHTNESS] で [WRITE_MODE] する',
+        'mbitMore.displayPixelsWriteModeMenu.overWrite': '上書き表示',
+        'mbitMore.displayPixelsWriteModeMenu.layer': '透過表示',
         'mbitMore.displayText': '文字 [TEXT] を [DELAY] ミリ秒間隔で流す',
         'mbitMore.isPinHigh': 'ピン [PIN] がハイである',
         'mbitMore.lightLevel': '明るさ',
@@ -2716,7 +2839,9 @@ const extensionTranslations = {
         'mbitMore.gesturesMenu.g6': '6Gかかった',
         'mbitMore.gesturesMenu.g8': '8Gかかった',
         'mbitMore.gesturesMenu.shake': 'ゆさぶられた',
-        'mbitMore.displaySymbol': 'パターン [MATRIX] をひょうじする',
+        'mbitMore.displayPixels': 'パターン [MATRIX] をあかるさ [BRIGHTNESS] で [WRITE_MODE] する',
+        'mbitMore.displayPixelsWriteModeMenu.overWrite': 'うわがきひょうじ',
+        'mbitMore.displayPixelsWriteModeMenu.layer': 'とうかひょうじ',
         'mbitMore.displayText': 'もじ [TEXT] を [DELAY] ミリびょうかんかくでながす',
         'mbitMore.isPinHigh': 'ピン [PIN] がハイである',
         'mbitMore.lightLevel': 'あかるさ',
