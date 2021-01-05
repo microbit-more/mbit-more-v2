@@ -37,10 +37,10 @@ const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYA
  * @enum {number}
  */
 const BLECommand = {
-    CMD_CONFIG: 0x10,
-    CMD_PIN: 0x11,
-    CMD_DISPLAY: 0x12,
-    CMD_SHARED_DATA: 0x13
+    CMD_CONFIG: 0x00,
+    CMD_PIN: 0x01,
+    CMD_DISPLAY: 0x02,
+    CMD_SHARED_DATA: 0x03
 };
 
 
@@ -81,24 +81,6 @@ const MMPinMode = {
     PullNone: 0,
     PullUp: 1,
     PullDown: 2
-};
-
-/**
- * Enum for micro:bit BLE command protocol v0.
- * https://github.com/LLK/scratch-microbit-firmware/blob/master/protocol.md
- * @readonly
- * @enum {number}
- */
-const BLECommandV0 = {
-    CMD_PIN_CONFIG: 0x80,
-    CMD_DISPLAY_TEXT: 0x81,
-    CMD_DISPLAY_LED: 0x82,
-    CMD_PIN_INPUT: 0x90,
-    CMD_PIN_OUTPUT: 0x91,
-    CMD_PIN_PWM: 0x92,
-    CMD_PIN_SERVO: 0x93,
-    CMD_SHARED_DATA_SET: 0x94,
-    CMD_PROTOCOL_SET: 0xA0
 };
 
 /**
@@ -423,22 +405,20 @@ class MbitMore {
 
     /**
      * @param {string} text - the text to display.
-     * @param {number} delay - The time to delay between characters, in milliseconds in 8 bit.
+     * @param {number} delay - The time to delay between characters, in milliseconds.
      * @return {Promise} - a Promise that resolves when writing to peripheral.
      */
     displayText (text, delay) {
-        const textLength = Math.min(17, text.length);
+        const textLength = Math.min(18, text.length);
         const output = new Uint8Array(textLength + 1);
-        output[0] = delay;
+        output[0] = Math.min(255, Math.max(0, delay) / 10);
         for (let i = 0; i < text.length; i++) {
             output[i + 1] = text.charCodeAt(i);
         }
         return this.send(
-            BLECommand.CMD_DISPLAY,
-            new Uint8Array([
-                MbitMoreDisplayCommand.TEXT,
-                ...output
-            ])
+            (BLECommand.CMD_DISPLAY << 5) |
+            (MbitMoreDisplayCommand.TEXT << 3),
+            output
         );
     }
 
@@ -452,9 +432,9 @@ class MbitMore {
      */
     displayPixels (matrix, length, brightness, writeMode) {
         return this.send(
-            BLECommand.CMD_DISPLAY,
+            (BLECommand.CMD_DISPLAY << 5) |
+            (MbitMoreDisplayCommand.PIXELS << 3),
             new Uint8Array([
-                MbitMoreDisplayCommand.PIXELS,
                 writeMode,
                 brightness,
                 length,
@@ -472,37 +452,25 @@ class MbitMore {
     }
 
     setPinMode (pinIndex, mode, util) {
-        if (!this._useMbitMoreService) {
-            switch (mode) {
-            case PinMode.PULL_UP:
-                this.send(BLECommandV0.CMD_PIN_INPUT,
-                    new Uint8Array([pinIndex]), util);
-                break;
-            case PinMode.PULL_DOWN:
-                this.send(BLECommandV0.CMD_PIN_INPUT,
-                    new Uint8Array([pinIndex]), util);
-                break;
-            default:
-                break;
-            }
-            return;
-        }
+        let command =
+            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_PULL << 2);
         switch (mode) {
         case PinMode.PULL_NONE:
-            this.send(BLECommand.CMD_PIN,
-                new Uint8Array([MMPinCommand.SET_PULL, pinIndex, MMPinMode.PullNone]), util);
+            command = command | MMPinMode.PullNone;
             break;
         case PinMode.PULL_UP:
-            this.send(BLECommand.CMD_PIN,
-                new Uint8Array([MMPinCommand.SET_PULL, pinIndex, MMPinMode.PullUp]), util);
+            command = command | MMPinMode.PullUp;
             break;
         case PinMode.PULL_DOWN:
-            this.send(BLECommand.CMD_PIN,
-                new Uint8Array([MMPinCommand.SET_PULL, pinIndex, MMPinMode.PullDown]), util);
+            command = command | MMPinMode.PullDown;
             break;
         default:
             break;
         }
+        return this.send(
+            command,
+            new Uint8Array([pinIndex]),
+            util);
 
     }
 
@@ -513,34 +481,24 @@ class MbitMore {
      * @param {object} util - utility object provided by the runtime.
      */
     setPinOutput (pinIndex, level, util) {
-        if (!this._useMbitMoreService) {
-            this.send(BLECommandV0.CMD_PIN_OUTPUT,
-                new Uint8Array([pinIndex, (level ? 1 : 0)]), util);
-            return;
-        }
-        this.send(BLECommand.CMD_PIN,
-            new Uint8Array([MMPinCommand.SET_OUTPUT, pinIndex, (level ? 1 : 0)]), util);
+        this.send(
+            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_OUTPUT << 2),
+            new Uint8Array([pinIndex, (level ? 1 : 0)]),
+            util
+        );
     }
 
     setPinPWM (pinIndex, level, util) {
         const dataView = new DataView(new ArrayBuffer(2));
         dataView.setUint16(0, level, true);
-        if (!this._useMbitMoreService) {
-            this.send(BLECommandV0.CMD_PIN_PWM,
-                new Uint8Array([
-                    pinIndex,
-                    dataView.getUint8(0),
-                    dataView.getUint8(1)]),
-                util);
-            return;
-        }
-        this.send(BLECommand.CMD_PIN,
+        this.send(
+            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_PWM << 2),
             new Uint8Array([
-                MMPinCommand.SET_PWM,
                 pinIndex,
                 dataView.getUint8(0),
                 dataView.getUint8(1)]),
-            util);
+            util
+        );
     }
 
     setPinServo (pinIndex, angle, range, center, util) {
@@ -550,22 +508,9 @@ class MbitMore {
         dataView.setUint16(0, angle, true);
         dataView.setUint16(2, range, true);
         dataView.setUint16(4, center, true);
-        if (!this._useMbitMoreService) {
-            this.send(BLECommandV0.CMD_PIN_SERVO,
-                new Uint8Array([
-                    pinIndex,
-                    dataView.getUint8(0),
-                    dataView.getUint8(1),
-                    dataView.getUint8(2),
-                    dataView.getUint8(3),
-                    dataView.getUint8(4),
-                    dataView.getUint8(5)]),
-                util);
-            return;
-        }
-        this.send(BLECommand.CMD_PIN,
+        this.send(
+            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_SERVO << 2),
             new Uint8Array([
-                MMPinCommand.SET_SERVO,
                 pinIndex,
                 dataView.getUint8(0),
                 dataView.getUint8(1),
@@ -1072,8 +1017,8 @@ class MbitMore {
     setSharedData (sharedDataIndex, sharedDataValue, util) {
         const dataView = new DataView(new ArrayBuffer(2));
         dataView.setInt16(0, sharedDataValue, true);
-        const command = this._useMbitMoreService ? BLECommand.CMD_SHARED_DATA : BLECommandV0.CMD_SHARED_DATA_SET;
-        this.send(command,
+        this.send(
+            (BLECommand.CMD_SHARED_DATA << 5),
             new Uint8Array([
                 sharedDataIndex,
                 dataView.getUint8(0),
@@ -1128,12 +1073,13 @@ class MbitMore {
     */
     setPinEventType (pinIndex, eventType, util) {
         if (!this._useMbitMoreService) return;
-        this.send(BLECommand.CMD_PIN,
+        this.send(
+            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_EVENT << 2),
             new Uint8Array([
-                MMPinCommand.SET_EVENT,
                 pinIndex,
                 eventType]),
-            util);
+            util
+        );
     }
 }
 
