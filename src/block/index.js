@@ -68,7 +68,8 @@ const MbitMoreDisplayCommand =
 {
     CLEAR: 0x00,
     TEXT: 0x01,
-    PIXELS: 0x02
+    PIXELS_0: 0x02,
+    PIXELS_2: 0x03
 };
 
 
@@ -175,16 +176,6 @@ const MMPinEvent = {
 };
 
 /**
- * Enum for write mode of display pixels.
- * @readonly
- * @enum {number}
- */
-const MbitMoreDisplayWriteMode = {
-    LAYER: 0,
-    OVER_WRITE: 1
-};
-
-/**
  * A time interval to wait (in milliseconds) before reporting to the BLE socket
  * that data has stopped coming from the peripheral.
  */
@@ -268,7 +259,7 @@ const AxisValues = {
  * The unit-value of the gravitational acceleration from Micro:bit.
  * @type {number}
  */
-const G = 1024;
+// const G = 1024;
 
 /**
  * Manage communication with a MicroBit peripheral over a Scrath Link client socket.
@@ -309,7 +300,6 @@ class MbitMore {
          */
         this._sensors = {
             gestureState: 0,
-            ledMatrixState: new Uint8Array(5),
             compassHeading: 0,
             accelerationX: 0,
             accelerationY: 0,
@@ -406,7 +396,6 @@ class MbitMore {
     /**
      * @param {string} text - the text to display.
      * @param {number} delay - The time to delay between characters, in milliseconds.
-     * @return {Promise} - a Promise that resolves when writing to peripheral.
      */
     displayText (text, delay) {
         const textLength = Math.min(18, text.length);
@@ -415,40 +404,43 @@ class MbitMore {
         for (let i = 0; i < text.length; i++) {
             output[i + 1] = text.charCodeAt(i);
         }
-        return this.send(
+        this.send(
             (BLECommand.CMD_DISPLAY << 5) |
-            (MbitMoreDisplayCommand.TEXT << 3),
+            MbitMoreDisplayCommand.TEXT,
             output
         );
     }
 
     /**
      * Send display pixcels command to micro:bit.
-     * @param {Uint8Array} matrix - the matrix to display.
-     * @param {number} length - size of the matrix data.
-     * @param {number} brightness - brightness of all the pixcels.
-     * @param {number} writeMode - ID of write mode the pixcels.
+     * @param {Array.<Array.<number>>} matrix - pattern to display.
      * @return {Promise} - a Promise that resolves when writing to peripheral.
      */
-    displayPixels (matrix, length, brightness, writeMode) {
-        return this.send(
+    displayPixels (matrix) {
+        this.send(
             (BLECommand.CMD_DISPLAY << 5) |
-            (MbitMoreDisplayCommand.PIXELS << 3),
+            MbitMoreDisplayCommand.PIXELS_0,
             new Uint8Array([
-                writeMode,
-                brightness,
-                length,
-                ...matrix
+                ...matrix[0],
+                ...matrix[1],
+                ...matrix[2]
             ])
         );
-    }
-
-    /**
-     * @param {Uint8Array} matrix - the matrix to display.
-     * @return {Promise} - a Promise that resolves when writing to peripheral.
-     */
-    displayMatrix (matrix) {
-        return this.displayPixels(matrix, 25, 255, MbitMoreDisplayWriteMode.OVER_WRITE);
+        return new Promise(resolve => {
+            setTimeout(() => {
+                this.send(
+                    (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.PIXELS_2,
+                    new Uint8Array([
+                        ...matrix[3],
+                        ...matrix[4]
+                    ])
+                );
+                resolve();
+            }, BLESendInterval);
+        })
+            .then(() => {
+                setTimeout(() => null, BLESendInterval);
+            });
     }
 
     setPinMode (pinIndex, mode, util) {
@@ -1215,26 +1207,6 @@ class MbitMoreBlocks {
         ];
     }
 
-    get DISPLAY_PIXELS_WRITE_MODE_MENU () {
-        return [
-            {
-                text: formatMessage({
-                    id: 'mbitMore.displayPixelsWriteModeMenu.overWrite',
-                    default: 'over write',
-                    description: 'label for write mode "over write" in display pixels'
-                }),
-                value: MbitMoreDisplayWriteMode.OVER_WRITE
-            },
-            {
-                text: formatMessage({
-                    id: 'mbitMore.displayPixelsWriteModeMenu.layer',
-                    default: 'layer',
-                    description: 'label for write mode "layer" in display pixels'
-                }),
-                value: MbitMoreDisplayWriteMode.LAYER
-            }
-        ];
-    }
 
     /**
      * @return {array} - text and values for each buttons menu element
@@ -1725,10 +1697,10 @@ class MbitMoreBlocks {
                 },
                 '---',
                 {
-                    opcode: 'displayPixels',
+                    opcode: 'displayMatrix',
                     text: formatMessage({
-                        id: 'mbitMore.displayPixels',
-                        default: '[WRITE_MODE] pattern [MATRIX] with brightness [BRIGHTNESS] ',
+                        id: 'mbitMore.displayMatrix',
+                        default: 'display pattern [MATRIX] ',
                         description: 'display a pattern on the micro:bit display'
                     }),
                     blockType: BlockType.COMMAND,
@@ -1736,15 +1708,6 @@ class MbitMoreBlocks {
                         MATRIX: {
                             type: ArgumentType.MATRIX,
                             defaultValue: '0101010101100010101000100'
-                        },
-                        BRIGHTNESS: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 100
-                        },
-                        WRITE_MODE: {
-                            type: ArgumentType.NUMBER,
-                            menu: 'displayPixelsWriteModeMenu',
-                            defaultValue: MbitMoreDisplayWriteMode.OVER_WRITE
                         }
                     }
                 },
@@ -2124,10 +2087,6 @@ class MbitMoreBlocks {
                     acceptReporters: false,
                     items: this.GESTURES_MENU
                 },
-                displayPixelsWriteModeMenu: {
-                    acceptReporters: false,
-                    items: this.DISPLAY_PIXELS_WRITE_MODE_MENU
-                },
                 pinState: {
                     acceptReporters: true,
                     items: this.PIN_STATE_MENU
@@ -2284,69 +2243,28 @@ class MbitMoreBlocks {
      * Display pixcel pattern on the 5x5 LED matrix with brightness and write mode.
      * @param {object} args - the block's arguments.
      * @param {string} args.MATRIX - the pattern of the pixels.
-     * @param {number} args.BRIGHTNESS - brightness of all pixels.
-     * @param {MbitMoreDisplayWriteMode} args.WRITE_MODE - ID of wirte mode.
      * @return {Promise} - a Promise that resolves after a tick.
      */
-    displayPixels (args) {
-        const symbol = cast.toString(args.MATRIX).replace(/\s/g, '');
-        const reducer = (accumulator, c, index) => {
-            const value = (c === '0') ? accumulator : accumulator + Math.pow(2, index);
-            return value;
-        };
-        let brightness = Number(args.BRIGHTNESS);
-        if (isNaN(brightness)) {
-            brightness = 100;
+    displayMatrix (args) {
+        const matrixString = cast.toString(args.MATRIX).replace(/\s/g, '');
+        let matrixData;
+        if (matrixString.includes(',')) {
+            // This format is comma sepalated 8bits values.
+            matrixData = matrixString.split(',');
+            matrixData = matrixData.map(brightness => (Math.max(0, Math.min(100, Number(brightness)) * 255 / 100)));
+        } else {
+            // This format is 0|1 pattern.
+            matrixData = matrixString.split('');
+            matrixData = matrixData.map(level => ((level === '0') ? 0 : 255));
         }
-        brightness = Math.max(0, Math.min(100, brightness));
-        const hex = symbol.split('').reduce(reducer, 0);
-        if (hex !== null) {
-            this._peripheral.ledMatrixState[0] = hex & 0x1F;
-            this._peripheral.ledMatrixState[1] = (hex >> 5) & 0x1F;
-            this._peripheral.ledMatrixState[2] = (hex >> 10) & 0x1F;
-            this._peripheral.ledMatrixState[3] = (hex >> 15) & 0x1F;
-            this._peripheral.ledMatrixState[4] = (hex >> 20) & 0x1F;
-            this._peripheral.displayPixels(
-                this._peripheral.ledMatrixState,
-                25,
-                Math.round(255 * brightness / 100),
-                args.WRITE_MODE
-            );
+        const matrix = [];
+        for (let line = 0; line < 5; line++) {
+            matrix[line] = [];
+            for (let col = 0; col < 5; col++) {
+                matrix[line][col] = matrixData[(line * 5) + col];
+            }
         }
-
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, BLESendInterval);
-        });
-    }
-
-    /**
-     * Display a predefined symbol on the 5x5 LED matrix.
-     * @param {object} args - the block's arguments.
-     * @return {Promise} - a Promise that resolves after a tick.
-     */
-    displaySymbol (args) {
-        const symbol = cast.toString(args.MATRIX).replace(/\s/g, '');
-        const reducer = (accumulator, c, index) => {
-            const value = (c === '0') ? accumulator : accumulator + Math.pow(2, index);
-            return value;
-        };
-        const hex = symbol.split('').reduce(reducer, 0);
-        if (hex !== null) {
-            this._peripheral.ledMatrixState[0] = hex & 0x1F;
-            this._peripheral.ledMatrixState[1] = (hex >> 5) & 0x1F;
-            this._peripheral.ledMatrixState[2] = (hex >> 10) & 0x1F;
-            this._peripheral.ledMatrixState[3] = (hex >> 15) & 0x1F;
-            this._peripheral.ledMatrixState[4] = (hex >> 20) & 0x1F;
-            this._peripheral.displayMatrix(this._peripheral.ledMatrixState);
-        }
-
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, BLESendInterval);
-        });
+        return this._peripheral.displayPixels(matrix);
     }
 
     /**
@@ -2381,16 +2299,14 @@ class MbitMoreBlocks {
      * @return {Promise} - a Promise that resolves after a tick.
      */
     displayClear () {
-        for (let i = 0; i < 5; i++) {
-            this._peripheral.ledMatrixState[i] = 0;
-        }
-        this._peripheral.displayMatrix(this._peripheral.ledMatrixState);
-
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, BLESendInterval);
-        });
+        const matrix = [
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ];
+        return this._peripheral.displayPixels(matrix);
     }
 
     /**
@@ -2715,9 +2631,7 @@ const extensionTranslations = {
         'mbitMore.gesturesMenu.g6': '6Gかかった',
         'mbitMore.gesturesMenu.g8': '8Gかかった',
         'mbitMore.gesturesMenu.shake': 'ゆさぶられた',
-        'mbitMore.displayPixels': 'パターン [MATRIX] を明るさ [BRIGHTNESS] で [WRITE_MODE] する',
-        'mbitMore.displayPixelsWriteModeMenu.overWrite': '上書き表示',
-        'mbitMore.displayPixelsWriteModeMenu.layer': '透過表示',
+        'mbitMore.displayMatrix': 'パターン [MATRIX] を表示する',
         'mbitMore.displayText': '文字 [TEXT] を [DELAY] ミリ秒間隔で流す',
         'mbitMore.isPinHigh': 'ピン [PIN] がハイである',
         'mbitMore.lightLevel': '明るさ',
@@ -2785,9 +2699,7 @@ const extensionTranslations = {
         'mbitMore.gesturesMenu.g6': '6Gかかった',
         'mbitMore.gesturesMenu.g8': '8Gかかった',
         'mbitMore.gesturesMenu.shake': 'ゆさぶられた',
-        'mbitMore.displayPixels': 'パターン [MATRIX] をあかるさ [BRIGHTNESS] で [WRITE_MODE] する',
-        'mbitMore.displayPixelsWriteModeMenu.overWrite': 'うわがきひょうじ',
-        'mbitMore.displayPixelsWriteModeMenu.layer': 'とうかひょうじ',
+        'mbitMore.displayMatrix': 'パターン [MATRIX] をひょうじする',
         'mbitMore.displayText': 'もじ [TEXT] を [DELAY] ミリびょうかんかくでながす',
         'mbitMore.isPinHigh': 'ピン [PIN] がハイである',
         'mbitMore.lightLevel': 'あかるさ',
