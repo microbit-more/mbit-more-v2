@@ -69,7 +69,7 @@ const MbitMoreDisplayCommand =
     CLEAR: 0x00,
     TEXT: 0x01,
     PIXELS_0: 0x02,
-    PIXELS_2: 0x03
+    PIXELS_1: 0x03
 };
 
 
@@ -433,7 +433,7 @@ class MbitMore {
         return new Promise(resolve => {
             setTimeout(() => {
                 this.send(
-                    (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.PIXELS_2,
+                    (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.PIXELS_1,
                     new Uint8Array([
                         ...matrix[3],
                         ...matrix[4]
