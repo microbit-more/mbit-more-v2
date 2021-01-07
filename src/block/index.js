@@ -2246,17 +2246,25 @@ class MbitMoreBlocks {
      * @return {Promise} - a Promise that resolves after a tick.
      */
     displayMatrix (args) {
-        const matrixString = cast.toString(args.MATRIX).replace(/\s/g, '');
+        const matrixString = cast.toString(args.MATRIX)
+            .replace(/！-～/g, ws => String.fromCharCode(ws.charCodeAt(0) - 0xFEE0)); // zenkaku to hankaku
         let matrixData;
         if (matrixString.includes(',')) {
-            // This format is comma sepalated 8bits values.
-            matrixData = matrixString.split(',');
-            matrixData = matrixData.map(brightness => (Math.max(0, Math.min(100, Number(brightness)) * 255 / 100)));
+            // comma separated values
+            matrixData = matrixString.split(/[,\n]/);
+        } else if (/[ \t]\d*[ \t]/g.test(matrixString)) {
+            // space|tab separated values
+            matrixData = matrixString.split(/\s/g);
         } else {
-            // This format is 0|1 pattern.
-            matrixData = matrixString.split('');
-            matrixData = matrixData.map(level => ((level === '0') ? 0 : 255));
+            // 0|1 pattern.
+            matrixData = matrixString.replace(/\s/g, '')
+                .split('');
+            matrixData = matrixData.map(level => ((level === '0') ? 0 : 100));
         }
+        matrixData = matrixData.map(brightness =>
+            (Math.max(0,
+                Math.min(100,
+                    Number(brightness)) * 255 / 100))); // percent to 8bits value
         const matrix = [];
         for (let line = 0; line < 5; line++) {
             matrix[line] = [];
