@@ -1,6 +1,6 @@
 const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
-const log = require('../../util/log');
+// const log = require('../../util/log');
 const cast = require('../../util/cast');
 const BLE = require('../../io/ble');
 const Base64Util = require('../../util/base64-util');
@@ -248,7 +248,7 @@ const MicroBitPinState = {
  * @readonly
  * @enum {string}
  */
-const AxisValues = {
+const AxisSymbol = {
     X: 'x',
     Y: 'y',
     Z: 'z',
@@ -259,7 +259,7 @@ const AxisValues = {
  * The unit-value of the gravitational acceleration from Micro:bit.
  * @type {number}
  */
-// const G = 1024;
+const G = 1024;
 
 /**
  * Manage communication with a MicroBit peripheral over a Scrath Link client socket.
@@ -300,15 +300,6 @@ class MbitMore {
          */
         this._sensors = {
             gestureState: 0,
-            compassHeading: 0,
-            accelerationX: 0,
-            accelerationY: 0,
-            accelerationZ: 0,
-            accelerationStrength: 0,
-            magneticForceX: 0,
-            magneticForceY: 0,
-            magneticForceZ: 0,
-            magneticStrength: 0,
             sharedData: [0, 0, 0, 0]
         };
 
@@ -316,6 +307,19 @@ class MbitMore {
         this.lightLevel = 0;
         this.temperature = 0;
         this.soundLevel = 0;
+        this.pitch = 0;
+        this.roll = 0;
+        this.acceleration = {
+            x: 0,
+            y: 0,
+            z: 0
+        };
+        this.compassHeading = 0;
+        this.magneticForce = {
+            x: 0,
+            y: 0,
+            z: 0
+        };
 
         /**
          * The most recently received button events for each buttons.
@@ -389,6 +393,9 @@ class MbitMore {
 
         this.sensorsUpdateInterval = 50; // milli-seconds
         this.sensorsLastUpdated = Date.now();
+
+        this.directionUpdateInterval = 50; // milli-seconds
+        this.directionLastUpdated = Date.now();
 
         this.bleReadTimelimit = 400;
     }
@@ -615,46 +622,6 @@ class MbitMore {
             read,
             timeoutPromise(this.bleReadTimelimit).then(() => this)
         ]);
-
-        // const read = this._ble.read(
-        //     MM_SERVICE.ID,
-        //     MM_SERVICE.SENSORS_CH,
-        //     false)
-        //     .then(result => {
-        //         if (!result) return this._sensors;
-        //         const data = Base64Util.base64ToUint8Array(result.message);
-        //         const dataView = new DataView(data.buffer, 0);
-        //         // Accelerometer
-        //         this._sensors.accelerationX = 1000 * dataView.getInt16(0, true) / G;
-        //         this._sensors.accelerationY = 1000 * dataView.getInt16(2, true) / G;
-        //         this._sensors.accelerationZ = 1000 * dataView.getInt16(4, true) / G;
-        //         this._sensors.accelerationStrength = Math.round(
-        //             Math.sqrt(
-        //                 (this._sensors.accelerationX ** 2) +
-        //                 (this._sensors.accelerationY ** 2) +
-        //                 (this._sensors.accelerationZ ** 2)
-        //             )
-        //         );
-        //         this._sensors.pitch = Math.round(dataView.getInt16(6, true) * 180 / Math.PI / 1000);
-        //         this._sensors.roll = Math.round(dataView.getInt16(8, true) * 180 / Math.PI / 1000);
-        //         // Magnetometer
-        //         this._sensors.compassHeading = dataView.getUint16(10, true);
-        //         this._sensors.magneticForceX = dataView.getInt16(12, true);
-        //         this._sensors.magneticForceY = dataView.getInt16(14, true);
-        //         this._sensors.magneticForceZ = dataView.getInt16(16, true);
-        //         this._sensors.magneticStrength = Math.round(
-        //             Math.sqrt(
-        //                 (this._sensors.magneticForceX ** 2) +
-        //                 (this._sensors.magneticForceY ** 2) +
-        //                 (this._sensors.magneticForceZ ** 2)
-        //             )
-        //         );
-        //         this._sensors.soundLevel = dataView.getUint8(18);
-        //         this._sensors.temperature = dataView.getUint8(19) - 128;
-        //         this.sensorsLastUpdated = Date.now();
-        //         return this._sensors;
-        //     });
-        // return Promise.race([read, timeoutPromise(this.bleReadTimelimit).then(() => this._sensors)]);
     }
 
     /**
@@ -670,111 +637,51 @@ class MbitMore {
     }
 
     /**
-     * Read the angle (degrees) of heading direction from the north.
-     * @return {Promise} - a Promise that resolves compass heading.
+     * Read sound level.
+     * @return {Promise} - a Promise that resolves level (0 .. 255).
      */
-    readCompassHeading () {
+    readSoundLevel () {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
         return this.updateSensors()
-            .then(() => this._sensors.compassHeading);
+            .then(() => this.soundLevel);
     }
 
     /**
-     * Read magnetic field X [micro teslas].
-     * @return {Promise} - a Promise that resolves magnetic field strength.
+     * Update data of acceleration, magnetic force.
+     * @return {Promise} - a Promise that resolves updated data holder.
      */
-    readMagneticForceX () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
+    updateDirection () {
+        if ((Date.now() - this.directionLastUpdated) < this.directionUpdateInterval) {
+            return Promise.resolve(this);
         }
-        return this.updateSensors()
-            .then(() => this._sensors.magneticForceX);
-    }
-
-    /**
-     * Read magnetic field Y [micro teslas].
-     * @return {Promise} - a Promise that resolves magnetic field strength.
-     */
-    readMagneticForceY () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateSensors()
-            .then(() => this._sensors.magneticForceY);
-    }
-
-    /**
-     * Read magnetic field X [micro teslas].
-     * @return {Promise} - a Promise that resolves magnetic field strength.
-     */
-    readMagneticForceZ () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateSensors()
-            .then(() => this._sensors.magneticForceZ);
-    }
-
-    /**
-     * Read magnetic field strength [micro teslas].
-     * @return {Promise} - a Promise that resolves magnetic field strength.
-     */
-    readMagneticStrength () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateSensors()
-            .then(() => this._sensors.magneticStrength);
-    }
-
-    /**
-     * Read the value of gravitational acceleration [milli-g] for X axis.
-     * @return {Promise} - a Promise that resolves acceleration.
-     */
-    readAccelerationX () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateSensors()
-            .then(() => this._sensors.accelerationX);
-    }
-
-    /**
-     * Read the value of gravitational acceleration [milli-g] for Y axis.
-     * @return {Promise} - a Promise that resolves acceleration.
-     */
-    readAccelerationY () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateSensors()
-            .then(() => this._sensors.accelerationY);
-    }
-
-    /**
-     * Read the value of gravitational acceleration [milli-g] for Z axis.
-     * @return {Promise} - a Promise that resolves acceleration.
-     */
-    readAccelerationZ () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateSensors()
-            .then(() => this._sensors.accelerationZ);
-    }
-
-    /**
-     * Read acceleration strength [milli-g].
-     * @return {Promise} - a Promise that resolves acceleration strength.
-     */
-    readAccelerationStrength () {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateSensors()
-            .then(() => this._sensors.accelerationStrength);
+        this.directionLastUpdated = Date.now();
+        const read = this._ble.read(
+            MM_SERVICE.ID,
+            MM_SERVICE.DIRECTION_CH,
+            false)
+            .then(result => {
+                if (!result) return this;
+                const data = Base64Util.base64ToUint8Array(result.message);
+                const dataView = new DataView(data.buffer, 0);
+                // Accelerometer
+                this.pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
+                this.roll = Math.round(dataView.getInt16(2, true) * 180 / Math.PI / 1000);
+                this.acceleration.x = 1000 * dataView.getInt16(4, true) / G;
+                this.acceleration.y = 1000 * dataView.getInt16(6, true) / G;
+                this.acceleration.z = 1000 * dataView.getInt16(8, true) / G;
+                // Magnetometer
+                this.compassHeading = dataView.getUint16(10, true);
+                this.magneticForce.x = dataView.getInt16(12, true);
+                this.magneticForce.y = dataView.getInt16(14, true);
+                this.magneticForce.z = dataView.getInt16(16, true);
+                return this;
+            });
+        return Promise.race([
+            read,
+            timeoutPromise(this.bleReadTimelimit).then(() => this)
+        ]);
     }
 
     /**
@@ -785,8 +692,8 @@ class MbitMore {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateSensors()
-            .then(() => this._sensors.pitch);
+        return this.updateDirection()
+            .then(() => this.pitch);
     }
 
     /**
@@ -797,20 +704,69 @@ class MbitMore {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateSensors()
-            .then(() => this._sensors.roll);
+        return this.updateDirection()
+            .then(() => this.roll);
     }
 
     /**
-     * Read sound level.
-     * @return {Promise} - a Promise that resolves level (0 .. 255).
+     * Read the value of gravitational acceleration [milli-g] for the axis.
+     * @param {AxisSymbol} axis - direction of acceleration.
+     * @return {Promise} - a Promise that resolves acceleration.
      */
-    readSoundLevel () {
+    readAcceleration (axis) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
         return this.updateSensors()
-            .then(() => this._sensors.soundLevel);
+            .then(() => {
+                if (axis === AxisSymbol.Absolute) {
+                    return Math.round(
+                        Math.sqrt(
+                            (this.acceleration.x ** 2) +
+                            (this.acceleration.y ** 2) +
+                            (this.acceleration.z ** 2)
+                        )
+                    );
+                }
+                return this.acceleration[axis];
+            });
+    }
+
+    /**
+     * Read the angle (degrees) of heading direction from the north.
+     * @return {Promise} - a Promise that resolves compass heading.
+     */
+    readCompassHeading () {
+        if (!this.isConnected()) {
+            return Promise.resolve(0);
+        }
+        return this.updateDirection()
+            .then(() => this.compassHeading);
+    }
+
+
+    /**
+     * Read value of magnetic field [micro teslas] for the axis.
+     * @param {AxisSymbol} axis - direction of magnetic field.
+     * @return {Promise} - a Promise that resolves value of magnetic filed.
+     */
+    readMagneticForce (axis) {
+        if (!this.isConnected()) {
+            return Promise.resolve(0);
+        }
+        return this.updateDirection()
+            .then(() => {
+                if (axis === AxisSymbol.Absolute) {
+                    return Math.round(
+                        Math.sqrt(
+                            (this.magneticForce.x ** 2) +
+                            (this.magneticForce.y ** 2) +
+                            (this.magneticForce.z ** 2)
+                        )
+                    );
+                }
+                return this.magneticForce[axis];
+            });
     }
 
     /**
@@ -1382,7 +1338,7 @@ class MbitMoreBlocks {
                     default: 'x',
                     description: 'label of X axis.'
                 }),
-                value: AxisValues.X
+                value: AxisSymbol.X
             },
             {
                 text: formatMessage({
@@ -1390,7 +1346,7 @@ class MbitMoreBlocks {
                     default: 'y',
                     description: 'label of Y axis.'
                 }),
-                value: AxisValues.Y
+                value: AxisSymbol.Y
             },
             {
                 text: formatMessage({
@@ -1398,7 +1354,7 @@ class MbitMoreBlocks {
                     default: 'z',
                     description: 'label of Z axis.'
                 }),
-                value: AxisValues.Z
+                value: AxisSymbol.Z
             },
             {
                 text: formatMessage({
@@ -1406,7 +1362,7 @@ class MbitMoreBlocks {
                     default: 'absolute',
                     description: 'label of absolute value.'
                 }),
-                value: AxisValues.Absolute
+                value: AxisSymbol.Absolute
             }
         ];
     }
@@ -1810,11 +1766,7 @@ class MbitMoreBlocks {
                         AXIS: {
                             type: ArgumentType.STRING,
                             menu: 'axis',
-                            defaultValue: formatMessage({
-                                id: 'mbitMore.axisMenu.absolute',
-                                default: 'absolute',
-                                description: 'label of absolute value.'
-                            })
+                            defaultValue: AxisSymbol.Absolute
                         }
                     }
                 },
@@ -1830,7 +1782,7 @@ class MbitMoreBlocks {
                         AXIS: {
                             type: ArgumentType.STRING,
                             menu: 'axis',
-                            defaultValue: AxisValues.X
+                            defaultValue: AxisSymbol.X
                         }
                     }
                 },
@@ -2112,7 +2064,7 @@ class MbitMoreBlocks {
                     items: this.GPIO_MENU
                 },
                 axis: {
-                    acceptReporters: true,
+                    acceptReporters: false,
                     items: this.AXIS_MENU
                 },
                 pinMode: {
@@ -2474,51 +2426,21 @@ class MbitMoreBlocks {
     /**
      * Return the value of magnetic force [micro tesla] on axis.
      * @param {object} args - the block's arguments.
-     * @property {AxisValues} AXIS - the axis (X, Y, Z, Absolute).
+     * @property {AxisSymbol} AXIS - the axis (X, Y, Z, Absolute).
      * @return {Promise} -  a Promise that resolves value of magnetic force.
      */
     getMagneticForce (args) {
-        switch (args.AXIS) {
-        case AxisValues.X:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.X)).text:
-            return this._peripheral.readMagneticForceX();
-        case AxisValues.Y:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.Y)).text:
-            return this._peripheral.readMagneticForceY();
-        case AxisValues.Z:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.Z)).text:
-            return this._peripheral.readMagneticForceZ();
-        case AxisValues.Absolute:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.Absolute)).text:
-            return this._peripheral.readMagneticStrength();
-        default:
-            log.warn(`Unknown axis in getMagneticForce: ${args.AXIS}`);
-        }
+        return this._peripheral.readMagneticForce(args.AXIS);
     }
 
     /**
      * Return the value of acceleration on the specified axis.
      * @param {object} args - the block's arguments.
-     * @property {AxisValues} AXIS - the axis (X, Y, Z).
+     * @param {AxisSymbol} args.AXIS - direction to get.
      * @return {Promise} - a Promise that resolves acceleration on the axis [milli-g].
      */
     getAcceleration (args) {
-        switch (args.AXIS) {
-        case AxisValues.X:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.X)).text:
-            return this._peripheral.readAccelerationX();
-        case AxisValues.Y:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.Y)).text:
-            return this._peripheral.readAccelerationY();
-        case AxisValues.Z:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.Z)).text:
-            return this._peripheral.readAccelerationZ();
-        case AxisValues.Absolute:
-        case this.AXIS_MENU.find(item => (item.value === AxisValues.Absolute)).text:
-            return this._peripheral.readAccelerationStrength();
-        default:
-            log.warn(`Unknown axis in getAcceleration: ${args.AXIS}`);
-        }
+        return this._peripheral.readAcceleration(args.AXIS);
     }
 
     /**
