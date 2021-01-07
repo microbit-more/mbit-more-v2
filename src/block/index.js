@@ -396,18 +396,20 @@ class MbitMore {
     /**
      * @param {string} text - the text to display.
      * @param {number} delay - The time to delay between characters, in milliseconds.
+     * @param {object} util - utility object provided by the runtime.
      */
-    displayText (text, delay) {
+    displayText (text, delay, util) {
         const textLength = Math.min(18, text.length);
         const output = new Uint8Array(textLength + 1);
-        output[0] = Math.min(255, Math.max(0, delay) / 10);
+        output[0] = Math.min(255, (Math.max(0, delay) / 10));
         for (let i = 0; i < text.length; i++) {
             output[i + 1] = text.charCodeAt(i);
         }
         this.send(
             (BLECommand.CMD_DISPLAY << 5) |
             MbitMoreDisplayCommand.TEXT,
-            output
+            output,
+            util
         );
     }
 
@@ -2284,6 +2286,7 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {string} args.TEXT - The contents to display.
      * @param {number} args.DELAY - The time to delay between characters, in milliseconds.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves after the text is done printing.
      * Note the limit is 18 characters
      * The print time is calculated by multiplying the number of horizontal pixels
@@ -2291,11 +2294,14 @@ class MbitMoreBlocks {
      * The number of horizontal pixels = 6px for each character in the string,
      * 1px before the string, and 5px after the string.
      */
-    displayText (args) {
-        const text = String(args.TEXT).replace(/[^ -~]/g, '?')
-            .substring(0, 18);
-        const delay = Math.max(0, Math.min(255, parseInt(args.DELAY, 10))); // delay is send as 8 bit value.
-        if (text.length > 0) this._peripheral.displayText(text, delay);
+    displayText (args, util) {
+        const text = String(args.TEXT)
+            .replace(/！-～/g, zenkaku =>
+                String.fromCharCode(zenkaku.charCodeAt(0) - 0xFEE0)) // zenkaku to hankaku
+            .replace(/[^ -~]/g, '?');
+        let delay = parseInt(args.DELAY, 10);
+        delay = isNaN(delay) ? 120 : delay; // Use default delay if NaN.
+        if (text.length > 0) this._peripheral.displayText(text, delay, util);
         const yieldDelay = delay * ((6 * text.length) + 6);
 
         return new Promise(resolve => {
