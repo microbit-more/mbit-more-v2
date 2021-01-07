@@ -414,9 +414,10 @@ class MbitMore {
     /**
      * Send display pixcels command to micro:bit.
      * @param {Array.<Array.<number>>} matrix - pattern to display.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves when writing to peripheral.
      */
-    displayPixels (matrix) {
+    displayPixels (matrix, util) {
         this.send(
             (BLECommand.CMD_DISPLAY << 5) |
             MbitMoreDisplayCommand.PIXELS_0,
@@ -424,7 +425,8 @@ class MbitMore {
                 ...matrix[0],
                 ...matrix[1],
                 ...matrix[2]
-            ])
+            ],
+            util)
         );
         return new Promise(resolve => {
             setTimeout(() => {
@@ -433,7 +435,8 @@ class MbitMore {
                     new Uint8Array([
                         ...matrix[3],
                         ...matrix[4]
-                    ])
+                    ],
+                    util)
                 );
                 return new Promise(() => {
                     setTimeout(() => resolve(), BLESendInterval);
@@ -2242,9 +2245,10 @@ class MbitMoreBlocks {
      * Display pixcel pattern on the 5x5 LED matrix with brightness and write mode.
      * @param {object} args - the block's arguments.
      * @param {string} args.MATRIX - the pattern of the pixels.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves after a tick.
      */
-    displayMatrix (args) {
+    displayMatrix (args, util) {
         const matrixString = cast.toString(args.MATRIX)
             .replace(/！-～/g, ws => String.fromCharCode(ws.charCodeAt(0) - 0xFEE0)); // zenkaku to hankaku
         let matrixData;
@@ -2271,7 +2275,7 @@ class MbitMoreBlocks {
                 matrix[line][col] = matrixData[(line * 5) + col];
             }
         }
-        return this._peripheral.displayPixels(matrix);
+        return this._peripheral.displayPixels(matrix, util);
     }
 
     /**
