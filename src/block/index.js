@@ -185,7 +185,7 @@ const BLETimeout = 4500;
  * A time interval to wait (in milliseconds) while a block that sends a BLE message is running.
  * @type {number}
  */
-const BLESendInterval = 100;
+const BLESendInterval = 10;
 
 /**
  * A string to report to the BLE socket when the micro:bit has stopped receiving data.
@@ -435,12 +435,11 @@ class MbitMore {
                         ...matrix[4]
                     ])
                 );
-                resolve();
+                return new Promise(() => {
+                    setTimeout(() => resolve(), BLESendInterval);
+                });
             }, BLESendInterval);
-        })
-            .then(() => {
-                setTimeout(() => null, BLESendInterval);
-            });
+        });
     }
 
     setPinMode (pinIndex, mode, util) {
