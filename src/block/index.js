@@ -388,16 +388,16 @@ class MbitMore {
         this.onNotified = this.onNotified.bind(this);
         this._useMbitMoreService = true;
 
-        this.analogInUpdateInterval = 100; // milli-seconds
+        this.analogInUpdateInterval = 80; // milli-seconds
         this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
 
-        this.sensorsUpdateInterval = 50; // milli-seconds
+        this.sensorsUpdateInterval = 60; // milli-seconds
         this.sensorsLastUpdated = Date.now();
 
-        this.directionUpdateInterval = 50; // milli-seconds
+        this.directionUpdateInterval = 60; // milli-seconds
         this.directionLastUpdated = Date.now();
 
-        this.bleReadTimelimit = 400;
+        this.bleReadTimelimit = 40;
     }
 
     /**
@@ -540,181 +540,218 @@ class MbitMore {
 
     /**
      * Read light level from the light sensor.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves light level.
      */
-    readLightLevel () {
+    readLightLevel (util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateSensors()
+        return this.updateSensors(util)
             .then(() => this.lightLevel);
     }
 
     /**
      * Update data of the analog input.
      * @param {number} pinIndex - index of the pin to get value.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves sensors which updated data of the analog input.
      */
-    updateAnalogIn (pinIndex) {
+    updateAnalogIn (pinIndex, util) {
         if ((Date.now() - this.analogInLastUpdated[pinIndex]) < this.analogInUpdateInterval) {
             return Promise.resolve(this.analogValue[pinIndex]);
         }
-        const read = this._ble.read(
+        if (this._busy) {
+            if (util) util.yield();
+            return Promise.resolve(this.analogValue[pinIndex]);
+        }
+        this._busy = true;
+        this._busyTimeoutID = window.setTimeout(() => {
+            this._busy = false;
+        }, 1000);
+        return new Promise(resolve => this._ble.read(
             MM_SERVICE.ID,
             MM_SERVICE.ANALOG_IN_CH[pinIndex],
             false)
             .then(result => {
-                if (!result) return this.analogValue[pinIndex];
+                window.clearTimeout(this._busyTimeoutID);
+                this._busy = false;
+                if (!result) {
+                    return resolve(this.analogValue[pinIndex]);
+                }
                 const data = Base64Util.base64ToUint8Array(result.message);
                 const dataView = new DataView(data.buffer, 0);
                 this.analogValue[pinIndex] = dataView.getUint16(0, true);
                 this.analogInLastUpdated = Date.now();
-                return this.analogValue[pinIndex];
-            });
-        return Promise.race([read, timeoutPromise(this.bleReadTimelimit).then(() => this.analogIn[pinIndex])]);
+                resolve(this.analogValue[pinIndex]);
+            }));
     }
 
     /**
      * Read analog input from the pin [0, 1, 2].
      * @param {number} pinIndex - Index of the pin to read.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves analog input value of the pin.
      */
-    readAnalogIn (pinIndex) {
+    readAnalogIn (pinIndex, util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateAnalogIn(pinIndex);
+        return this.updateAnalogIn(pinIndex, util);
     }
 
     /**
      * Update data of digital level, light level, temperature, sound level.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-    updateSensors () {
+    updateSensors (util) {
         if ((Date.now() - this.sensorsLastUpdated) < this.sensorsUpdateInterval) {
             return Promise.resolve(this);
         }
         this.sensorsLastUpdated = Date.now();
-        const read = this._ble.read(
-            MM_SERVICE.ID,
-            MM_SERVICE.SENSORS_CH,
-            false)
-            .then(result => {
-                if (!result) return this;
-                const data = Base64Util.base64ToUint8Array(result.message);
-                const dataView = new DataView(data.buffer, 0);
-                // Digital Input
-                const gpioData = dataView.getUint32(0, true);
-                for (let i = 0; i < this.gpio.length; i++) {
-                    this.digitalLevel[this.gpio[i]] = (gpioData >> this.gpio[i]) & 1;
-                }
-                this.digitalLevel[MMButtonID.A] = (gpioData >> MMButtonID.A) & 1;
-                this.digitalLevel[MMButtonID.B] = (gpioData >> MMButtonID.B) & 1;
-                this.lightLevel = dataView.getUint8(4);
-                this.temperature = dataView.getUint8(5) - 128;
-                this.soundLevel = dataView.getUint8(6);
-                return this;
-            });
-        return Promise.race([
-            read,
-            timeoutPromise(this.bleReadTimelimit).then(() => this)
-        ]);
+        if (this._busy) {
+            if (util) util.yield();
+            return Promise.resolve(this);
+        }
+        this._busy = true;
+        this._busyTimeoutID = window.setTimeout(() => {
+            this._busy = false;
+        }, 1000);
+        return new Promise(resolve => {
+            this._ble.read(
+                MM_SERVICE.ID,
+                MM_SERVICE.SENSORS_CH,
+                false)
+                .then(result => {
+                    window.clearTimeout(this._busyTimeoutID);
+                    this._busy = false;
+                    if (!result) return resolve(this);
+                    const data = Base64Util.base64ToUint8Array(result.message);
+                    const dataView = new DataView(data.buffer, 0);
+                    // Digital Input
+                    const gpioData = dataView.getUint32(0, true);
+                    for (let i = 0; i < this.gpio.length; i++) {
+                        this.digitalLevel[this.gpio[i]] = (gpioData >> this.gpio[i]) & 1;
+                    }
+                    this.digitalLevel[MMButtonID.A] = (gpioData >> MMButtonID.A) & 1;
+                    this.digitalLevel[MMButtonID.B] = (gpioData >> MMButtonID.B) & 1;
+                    this.lightLevel = dataView.getUint8(4);
+                    this.temperature = dataView.getUint8(5) - 128;
+                    this.soundLevel = dataView.getUint8(6);
+                    resolve(this);
+                });
+        });
     }
 
     /**
      * Read temperature (integer in celsius) from the micro:bit cpu.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves temperature.
      */
-    readTemperature () {
+    readTemperature (util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateSensors()
+        return this.updateSensors(util)
             .then(() => this.temperature);
     }
 
     /**
      * Read sound level.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves level (0 .. 255).
      */
-    readSoundLevel () {
+    readSoundLevel (util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateSensors()
+        return this.updateSensors(util)
             .then(() => this.soundLevel);
     }
 
     /**
      * Update data of acceleration, magnetic force.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-    updateDirection () {
+    updateDirection (util) {
         if ((Date.now() - this.directionLastUpdated) < this.directionUpdateInterval) {
             return Promise.resolve(this);
         }
+        if (this._busy) {
+            if (util) util.yield();
+            return Promise.resolve(this);
+        }
+        this._busy = true;
+        this._busyTimeoutID = window.setTimeout(() => {
+            this._busy = false;
+        }, 1000);
         this.directionLastUpdated = Date.now();
-        const read = this._ble.read(
-            MM_SERVICE.ID,
-            MM_SERVICE.DIRECTION_CH,
-            false)
-            .then(result => {
-                if (!result) return this;
-                const data = Base64Util.base64ToUint8Array(result.message);
-                const dataView = new DataView(data.buffer, 0);
-                // Accelerometer
-                this.pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
-                this.roll = Math.round(dataView.getInt16(2, true) * 180 / Math.PI / 1000);
-                this.acceleration.x = 1000 * dataView.getInt16(4, true) / G;
-                this.acceleration.y = 1000 * dataView.getInt16(6, true) / G;
-                this.acceleration.z = 1000 * dataView.getInt16(8, true) / G;
-                // Magnetometer
-                this.compassHeading = dataView.getUint16(10, true);
-                this.magneticForce.x = dataView.getInt16(12, true);
-                this.magneticForce.y = dataView.getInt16(14, true);
-                this.magneticForce.z = dataView.getInt16(16, true);
-                return this;
-            });
-        return Promise.race([
-            read,
-            timeoutPromise(this.bleReadTimelimit).then(() => this)
-        ]);
+        return new Promise(resolve => {
+            this._ble.read(
+                MM_SERVICE.ID,
+                MM_SERVICE.DIRECTION_CH,
+                false)
+                .then(result => {
+                    window.clearTimeout(this._busyTimeoutID);
+                    this._busy = false;
+                    if (!result) return resolve(this);
+                    const data = Base64Util.base64ToUint8Array(result.message);
+                    const dataView = new DataView(data.buffer, 0);
+                    // Accelerometer
+                    this.pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
+                    this.roll = Math.round(dataView.getInt16(2, true) * 180 / Math.PI / 1000);
+                    this.acceleration.x = 1000 * dataView.getInt16(4, true) / G;
+                    this.acceleration.y = 1000 * dataView.getInt16(6, true) / G;
+                    this.acceleration.z = 1000 * dataView.getInt16(8, true) / G;
+                    // Magnetometer
+                    this.compassHeading = dataView.getUint16(10, true);
+                    this.magneticForce.x = dataView.getInt16(12, true);
+                    this.magneticForce.y = dataView.getInt16(14, true);
+                    this.magneticForce.z = dataView.getInt16(16, true);
+                    resolve(this);
+                });
+        });
     }
 
     /**
      * Read pitch [degrees] is 3D space.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves pitch.
      */
-    readPitch () {
+    readPitch (util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateDirection()
+        return this.updateDirection(util)
             .then(() => this.pitch);
     }
 
     /**
      * Read roll [degrees] is 3D space.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves roll.
      */
-    readRoll () {
+    readRoll (util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateDirection()
+        return this.updateDirection(util)
             .then(() => this.roll);
     }
 
     /**
      * Read the value of gravitational acceleration [milli-g] for the axis.
      * @param {AxisSymbol} axis - direction of acceleration.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves acceleration.
      */
-    readAcceleration (axis) {
+    readAcceleration (axis, util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateSensors()
+        return this.updateDirection(util)
             .then(() => {
                 if (axis === AxisSymbol.Absolute) {
                     return Math.round(
@@ -731,13 +768,14 @@ class MbitMore {
 
     /**
      * Read the angle (degrees) of heading direction from the north.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves compass heading.
      */
-    readCompassHeading () {
+    readCompassHeading (util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateDirection()
+        return this.updateDirection(util)
             .then(() => this.compassHeading);
     }
 
@@ -745,13 +783,14 @@ class MbitMore {
     /**
      * Read value of magnetic field [micro teslas] for the axis.
      * @param {AxisSymbol} axis - direction of magnetic field.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves value of magnetic filed.
      */
-    readMagneticForce (axis) {
+    readMagneticForce (axis, util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateDirection()
+        return this.updateDirection(util)
             .then(() => {
                 if (axis === AxisSymbol.Absolute) {
                     return Math.round(
@@ -847,7 +886,7 @@ class MbitMore {
         // the busy flag after a while so that it is possible to try again later.
         this._busyTimeoutID = window.setTimeout(() => {
             this._busy = false;
-        }, 5000);
+        }, 1000);
 
         const output = new Uint8Array(message.length + 1);
         output[0] = command; // attach command to beginning of message
@@ -935,22 +974,24 @@ class MbitMore {
     /**
      * Return whether the pin value is high.
      * @param {number} pin - the pin to check.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - Promise that resolves whether the pin is high or not.
      */
-    isPinHigh (pin) {
-        return this.readDititalLevel(pin).then(value => value === 1);
+    isPinHigh (pin, util) {
+        return this.readDititalLevel(pin, util).then(value => value === 1);
     }
 
     /**
      * Read digital input from the pin.
      * @param {number} pin - the pin to read.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves digital input value of the pin.
      */
-    readDititalLevel (pin) {
+    readDititalLevel (pin, util) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        return this.updateSensors()
+        return this.updateSensors(util)
             .then(() => this.digitalLevel[pin]);
     }
 
@@ -2130,22 +2171,23 @@ class MbitMoreBlocks {
      * Test whether the A or B button is pressed
      * @param {object} args - the block's arguments.
      * @param {number} args.BUTTON - ID of the button.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - Promise that resolve whether the button is pressed or not.
      */
-    isButtonPressed (args) {
+    isButtonPressed (args, util) {
         if (!this._peripheral.isConnected()) return Promise.resolve(false);
         const buttonID = args.BUTTON;
         if (buttonID === MMButtonID.ANY) {
-            return this._peripheral.readDititalLevel(MMButtonID.A)
+            return this._peripheral.readDititalLevel(MMButtonID.A, util)
                 .then(stateA => {
                     if (stateA === 0) {
                         return true;
                     }
-                    return this._peripheral.readDititalLevel(MMButtonID.B)
+                    return this._peripheral.readDititalLevel(MMButtonID.B, util)
                         .then(stateB => stateB === 0);
                 });
         }
-        return this._peripheral.readDititalLevel(buttonID)
+        return this._peripheral.readDititalLevel(buttonID, util)
             .then(value => value === 0);
     }
 
@@ -2279,45 +2321,53 @@ class MbitMoreBlocks {
      * Test the selected pin is high as digital.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - Promise that resolve true if the pin is high.
      */
-    isPinHigh (args) {
-        return this._peripheral.isPinHigh(args.PIN);
+    isPinHigh (args, util) {
+        return this._peripheral.isPinHigh(args.PIN, util);
     }
 
     /**
      * Get amount of light (0 - 255) on the LEDs.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves light level.
      */
-    getLightLevel () {
-        return this._peripheral.readLightLevel()
+    getLightLevel (args, util) {
+        return this._peripheral.readLightLevel(util)
             .then(level => Math.round(level * 1000 / 255) / 10);
     }
 
     /**
      * Get temperature (integer in celsius) of micro:bit.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves temperature.
      */
-    getTemperature () {
-        return this._peripheral.readTemperature();
+    getTemperature (args, util) {
+        return this._peripheral.readTemperature(util);
     }
 
     /**
      * Return angle from the north to the micro:bit heading direction.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves compass heading angle from the north (0 - 359 degrees).
      */
-    getCompassHeading () {
-        return this._peripheral.readCompassHeading();
+    getCompassHeading (args, util) {
+        return this._peripheral.readCompassHeading(util);
     }
 
     /**
      * Return analog value of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves analog input value of the pin.
      */
-    getAnalogValue (args) {
-        return this._peripheral.readAnalogIn(args.PIN)
+    getAnalogValue (args, util) {
+        return this._peripheral.readAnalogIn(args.PIN, util)
             .then(level => Math.round(level * 1000 / 1023) / 10);
     }
 
@@ -2325,10 +2375,11 @@ class MbitMoreBlocks {
      * Return digital value of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves digital input value of the pin.
      */
-    getDigitalValue (args) {
-        return (this._peripheral.readDititalLevel(args.PIN));
+    getDigitalValue (args, util) {
+        return (this._peripheral.readDititalLevel(args.PIN, util));
     }
 
     /**
@@ -2424,36 +2475,42 @@ class MbitMoreBlocks {
      * Return the value of magnetic force [micro tesla] on axis.
      * @param {object} args - the block's arguments.
      * @property {AxisSymbol} AXIS - the axis (X, Y, Z, Absolute).
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} -  a Promise that resolves value of magnetic force.
      */
-    getMagneticForce (args) {
-        return this._peripheral.readMagneticForce(args.AXIS);
+    getMagneticForce (args, util) {
+        return this._peripheral.readMagneticForce(args.AXIS, util);
     }
 
     /**
      * Return the value of acceleration on the specified axis.
      * @param {object} args - the block's arguments.
      * @param {AxisSymbol} args.AXIS - direction to get.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves acceleration on the axis [milli-g].
      */
-    getAcceleration (args) {
-        return this._peripheral.readAcceleration(args.AXIS);
+    getAcceleration (args, util) {
+        return this._peripheral.readAcceleration(args.AXIS, util);
     }
 
     /**
      * Return pitch [degrees] of the micro:bit heading direction.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves pitch.
      */
-    getPitch () {
-        return this._peripheral.readPitch();
+    getPitch (args, util) {
+        return this._peripheral.readPitch(util);
     }
 
     /**
      * Return roll [degrees] of the micro:bit heading direction.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves roll.
      */
-    getRoll () {
-        return this._peripheral.readRoll();
+    getRoll (args, util) {
+        return this._peripheral.readRoll(util);
     }
 
     /**
