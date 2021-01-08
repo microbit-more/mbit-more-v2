@@ -583,9 +583,6 @@ class MbitMore {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
-        if (!this._useMbitMoreService) {
-            return Promise.resolve(this.analogValue[pinIndex]);
-        }
         return this.updateAnalogIn(pinIndex);
     }
 
