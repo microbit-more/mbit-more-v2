@@ -434,8 +434,8 @@ class MbitMore {
                 ...matrix[0],
                 ...matrix[1],
                 ...matrix[2]
-            ],
-            util)
+            ]),
+            util
         );
         return new Promise(resolve => {
             setTimeout(() => {
@@ -444,8 +444,8 @@ class MbitMore {
                     new Uint8Array([
                         ...matrix[3],
                         ...matrix[4]
-                    ],
-                    util)
+                    ]),
+                    util
                 );
                 return new Promise(() => {
                     setTimeout(() => resolve(), BLESendInterval);
