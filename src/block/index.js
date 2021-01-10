@@ -1721,16 +1721,7 @@ class MbitMoreBlocks {
                     arguments: {
                         TEXT: {
                             type: ArgumentType.STRING,
-                            defaultValue: formatMessage({
-                                id: 'microbit.defaultTextToDisplay',
-                                default: 'Hello!',
-                                description: `default text to display.
-                                IMPORTANT - the micro:bit only supports letters a-z, A-Z.
-                                Please substitute a default word in your language
-                                that can be written with those characters,
-                                substitute non-accented characters or leave it as "Hello!".
-                                Check the micro:bit site documentation for details`
-                            })
+                            defaultValue: 'Hello!'
                         },
                         DELAY: {
                             type: ArgumentType.NUMBER,
@@ -1741,7 +1732,7 @@ class MbitMoreBlocks {
                 {
                     opcode: 'displayClear',
                     text: formatMessage({
-                        id: 'microbit.clearDisplay',
+                        id: 'mbitMore.clearDisplay',
                         default: 'clear display',
                         description: 'display nothing on the micro:bit display'
                     }),
@@ -2627,6 +2618,7 @@ const extensionTranslations = {
         'mbitMore.gesturesMenu.shake': 'ゆさぶられた',
         'mbitMore.displayMatrix': 'パターン [MATRIX] を表示する',
         'mbitMore.displayText': '文字 [TEXT] を [DELAY] ミリ秒間隔で流す',
+        'mbitMore.clearDisplay': '画面を消す',
         'mbitMore.isPinHigh': 'ピン [PIN] がハイである',
         'mbitMore.lightLevel': '明るさ',
         'mbitMore.temperature': '温度',
@@ -2695,6 +2687,7 @@ const extensionTranslations = {
         'mbitMore.gesturesMenu.shake': 'ゆさぶられた',
         'mbitMore.displayMatrix': 'パターン [MATRIX] をひょうじする',
         'mbitMore.displayText': 'もじ [TEXT] を [DELAY] ミリびょうかんかくでながす',
+        'mbitMore.clearDisplay': 'がめんをけす',
         'mbitMore.isPinHigh': 'ピン [PIN] がハイである',
         'mbitMore.lightLevel': 'あかるさ',
         'mbitMore.temperature': 'おんど',
