@@ -873,46 +873,6 @@ class MbitMore {
     }
 
     /**
-     * Send a message to the peripheral BLE socket.
-     * @param {number} command - the BLE command hex.
-     * @param {Uint8Array} message - the message to write
-     * @param {object} util - utility object provided by the runtime.
-     */
-    send (command, message, util) {
-        if (!this.isConnected()) return;
-        if (this._busy) {
-            if (util) util.yield();
-            return;
-        }
-
-        // Set a busy flag so that while we are sending a message and waiting for
-        // the response, additional messages are ignored.
-        this._busy = true;
-
-        // Set a timeout after which to reset the busy flag. This is used in case
-        // a BLE message was sent for which we never received a response, because
-        // e.g. the peripheral was turned off after the message was sent. We reset
-        // the busy flag after a while so that it is possible to try again later.
-        this._busyTimeoutID = window.setTimeout(() => {
-            this._busy = false;
-        }, 1000);
-
-        const output = new Uint8Array(message.length + 1);
-        output[0] = command; // attach command to beginning of message
-        for (let i = 0; i < message.length; i++) {
-            output[i + 1] = message[i];
-        }
-        const data = Base64Util.uint8ArrayToBase64(output);
-
-        this._ble.write(MM_SERVICE.ID, MM_SERVICE.COMMAND_CH, data, 'base64', false).then(
-            () => {
-                this._busy = false;
-                window.clearTimeout(this._busyTimeoutID);
-            }
-        );
-    }
-
-    /**
      * Send a command to micro:bit.
      * @param {object} command command to send.
      * @param {number} command.id ID of the command.
@@ -2443,7 +2403,6 @@ class MbitMoreBlocks {
      * Return digital value of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves digital input value of the pin.
      */
     getDigitalValue (args) {
