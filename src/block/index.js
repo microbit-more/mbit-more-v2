@@ -6,6 +6,13 @@ const BLE = require('../../io/ble');
 const Base64Util = require('../../util/base64-util');
 
 /**
+ * Determine whether the given `promise` is a Promise.
+ * @param {*} promise - Target object to determin.
+ * @return {boolean} True if the target is a Promise.
+ */
+const isPromise = promise => !!promise && typeof promise.then === 'function';
+
+/**
  * Formatter which is used for translating.
  * When it was loaded as a module, 'formatMessage' will be replaced which is used in the runtime.
  * @type {Function}
@@ -621,7 +628,7 @@ class MbitMore {
      * Read analog input from the pin [0, 1, 2].
      * @param {number} pinIndex - Index of the pin to read.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves analog input value of the pin.
+     * @return {?Promise} - a Promise that resolves analog input value of the pin.
      */
     readAnalogIn (pinIndex, util) {
         if (!this.isConnected()) {
@@ -2422,11 +2429,14 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves analog input value of the pin.
+     * @return {?Promise} - a Promise that resolves analog input value of the pin.
      */
     getAnalogValue (args, util) {
-        return this._peripheral.readAnalogIn(args.PIN, util)
-            .then(level => Math.round(level * 1000 / 1023) / 10);
+        const readPromise = this._peripheral.readAnalogIn(args.PIN, util);
+        if (isPromise(readPromise)) {
+            return readPromise.then(level => Math.round(level * 1000 / 1023) / 10);
+        }
+        return;
     }
 
     /**
