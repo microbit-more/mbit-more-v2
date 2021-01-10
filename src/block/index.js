@@ -237,16 +237,6 @@ const PinMode = {
 //     P2: 'p2'
 // };
 
-/**
- * Enum for micro:bit pin states.
- * @readonly
- * @enum {string}
- */
-const MicroBitPinState = {
-    ON: 'on',
-    OFF: 'off'
-};
-
 
 /**
  * Enum for axis menu options.
@@ -1330,30 +1320,6 @@ class MbitMoreBlocks {
         ];
     }
 
-    /**
-     * @return {array} - text and values for each pin state menu element
-     */
-    get PIN_STATE_MENU () {
-        return [
-            {
-                text: formatMessage({
-                    id: 'microbit.pinStateMenu.on',
-                    default: 'on',
-                    description: 'label for on element in pin state picker for micro:bit extension'
-                }),
-                value: MicroBitPinState.ON
-            },
-            {
-                text: formatMessage({
-                    id: 'microbit.pinStateMenu.off',
-                    default: 'off',
-                    description: 'label for off element in pin state picker for micro:bit extension'
-                }),
-                value: MicroBitPinState.OFF
-            }
-        ];
-    }
-
     get ANALOG_IN_PINS_MENU () {
         return this._peripheral.analogIn.map(
             pinIndex =>
@@ -2115,10 +2081,6 @@ class MbitMoreBlocks {
                 gestures: {
                     acceptReporters: false,
                     items: this.GESTURES_MENU
-                },
-                pinState: {
-                    acceptReporters: true,
-                    items: this.PIN_STATE_MENU
                 },
                 analogInPins: {
                     acceptReporters: false,
