@@ -1356,7 +1356,7 @@ class MbitMoreBlocks {
                     default: 'Low',
                     description: 'label for low value in digital output menu for microbit more extension'
                 }),
-                value: false
+                value: 'false'
             },
             {
                 text: formatMessage({
@@ -1364,7 +1364,7 @@ class MbitMoreBlocks {
                     default: 'High',
                     description: 'label for high value in digital output menu for microbit more extension'
                 }),
-                value: true
+                value: 'true'
             }
         ];
     }
@@ -1895,9 +1895,9 @@ class MbitMoreBlocks {
                             defaultValue: 0
                         },
                         LEVEL: {
-                            type: ArgumentType.BOOLEAN,
-                            menu: 'digitalValueMenu'
-                            // defaultValue: this.DIGITAL_VALUE_MENU[0].value
+                            type: ArgumentType.STRING,
+                            menu: 'digitalValueMenu',
+                            defaultValue: 'false'
                         }
                     }
                 },
@@ -2087,7 +2087,7 @@ class MbitMoreBlocks {
                     items: this.ANALOG_IN_PINS_MENU
                 },
                 digitalValueMenu: {
-                    acceptReporters: false,
+                    acceptReporters: true,
                     items: this.DIGITAL_VALUE_MENU
                 },
                 sharedDataIndex: {
@@ -2416,12 +2416,20 @@ class MbitMoreBlocks {
      * Set the pin to Output mode and level.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @param {boolean} args.LEVEL - value to be set.
+     * @param {boolean | string | number} args.LEVEL - value to be set.
      * @param {object} util - utility object provided by the runtime.
      * @return {undefined}
      */
     setOutput (args, util) {
-        this._peripheral.setPinOutput(args.PIN, args.LEVEL, util);
+        let level = (args.LEVEL === true);
+        level = level || (args.LEVEL === 'true');
+        if (!level) {
+            const num = Number(args.LEVEL);
+            if (!isNaN(num)) {
+                level = (num > 0);
+            }
+        }
+        this._peripheral.setPinOutput(args.PIN, level, util);
     }
 
     /**
