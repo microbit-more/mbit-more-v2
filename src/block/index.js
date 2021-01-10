@@ -1906,7 +1906,7 @@ class MbitMoreBlocks {
                     text: formatMessage({
                         id: 'mbitMore.setPWM',
                         default: 'set [PIN] PWM [LEVEL]',
-                        description: 'set pin to PWM mode and the level(0 to 1023)'
+                        description: 'set pin to PWM mode and the level(0 to 1024)'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
@@ -2428,15 +2428,19 @@ class MbitMoreBlocks {
      * Set the pin to PWM mode and level.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
+     * @param {number} args.LEVEL - value[%] for PWM.
      * @param {object} util - utility object provided by the runtime.
      * @return {undefined}
      */
     setPWM (args, util) {
-        let level = parseInt(args.LEVEL, 10);
-        if (isNaN(level)) return;
-        level = Math.max(0, level);
-        level = Math.min(level, 1023);
-        this._peripheral.setPinPWM(args.PIN, level, util);
+        let percent = parseInt(args.LEVEL, 10);
+        if (isNaN(percent)) return;
+        percent = Math.max(0, Math.min(percent, 100));
+        this._peripheral.setPinPWM(
+            args.PIN,
+            Math.round(percent * 1024 / 100),
+            util
+        );
     }
 
     /**
