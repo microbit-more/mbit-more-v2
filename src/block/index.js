@@ -12,8 +12,6 @@ const Base64Util = require('../../util/base64-util');
  */
 let formatMessage = require('format-message');
 
-const timeoutPromise = timeout => new Promise(resolve => setTimeout(resolve, timeout));
-
 const EXTENSION_ID = 'microbitMore';
 
 /**
@@ -391,13 +389,27 @@ class MbitMore {
         this.analogInUpdateInterval = 80; // milli-seconds
         this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
 
-        this.sensorsUpdateInterval = 60; // milli-seconds
-        this.sensorsLastUpdated = Date.now();
-
-        this.directionUpdateInterval = 60; // milli-seconds
-        this.directionLastUpdated = Date.now();
 
         this.bleReadTimelimit = 40;
+
+        this.microbitUpdateInterval = 30; // milli-seconds
+
+        this.startUpdater();
+    }
+
+    startUpdater () {
+        if (this.bleAccessWaiting) {
+            setTimeout(() => this.startUpdater(), 0);
+            return;
+        }
+        this.updateSensors()
+            .then(() => this.updateDirection())
+            .finally(() => {
+                setTimeout(
+                    () => this.startUpdater(),
+                    this.microbitUpdateInterval
+                );
+            });
     }
 
     /**
@@ -407,15 +419,18 @@ class MbitMore {
      */
     displayText (text, delay, util) {
         const textLength = Math.min(18, text.length);
-        const output = new Uint8Array(textLength + 1);
-        output[0] = Math.min(255, (Math.max(0, delay) / 10));
-        for (let i = 0; i < text.length; i++) {
-            output[i + 1] = text.charCodeAt(i);
+        const textData = new Uint8Array(textLength + 1);
+        for (let i = 0; i < textLength; i++) {
+            textData[i] = text.charCodeAt(i);
         }
-        this.send(
-            (BLECommand.CMD_DISPLAY << 5) |
-            MbitMoreDisplayCommand.TEXT,
-            output,
+        this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.TEXT,
+                message: new Uint8Array([
+                    Math.min(255, (Math.max(0, delay) / 10)),
+                    ...textData
+                ])
+            }],
             util
         );
     }
@@ -424,34 +439,27 @@ class MbitMore {
      * Send display pixcels command to micro:bit.
      * @param {Array.<Array.<number>>} matrix - pattern to display.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves when writing to peripheral.
+     * @return {Promise} - a Promise that resolves when the process was done.
      */
     displayPixels (matrix, util) {
-        this.send(
-            (BLECommand.CMD_DISPLAY << 5) |
-            MbitMoreDisplayCommand.PIXELS_0,
-            new Uint8Array([
-                ...matrix[0],
-                ...matrix[1],
-                ...matrix[2]
-            ]),
-            util
-        );
-        return new Promise(resolve => {
-            setTimeout(() => {
-                this.send(
-                    (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.PIXELS_1,
-                    new Uint8Array([
-                        ...matrix[3],
-                        ...matrix[4]
-                    ]),
-                    util
-                );
-                return new Promise(() => {
-                    setTimeout(() => resolve(), BLESendInterval);
-                });
-            }, BLESendInterval);
-        });
+        const cmdSet = [
+            {
+                id: (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.PIXELS_0,
+                message: new Uint8Array([
+                    ...matrix[0],
+                    ...matrix[1],
+                    ...matrix[2]
+                ])
+            },
+            {
+                id: (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.PIXELS_1,
+                message: new Uint8Array([
+                    ...matrix[3],
+                    ...matrix[4]
+                ])
+            }
+        ];
+        return this.sendCommandSet(cmdSet, util);
     }
 
     setPinMode (pinIndex, mode, util) {
@@ -470,23 +478,33 @@ class MbitMore {
         default:
             break;
         }
-        return this.send(
-            command,
-            new Uint8Array([pinIndex]),
-            util);
-
+        return this.sendCommandSet(
+            [{
+                id: command,
+                message: new Uint8Array([pinIndex])
+            }],
+            util
+        );
     }
 
     /**
      * Set pin to digital output mode and the level.
      * @param {number} pinIndex - Index of pin.
      * @param {boolean} level - Value in digital (true = High)
-     * @param {object} util - utility object provided by the runtime.
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {Promise} - a Promise that resolves when the process was done.
      */
     setPinOutput (pinIndex, level, util) {
-        this.send(
-            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_OUTPUT << 2),
-            new Uint8Array([pinIndex, (level ? 1 : 0)]),
+        return this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_OUTPUT << 2),
+                message: new Uint8Array(
+                    [
+                        pinIndex,
+                        (level ? 1 : 0)
+                    ]
+                )
+            }],
             util
         );
     }
@@ -494,12 +512,17 @@ class MbitMore {
     setPinPWM (pinIndex, level, util) {
         const dataView = new DataView(new ArrayBuffer(2));
         dataView.setUint16(0, level, true);
-        this.send(
-            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_PWM << 2),
-            new Uint8Array([
-                pinIndex,
-                dataView.getUint8(0),
-                dataView.getUint8(1)]),
+        this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_PWM << 2),
+                message: new Uint8Array(
+                    [
+                        pinIndex,
+                        dataView.getUint8(0),
+                        dataView.getUint8(1)
+                    ]
+                )
+            }],
             util
         );
     }
@@ -511,16 +534,21 @@ class MbitMore {
         dataView.setUint16(0, angle, true);
         dataView.setUint16(2, range, true);
         dataView.setUint16(4, center, true);
-        this.send(
-            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_SERVO << 2),
-            new Uint8Array([
-                pinIndex,
-                dataView.getUint8(0),
-                dataView.getUint8(1),
-                dataView.getUint8(2),
-                dataView.getUint8(3),
-                dataView.getUint8(4),
-                dataView.getUint8(5)]),
+        this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_SERVO << 2),
+                message: new Uint8Array(
+                    [
+                        pinIndex,
+                        dataView.getUint8(0),
+                        dataView.getUint8(1),
+                        dataView.getUint8(2),
+                        dataView.getUint8(3),
+                        dataView.getUint8(4),
+                        dataView.getUint8(5)
+                    ]
+                )
+            }],
             util);
     }
 
@@ -543,12 +571,11 @@ class MbitMore {
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves light level.
      */
-    readLightLevel (util) {
+    readLightLevel () {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateSensors(util)
-            .then(() => this.lightLevel);
+        return this.lightLevel;
     }
 
     /**
@@ -562,12 +589,14 @@ class MbitMore {
             return Promise.resolve(this.analogValue[pinIndex]);
         }
         if (this._busy) {
-            if (util) util.yield();
-            return Promise.resolve(this.analogValue[pinIndex]);
+            this.bleAccessWaiting = true;
+            if (util) util.yield(); // re-try this call after a while.
+            return; // Do not return Promise.resolve() to re-try.
         }
         this._busy = true;
         this._busyTimeoutID = window.setTimeout(() => {
             this._busy = false;
+            this.bleAccessWaiting = false;
         }, 1000);
         return new Promise(resolve => this._ble.read(
             MM_SERVICE.ID,
@@ -576,6 +605,7 @@ class MbitMore {
             .then(result => {
                 window.clearTimeout(this._busyTimeoutID);
                 this._busy = false;
+                this.bleAccessWaiting = false;
                 if (!result) {
                     return resolve(this.analogValue[pinIndex]);
                 }
@@ -602,16 +632,11 @@ class MbitMore {
 
     /**
      * Update data of digital level, light level, temperature, sound level.
-     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-    updateSensors (util) {
-        if ((Date.now() - this.sensorsLastUpdated) < this.sensorsUpdateInterval) {
-            return Promise.resolve(this);
-        }
-        this.sensorsLastUpdated = Date.now();
+    updateSensors () {
+        if (!this.isConnected()) return Promise.resolve(this);
         if (this._busy) {
-            if (util) util.yield();
             return Promise.resolve(this);
         }
         this._busy = true;
@@ -646,48 +671,39 @@ class MbitMore {
 
     /**
      * Read temperature (integer in celsius) from the micro:bit cpu.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves temperature.
+     * @return {number} - degrees of temperature [centigrade].
      */
-    readTemperature (util) {
+    readTemperature () {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateSensors(util)
-            .then(() => this.temperature);
+        return this.temperature;
     }
 
     /**
      * Read sound level.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves level (0 .. 255).
+     * @return {number} - level of loudness (0 .. 255).
      */
-    readSoundLevel (util) {
+    readSoundLevel () {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateSensors(util)
-            .then(() => this.soundLevel);
+        return this.soundLevel;
     }
 
     /**
      * Update data of acceleration, magnetic force.
-     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-    updateDirection (util) {
-        if ((Date.now() - this.directionLastUpdated) < this.directionUpdateInterval) {
-            return Promise.resolve(this);
-        }
+    updateDirection () {
+        if (!this.isConnected()) return Promise.resolve(this);
         if (this._busy) {
-            if (util) util.yield();
             return Promise.resolve(this);
         }
         this._busy = true;
         this._busyTimeoutID = window.setTimeout(() => {
             this._busy = false;
         }, 1000);
-        this.directionLastUpdated = Date.now();
         return new Promise(resolve => {
             this._ble.read(
                 MM_SERVICE.ID,
@@ -717,92 +733,78 @@ class MbitMore {
 
     /**
      * Read pitch [degrees] is 3D space.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves pitch.
+     * @return {number} - degree of pitch.
      */
-    readPitch (util) {
+    readPitch () {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateDirection(util)
-            .then(() => this.pitch);
+        return this.pitch;
     }
 
     /**
      * Read roll [degrees] is 3D space.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves roll.
+     * @return {number} - degree of roll.
      */
-    readRoll (util) {
+    readRoll () {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateDirection(util)
-            .then(() => this.roll);
+        return this.roll;
     }
 
     /**
      * Read the value of gravitational acceleration [milli-g] for the axis.
      * @param {AxisSymbol} axis - direction of acceleration.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves acceleration.
+     * @return {number} - value of acceleration.
      */
-    readAcceleration (axis, util) {
+    readAcceleration (axis) {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateDirection(util)
-            .then(() => {
-                if (axis === AxisSymbol.Absolute) {
-                    return Math.round(
-                        Math.sqrt(
-                            (this.acceleration.x ** 2) +
+        if (axis === AxisSymbol.Absolute) {
+            return Math.round(
+                Math.sqrt(
+                    (this.acceleration.x ** 2) +
                             (this.acceleration.y ** 2) +
                             (this.acceleration.z ** 2)
-                        )
-                    );
-                }
-                return this.acceleration[axis];
-            });
+                )
+            );
+        }
+        return this.acceleration[axis];
     }
 
     /**
      * Read the angle (degrees) of heading direction from the north.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves compass heading.
+     * @return {number} - degree of compass heading.
      */
-    readCompassHeading (util) {
+    readCompassHeading () {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateDirection(util)
-            .then(() => this.compassHeading);
+        return this.compassHeading;
     }
 
 
     /**
      * Read value of magnetic field [micro teslas] for the axis.
      * @param {AxisSymbol} axis - direction of magnetic field.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves value of magnetic filed.
+     * @return {number} - value of magnetic filed.
      */
-    readMagneticForce (axis, util) {
+    readMagneticForce (axis) {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateDirection(util)
-            .then(() => {
-                if (axis === AxisSymbol.Absolute) {
-                    return Math.round(
-                        Math.sqrt(
-                            (this.magneticForce.x ** 2) +
+        if (axis === AxisSymbol.Absolute) {
+            return Math.round(
+                Math.sqrt(
+                    (this.magneticForce.x ** 2) +
                             (this.magneticForce.y ** 2) +
                             (this.magneticForce.z ** 2)
-                        )
-                    );
-                }
-                return this.magneticForce[axis];
-            });
+                )
+            );
+        }
+        return this.magneticForce[axis];
     }
 
     /**
@@ -904,6 +906,70 @@ class MbitMore {
     }
 
     /**
+     * Send a command to micro:bit.
+     * @param {object} command command to send.
+     * @param {number} command.id ID of the command.
+     * @param {Uint8Array} command.message Contents of the command.
+     * @return {Promise} a Promise that resolves when the data was sent.
+     */
+    sendCommand (command) {
+        const data = Base64Util.uint8ArrayToBase64(
+            new Uint8Array([
+                command.id,
+                ...command.message
+            ])
+        );
+        return new Promise(resolve => {
+            this._ble.write(
+                MM_SERVICE.ID,
+                MM_SERVICE.COMMAND_CH,
+                data,
+                'base64',
+                false
+            );
+            setTimeout(() => resolve(), BLESendInterval);
+        });
+    }
+
+    /**
+     * Send multiple commands sequentially.
+     * @param {Array.<{id: number, message: Uint8Array}>} commands array of command.
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {Promise} a Promise that resolves when the all commands was sent.
+     */
+    sendCommandSet (commands, util) {
+        if (!this.isConnected()) return Promise.resolve();
+        if (this._busy) {
+            this.bleAccessWaiting = true;
+            if (util) util.yield(); // re-try this call after a while.
+            return; // Do not return Promise.resolve() to re-try.
+        }
+        this._busy = true;
+        // Clear busy and BLE access waiting flag when the scratch-link does not respond.
+        this._busyTimeoutID = window.setTimeout(() => {
+            this._busy = false;
+            this.bleAccessWaiting = false;
+        }, 1000);
+        return new Promise(resolve => {
+            commands.reduce(
+                (acc, cur, i) => {
+                    const sendProm = acc.then(() => this.sendCommand(cur));
+                    if (i === commands.length - 1) {
+                        sendProm.then(() => {
+                            this._busy = false;
+                            this.bleAccessWaiting = false;
+                            window.clearTimeout(this._busyTimeoutID);
+                            resolve();
+                        });
+                    }
+                    return sendProm;
+                },
+                Promise.resolve()
+            );
+        });
+    }
+
+    /**
      * Starts reading data from peripheral after BLE has connected to it.
      * @private
      */
@@ -913,7 +979,6 @@ class MbitMore {
             MM_SERVICE.ID,
             MM_SERVICE.ACTION_EVENT_CH,
             this.onNotified);
-        // this.send(BLECommand.CMD_PROTOCOL, new Uint8Array([1])); // Set protocol ver.1.
         // this._ble.startNotifications(
         //     MM_SERVICE.ID,
         //     MM_SERVICE.SHARED_DATA_CH,
@@ -922,7 +987,8 @@ class MbitMore {
         //     MM_SERVICE.ID,
         //     MM_SERVICE.PIN_EVENT_CH,
         //     this.onNotified);
-        // this.send(BLECommand.CMD_LIGHT_SENSING, 0); // Set continuous light sensing to off.
+        this.bleAccessWaiting = false;
+        this._busy = false;
         // this.resetConnectionTimeout();
     }
 
@@ -974,25 +1040,23 @@ class MbitMore {
     /**
      * Return whether the pin value is high.
      * @param {number} pin - the pin to check.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - Promise that resolves whether the pin is high or not.
+     * @return {boolean} - whether the pin is high or not.
      */
-    isPinHigh (pin, util) {
-        return this.readDititalLevel(pin, util).then(value => value === 1);
+    isPinHigh (pin) {
+        const level = this.readDigitalLevel(pin);
+        return level === 1;
     }
 
     /**
      * Read digital input from the pin.
      * @param {number} pin - the pin to read.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves digital input value of the pin.
+     * @return {number} - digital input value of the pin [0|1].
      */
-    readDititalLevel (pin, util) {
+    readDigitalLevel (pin) {
         if (!this.isConnected()) {
-            return Promise.resolve(0);
+            return 0;
         }
-        return this.updateSensors(util)
-            .then(() => this.digitalLevel[pin]);
+        return this.digitalLevel[pin];
     }
 
     /**
@@ -1007,12 +1071,14 @@ class MbitMore {
     setSharedData (sharedDataIndex, sharedDataValue, util) {
         const dataView = new DataView(new ArrayBuffer(2));
         dataView.setInt16(0, sharedDataValue, true);
-        this.send(
-            (BLECommand.CMD_SHARED_DATA << 5),
-            new Uint8Array([
-                sharedDataIndex,
-                dataView.getUint8(0),
-                dataView.getUint8(1)]),
+        this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_SHARED_DATA << 5),
+                message: new Uint8Array([
+                    sharedDataIndex,
+                    dataView.getUint8(0),
+                    dataView.getUint8(1)])
+            }],
             util);
         this._sensors.sharedData[sharedDataIndex] = sharedDataValue;
     }
@@ -1063,11 +1129,13 @@ class MbitMore {
     */
     setPinEventType (pinIndex, eventType, util) {
         if (!this._useMbitMoreService) return;
-        this.send(
-            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_EVENT << 2),
-            new Uint8Array([
-                pinIndex,
-                eventType]),
+        this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_EVENT << 2),
+                message: new Uint8Array([
+                    pinIndex,
+                    eventType])
+            }],
             util
         );
     }
@@ -2174,21 +2242,14 @@ class MbitMoreBlocks {
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - Promise that resolve whether the button is pressed or not.
      */
-    isButtonPressed (args, util) {
+    isButtonPressed (args) {
         if (!this._peripheral.isConnected()) return Promise.resolve(false);
         const buttonID = args.BUTTON;
         if (buttonID === MMButtonID.ANY) {
-            return this._peripheral.readDititalLevel(MMButtonID.A, util)
-                .then(stateA => {
-                    if (stateA === 0) {
-                        return true;
-                    }
-                    return this._peripheral.readDititalLevel(MMButtonID.B, util)
-                        .then(stateB => stateB === 0);
-                });
+            if (this._peripheral.readDigitalLevel(MMButtonID.A) === 0) return true;
+            if (this._peripheral.readDigitalLevel(MMButtonID.B) === 0) return true;
         }
-        return this._peripheral.readDititalLevel(buttonID, util)
-            .then(value => value === 0);
+        return (this._peripheral.readDigitalLevel(buttonID) === 0);
     }
 
     // /**
@@ -2304,9 +2365,11 @@ class MbitMoreBlocks {
 
     /**
      * Turn all 5x5 matrix LEDs off.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves after a tick.
      */
-    displayClear () {
+    displayClear (args, util) {
         const matrix = [
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
@@ -2314,49 +2377,44 @@ class MbitMoreBlocks {
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0]
         ];
-        return this._peripheral.displayPixels(matrix);
+        return this._peripheral.displayPixels(matrix, util);
     }
 
     /**
      * Test the selected pin is high as digital.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - Promise that resolve true if the pin is high.
+     * @return {boolean} - true if the pin is high.
      */
-    isPinHigh (args, util) {
-        return this._peripheral.isPinHigh(args.PIN, util);
+    isPinHigh (args) {
+        return this._peripheral.isPinHigh(args.PIN);
     }
 
     /**
      * Get amount of light (0 - 255) on the LEDs.
      * @param {object} args - the block's arguments.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves light level.
+     * @return {number} - light level.
      */
-    getLightLevel (args, util) {
-        return this._peripheral.readLightLevel(util)
-            .then(level => Math.round(level * 1000 / 255) / 10);
+    getLightLevel () {
+        const level = this._peripheral.readLightLevel();
+        return Math.round(level * 1000 / 255) / 10;
     }
 
     /**
      * Get temperature (integer in celsius) of micro:bit.
      * @param {object} args - the block's arguments.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves temperature.
+     * @return {number} - value of temperature [centigrade].
      */
-    getTemperature (args, util) {
-        return this._peripheral.readTemperature(util);
+    getTemperature () {
+        return this._peripheral.readTemperature();
     }
 
     /**
      * Return angle from the north to the micro:bit heading direction.
-     * @param {object} args - the block's arguments.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves compass heading angle from the north (0 - 359 degrees).
+     * @return {number} - degree of compass heading angle from the north (0 - 359 degrees).
      */
-    getCompassHeading (args, util) {
-        return this._peripheral.readCompassHeading(util);
+    getCompassHeading () {
+        return this._peripheral.readCompassHeading();
     }
 
     /**
@@ -2378,8 +2436,8 @@ class MbitMoreBlocks {
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves digital input value of the pin.
      */
-    getDigitalValue (args, util) {
-        return (this._peripheral.readDititalLevel(args.PIN, util));
+    getDigitalValue (args) {
+        return this._peripheral.readDigitalLevel(args.PIN);
     }
 
     /**
@@ -2603,7 +2661,7 @@ const extensionTranslations = {
     'ja': {
         'mbitMore.whenButtonEvent': '[BUTTON] ボタンが[EVENT]とき',
         'mbitMore.buttonIDMenu.a': 'A',
-        'mbitMore.buttonIDMenu.B': 'B',
+        'mbitMore.buttonIDMenu.b': 'B',
         'mbitMore.buttonIDMenu.any': 'どれかの',
         'mbitMore.buttonEventMenu.down': '押された',
         'mbitMore.buttonEventMenu.up': '放された',
@@ -2671,7 +2729,7 @@ const extensionTranslations = {
     'ja-Hira': {
         'mbitMore.whenButtonEvent': '[BUTTON] ボタンが[EVENT]とき',
         'mbitMore.buttonIDMenu.a': 'A',
-        'mbitMore.buttonIDMenu.B': 'B',
+        'mbitMore.buttonIDMenu.b': 'B',
         'mbitMore.buttonIDMenu.any': 'どれかの',
         'mbitMore.buttonEventMenu.down': 'おされた',
         'mbitMore.buttonEventMenu.up': 'はなされた',
