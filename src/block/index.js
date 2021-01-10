@@ -2394,7 +2394,7 @@ class MbitMoreBlocks {
     getAnalogValue (args, util) {
         const readPromise = this._peripheral.readAnalogIn(args.PIN, util);
         if (isPromise(readPromise)) {
-            return readPromise.then(level => Math.round(level * 1000 / 1023) / 10);
+            return readPromise.then(level => Math.round(level * 1000 / 1024) / 10);
         }
         return;
     }
