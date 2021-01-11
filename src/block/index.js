@@ -390,23 +390,34 @@ class MbitMore {
         this.bleReadTimelimit = 40;
 
         this.microbitUpdateInterval = 30; // milli-seconds
-
-        this.startUpdater();
     }
 
+    /**
+     * Start updating process for micro:bit sensors and directions.
+     */
     startUpdater () {
+        if (this.updater) {
+            clearTimeout(this.updater);
+        }
         if (this.bleAccessWaiting) {
-            setTimeout(() => this.startUpdater(), 0);
+            this.updater = setTimeout(() => this.startUpdater(), 0);
             return;
         }
         this.updateSensors()
             .then(() => this.updateDirection())
             .finally(() => {
-                setTimeout(
+                this.updater = setTimeout(
                     () => this.startUpdater(),
                     this.microbitUpdateInterval
                 );
             });
+    }
+
+    /**
+     * Stop updating process for micro:bit sensors and directions.
+     */
+    stopUpdater () {
+        clearTimeout(this.updater);
     }
 
     /**
@@ -910,16 +921,17 @@ class MbitMore {
         return new Promise(resolve => {
             commands.reduce(
                 (acc, cur, i) => {
-                    const sendProm = acc.then(() => this.sendCommand(cur));
+                    const sendPromise = acc.then(() => this.sendCommand(cur));
                     if (i === commands.length - 1) {
-                        sendProm.then(() => {
+                        // the last command
+                        sendPromise.then(() => {
                             this._busy = false;
                             this.bleAccessWaiting = false;
                             window.clearTimeout(this._busyTimeoutID);
                             resolve();
                         });
                     }
-                    return sendProm;
+                    return sendPromise;
                 },
                 Promise.resolve()
             );
