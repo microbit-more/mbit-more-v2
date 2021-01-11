@@ -1622,6 +1622,23 @@ class MbitMoreBlocks {
             showStatusButton: true,
             blocks: [
                 {
+                    opcode: 'whenConnectionChanged',
+                    text: formatMessage({
+                        id: 'mbitMore.whenConnectionChanged',
+                        default: 'when micro:bit [STATE]',
+                        description: 'when a micro:bit connection state changed'
+                    }),
+                    blockType: BlockType.HAT,
+                    arguments: {
+                        STATE: {
+                            type: ArgumentType.STRING,
+                            menu: 'connectionStateMenu',
+                            defaultValue: 'connected'
+                        }
+                    }
+                },
+                '---',
+                {
                     opcode: 'whenButtonEvent',
                     text: formatMessage({
                         id: 'mbitMore.whenButtonEvent',
@@ -2036,23 +2053,6 @@ class MbitMoreBlocks {
                         VALUE: {
                             type: ArgumentType.NUMBER,
                             defaultValue: 0
-                        }
-                    }
-                },
-                '---',
-                {
-                    opcode: 'whenConnectionChanged',
-                    text: formatMessage({
-                        id: 'mbitMore.whenConnectionChanged',
-                        default: 'when micro:bit [STATE]',
-                        description: 'when a micro:bit connection state changed'
-                    }),
-                    blockType: BlockType.HAT,
-                    arguments: {
-                        STATE: {
-                            type: ArgumentType.STRING,
-                            menu: 'connectionStateMenu',
-                            defaultValue: 'connected'
                         }
                     }
                 }
