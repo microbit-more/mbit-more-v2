@@ -830,7 +830,7 @@ class MbitMore {
         if (this._ble) {
             this._ble.disconnect();
         }
-
+        this.stopUpdater();
         this.reset();
     }
 
