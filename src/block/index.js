@@ -190,7 +190,7 @@ const BLETimeout = 4500;
  * A time interval to wait (in milliseconds) while a block that sends a BLE message is running.
  * @type {number}
  */
-const BLESendInterval = 10;
+const BLESendInterval = 30;
 
 /**
  * A string to report to the BLE socket when the micro:bit has stopped receiving data.
