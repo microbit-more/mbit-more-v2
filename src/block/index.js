@@ -380,7 +380,7 @@ class MbitMore {
 
         this.reset = this.reset.bind(this);
         this._onConnect = this._onConnect.bind(this);
-        this.onNotified = this.onNotified.bind(this);
+        this.onNotify = this.onNotify.bind(this);
         this._useMbitMoreService = true;
 
         this.analogInUpdateInterval = 80; // milli-seconds
@@ -935,17 +935,18 @@ class MbitMore {
         this._ble.startNotifications(
             MM_SERVICE.ID,
             MM_SERVICE.ACTION_EVENT_CH,
-            this.onNotified);
+            this.onNotify);
         // this._ble.startNotifications(
         //     MM_SERVICE.ID,
         //     MM_SERVICE.SHARED_DATA_CH,
-        //     this.onNotified);
+        //     this.onNotify);
         // this._ble.startNotifications(
         //     MM_SERVICE.ID,
         //     MM_SERVICE.PIN_EVENT_CH,
-        //     this.onNotified);
+        //     this.onNotify);
         this.bleAccessWaiting = false;
         this._busy = false;
+        this.startUpdater();
         // this.resetConnectionTimeout();
     }
 
@@ -954,7 +955,7 @@ class MbitMore {
      * @param {string} msg - the incoming BLE data.
      * @private
      */
-    onNotified (msg) {
+    onNotify (msg) {
         const data = Base64Util.base64ToUint8Array(msg);
         const dataView = new DataView(data.buffer, 0);
         const dataFormat = dataView.getUint8(19);
