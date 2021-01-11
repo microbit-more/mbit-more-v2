@@ -83,10 +83,10 @@ const MbitMoreDisplayCommand =
  * @readonly
  * @enum {number}
  */
-const MMPinMode = {
-    PullNone: 0,
-    PullUp: 1,
-    PullDown: 2
+const MbitMorePullMode = {
+    None: 0,
+    Down: 1,
+    Up: 2
 };
 
 /**
@@ -212,18 +212,6 @@ const MM_SERVICE = {
     ],
     SHARED_DATA_CH: 'a62d0130-1b34-4092-8dee-4151f63b2865'
 };
-
-/**
- * Enum for pin mode menu options.
- * @readonly
- * @enum {string}
- */
-const PinMode = {
-    PULL_NONE: 'pullNone',
-    PULL_UP: 'pullUp',
-    PULL_DOWN: 'pullDown'
-};
-
 
 // /**
 //  * Enum for micro:bit touch pins.
@@ -470,26 +458,21 @@ class MbitMore {
         return this.sendCommandSet(cmdSet, util);
     }
 
-    setPinMode (pinIndex, mode, util) {
-        let command =
-            (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_PULL << 2);
-        switch (mode) {
-        case PinMode.PULL_NONE:
-            command = command | MMPinMode.PullNone;
-            break;
-        case PinMode.PULL_UP:
-            command = command | MMPinMode.PullUp;
-            break;
-        case PinMode.PULL_DOWN:
-            command = command | MMPinMode.PullDown;
-            break;
-        default:
-            break;
-        }
+    /**
+     * Set pull mode to the pin.
+     * @param {number} pinIndex - index of the pin
+     * @param {MbitMorePullMode} pullMode - pull mode to set
+     * @param {BlockUtility} util - utility object provided from the runtime
+     * @return {Promise} - a Promise that resolves when the process was done
+     */
+    setPullMode (pinIndex, pullMode, util) {
         return this.sendCommandSet(
             [{
-                id: command,
-                message: new Uint8Array([pinIndex])
+                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_PULL,
+                message: new Uint8Array([
+                    pinIndex,
+                    pullMode
+                ])
             }],
             util
         );
@@ -505,7 +488,7 @@ class MbitMore {
     setPinOutput (pinIndex, level, util) {
         return this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_OUTPUT << 2),
+                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_OUTPUT,
                 message: new Uint8Array(
                     [
                         pinIndex,
@@ -522,7 +505,7 @@ class MbitMore {
         dataView.setUint16(0, level, true);
         this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_PWM << 2),
+                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_PWM,
                 message: new Uint8Array(
                     [
                         pinIndex,
@@ -544,7 +527,7 @@ class MbitMore {
         dataView.setUint16(4, center, true);
         this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_SERVO << 2),
+                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_SERVO,
                 message: new Uint8Array(
                     [
                         pinIndex,
@@ -1097,14 +1080,15 @@ class MbitMore {
      * @param {MMPinEventType} eventType - Event type to set.
      * @param {object} util - utility object provided by the runtime.
     */
-    setPinEventType (pinIndex, eventType, util) {
+    listenPinEventType (pinIndex, eventType, util) {
         if (!this._useMbitMoreService) return;
         this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | (MMPinCommand.SET_EVENT << 2),
+                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_EVENT,
                 message: new Uint8Array([
-                    pinIndex,
-                    eventType])
+                    eventType,
+                    pinIndex
+                ])
             }],
             util
         );
@@ -1430,7 +1414,7 @@ class MbitMoreBlocks {
                     default: 'pull none',
                     description: 'label for pullNone mode'
                 }),
-                value: PinMode.PULL_NONE
+                value: MbitMorePullMode.None
             },
             {
                 text: formatMessage({
@@ -1438,7 +1422,7 @@ class MbitMoreBlocks {
                     default: 'pull up',
                     description: 'label for pullUp mode'
                 }),
-                value: PinMode.PULL_UP
+                value: MbitMorePullMode.Up
             },
             {
                 text: formatMessage({
@@ -1446,7 +1430,7 @@ class MbitMoreBlocks {
                     default: 'pull down',
                     description: 'label for pullDown mode'
                 }),
-                value: PinMode.PULL_DOWN
+                value: MbitMorePullMode.Down
             }
         ];
     }
@@ -1847,23 +1831,23 @@ class MbitMoreBlocks {
                     }
                 },
                 {
-                    opcode: 'setPinMode',
+                    opcode: 'setPullMode',
                     text: formatMessage({
-                        id: 'mbitMore.setPinMode',
+                        id: 'mbitMore.setPullMode',
                         default: 'set pin [PIN] to input [MODE]',
                         description: 'set a pin into the mode'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.STRING,
+                            type: ArgumentType.NUMBER,
                             menu: 'gpio',
-                            defaultValue: '0'
+                            defaultValue: 0
                         },
                         MODE: {
-                            type: ArgumentType.STRING,
+                            type: ArgumentType.NUMBER,
                             menu: 'pinMode',
-                            defaultValue: PinMode.PULL_UP
+                            defaultValue: MbitMorePullMode.Up
                         }
                     }
                 },
@@ -1885,9 +1869,9 @@ class MbitMoreBlocks {
                 },
                 '---',
                 {
-                    opcode: 'setOutput',
+                    opcode: 'setDigitalOut',
                     text: formatMessage({
-                        id: 'mbitMore.setOutput',
+                        id: 'mbitMore.setDigitalOut',
                         default: 'set [PIN] Digital [LEVEL]',
                         description: 'set pin to Digtal Output mode and the level(true = High)'
                     }),
@@ -1906,11 +1890,11 @@ class MbitMoreBlocks {
                     }
                 },
                 {
-                    opcode: 'setPWM',
+                    opcode: 'setAnalogOut',
                     text: formatMessage({
-                        id: 'mbitMore.setPWM',
-                        default: 'set [PIN] PWM [LEVEL]',
-                        description: 'set pin to PWM mode and the level(0 to 1024)'
+                        id: 'mbitMore.setAnalogOut',
+                        default: 'set [PIN] analog [LEVEL] %',
+                        description: 'set pin to PWM mode and the level(0 to 1023)'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
@@ -1955,9 +1939,9 @@ class MbitMoreBlocks {
                 },
                 '---',
                 {
-                    opcode: 'setPinEventType',
+                    opcode: 'listenPinEventType',
                     text: formatMessage({
-                        id: 'mbitMore.setPinEventType',
+                        id: 'mbitMore.listenPinEventType',
                         default: 'catch event [EVENT_TYPE] on [PIN]',
                         description: 'listen the event on the pin'
                     }),
@@ -2320,7 +2304,7 @@ class MbitMoreBlocks {
      * @return {boolean} - true if the pin is high.
      */
     isPinHigh (args) {
-        return this._peripheral.isPinHigh(args.PIN);
+        return this._peripheral.isPinHigh(parseInt(args.PIN, 10));
     }
 
     /**
@@ -2358,7 +2342,7 @@ class MbitMoreBlocks {
      * @return {?Promise} - a Promise that resolves analog input value of the pin.
      */
     getAnalogValue (args, util) {
-        const readPromise = this._peripheral.readAnalogIn(args.PIN, util);
+        const readPromise = this._peripheral.readAnalogIn(parseInt(args.PIN, 10), util);
         if (isPromise(readPromise)) {
             return readPromise.then(level => Math.round(level * 1000 / 1024) / 10);
         }
@@ -2372,7 +2356,7 @@ class MbitMoreBlocks {
      * @return {Promise} - a Promise that resolves digital input value of the pin.
      */
     getDigitalValue (args) {
-        return this._peripheral.readDigitalLevel(args.PIN);
+        return this._peripheral.readDigitalLevel(parseInt(args.PIN, 10));
     }
 
     /**
@@ -2405,15 +2389,15 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Set mode of the pin.
+     * Set pull mode of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @param {string} args.MODE - mode to set.
-     * @param {object} util - utility object provided by the runtime.
+     * @param {MbitMorePullMode} args.MODE - mode to set.
+     * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {undefined}
      */
-    setPinMode (args, util) {
-        this._peripheral.setPinMode(args.PIN, args.MODE, util);
+    setPullMode (args, util) {
+        this._peripheral.setPullMode(parseInt(args.PIN, 10), args.MODE, util);
     }
 
     /**
@@ -2424,7 +2408,7 @@ class MbitMoreBlocks {
      * @param {object} util - utility object provided by the runtime.
      * @return {undefined}
      */
-    setOutput (args, util) {
+    setDigitalOut (args, util) {
         let level = (args.LEVEL === true);
         level = level || (args.LEVEL === 'true');
         if (!level) {
@@ -2433,7 +2417,7 @@ class MbitMoreBlocks {
                 level = (num > 0);
             }
         }
-        this._peripheral.setPinOutput(args.PIN, level, util);
+        this._peripheral.setPinOutput(parseInt(args.PIN, 10), level, util);
     }
 
     /**
@@ -2444,13 +2428,15 @@ class MbitMoreBlocks {
      * @param {object} util - utility object provided by the runtime.
      * @return {undefined}
      */
-    setPWM (args, util) {
+    setAnalogOut (args, util) {
         let percent = parseInt(args.LEVEL, 10);
         if (isNaN(percent)) return;
         percent = Math.max(0, Math.min(percent, 100));
+        const level = Math.round(percent * 1024 / 100);
         this._peripheral.setPinPWM(
-            args.PIN,
-            Math.round(percent * 1024 / 100),
+            parseInt(args.PIN, 10),
+            // parseInt(args.LEVEL, 10), // for debug
+            level,
             util
         );
     }
@@ -2473,7 +2459,7 @@ class MbitMoreBlocks {
         // let center = parseInt(args.CENTER, 10);
         // if (isNaN(center)) range = 0;
         // center = Math.max(0, center);
-        this._peripheral.setPinServo(args.PIN, angle, null, null, util);
+        this._peripheral.setPinServo(parseInt(args.PIN, 10), angle, null, null, util);
     }
 
     /**
@@ -2526,8 +2512,8 @@ class MbitMoreBlocks {
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves the setting.
     */
-    setPinEventType (args, util) {
-        return this._peripheral.setPinEventType(args.PIN, MMPinEventType[args.EVENT_TYPE], util);
+    listenPinEventType (args, util) {
+        return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MMPinEventType[args.EVENT_TYPE], util);
     }
 
     /**
@@ -2539,7 +2525,7 @@ class MbitMoreBlocks {
      * @return {number} - timestamp of the event or 0.
      */
     getPinEventTimestamp (args) {
-        const timestamp = this._peripheral.getPinEventTimestamp(args.PIN, MMPinEvent[args.EVENT]);
+        const timestamp = this._peripheral.getPinEventTimestamp(parseInt(args.PIN, 10), MMPinEvent[args.EVENT]);
         return timestamp ? timestamp : 0;
     }
 
@@ -2570,7 +2556,7 @@ class MbitMoreBlocks {
                 this.updateLastPinEventTimer = null;
             }, this.runtime.currentStepTime);
         }
-        const pinIndex = args.PIN;
+        const pinIndex = parseInt(args.PIN, 10);
         const lastTimestamp =
             this._peripheral.getPinEventTimestamp(pinIndex, MMPinEvent[args.EVENT]);
         if (lastTimestamp === null) return false;
@@ -2606,7 +2592,7 @@ class MbitMoreBlocks {
 
 const extensionTranslations = {
     'ja': {
-        'mbitMore.whenButtonEvent': '[BUTTON] ボタンが[EVENT]とき',
+        'mbitMore.whenButtonEvent': '[BUTTON] ボタンが [EVENT] とき',
         'mbitMore.buttonIDMenu.a': 'A',
         'mbitMore.buttonIDMenu.b': 'B',
         'mbitMore.buttonIDMenu.any': 'どれかの',
@@ -2643,9 +2629,9 @@ const extensionTranslations = {
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
         'mbitMore.getSharedData': '共有データ [INDEX]',
         'mbitMore.setSharedData': '共有データ [INDEX] を [VALUE] にする',
-        'mbitMore.setPinMode': 'ピン [PIN] を [MODE] 入力にする',
-        'mbitMore.setOutput': 'ピン [PIN] をデジタルレベル [LEVEL] にする',
-        'mbitMore.setPWM': 'ピン [PIN] をアナログレベル [LEVEL] にする',
+        'mbitMore.setPullMode': 'ピン [PIN] を [MODE] 入力にする',
+        'mbitMore.setDigitalOut': 'ピン [PIN] をデジタル出力 [LEVEL] にする',
+        'mbitMore.setAnalogOut': 'ピン [PIN] をアナログ出力 [LEVEL] %にする',
         'mbitMore.setServo': 'ピン [PIN] をサーボ [ANGLE] 度にする',
         'mbitMore.digitalValueMenu.Low': 'ロー',
         'mbitMore.digitalValueMenu.High': 'ハイ',
@@ -2656,7 +2642,7 @@ const extensionTranslations = {
         'mbitMore.pinModeMenu.pullNone': '開放',
         'mbitMore.pinModeMenu.pullUp': 'プルアップ',
         'mbitMore.pinModeMenu.pullDown': 'プルダウン',
-        'mbitMore.setPinEventType': 'ピン [PIN] で [EVENT_TYPE] ',
+        'mbitMore.listenPinEventType': 'ピン [PIN] で [EVENT_TYPE] ',
         'mbitMore.pinEventTypeMenu.none': 'イベントを受けない',
         'mbitMore.pinEventTypeMenu.edge': 'エッジタイプのイベントを受ける',
         'mbitMore.pinEventTypeMenu.pulse': 'パルスタイプのイベントを受ける',
@@ -2712,9 +2698,9 @@ const extensionTranslations = {
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
         'mbitMore.getSharedData': 'きょうゆうデータ [INDEX]',
         'mbitMore.setSharedData': 'きょうゆうデータ [INDEX] を [VALUE] にする',
-        'mbitMore.setPinMode': 'ピン [PIN] を [MODE] にゅうりょくにする',
-        'mbitMore.setOutput': 'ピン [PIN] をデジタルレベル [LEVEL] にする',
-        'mbitMore.setPWM': 'ピン [PIN] をアナログレベル [LEVEL] にする',
+        'mbitMore.setPullMode': 'ピン [PIN] を [MODE] にゅうりょくにする',
+        'mbitMore.setDigitalOut': 'ピン [PIN] をデジタルしゅつりょく [LEVEL] にする',
+        'mbitMore.setAnalogOut': 'ピン [PIN] をアナログしゅつりょく [LEVEL] パーセントにする',
         'mbitMore.setServo': 'ピン [PIN] をサーボ [ANGLE] どにする',
         'mbitMore.digitalValueMenu.Low': 'ロー',
         'mbitMore.digitalValueMenu.High': 'ハイ',
@@ -2725,7 +2711,7 @@ const extensionTranslations = {
         'mbitMore.pinModeMenu.pullNone': 'かいほう',
         'mbitMore.pinModeMenu.pullUp': 'プルアップ',
         'mbitMore.pinModeMenu.pullDown': 'プルダウン',
-        'mbitMore.setPinEventType': 'ピン [PIN] で [EVENT_TYPE]',
+        'mbitMore.listenPinEventType': 'ピン [PIN] で [EVENT_TYPE]',
         'mbitMore.pinEventTypeMenu.none': 'イベントをうけない',
         'mbitMore.pinEventTypeMenu.edge': 'エッジタイプのイベントをうける',
         'mbitMore.pinEventTypeMenu.pulse': 'パルスタイプのイベントをうける',
@@ -2752,7 +2738,7 @@ const extensionTranslations = {
         'mbitMore.getSharedData': 'Dados compartilhados [INDEX]',
         'mbitMore.setSharedData': 'Definir dados compartilhados [INDEX] com valor [VALUE]',
         'mbitMore.setInput': 'Definir Pino[PIN] como entrada',
-        'mbitMore.setPWM': 'Definir pino PWM[PIN]com[LEVEL]',
+        'mbitMore.setAnalogOut': 'Definir pino PWM[PIN]com[LEVEL]',
         'mbitMore.setServo': 'Definir Servo no pino [PIN]com ângulo de [ANGLE]॰',
         'mbitMore.digitalValueMenu.Low': 'desligado',
         'mbitMore.digitalValueMenu.High': 'ligado'
@@ -2766,7 +2752,7 @@ const extensionTranslations = {
         'mbitMore.getSharedData': 'Dados compartilhados [INDEX]',
         'mbitMore.setSharedData': 'Definir dados compartilhados [INDEX] com valor [VALUE]',
         'mbitMore.setInput': 'Definir Pino[PIN] como entrada',
-        'mbitMore.setPWM': 'Definir pino PWM[PIN]com[LEVEL]',
+        'mbitMore.setAnalogOut': 'Definir pino PWM[PIN]com[LEVEL]',
         'mbitMore.setServo': 'Definir Servo no pino [PIN]com ângulo de [ANGLE]॰',
         'mbitMore.digitalValueMenu.Low': 'desligado',
         'mbitMore.digitalValueMenu.High': 'ligado'
