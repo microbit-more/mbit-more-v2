@@ -605,7 +605,12 @@ class MbitMore {
                 this.analogValue[pinIndex] = dataView.getUint16(0, true);
                 this.analogInLastUpdated = Date.now();
                 resolve(this.analogValue[pinIndex]);
-            }));
+            })
+            .catch(() =>
+                // no service for P2 in micro:bit v1
+                resolve(0)
+            )
+        );
     }
 
     /**
@@ -935,10 +940,10 @@ class MbitMore {
             MM_SERVICE.ID,
             MM_SERVICE.PIN_EVENT_CH,
             this.onNotify);
-        // this._ble.startNotifications(
-        //     MM_SERVICE.ID,
-        //     MM_SERVICE.SHARED_DATA_CH,
-        //     this.onNotify);
+        this._ble.startNotifications(
+            MM_SERVICE.ID,
+            MM_SERVICE.SHARED_DATA_CH,
+            this.onNotify);
         this.bleAccessWaiting = false;
         this._busy = false;
         this.startUpdater();
