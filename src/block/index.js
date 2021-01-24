@@ -931,13 +931,13 @@ class MbitMore {
             MM_SERVICE.ID,
             MM_SERVICE.ACTION_EVENT_CH,
             this.onNotify);
+        this._ble.startNotifications(
+            MM_SERVICE.ID,
+            MM_SERVICE.PIN_EVENT_CH,
+            this.onNotify);
         // this._ble.startNotifications(
         //     MM_SERVICE.ID,
         //     MM_SERVICE.SHARED_DATA_CH,
-        //     this.onNotify);
-        // this._ble.startNotifications(
-        //     MM_SERVICE.ID,
-        //     MM_SERVICE.PIN_EVENT_CH,
         //     this.onNotify);
         this.bleAccessWaiting = false;
         this._busy = false;
@@ -971,7 +971,7 @@ class MbitMore {
             if (!this._pinEvents[pinIndex]) {
                 this._pinEvents[pinIndex] = {};
             }
-            const event = dataView.getUint8(1, true);
+            const event = dataView.getUint8(1);
             this._pinEvents[pinIndex][event] = dataView.getUint32(2, true); // Timestamp
         } else if (dataFormat === MMDataFormat.SHARED_DATA) {
             this._sensors.sharedData[0] = dataView.getInt16(0, true);
@@ -1081,13 +1081,12 @@ class MbitMore {
      * @param {object} util - utility object provided by the runtime.
     */
     listenPinEventType (pinIndex, eventType, util) {
-        if (!this._useMbitMoreService) return;
         this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_EVENT,
                 message: new Uint8Array([
-                    eventType,
-                    pinIndex
+                    pinIndex,
+                    eventType
                 ])
             }],
             util
