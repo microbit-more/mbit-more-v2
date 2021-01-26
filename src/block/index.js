@@ -282,8 +282,7 @@ class MbitMore {
          * @private
          */
         this._sensors = {
-            gestureState: 0,
-            sharedData: [0, 0, 0, 0]
+            gestureState: 0
         };
 
         this.digitalLevel = {};
@@ -344,7 +343,7 @@ class MbitMore {
             this.digitalLevel[pinIndex] = 0;
         });
 
-        this.sharedDataLength = this._sensors.sharedData.length;
+        this.sharedData = new Array(8).fill(0);
 
         /**
          * Interval ID for data reading timeout.
@@ -931,6 +930,8 @@ class MbitMore {
      * @private
      */
     _onConnect () {
+        // initialize all shared data to zoro
+        this.sharedData.fill(0);
         this._useMbitMoreService = true;
         this._ble.startNotifications(
             MM_SERVICE.ID,
@@ -979,10 +980,7 @@ class MbitMore {
             const event = dataView.getUint8(1);
             this._pinEvents[pinIndex][event] = dataView.getUint32(2, true); // Timestamp
         } else if (dataFormat === MMDataFormat.SHARED_DATA) {
-            this._sensors.sharedData[0] = dataView.getInt16(0, true);
-            this._sensors.sharedData[1] = dataView.getInt16(2, true);
-            this._sensors.sharedData[2] = dataView.getInt16(4, true);
-            this._sensors.sharedData[3] = dataView.getInt16(6, true);
+            this.sharedData[dataView.getUint8(0)] = dataView.getInt32(1, true);
         }
         // this.resetConnectionTimeout();
     }
@@ -1023,22 +1021,24 @@ class MbitMore {
      * @return {number} - the latest value received for the shared data.
      */
     getSharedData (index) {
-        return this._sensors.sharedData[index];
+        return this.sharedData[index];
     }
 
     setSharedData (sharedDataIndex, sharedDataValue, util) {
-        const dataView = new DataView(new ArrayBuffer(2));
-        dataView.setInt16(0, sharedDataValue, true);
+        const dataView = new DataView(new ArrayBuffer(4));
+        dataView.setInt32(0, sharedDataValue, true);
         this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_SHARED_DATA << 5),
                 message: new Uint8Array([
                     sharedDataIndex,
                     dataView.getUint8(0),
-                    dataView.getUint8(1)])
+                    dataView.getUint8(1),
+                    dataView.getUint8(2),
+                    dataView.getUint8(3)])
             }],
             util);
-        this._sensors.sharedData[sharedDataIndex] = sharedDataValue;
+        this.sharedData[sharedDataIndex] = sharedDataValue;
     }
 
     /**
@@ -1332,11 +1332,13 @@ class MbitMoreBlocks {
     }
 
     get SHARED_DATA_INDEX_MENU () {
-        const menu = [];
-        for (let i = 0; i < this._peripheral.sharedDataLength; i++) {
-            menu.push(i.toString());
-        }
-        return menu;
+        return this._peripheral.sharedData.map(
+            (_value, index) =>
+                Object.create({
+                    text: `Data${index.toString()}`,
+                    value: index
+                })
+        );
     }
 
     get GPIO_MENU () {
@@ -2372,7 +2374,6 @@ class MbitMoreBlocks {
     getSharedData (args) {
         const sharedDataIndex = parseInt(args.INDEX, 10);
         if (Number.isNaN(sharedDataIndex)) return 0;
-        if (!this.SHARED_DATA_INDEX_MENU.includes(sharedDataIndex.toString())) return 0;
         return this._peripheral.getSharedData(sharedDataIndex);
     }
 
@@ -2386,7 +2387,6 @@ class MbitMoreBlocks {
     setSharedData (args, util) {
         const sharedDataIndex = parseInt(args.INDEX, 10);
         if (Number.isNaN(sharedDataIndex)) return;
-        if (!this.SHARED_DATA_INDEX_MENU.includes(sharedDataIndex.toString())) return;
         const sharedDataValue = parseInt(args.VALUE, 10);
         if (Number.isNaN(sharedDataValue)) return;
         this._peripheral.setSharedData(sharedDataIndex, sharedDataValue, util);
