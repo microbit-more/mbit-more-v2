@@ -978,7 +978,11 @@ class MbitMore {
                 this._pinEvents[pinIndex] = {};
             }
             const event = dataView.getUint8(1);
-            this._pinEvents[pinIndex][event] = dataView.getUint32(2, true); // Timestamp
+            this._pinEvents[pinIndex][event] =
+            {
+                value: dataView.getUint32(2, true), // timesamp of the edge or duration of the pulse
+                timestamp: Date.now() // received time
+            };
         } else if (dataFormat === MMDataFormat.SHARED_DATA) {
             this.sharedData[dataView.getUint8(0)] = dataView.getFloat32(1, true);
         }
@@ -1067,14 +1071,27 @@ class MbitMore {
     }
 
     /**
-     * Return the last timestamp of the pin event or null when the event is not received.
+     * Return the last value of the pin event or null when the event was not received.
+     * @param {number} pinIndex - index of the pin to get the event.
+     * @param {MMPinEvent} event - event to get.
+     * @return {?number} Timestamp of the last event or null.
+     */
+    getPinEventValue (pinIndex, event) {
+        if (this._pinEvents[pinIndex] && this._pinEvents[pinIndex][event]) {
+            return this._pinEvents[pinIndex][event].value;
+        }
+        return null;
+    }
+
+    /**
+     * Return the last timestamp of the pin event or null when the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MMPinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
     getPinEventTimestamp (pinIndex, event) {
         if (this._pinEvents[pinIndex] && this._pinEvents[pinIndex][event]) {
-            return this._pinEvents[pinIndex][event];
+            return this._pinEvents[pinIndex][event].timestamp;
         }
         return null;
     }
@@ -2005,11 +2022,11 @@ class MbitMoreBlocks {
                     }
                 },
                 {
-                    opcode: 'getPinEventTimestamp',
+                    opcode: 'getPinEventValue',
                     text: formatMessage({
-                        id: 'mbitMore.getPinEventTimestamp',
-                        default: 'timestamp of [EVENT] at [PIN]',
-                        description: 'value of the timestamp of the event'
+                        id: 'mbitMore.getPinEventValue',
+                        default: 'value of [EVENT] at [PIN]',
+                        description: 'value of the value of the event (timestamp of the edge or duration of the pulse)'
                     }),
                     blockType: BlockType.REPORTER,
                     arguments: {
@@ -2522,16 +2539,16 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Rerutn timestamp value (micro senonds) of the event or 0 when the event is not received.
+     * Rerutn value (timestamp of the edge or duration of the pulse) of the event or 0 when the event is not received.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {string} args.EVENT - event value to get.
      * @param {object} util - utility object provided by the runtime.
      * @return {number} - timestamp of the event or 0.
      */
-    getPinEventTimestamp (args) {
-        const timestamp = this._peripheral.getPinEventTimestamp(parseInt(args.PIN, 10), MMPinEvent[args.EVENT]);
-        return timestamp ? timestamp : 0;
+    getPinEventValue (args) {
+        const value = this._peripheral.getPinEventValue(parseInt(args.PIN, 10), MMPinEvent[args.EVENT]);
+        return value ? value : 0;
     }
 
     /**
@@ -2539,12 +2556,28 @@ class MbitMoreBlocks {
      */
     updatePrevPinEvents () {
         this.prevPinEvents = {};
-        Object.entries(this._peripheral._pinEvents).forEach(([componentID, events]) => {
-            this.prevPinEvents[componentID] = {};
-            Object.entries(events).forEach(([eventID, timestamp]) => {
-                this.prevPinEvents[componentID][eventID] = timestamp;
+        Object.entries(this._peripheral._pinEvents).forEach(([pinIndex, events]) => {
+            this.prevPinEvents[pinIndex] = {};
+            Object.entries(events).forEach(([eventID, eventData]) => {
+                this.prevPinEvents[pinIndex][eventID] = {};
+                Object.entries(eventData).forEach(([key, value]) => {
+                    this.prevPinEvents[pinIndex][eventID][key] = value;
+                });
             });
         });
+    }
+
+    /**
+     * Return the previous timestamp of the pin event or null when the event was not received.
+     * @param {number} pinIndex - index of the pin to get the event.
+     * @param {MMPinEvent} eventID - ID of the event to get.
+     * @return {?number} Timestamp of the previous event or null.
+     */
+    getPrevPinEventTimestamp (pinIndex, eventID) {
+        if (this.prevPinEvents[pinIndex] && this.prevPinEvents[pinIndex][eventID]) {
+            return this.prevPinEvents[pinIndex][eventID].timestamp;
+        }
+        return null;
     }
 
     /**
@@ -2556,17 +2589,19 @@ class MbitMoreBlocks {
      */
     whenPinEvent (args) {
         if (!this.updateLastPinEventTimer) {
-            this.updatePrevPinEvents = setTimeout(() => {
+            this.updateLastPinEventTimer = setTimeout(() => {
                 this.updatePrevPinEvents();
                 this.updateLastPinEventTimer = null;
             }, this.runtime.currentStepTime);
         }
         const pinIndex = parseInt(args.PIN, 10);
+        const eventID = MMPinEvent[args.EVENT];
         const lastTimestamp =
-            this._peripheral.getPinEventTimestamp(pinIndex, MMPinEvent[args.EVENT]);
+            this._peripheral.getPinEventTimestamp(pinIndex, eventID);
         if (lastTimestamp === null) return false;
-        if (!this.prevPinEvents[pinIndex]) return true;
-        return lastTimestamp !== this.prevPinEvents[pinIndex][MMPinEvent[args.EVENT]];
+        const prevTimestamp = this.getPrevPinEventTimestamp(pinIndex, eventID);
+        if (prevTimestamp === null) return true;
+        return lastTimestamp !== prevTimestamp;
     }
 
     /**
@@ -2656,7 +2691,7 @@ const extensionTranslations = {
         'mbitMore.pinEventMenu.fall': 'フォール',
         'mbitMore.pinEventMenu.pulseHigh': 'ハイパルス',
         'mbitMore.pinEventMenu.pulseLow': 'ローパルス',
-        'mbitMore.getPinEventTimestamp': 'ピン [PIN] の [EVENT]',
+        'mbitMore.getPinEventValue': 'ピン [PIN] の [EVENT]',
         'mbitMore.pinEventTimestampMenu.rise': 'ライズの時刻',
         'mbitMore.pinEventTimestampMenu.fall': 'フォールの時刻',
         'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスの期間',
@@ -2725,7 +2760,7 @@ const extensionTranslations = {
         'mbitMore.pinEventMenu.fall': 'フォール',
         'mbitMore.pinEventMenu.pulseHigh': 'ハイパルス',
         'mbitMore.pinEventMenu.pulseLow': 'ローパルス',
-        'mbitMore.getPinEventTimestamp': 'ピン [PIN] の [EVENT]',
+        'mbitMore.getPinEventValue': 'ピン [PIN] の [EVENT]',
         'mbitMore.pinEventTimestampMenu.rise': 'ライズのじかん',
         'mbitMore.pinEventTimestampMenu.fall': 'フォールのじかん',
         'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスのきかん',
