@@ -980,7 +980,7 @@ class MbitMore {
             const event = dataView.getUint8(1);
             this._pinEvents[pinIndex][event] = dataView.getUint32(2, true); // Timestamp
         } else if (dataFormat === MMDataFormat.SHARED_DATA) {
-            this.sharedData[dataView.getUint8(0)] = dataView.getInt32(1, true);
+            this.sharedData[dataView.getUint8(0)] = dataView.getFloat32(1, true);
         }
         // this.resetConnectionTimeout();
     }
@@ -1026,7 +1026,7 @@ class MbitMore {
 
     setSharedData (sharedDataIndex, sharedDataValue, util) {
         const dataView = new DataView(new ArrayBuffer(4));
-        dataView.setInt32(0, sharedDataValue, true);
+        dataView.setFloat32(0, sharedDataValue, true);
         this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_SHARED_DATA << 5),
@@ -2381,13 +2381,14 @@ class MbitMoreBlocks {
      * Set the shared data value.
      * @param {object} args - the block's arguments.
      * @property {string} args.INDEX - index of the shared data.
+     * @property {string} args.VALUE - float value of the shared data.
      * @param {object} util - utility object provided by the runtime.
      * @return {undefined}
      */
     setSharedData (args, util) {
         const sharedDataIndex = parseInt(args.INDEX, 10);
         if (Number.isNaN(sharedDataIndex)) return;
-        const sharedDataValue = parseInt(args.VALUE, 10);
+        const sharedDataValue = parseFloat(args.VALUE, 10);
         if (Number.isNaN(sharedDataValue)) return;
         this._peripheral.setSharedData(sharedDataIndex, sharedDataValue, util);
     }
