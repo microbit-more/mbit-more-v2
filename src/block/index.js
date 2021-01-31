@@ -659,6 +659,7 @@ class MbitMore {
                     this.lightLevel = dataView.getUint8(4);
                     this.temperature = dataView.getUint8(5) - 128;
                     this.soundLevel = dataView.getUint8(6);
+                    this.resetConnectionTimeout();
                     resolve(this);
                 });
         });
@@ -721,6 +722,7 @@ class MbitMore {
                     this.magneticForce.x = dataView.getInt16(12, true);
                     this.magneticForce.y = dataView.getInt16(14, true);
                     this.magneticForce.z = dataView.getInt16(16, true);
+                    this.resetConnectionTimeout();
                     resolve(this);
                 });
         });
@@ -948,7 +950,7 @@ class MbitMore {
         this.bleAccessWaiting = false;
         this._busy = false;
         this.startUpdater();
-        // this.resetConnectionTimeout();
+        this.resetConnectionTimeout();
     }
 
     /**
