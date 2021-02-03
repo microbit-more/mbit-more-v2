@@ -1883,6 +1883,15 @@ class MbitMoreBlocks {
                     blockType: BlockType.REPORTER
                 },
                 {
+                    opcode: 'getSoundLevel',
+                    text: formatMessage({
+                        id: 'mbitMore.soundLevel',
+                        default: 'sound level',
+                        description: 'level of the sound from microphone on micro:bit'
+                    }),
+                    blockType: BlockType.REPORTER
+                },
+                {
                     opcode: 'getMagneticForce',
                     text: formatMessage({
                         id: 'mbitMore.magneticForce',
@@ -2421,6 +2430,14 @@ class MbitMoreBlocks {
     }
 
     /**
+     * Get loudness of the sound from microphone on micro:bit.
+     * @return {number} - loudness of sound.
+     */
+    getSoundLevel () {
+        return this._peripheral.readSoundLevel();
+    }
+
+    /**
      * Return angle from the north to the micro:bit heading direction.
      * @return {number} - degree of compass heading angle from the north (0 - 359 degrees).
      */
@@ -2779,6 +2796,7 @@ const extensionTranslations = {
         'mbitMore.acceleration': '加速度 [AXIS]',
         'mbitMore.pitch': 'ピッチ',
         'mbitMore.roll': 'ロール',
+        'mbitMore.soundLevel': '音の大きさ',
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
         'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] を送る',
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] 入力にする',
@@ -2849,6 +2867,7 @@ const extensionTranslations = {
         'mbitMore.acceleration': 'かそくど [AXIS]',
         'mbitMore.pitch': 'ピッチ',
         'mbitMore.roll': 'ロール',
+        'mbitMore.soundLevel': 'おとのおおきさ',
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
         'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] をおくる',
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] にゅうりょくにする',
