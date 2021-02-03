@@ -45,7 +45,7 @@ const BLECommand = {
     CMD_CONFIG: 0x00,
     CMD_PIN: 0x01,
     CMD_DISPLAY: 0x02,
-    CMD_SHARED_DATA: 0x03
+    CMD_MESSAGE: 0x03
 };
 
 
@@ -97,7 +97,8 @@ const MbitMorePullMode = {
 const MMDataFormat = {
     PIN_EVENT: 0x10,
     ACTION_EVENT: 0x11,
-    SHARED_DATA: 0x13
+    MESSAGE_NUMBER: 0x13,
+    MESSAGE_TEXT: 0x14
 };
 
 /**
@@ -181,6 +182,14 @@ const MMPinEvent = {
 };
 
 /**
+ * Data type of message content.
+ */
+const MbitMoreMessageType = {
+    MM_MSG_NUMBER: 0,
+    MM_MSG_TEXT: 1
+};
+
+/**
  * A time interval to wait (in milliseconds) before reporting to the BLE socket
  * that data has stopped coming from the peripheral.
  */
@@ -210,7 +219,7 @@ const MM_SERVICE = {
         'a62d0121-1b34-4092-8dee-4151f63b2865',
         'a62d0122-1b34-4092-8dee-4151f63b2865'
     ],
-    SHARED_DATA_CH: 'a62d0130-1b34-4092-8dee-4151f63b2865'
+    MESSAGE_CH: 'a62d0130-1b34-4092-8dee-4151f63b2865'
 };
 
 // /**
@@ -328,6 +337,13 @@ class MbitMore {
          */
         this._pinEvents = {};
 
+        /**
+         * The most recently received messages.
+         * @type {Object} - Store of messages
+         * @private
+         */
+        this.receivedMessages = {};
+
         this.analogIn = [0, 1, 2];
         this.analogValue = [];
         this.analogIn.forEach(pinIndex => {
@@ -342,8 +358,6 @@ class MbitMore {
         this.gpio.forEach(pinIndex => {
             this.digitalLevel[pinIndex] = 0;
         });
-
-        this.sharedData = new Array(8).fill(0);
 
         /**
          * Interval ID for data reading timeout.
@@ -605,10 +619,6 @@ class MbitMore {
                 this.analogInLastUpdated = Date.now();
                 resolve(this.analogValue[pinIndex]);
             })
-            .catch(() =>
-                // no service for P2 in micro:bit v1
-                resolve(0)
-            )
         );
     }
 
@@ -932,8 +942,6 @@ class MbitMore {
      * @private
      */
     _onConnect () {
-        // initialize all shared data to zoro
-        this.sharedData.fill(0);
         this._useMbitMoreService = true;
         this._ble.startNotifications(
             MM_SERVICE.ID,
@@ -945,8 +953,11 @@ class MbitMore {
             this.onNotify);
         this._ble.startNotifications(
             MM_SERVICE.ID,
-            MM_SERVICE.SHARED_DATA_CH,
-            this.onNotify);
+            MM_SERVICE.MESSAGE_CH,
+            this.onNotify)
+            .catch(() => {
+                // no service in micto:bit v1
+            });
         this.bleAccessWaiting = false;
         this._busy = false;
         this.startUpdater();
@@ -985,18 +996,31 @@ class MbitMore {
                 value: dataView.getUint32(2, true), // timesamp of the edge or duration of the pulse
                 timestamp: Date.now() // received time
             };
-        } else if (dataFormat === MMDataFormat.SHARED_DATA) {
-            this.sharedData[dataView.getUint8(0)] = dataView.getFloat32(1, true);
+        } else if (dataFormat === MMDataFormat.MESSAGE_NUMBER) {
+            const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
+            this.receivedMessages[label] =
+            {
+                content: dataView.getFloat32(8, true),
+                timestamp: Date.now()
+            };
+        } else if (dataFormat === MMDataFormat.MESSAGE_TEXT) {
+            const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
+            this.receivedMessages[label] =
+            {
+                content: new TextDecoder().decode(data.slice(8, 20).filter(char => (char !== 0))),
+                timestamp: Date.now()
+            };
         }
-        // this.resetConnectionTimeout();
+        this.resetConnectionTimeout();
     }
 
     /**
      * Cancel disconnect timeout and start counting again.
      */
     resetConnectionTimeout () {
-        if (this._timeoutID) window.clearTimeout(this._timeoutID);
-        this._timeoutID = window.setTimeout(() => this._ble.handleDisconnectError(BLEDataStoppedError), BLETimeout);
+        // TODO: restore after debug
+        // if (this._timeoutID) window.clearTimeout(this._timeoutID);
+        // this._timeoutID = window.setTimeout(() => this._ble.handleDisconnectError(BLEDataStoppedError), BLETimeout);
     }
 
     /**
@@ -1019,32 +1043,6 @@ class MbitMore {
             return 0;
         }
         return this.digitalLevel[pin];
-    }
-
-    /**
-     * Return the value of the shared data.
-     * @param {number} index - the shared data index.
-     * @return {number} - the latest value received for the shared data.
-     */
-    getSharedData (index) {
-        return this.sharedData[index];
-    }
-
-    setSharedData (sharedDataIndex, sharedDataValue, util) {
-        const dataView = new DataView(new ArrayBuffer(4));
-        dataView.setFloat32(0, sharedDataValue, true);
-        this.sendCommandSet(
-            [{
-                id: (BLECommand.CMD_SHARED_DATA << 5),
-                message: new Uint8Array([
-                    sharedDataIndex,
-                    dataView.getUint8(0),
-                    dataView.getUint8(1),
-                    dataView.getUint8(2),
-                    dataView.getUint8(3)])
-            }],
-            util);
-        this.sharedData[sharedDataIndex] = sharedDataValue;
     }
 
     /**
@@ -1115,6 +1113,71 @@ class MbitMore {
             }],
             util
         );
+    }
+
+    /**
+     * Send message to micro:bit.
+     * @param {string} label - label of the message [ascii]
+     * @param {string} content - content of the message [ascii | number]
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {Promise} - a Promise that resolves when the process was done.
+     */
+    sendMessage (label, content, util) {
+        const labelData = new Array(8)
+            .map((_value, index) => label.charCodeAt(index));
+        const contentNumber = Number(content);
+        let contentData;
+        let type;
+        if (Number.isNaN(contentNumber)) {
+            type = MbitMoreMessageType.MM_MSG_TEXT;
+            contentData = content
+                .split('')
+                .map(ascii => ascii.charCodeAt(0))
+                .slice(0, 11);
+        } else {
+            type = MbitMoreMessageType.MM_MSG_NUMBER;
+            const dataView = new DataView(new ArrayBuffer(4));
+            dataView.setFloat32(0, contentNumber, true);
+            contentData = [
+                dataView.getUint8(0),
+                dataView.getUint8(1),
+                dataView.getUint8(2),
+                dataView.getUint8(3)
+            ];
+        }
+        return this.sendCommandSet(
+            [{
+                id: ((BLECommand.CMD_MESSAGE << 5) | type),
+                message: new Uint8Array([
+                    ...labelData,
+                    ...contentData])
+            }],
+            util);
+    }
+
+    /**
+     * Return the last content of the message or null when the message which has the label was not received.
+     * @param {string} messageLabel - label of the message.
+     * @param {MMPinEvent} event - event to get.
+     * @return {?(number | string)} content of the message or null.
+     */
+    getMessageContent (messageLabel) {
+        if (this.receivedMessages[messageLabel]) {
+            return this.receivedMessages[messageLabel].content;
+        }
+        return null;
+    }
+
+    /**
+     * Return the last timestamp of the message or null when the message is not received.
+     * @param {string} messageLabel - label of the message.
+     * @return {?number} Timestamp of the last message or null.
+     */
+    getMessageTimestamp (messageLabel) {
+        if (this.receivedMessages[messageLabel]) {
+            return this.receivedMessages[messageLabel].timestamp;
+        }
+        return null;
     }
 }
 
@@ -1350,15 +1413,6 @@ class MbitMoreBlocks {
         );
     }
 
-    get SHARED_DATA_INDEX_MENU () {
-        return this._peripheral.sharedData.map(
-            (_value, index) =>
-                Object.create({
-                    text: `Data${index.toString()}`,
-                    value: index
-                })
-        );
-    }
 
     get GPIO_MENU () {
         return this._peripheral.gpio.map(
@@ -1632,6 +1686,11 @@ class MbitMoreBlocks {
          */
         this.prevPinEvents = {};
 
+        /**
+         * The previous timestamps of messages.
+         * @type {Object.<number, Object>} pin index to object with event and timestamp.
+         */
+        this.prevMessages = {};
     }
 
     /**
@@ -2046,38 +2105,52 @@ class MbitMoreBlocks {
                 },
                 '---',
                 {
-                    opcode: 'getSharedData',
+                    opcode: 'whenMessage',
                     text: formatMessage({
-                        id: 'mbitMore.getSharedData',
-                        default: 'shared data [INDEX]',
-                        description: 'value of the shared data'
+                        id: 'mbitMore.whenMessage',
+                        default: 'when [LABEL] received',
+                        description: 'when the message which has the label received'
+
                     }),
-                    blockType: BlockType.REPORTER,
+                    blockType: BlockType.HAT,
                     arguments: {
-                        INDEX: {
+                        LABEL: {
                             type: ArgumentType.STRING,
-                            menu: 'sharedDataIndex',
-                            defaultValue: '0'
+                            defaultValue: 'label-01'
                         }
                     }
                 },
                 {
-                    opcode: 'setSharedData',
+                    opcode: 'getMessageContent',
                     text: formatMessage({
-                        id: 'mbitMore.setSharedData',
-                        default: 'shared data [INDEX] to [VALUE]',
-                        description: 'set value into the shared data'
+                        id: 'mbitMore.getMessageContent',
+                        default: 'message [LABEL]',
+                        description: 'content of the message which has the label'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        LABEL: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'label-01'
+                        }
+                    }
+                },
+                {
+                    opcode: 'sendMessage',
+                    text: formatMessage({
+                        id: 'mbitMore.sendMessage',
+                        default: 'send message [LABEL] with [CONTENT]',
+                        description: 'send message label and content'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
-                        INDEX: {
+                        LABEL: {
                             type: ArgumentType.STRING,
-                            menu: 'sharedDataIndex',
-                            defaultValue: '0'
+                            defaultValue: 'label-01'
                         },
-                        VALUE: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 0
+                        CONTENT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'content'
                         }
                     }
                 }
@@ -2102,10 +2175,6 @@ class MbitMoreBlocks {
                 digitalValueMenu: {
                     acceptReporters: true,
                     items: this.DIGITAL_VALUE_MENU
-                },
-                sharedDataIndex: {
-                    acceptReporters: false,
-                    items: this.SHARED_DATA_INDEX_MENU
                 },
                 gpio: {
                     acceptReporters: false,
@@ -2385,31 +2454,15 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Return value of the shared data.
+     * Send message label and content.
      * @param {object} args - the block's arguments.
-     * @property {string} args.INDEX - index of the shared data.
-     * @return {number} - analog value of the shared data.
-     */
-    getSharedData (args) {
-        const sharedDataIndex = parseInt(args.INDEX, 10);
-        if (Number.isNaN(sharedDataIndex)) return 0;
-        return this._peripheral.getSharedData(sharedDataIndex);
-    }
-
-    /**
-     * Set the shared data value.
-     * @param {object} args - the block's arguments.
-     * @property {string} args.INDEX - index of the shared data.
-     * @property {string} args.VALUE - float value of the shared data.
+     * @property {string} args.LABEL - label of the message.
+     * @property {string} args.CONTENT - content of the message.
      * @param {object} util - utility object provided by the runtime.
-     * @return {undefined}
+     * @return {Promise} - a Promise that resolves when the process was done.
      */
-    setSharedData (args, util) {
-        const sharedDataIndex = parseInt(args.INDEX, 10);
-        if (Number.isNaN(sharedDataIndex)) return;
-        const sharedDataValue = parseFloat(args.VALUE, 10);
-        if (Number.isNaN(sharedDataValue)) return;
-        this._peripheral.setSharedData(sharedDataIndex, sharedDataValue, util);
+    sendMessage (args, util) {
+        return this._peripheral.sendMessage(args.LABEL, args.CONTENT, util);
     }
 
     /**
@@ -2607,6 +2660,64 @@ class MbitMoreBlocks {
     }
 
     /**
+     * Rerutn the last content of the messge or null when the message which has the label is not received.
+     * @param {object} args - the block's arguments.
+     * @param {number} args.LABEL - label of the message.
+     * @param {object} util - utility object provided by the runtime.
+     * @return {?(string | number)} - content of the message.
+     */
+    getMessageContent (args) {
+        return this._peripheral.getMessageContent(args.LABEL);
+    }
+
+    /**
+     * Update the previous occured time of all received messages.
+     */
+    updatePrevMessages () {
+        this.prevMessages = {};
+        Object.entries(this._peripheral.receivedMessages).forEach(([label, contentData]) => {
+            this.prevMessages[label] = {};
+            Object.entries(contentData).forEach(([key, value]) => {
+                this.prevMessages[label][key] = value;
+            });
+        });
+    }
+
+    /**
+     * Return the previous timestamp of the message or null when the message was not received.
+     * @param {string} messageLabel - label of the message.
+     * @return {?number} Timestamp of the previous message or null.
+     */
+    getPrevMessageTimestamp (messageLabel) {
+        if (this.prevMessages[messageLabel]) {
+            return this.prevMessages[messageLabel].timestamp;
+        }
+        return null;
+    }
+
+    /**
+     * Test whether the message received which had the label.
+     * @param {object} args - the block's arguments.
+     * @param {number} args.LABEL - label of the message.
+     * @return {boolean} - true if the message received.
+     */
+    whenMessage (args) {
+        if (!this.updateLastMessageTimer) {
+            this.updateLastMessageTimer = setTimeout(() => {
+                this.updatePrevMessages();
+                this.updateLastMessageTimer = null;
+            }, this.runtime.currentStepTime);
+        }
+        const label = args.LABEL;
+        const lastTimestamp =
+            this._peripheral.getMessageTimestamp(label);
+        if (lastTimestamp === null) return false;
+        const prevTimestamp = this.getPrevMessageTimestamp(label);
+        if (prevTimestamp === null) return true;
+        return lastTimestamp !== prevTimestamp;
+    }
+
+    /**
      * Test whether a micro:bit connected.
      * @param {object} args - the block's arguments.
      * @property {string} args.STATE - the state of connection to check.
@@ -2669,8 +2780,7 @@ const extensionTranslations = {
         'mbitMore.pitch': 'ピッチ',
         'mbitMore.roll': 'ロール',
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
-        'mbitMore.getSharedData': '共有データ [INDEX]',
-        'mbitMore.setSharedData': '共有データ [INDEX] を [VALUE] にする',
+        'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] を送る',
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] 入力にする',
         'mbitMore.setDigitalOut': 'ピン [PIN] をデジタル出力 [LEVEL] にする',
         'mbitMore.setAnalogOut': 'ピン [PIN] をアナログ出力 [LEVEL] %にする',
@@ -2698,6 +2808,8 @@ const extensionTranslations = {
         'mbitMore.pinEventTimestampMenu.fall': 'フォールの時刻',
         'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスの期間',
         'mbitMore.pinEventTimestampMenu.pulseLow': 'ローパルスの期間',
+        'mbitMore.whenMessage': 'メッセージ [LABEL] を受け取ったとき',
+        'mbitMore.getMessageContent': 'メッセージ [LABEL]',
         'mbitMore.connectionStateMenu.connected': 'つながった',
         'mbitMore.connectionStateMenu.disconnected': '切れた',
         'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
@@ -2738,8 +2850,7 @@ const extensionTranslations = {
         'mbitMore.pitch': 'ピッチ',
         'mbitMore.roll': 'ロール',
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
-        'mbitMore.getSharedData': 'きょうゆうデータ [INDEX]',
-        'mbitMore.setSharedData': 'きょうゆうデータ [INDEX] を [VALUE] にする',
+        'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] をおくる',
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] にゅうりょくにする',
         'mbitMore.setDigitalOut': 'ピン [PIN] をデジタルしゅつりょく [LEVEL] にする',
         'mbitMore.setAnalogOut': 'ピン [PIN] をアナログしゅつりょく [LEVEL] パーセントにする',
@@ -2767,6 +2878,8 @@ const extensionTranslations = {
         'mbitMore.pinEventTimestampMenu.fall': 'フォールのじかん',
         'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスのきかん',
         'mbitMore.pinEventTimestampMenu.pulseLow': 'ローパルスのきかん',
+        'mbitMore.whenMessage': 'メッセージ [LABEL] をうけとったとき',
+        'mbitMore.getMessageContent': 'メッセージ [LABEL]',
         'mbitMore.connectionStateMenu.connected': 'つながった',
         'mbitMore.connectionStateMenu.disconnected': 'きれた',
         'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
@@ -2777,8 +2890,6 @@ const extensionTranslations = {
         'mbitMore.magneticForce': 'Força Magnética [AXIS]',
         'mbitMore.acceleration': 'Aceleração no Eixo[AXIS]',
         'mbitMore.analogValue': 'Ler Pino Analógico [PIN]',
-        'mbitMore.getSharedData': 'Dados compartilhados [INDEX]',
-        'mbitMore.setSharedData': 'Definir dados compartilhados [INDEX] com valor [VALUE]',
         'mbitMore.setInput': 'Definir Pino[PIN] como entrada',
         'mbitMore.setAnalogOut': 'Definir pino PWM[PIN]com[LEVEL]',
         'mbitMore.setServo': 'Definir Servo no pino [PIN]com ângulo de [ANGLE]॰',
@@ -2791,8 +2902,6 @@ const extensionTranslations = {
         'mbitMore.magneticForce': 'Força Magnética [AXIS]',
         'mbitMore.acceleration': 'Aceleração no Eixo[AXIS]',
         'mbitMore.analogValue': 'Ler Pino Analógico [PIN]',
-        'mbitMore.getSharedData': 'Dados compartilhados [INDEX]',
-        'mbitMore.setSharedData': 'Definir dados compartilhados [INDEX] com valor [VALUE]',
         'mbitMore.setInput': 'Definir Pino[PIN] como entrada',
         'mbitMore.setAnalogOut': 'Definir pino PWM[PIN]com[LEVEL]',
         'mbitMore.setServo': 'Definir Servo no pino [PIN]com ângulo de [ANGLE]॰',
