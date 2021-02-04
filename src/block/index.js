@@ -220,8 +220,8 @@ const BLEDataStoppedError = 'micro:bit extension stopped receiving data';
 const MM_SERVICE = {
     ID: '0b50f3e4-607f-4151-9091-7d008d6ffc5c',
     COMMAND_CH: '0b500100-607f-4151-9091-7d008d6ffc5c',
-    SENSORS_CH: '0b500101-607f-4151-9091-7d008d6ffc5c',
-    DIRECTION_CH: '0b500102-607f-4151-9091-7d008d6ffc5c',
+    STATE_CH: '0b500101-607f-4151-9091-7d008d6ffc5c',
+    MOTION_CH: '0b500102-607f-4151-9091-7d008d6ffc5c',
     PIN_EVENT_CH: '0b500110-607f-4151-9091-7d008d6ffc5c',
     ACTION_EVENT_CH: '0b500111-607f-4151-9091-7d008d6ffc5c',
     ANALOG_IN_CH: [
@@ -294,15 +294,6 @@ class MbitMore {
          * The id of the extension this peripheral belongs to.
          */
         this._extensionId = extensionId;
-
-        /**
-         * The most recently received value for each sensor.
-         * @type {Object.<string, number>}
-         * @private
-         */
-        this._sensors = {
-            gestureState: 0
-        };
 
         this.digitalLevel = {};
         this.lightLevel = 0;
@@ -405,7 +396,7 @@ class MbitMore {
     }
 
     /**
-     * Start updating process for micro:bit sensors and directions.
+     * Start updating process for micro:bit state and motion.
      */
     startUpdater () {
         if (this.updater) {
@@ -415,8 +406,8 @@ class MbitMore {
             this.updater = setTimeout(() => this.startUpdater(), 0);
             return;
         }
-        this.updateSensors()
-            .then(() => this.updateDirection())
+        this.updateState()
+            .then(() => this.updateMotion())
             .finally(() => {
                 this.updater = setTimeout(
                     () => this.startUpdater(),
@@ -426,7 +417,7 @@ class MbitMore {
     }
 
     /**
-     * Stop updating process for micro:bit sensors and directions.
+     * Stop updating process for micro:bit state and motion.
      */
     stopUpdater () {
         clearTimeout(this.updater);
@@ -568,20 +559,6 @@ class MbitMore {
     }
 
     /**
-     * @return {number} - the latest value received for the motion gesture states.
-     */
-    get gestureState () {
-        return this._sensors.gestureState;
-    }
-
-    /**
-     * @return {Uint8Array} - the current state of the 5x5 LED matrix.
-     */
-    get ledMatrixState () {
-        return this._sensors.ledMatrixState;
-    }
-
-    /**
      * Read light level from the light sensor.
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves light level.
@@ -597,7 +574,7 @@ class MbitMore {
      * Update data of the analog input.
      * @param {number} pinIndex - index of the pin to get value.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves sensors which updated data of the analog input.
+     * @return {Promise} - a Promise that resolves value of analog input.
      */
     updateAnalogIn (pinIndex, util) {
         if ((Date.now() - this.analogInLastUpdated[pinIndex]) < this.analogInUpdateInterval) {
@@ -650,7 +627,7 @@ class MbitMore {
      * Update data of digital level, light level, temperature, sound level.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-    updateSensors () {
+    updateState () {
         if (!this.isConnected()) return Promise.resolve(this);
         if (this._busy) {
             return Promise.resolve(this);
@@ -662,7 +639,7 @@ class MbitMore {
         return new Promise(resolve => {
             this._ble.read(
                 MM_SERVICE.ID,
-                MM_SERVICE.SENSORS_CH,
+                MM_SERVICE.STATE_CH,
                 false)
                 .then(result => {
                     window.clearTimeout(this._busyTimeoutID);
@@ -739,7 +716,7 @@ class MbitMore {
      * Update data of acceleration, magnetic force.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-    updateDirection () {
+    updateMotion () {
         if (!this.isConnected()) return Promise.resolve(this);
         if (this._busy) {
             return Promise.resolve(this);
@@ -751,7 +728,7 @@ class MbitMore {
         return new Promise(resolve => {
             this._ble.read(
                 MM_SERVICE.ID,
-                MM_SERVICE.DIRECTION_CH,
+                MM_SERVICE.MOTION_CH,
                 false)
                 .then(result => {
                     window.clearTimeout(this._busyTimeoutID);
@@ -1003,7 +980,7 @@ class MbitMore {
     }
 
     /**
-     * Process the sensor data from the incoming BLE characteristic.
+     * Process the data from the incoming BLE characteristic.
      * @param {string} msg - the incoming BLE data.
      * @private
      */
