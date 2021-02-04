@@ -190,6 +190,16 @@ const MbitMoreMessageType = {
 };
 
 /**
+ * Enum for sub-command about configurations.
+ * @readonly
+ * @enum {number}
+ */
+const MbitMoreConfig =
+{
+    MIC: 0x01
+};
+
+/**
  * A time interval to wait (in milliseconds) before reporting to the BLE socket
  * that data has stopped coming from the peripheral.
  */
@@ -382,11 +392,12 @@ class MbitMore {
         this.reset = this.reset.bind(this);
         this._onConnect = this._onConnect.bind(this);
         this.onNotify = this.onNotify.bind(this);
-        this._useMbitMoreService = true;
 
         this.analogInUpdateInterval = 80; // milli-seconds
         this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
 
+        this.config = {};
+        this.config.mic = false;
 
         this.bleReadTimelimit = 40;
 
@@ -687,6 +698,33 @@ class MbitMore {
     }
 
     /**
+     * Configurate microphone.
+     * @param {boolean} use - true to use microphone.
+     * @param {object} util - utility object provided by the runtime.
+     * @return {Promise} - a Promise that resolves configured state of the microphone.
+     */
+    configMic (use, util) {
+        use = (use === true);
+        if (!this.isConnected()) {
+            return Promise.resolve(false);
+        }
+        if (this.config.mic === use) {
+            return Promise.resolve(this.config.mic);
+        }
+        return this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_CONFIG << 5) | MbitMoreConfig.MIC,
+                message: new Uint8Array([(use ? 1 : 0)]) // use microphone
+            }],
+            util
+        )
+            .then((() => {
+                this.config.mic = use;
+                return this.config.mic;
+            }));
+    }
+
+    /**
      * Read sound level.
      * @return {number} - level of loudness (0 .. 255).
      */
@@ -942,7 +980,6 @@ class MbitMore {
      * @private
      */
     _onConnect () {
-        this._useMbitMoreService = true;
         this._ble.startNotifications(
             MM_SERVICE.ID,
             MM_SERVICE.ACTION_EVENT_CH,
@@ -958,6 +995,7 @@ class MbitMore {
             .catch(() => {
                 // no service in micto:bit v1
             });
+        this.config.mic = false;
         this.bleAccessWaiting = false;
         this._busy = false;
         this.startUpdater();
@@ -2431,10 +2469,19 @@ class MbitMoreBlocks {
 
     /**
      * Get loudness of the sound from microphone on micro:bit.
-     * @return {number} - loudness of sound.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
+     * @return {Promise} - a Promise that resolves digital input value of the pin.
      */
-    getSoundLevel () {
-        return this._peripheral.readSoundLevel();
+    getSoundLevel (args, util) {
+        return this._peripheral.configMic(true, util)
+            .then(micState => {
+                if (micState) {
+                    return this._peripheral.readSoundLevel();
+                }
+                return 0;
+            });
+        
     }
 
     /**
