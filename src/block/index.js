@@ -5,12 +5,6 @@ const cast = require('../../util/cast');
 const BLE = require('../../io/ble');
 const Base64Util = require('../../util/base64-util');
 
-/**
- * Determine whether the given `promise` is a Promise.
- * @param {*} promise - Target object to determin.
- * @return {boolean} True if the target is a Promise.
- */
-const isPromise = promise => !!promise && typeof promise.then === 'function';
 
 /**
  * Formatter which is used for translating.
@@ -573,9 +567,12 @@ class MbitMore {
      * Update data of the analog input.
      * @param {number} pinIndex - index of the pin to get value.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves value of analog input.
+     * @return {?Promise} a Promise that resolves value of analog input of the pin or null when this process was yield.
      */
-    updateAnalogIn (pinIndex, util) {
+    readAnalogIn (pinIndex, util) {
+        if (!this.isConnected()) {
+            return Promise.resolve(0);
+        }
         if ((Date.now() - this.analogInLastUpdated[pinIndex]) < this.analogInUpdateInterval) {
             return Promise.resolve(this.analogValue[pinIndex]);
         }
@@ -607,19 +604,6 @@ class MbitMore {
                 resolve(this.analogValue[pinIndex]);
             })
         );
-    }
-
-    /**
-     * Read analog input from the pin [0, 1, 2].
-     * @param {number} pinIndex - Index of the pin to read.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves analog input value of the pin.
-     */
-    readAnalogIn (pinIndex, util) {
-        if (!this.isConnected()) {
-            return Promise.resolve(0);
-        }
-        return this.updateAnalogIn(pinIndex, util);
     }
 
     /**
@@ -2677,14 +2661,13 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves analog input value of the pin.
+     * @return {?Promise} a Promise that resolves analog input value of the pin or null if this process was yield.
      */
     getAnalogValue (args, util) {
-        const readPromise = this._peripheral.readAnalogIn(parseInt(args.PIN, 10), util);
-        if (isPromise(readPromise)) {
-            return readPromise.then(level => Math.round(level * 1000 / 1024) / 10);
-        }
-        return;
+        const pinIndex = parseInt(args.PIN, 10);
+        const resultPromise = this._peripheral.readAnalogIn(pinIndex, util);
+        if (!resultPromise) return;
+        return resultPromise.then(level => Math.round(level * 100 * 10 / 1024) / 10);
     }
 
     /**
