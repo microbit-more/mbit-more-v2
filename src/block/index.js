@@ -39,7 +39,8 @@ const BLECommand = {
     CMD_CONFIG: 0x00,
     CMD_PIN: 0x01,
     CMD_DISPLAY: 0x02,
-    CMD_MESSAGE: 0x03
+    CMD_AUDIO: 0x03,
+    CMD_MESSAGE: 0x04
 };
 
 /**
@@ -53,8 +54,7 @@ const MMPinCommand =
     SET_PWM: 0x02,
     SET_SERVO: 0x03,
     SET_PULL: 0x04,
-    SET_EVENT: 0x05,
-    SET_TOUCH: 0x06
+    SET_EVENT: 0x05
 };
 
 /**
@@ -196,6 +196,17 @@ const MbitMoreConfig =
 };
 
 /**
+ * Enum for sub-command about audio.
+ * @readonly
+ * @enum {number}
+ */
+const MbitMoreAudioCommand =
+{
+    STOP_TONE: 0x00,
+    PLAY_TONE: 0x01
+};
+
+/**
  * A time interval to wait (in milliseconds) before reporting to the BLE socket
  * that data has stopped coming from the peripheral.
  */
@@ -263,7 +274,7 @@ class MbitMore {
          * @type {Runtime}
          * @private
          */
-        this._runtime = runtime;
+        this.runtime = runtime;
 
         /**
          * The BluetoothLowEnergy connection socket for reading/writing peripheral data.
@@ -271,7 +282,7 @@ class MbitMore {
          * @private
          */
         this._ble = null;
-        this._runtime.registerPeripheralExtension(extensionId, this);
+        this.runtime.registerPeripheralExtension(extensionId, this);
 
         /**
          * The id of the extension this peripheral belongs to.
@@ -368,6 +379,11 @@ class MbitMore {
         this.reset = this.reset.bind(this);
         this._onConnect = this._onConnect.bind(this);
         this.onNotify = this.onNotify.bind(this);
+
+        this.stopTone = this.stopTone.bind(this);
+        if (this.runtime) {
+            this.runtime.on('PROJECT_STOP_ALL', this.stopTone);
+        }
 
         this.analogInUpdateInterval = 80; // milli-seconds
         this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
@@ -665,7 +681,7 @@ class MbitMore {
      * Configurate microphone.
      * @param {boolean} use - true to use microphone.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves configured state of the microphone.
+     * @return {?Promise} - a Promise that resolves configured state of the microphone.
      */
     configMic (use, util) {
         use = (use === true);
@@ -686,6 +702,51 @@ class MbitMore {
                 this.config.mic = use;
                 return this.config.mic;
             });
+    }
+
+    /**
+     * Play tone on the speaker.
+     * @param {number} frequency - wave frequency to play [Hz]
+     * @param {number} volume laudness of tone [%]
+     * @param {object} util - utility object provided by the runtime.
+     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     */
+    playTone (frequency, volume, util) {
+        if (!this.isConnected()) {
+            return Promise.resolve();
+        }
+        const frequencyData = new DataView(new ArrayBuffer(2));
+        frequencyData.setUint16(0, frequency, true);
+        volume = Math.round(volume * 0xff / 100);
+        return this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_AUDIO << 5) | MbitMoreAudioCommand.PLAY_TONE,
+                message: new Uint8Array([
+                    frequencyData.getUint8(0),
+                    frequencyData.getUint8(1),
+                    volume
+                ])
+            }],
+            util
+        );
+    }
+
+    /**
+     * Stop playing tone on the speaker.
+     * @param {object} util - utility object provided by the runtime.
+     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     */
+    stopTone (util) {
+        if (!this.isConnected()) {
+            return Promise.resolve();
+        }
+        return this.sendCommandSet(
+            [{
+                id: (BLECommand.CMD_AUDIO << 5) | MbitMoreAudioCommand.STOP_TONE,
+                message: new Uint8Array([])
+            }],
+            util
+        );
     }
 
     /**
@@ -823,7 +884,7 @@ class MbitMore {
         if (this._ble) {
             this._ble.disconnect();
         }
-        this._ble = new BLE(this._runtime, this._extensionId, {
+        this._ble = new BLE(this.runtime, this._extensionId, {
             filters: [
                 {namePrefix: 'BBC micro:bit'},
                 {services: [MM_SERVICE.ID]}
@@ -2193,6 +2254,34 @@ class MbitMoreBlocks {
                     }
                 },
                 {
+                    opcode: 'playTone',
+                    text: formatMessage({
+                        id: 'mbitMore.playTone',
+                        default: 'play tone [FREQ] Hz volume [VOL] %',
+                        description: 'play tone on the speaker'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        FREQ: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 440
+                        },
+                        VOL: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 100
+                        }
+                    }
+                },
+                {
+                    opcode: 'stopTone',
+                    text: formatMessage({
+                        id: 'mbitMore.stopTone',
+                        default: 'stop tone',
+                        description: 'stop tone on the speaker'
+                    }),
+                    blockType: BlockType.COMMAND
+                },
+                {
                     opcode: 'setServo',
                     text: formatMessage({
                         id: 'mbitMore.setServo',
@@ -2808,6 +2897,32 @@ class MbitMoreBlocks {
         return this._peripheral.readRoll(util);
     }
 
+
+    /**
+     * Play tone on the speaker.
+     * @param {object} args - the block's arguments.
+     * @param {string} args.FREQ - wave frequency to play
+     * @param {string} args.VOL laudness of tone
+     * @param {object} util - utility object provided by the runtime.
+     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     */
+    playTone (args, util) {
+        const frequency = parseInt(args.FREQ, 10);
+        let volume = parseInt(args.VOL, 10);
+        volume = Math.min(100, (Math.max(0, volume)));
+        return this._peripheral.playTone(frequency, volume, util);
+    }
+
+    /**
+     * Stop playing tone on the speaker.
+     * @param {object} args - the block's arguments.
+     * @param {object} util - utility object provided by the runtime.
+     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     */
+    stopTone (args, util) {
+        return this._peripheral.stopTone(util);
+    }
+
     /**
      * Set listening event type at the pin.
      * @param {object} args - the block's arguments.
@@ -3019,6 +3134,8 @@ const extensionTranslations = {
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] 入力にする',
         'mbitMore.setDigitalOut': 'ピン [PIN] をデジタル出力 [LEVEL] にする',
         'mbitMore.setAnalogOut': 'ピン [PIN] をアナログ出力 [LEVEL] %にする',
+        'mbitMore.playTone': '[FREQ] Hzの音を [VOL] %の大きさで鳴らす',
+        'mbitMore.stopTone': '音を止める',
         'mbitMore.setServo': 'ピン [PIN] をサーボ [ANGLE] 度にする',
         'mbitMore.digitalValueMenu.Low': 'ロー',
         'mbitMore.digitalValueMenu.High': 'ハイ',
@@ -3099,6 +3216,8 @@ const extensionTranslations = {
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] にゅうりょくにする',
         'mbitMore.setDigitalOut': 'ピン [PIN] をデジタルしゅつりょく [LEVEL] にする',
         'mbitMore.setAnalogOut': 'ピン [PIN] をアナログしゅつりょく [LEVEL] パーセントにする',
+        'mbitMore.playTone': '[FREQ] ヘルツのおとを [VOL] パーセントの大きさで鳴らす',
+        'mbitMore.stopTone': 'おとをとめる',
         'mbitMore.setServo': 'ピン [PIN] をサーボ [ANGLE] どにする',
         'mbitMore.digitalValueMenu.Low': 'ロー',
         'mbitMore.digitalValueMenu.High': 'ハイ',
