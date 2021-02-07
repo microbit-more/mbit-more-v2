@@ -715,8 +715,8 @@ class MbitMore {
         if (!this.isConnected()) {
             return Promise.resolve();
         }
-        const frequencyData = new DataView(new ArrayBuffer(2));
-        frequencyData.setUint16(0, frequency, true);
+        const frequencyData = new DataView(new ArrayBuffer(4));
+        frequencyData.setUint32(0, Math.round(1000000 / frequency), true);
         volume = Math.round(volume * 0xff / 100);
         return this.sendCommandSet(
             [{
@@ -724,6 +724,8 @@ class MbitMore {
                 message: new Uint8Array([
                     frequencyData.getUint8(0),
                     frequencyData.getUint8(1),
+                    frequencyData.getUint8(2),
+                    frequencyData.getUint8(3),
                     volume
                 ])
             }],
@@ -972,7 +974,11 @@ class MbitMore {
         if (!this.isConnected()) return Promise.resolve();
         if (this._busy) {
             this.bleAccessWaiting = true;
-            if (util) util.yield(); // re-try this call after a while.
+            if (util) {
+                util.yield(); // re-try this call after a while.
+            } else {
+                setTimeout(() => this.sendCommandSet(commands, util, afterProcess), 1);
+            }
             return; // Do not return Promise.resolve() to re-try.
         }
         this._busy = true;
@@ -2907,7 +2913,7 @@ class MbitMoreBlocks {
      * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
      */
     playTone (args, util) {
-        const frequency = parseInt(args.FREQ, 10);
+        const frequency = parseFloat(args.FREQ);
         let volume = parseInt(args.VOL, 10);
         volume = Math.min(100, (Math.max(0, volume)));
         return this._peripheral.playTone(frequency, volume, util);
