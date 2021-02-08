@@ -1100,9 +1100,8 @@ class MbitMore {
      * Cancel disconnect timeout and start counting again.
      */
     resetConnectionTimeout () {
-        // TODO: restore after debug
-        // if (this._timeoutID) window.clearTimeout(this._timeoutID);
-        // this._timeoutID = window.setTimeout(() => this._ble.handleDisconnectError(BLEDataStoppedError), BLETimeout);
+        if (this._timeoutID) window.clearTimeout(this._timeoutID);
+        this._timeoutID = window.setTimeout(() => this._ble.handleDisconnectError(BLEDataStoppedError), BLETimeout);
     }
 
     /**
