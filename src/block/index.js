@@ -390,7 +390,7 @@ class MbitMore {
 
         this.bleReadTimelimit = 40;
 
-        this.microbitUpdateInterval = 30; // milli-seconds
+        this.microbitUpdateInterval = 50; // milli-seconds
 
         this.initConfig();
     }
@@ -436,6 +436,7 @@ class MbitMore {
      * @param {string} text - the text to display.
      * @param {number} delay - The time to delay between characters, in milliseconds.
      * @param {object} util - utility object provided by the runtime.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     displayText (text, delay, util) {
         const textLength = Math.min(18, text.length);
@@ -443,7 +444,7 @@ class MbitMore {
         for (let i = 0; i < textLength; i++) {
             textData[i] = text.charCodeAt(i);
         }
-        this.sendCommandSet(
+        return this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_DISPLAY << 5) | MbitMoreDisplayCommand.TEXT,
                 message: new Uint8Array([
@@ -459,7 +460,7 @@ class MbitMore {
      * Send display pixcels command to micro:bit.
      * @param {Array.<Array.<number>>} matrix - pattern to display.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves when the process was done.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     displayPixels (matrix, util) {
         const cmdSet = [
@@ -487,7 +488,7 @@ class MbitMore {
      * @param {number} pinIndex - index of the pin
      * @param {MbitMorePullMode} pullMode - pull mode to set
      * @param {BlockUtility} util - utility object provided from the runtime
-     * @return {Promise} - a Promise that resolves when the process was done
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     setPullMode (pinIndex, pullMode, util) {
         return this.sendCommandSet(
@@ -507,7 +508,7 @@ class MbitMore {
      * @param {number} pinIndex - Index of pin.
      * @param {boolean} level - Value in digital (true = High)
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves when the process was done.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     setPinOutput (pinIndex, level, util) {
         return this.sendCommandSet(
@@ -524,10 +525,17 @@ class MbitMore {
         );
     }
 
+    /**
+     *
+     * @param {number} pinIndex - index of the pin
+     * @param {number} level - value of analog output [0..1024].
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
+     */
     setPinPWM (pinIndex, level, util) {
         const dataView = new DataView(new ArrayBuffer(2));
         dataView.setUint16(0, level, true);
-        this.sendCommandSet(
+        return this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_PWM,
                 message: new Uint8Array(
@@ -549,7 +557,7 @@ class MbitMore {
         dataView.setUint16(0, angle, true);
         dataView.setUint16(2, range, true);
         dataView.setUint16(4, center, true);
-        this.sendCommandSet(
+        return this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_SERVO,
                 message: new Uint8Array(
@@ -583,7 +591,7 @@ class MbitMore {
      * Update data of the analog input.
      * @param {number} pinIndex - index of the pin to get value.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} a Promise that resolves value of analog input of the pin or null when this process was yield.
+     * @return {?Promise} a Promise that resolves value of analog input or undefined if this process was yield.
      */
     readAnalogIn (pinIndex, util) {
         if (!this.isConnected()) {
@@ -681,7 +689,7 @@ class MbitMore {
      * Configurate microphone.
      * @param {boolean} use - true to use microphone.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves configured state of the microphone.
+     * @return {?Promise} - a Promise that resolves state of the microphone or undefined if the process was yield.
      */
     configMic (use, util) {
         use = (use === true);
@@ -691,17 +699,21 @@ class MbitMore {
         if (this.config.mic === use) {
             return Promise.resolve(this.config.mic);
         }
-        return this.sendCommandSet(
+        const sendPromise = this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_CONFIG << 5) | MbitMoreConfig.MIC,
                 message: new Uint8Array([(use ? 1 : 0)]) // use microphone
             }],
             util
-        )
-            .then(() => {
-                this.config.mic = use;
-                return this.config.mic;
-            });
+        );
+        if (sendPromise) {
+            return sendPromise
+                .then(() => {
+                    this.config.mic = use;
+                    return this.config.mic;
+                });
+        }
+        return;
     }
 
     /**
@@ -709,7 +721,7 @@ class MbitMore {
      * @param {number} frequency - wave frequency to play [Hz]
      * @param {number} volume laudness of tone [%]
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
      */
     playTone (frequency, volume, util) {
         if (!this.isConnected()) {
@@ -736,7 +748,7 @@ class MbitMore {
     /**
      * Stop playing tone on the speaker.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
      */
     stopTone (util) {
         if (!this.isConnected()) {
@@ -804,7 +816,7 @@ class MbitMore {
     }
 
     /**
-     * Read pitch [degrees] is 3D space.
+     * Read pitch [degrees] of the micro:bit heading direction.
      * @return {number} - degree of pitch.
      */
     readPitch () {
@@ -815,7 +827,7 @@ class MbitMore {
     }
 
     /**
-     * Read roll [degrees] is 3D space.
+     * Read roll [degrees] of the micro:bit heading direction.
      * @return {number} - degree of roll.
      */
     readRoll () {
@@ -859,9 +871,9 @@ class MbitMore {
 
 
     /**
-     * Read value of magnetic field [micro teslas] for the axis.
-     * @param {AxisSymbol} axis - direction of magnetic field.
-     * @return {number} - value of magnetic filed.
+     * Read value of magnetic force [micro teslas] for the axis.
+     * @param {AxisSymbol} axis - direction of magnetic force.
+     * @return {number} - value of magnetic force.
      */
     readMagneticForce (axis) {
         if (!this.isConnected()) {
@@ -967,17 +979,16 @@ class MbitMore {
      * Send multiple commands sequentially.
      * @param {Array.<{id: number, message: Uint8Array}>} commands array of command.
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @param {Function} afterProcess - process to evaluate with result of sending commands.
      * @return {Promise} a Promise that resolves when the all commands was sent.
      */
-    sendCommandSet (commands, util, afterProcess) {
+    sendCommandSet (commands, util) {
         if (!this.isConnected()) return Promise.resolve();
         if (this._busy) {
             this.bleAccessWaiting = true;
             if (util) {
                 util.yield(); // re-try this call after a while.
             } else {
-                setTimeout(() => this.sendCommandSet(commands, util, afterProcess), 1);
+                setTimeout(() => this.sendCommandSet(commands, util), 1);
             }
             return; // Do not return Promise.resolve() to re-try.
         }
@@ -987,7 +998,7 @@ class MbitMore {
             this._busy = false;
             this.bleAccessWaiting = false;
         }, 1000);
-        const sendCommandsPromise = new Promise(resolve => {
+        return new Promise(resolve => {
             commands.reduce(
                 (acc, cur, i) => {
                     const sendPromise = acc.then(() => this.sendCommand(cur));
@@ -1005,10 +1016,6 @@ class MbitMore {
                 Promise.resolve()
             );
         });
-        if (afterProcess) {
-            return sendCommandsPromise.then(afterProcess);
-        }
-        return sendCommandsPromise;
     }
 
     /**
@@ -1125,7 +1132,7 @@ class MbitMore {
      * @param {number} buttonID - ID of the pin as a button.
      * @param {boolean} isTouch - true if the pin is touch mode.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves configured state.
+     * @return {Promise} - a Promise that resolves configured state or undefined if the process was yield.
      */
     configTouchPin (buttonID, isTouch, util) {
         if (!this.isConnected()) {
@@ -1134,7 +1141,7 @@ class MbitMore {
         if (this.config.touchPin[buttonID] === isTouch) {
             return Promise.resolve(this.config.touchPin[buttonID]);
         }
-        return this.sendCommandSet(
+        const sendPromise = this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_CONFIG << 5) | MbitMoreConfig.TOUCH,
                 message: new Uint8Array([
@@ -1142,12 +1149,16 @@ class MbitMore {
                     (isTouch ? 1 : 0)
                 ])
             }],
-            util,
-            () => {
-                this.config.touchPin[buttonID] = isTouch;
-                return this.config.touchPin[buttonID];
-            }
+            util
         );
+        if (sendPromise) {
+            sendPromise
+                .then(() => {
+                    this.config.touchPin[buttonID] = isTouch;
+                    return this.config.touchPin[buttonID];
+                });
+        }
+        return;
     }
 
     /**
@@ -1172,7 +1183,7 @@ class MbitMore {
     }
 
     /**
-     * Return the last timestamp of the button event or null when the event is not received.
+     * Return the last timestamp of the button event or undefined if the event is not received.
      * @param {MbitMoreButtonID} buttonID - ID of the button to get the event.
      * @param {MMButtonEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
@@ -1185,7 +1196,7 @@ class MbitMore {
     }
 
     /**
-     * Return the last timestamp of the gesture event or null when the event is not received.
+     * Return the last timestamp of the gesture event or undefined if the event is not received.
      * @param {MbitMoreGestureEvent} gestureID - ID of the event.
      * @return {?number} Timestamp of the last event or null.
      */
@@ -1197,7 +1208,7 @@ class MbitMore {
     }
 
     /**
-     * Return the last value of the pin event or null when the event was not received.
+     * Return the last value of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MMPinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
@@ -1210,7 +1221,7 @@ class MbitMore {
     }
 
     /**
-     * Return the last timestamp of the pin event or null when the event was not received.
+     * Return the last timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MMPinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
@@ -1226,10 +1237,11 @@ class MbitMore {
      * Set event type to be get from the pin.
      * @param {number} pinIndex - Index of the pin to set.
      * @param {MMPinEventType} eventType - Event type to set.
-     * @param {object} util - utility object provided by the runtime.
-    */
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
+     */
     listenPinEventType (pinIndex, eventType, util) {
-        this.sendCommandSet(
+        return this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_EVENT,
                 message: new Uint8Array([
@@ -1246,7 +1258,7 @@ class MbitMore {
      * @param {string} label - label of the message [ascii]
      * @param {string} content - content of the message [ascii | number]
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves when the process was done.
+     * @return {?Promise} a Promise that resolves when sending done or undefined if this process was yield.
      */
     sendMessage (label, content, util) {
         const labelData = new Array(8)
@@ -1282,7 +1294,7 @@ class MbitMore {
     }
 
     /**
-     * Return the last content of the message or null when the message which has the label was not received.
+     * Return the last content of the message or undefined if the message which has the label was not received.
      * @param {string} messageLabel - label of the message.
      * @param {MMPinEvent} event - event to get.
      * @return {?(number | string)} content of the message or null.
@@ -1295,7 +1307,7 @@ class MbitMore {
     }
 
     /**
-     * Return the last timestamp of the message or null when the message is not received.
+     * Return the last timestamp of the message or undefined if the message is not received.
      * @param {string} messageLabel - label of the message.
      * @return {?number} Timestamp of the last message or null.
      */
@@ -2756,7 +2768,7 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} a Promise that resolves analog input value of the pin or null if this process was yield.
+     * @return {?Promise} a Promise that resolves analog input value of the pin or undefined if this process was yield.
      */
     getAnalogValue (args, util) {
         const pinIndex = parseInt(args.PIN, 10);
@@ -2824,17 +2836,18 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {number} args.LEVEL - value[%] for PWM.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {undefined}
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     setAnalogOut (args, util) {
         let percent = parseInt(args.LEVEL, 10);
-        if (isNaN(percent)) return;
+        if (isNaN(percent)) {
+            return;
+        }
         percent = Math.max(0, Math.min(percent, 100));
         const level = Math.round(percent * 1024 / 100);
-        this._peripheral.setPinPWM(
+        return this._peripheral.setPinPWM(
             parseInt(args.PIN, 10),
-            // parseInt(args.LEVEL, 10), // for debug
             level,
             util
         );
@@ -2844,8 +2857,8 @@ class MbitMoreBlocks {
      * Set the pin to Servo mode and angle.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {undefined}
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     setServo (args, util) {
         let angle = parseInt(args.ANGLE, 10);
@@ -2858,49 +2871,43 @@ class MbitMoreBlocks {
         // let center = parseInt(args.CENTER, 10);
         // if (isNaN(center)) range = 0;
         // center = Math.max(0, center);
-        this._peripheral.setPinServo(parseInt(args.PIN, 10), angle, null, null, util);
+        return this._peripheral.setPinServo(parseInt(args.PIN, 10), angle, null, null, util);
     }
 
     /**
      * Return the value of magnetic force [micro tesla] on axis.
      * @param {object} args - the block's arguments.
      * @property {AxisSymbol} AXIS - the axis (X, Y, Z, Absolute).
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} -  a Promise that resolves value of magnetic force.
+     * @return {number} - value of magnetic force.
      */
-    getMagneticForce (args, util) {
-        return this._peripheral.readMagneticForce(args.AXIS, util);
+    getMagneticForce (args) {
+        return this._peripheral.readMagneticForce(args.AXIS);
     }
 
     /**
      * Return the value of acceleration on the specified axis.
      * @param {object} args - the block's arguments.
      * @param {AxisSymbol} args.AXIS - direction to get.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves acceleration on the axis [milli-g].
+     * @return {number} - value of acceleration.
      */
-    getAcceleration (args, util) {
-        return this._peripheral.readAcceleration(args.AXIS, util);
+    getAcceleration (args) {
+        return this._peripheral.readAcceleration(args.AXIS);
     }
 
     /**
      * Return pitch [degrees] of the micro:bit heading direction.
-     * @param {object} args - the block's arguments.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves pitch.
+     * @return {number} - degree of pitch.
      */
-    getPitch (args, util) {
-        return this._peripheral.readPitch(util);
+    getPitch () {
+        return this._peripheral.readPitch();
     }
 
     /**
-     * Return roll [degrees] of the micro:bit heading direction.
-     * @param {object} args - the block's arguments.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves roll.
+     * Read roll [degrees] of the micro:bit heading direction.
+     * @return {number} - degree of roll.
      */
-    getRoll (args, util) {
-        return this._peripheral.readRoll(util);
+    getRoll () {
+        return this._peripheral.readRoll();
     }
 
 
@@ -2910,7 +2917,7 @@ class MbitMoreBlocks {
      * @param {string} args.FREQ - wave frequency to play
      * @param {string} args.VOL laudness of tone
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
      */
     playTone (args, util) {
         const frequency = parseFloat(args.FREQ);
@@ -2923,7 +2930,7 @@ class MbitMoreBlocks {
      * Stop playing tone on the speaker.
      * @param {object} args - the block's arguments.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves to send command or null when this process was yield.
+     * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
      */
     stopTone (args, util) {
         return this._peripheral.stopTone(util);
@@ -2934,8 +2941,8 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {string} args.EVENT_TYPE - event to listen.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves the setting.
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
     */
     listenPinEventType (args, util) {
         return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MMPinEventType[args.EVENT_TYPE], util);
@@ -2971,7 +2978,7 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Return the previous timestamp of the pin event or null when the event was not received.
+     * Return the previous timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MMPinEvent} eventID - ID of the event to get.
      * @return {?number} Timestamp of the previous event or null.
@@ -3008,10 +3015,9 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Rerutn the last content of the messge or null when the message which has the label is not received.
+     * Rerutn the last content of the messge or undefined if the message which has the label is not received.
      * @param {object} args - the block's arguments.
      * @param {number} args.LABEL - label of the message.
-     * @param {object} util - utility object provided by the runtime.
      * @return {?(string | number)} - content of the message.
      */
     getMessageContent (args) {
@@ -3032,7 +3038,7 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Return the previous timestamp of the message or null when the message was not received.
+     * Return the previous timestamp of the message or undefined if the message was not received.
      * @param {string} messageLabel - label of the message.
      * @return {?number} Timestamp of the previous message or null.
      */
