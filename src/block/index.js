@@ -180,8 +180,8 @@ const MMPinEvent = {
  * Data type of message content.
  */
 const MbitMoreMessageType = {
-    MM_MSG_NUMBER: 0,
-    MM_MSG_TEXT: 1
+    MM_MSG_NUMBER: 1,
+    MM_MSG_TEXT: 2
 };
 
 /**
@@ -1261,6 +1261,7 @@ class MbitMore {
      */
     sendMessage (label, content, util) {
         const labelData = new Array(8)
+            .fill()
             .map((_value, index) => label.charCodeAt(index));
         const contentNumber = Number(content);
         let contentData;
@@ -2792,9 +2793,12 @@ class MbitMoreBlocks {
      * @property {string} args.LABEL - label of the message.
      * @property {string} args.CONTENT - content of the message.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves when the process was done.
+     * @return {?Promise} - a Promise that resolves when the process was done or undefined if labels was empty.
      */
     sendMessage (args, util) {
+        if (args.LABEL.length <= 0) {
+            return;
+        }
         return this._peripheral.sendMessage(args.LABEL, args.CONTENT, util);
     }
 
