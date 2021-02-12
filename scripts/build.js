@@ -16,6 +16,10 @@ const optionDefinitions = [
         type: String
     },
     {
+        name: 'url',
+        type: String
+    },
+    {
         name: 'block',
         type: String
     },
@@ -120,6 +124,24 @@ async function build() {
     console.log('\ncopy source to working dir');
     console.log(blockWorkingDir);
     console.log(entryWorkingDir);
+
+    // Replace URL in entry and block code.
+    if (options['url']) {
+        const url = options['url'];
+        // Replace URL in entry
+        const entryFile = path.resolve(entryWorkingDir, './index.jsx');
+        let entryCode = fs.readFileSync(entryFile, 'utf-8');
+        entryCode = entryCode.replace(/extensionURL:\s*[^,]+,/m, `extensionURL: '${url}',`);
+        fs.writeFileSync(entryFile, entryCode);
+        console.log(`Entry: extensionURL = ${url}`);
+
+        // Replace URL in entry
+        const blockFile = path.resolve(blockWorkingDir, './index.js');
+        let blockCode = fs.readFileSync(blockFile, 'utf-8');
+        blockCode = blockCode.replace(/let\s+extensionURL\s+=\s+[^;]+;/m, `let extensionURL = '${url}';`);
+        fs.writeFileSync(blockFile, blockCode);
+        console.log(`Block: extensionURL = ${url}`);
+    }
 
     // Build module.
     console.log('\nstart to build module ...');
