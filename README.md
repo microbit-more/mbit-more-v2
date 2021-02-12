@@ -1,20 +1,20 @@
 <h1 align="center">scratch-microbit-more</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.5.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://yokobond.github.io/mbit-more" target="_blank">
+  <a href="https://yokobond.github.io/mbit-more-v2" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
-  <a href="https://github.com/yokobond/mbit-more/graphs/commit-activity" target="_blank">
+  <a href="https://github.com/yokobond/mbit-more-v2/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/yokobond/mbit-more/blob/trunk/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/yokobond/mbit-more" />
+  <a href="https://github.com/yokobond/mbit-more-v2/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/yokobond/mbit-more-v2" />
   </a>
 </p>
 
 > Full-functional extension of micro:bit for Scratch3
 
-### ✨ Open [Microbit More Web-App](https://yokobond.github.io/mbit-more)
+### ✨ Open [Microbit More Web-App](https://yokobond.github.io/mbit-more-v2)
 
 ### 🏠 [Homepage](https://lab.yengawa.com/project/scratch-microbit-more/)
 
@@ -24,7 +24,7 @@ Download the Scratch3 repositories according to the supporsed directory configur
 
 ```
 .
-|-- mbit-more
+|-- mbit-more-v2
 |-- scratch-vm
 |-- scratch-gui
 ```
@@ -32,7 +32,7 @@ Download the Scratch3 repositories according to the supporsed directory configur
 Install node modules and setup to use local repo for development.
 
 ```sh
-cd ./mbit-more
+cd ./mbit-more-v2
 npm install
 npm run setup:local
 npm run install:local
@@ -43,7 +43,7 @@ npm run install:local
 To install this extention into your selfbuild Scratch3, execute `scripts/install.js` with options as follows.
 
 ```sh
-node ./scripts/install.js --gui="../scratch-gui" --vm="../scratch-gui/node_modules/scratch-vm" --url="https://yokobond.github.io/mbit-more/dist/microbitMore.mjs"
+node ./scripts/install.js --gui="../scratch-gui" --vm="../scratch-gui/node_modules/scratch-vm" --url="https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs"
 ```
 
 - --gui : location of scratch-gui from current dir.
@@ -92,7 +92,7 @@ node ./scripts/build.js --name=microbitMore --block="./src/block" --entry="./src
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yokobond/mbit-more/issues). You can also take a look at the [contributing guide](https://github.com/yokobond/mbit-more/blob/master/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yokobond/mbit-more-v2/issues). You can also take a look at the [contributing guide](https://github.com/yokobond/mbit-more-v2/blob/master/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -102,7 +102,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2020 [Koji Yokokawa](https://github.com/yokobond).<br />
-This project is [MIT](https://github.com/yokobond/mbit-more/blob/trunk/LICENSE) licensed.
+This project is [MIT](https://github.com/yokobond/mbit-more-v2/blob/master/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

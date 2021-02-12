@@ -8275,9 +8275,9 @@ var translationMap = {
   }
 };
 var entry = {
-  name: 'micro:bit MORE v0.5.0',
+  name: 'micro:bit MORE v2 (0.1.0)',
   extensionId: 'microbitMore',
-  extensionURL: 'https://yokobond.github.io/mbit-more/dist/microbitMore.mjs',
+  extensionURL: 'https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs',
   collaborator: 'Yengawa Lab',
   iconURL: img,
   insetIconURL: img$1,
@@ -9634,330 +9634,6 @@ var JSONRPC = /*#__PURE__*/function () {
 }();
 
 var jsonrpc = JSONRPC;
-
-var BLE = /*#__PURE__*/function (_JSONRPC) {
-  _inherits(BLE, _JSONRPC);
-
-  var _super = _createSuper(BLE);
-
-  /**
-   * A BLE peripheral socket object.  It handles connecting, over web sockets, to
-   * BLE peripherals, and reading and writing data to them.
-   * @param {Runtime} runtime - the Runtime for sending/receiving GUI update events.
-   * @param {string} extensionId - the id of the extension using this socket.
-   * @param {object} peripheralOptions - the list of options for peripheral discovery.
-   * @param {object} connectCallback - a callback for connection.
-   * @param {object} resetCallback - a callback for resetting extension state.
-   */
-  function BLE(runtime, extensionId, peripheralOptions, connectCallback) {
-    var _this;
-
-    var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-
-    _classCallCheck(this, BLE);
-
-    _this = _super.call(this);
-    _this._socket = runtime.getScratchLinkSocket('BLE');
-
-    _this._socket.setOnOpen(_this.requestPeripheral.bind(_assertThisInitialized(_this)));
-
-    _this._socket.setOnClose(_this.handleDisconnectError.bind(_assertThisInitialized(_this)));
-
-    _this._socket.setOnError(_this._handleRequestError.bind(_assertThisInitialized(_this)));
-
-    _this._socket.setHandleMessage(_this._handleMessage.bind(_assertThisInitialized(_this)));
-
-    _this._sendMessage = _this._socket.sendMessage.bind(_this._socket);
-    _this._availablePeripherals = {};
-    _this._connectCallback = connectCallback;
-    _this._connected = false;
-    _this._characteristicDidChangeCallback = null;
-    _this._resetCallback = resetCallback;
-    _this._discoverTimeoutID = null;
-    _this._extensionId = extensionId;
-    _this._peripheralOptions = peripheralOptions;
-    _this._runtime = runtime;
-
-    _this._socket.open();
-
-    return _this;
-  }
-  /**
-   * Request connection to the peripheral.
-   * If the web socket is not yet open, request when the socket promise resolves.
-   */
-
-
-  _createClass(BLE, [{
-    key: "requestPeripheral",
-    value: function requestPeripheral() {
-      var _this2 = this;
-
-      this._availablePeripherals = {};
-
-      if (this._discoverTimeoutID) {
-        window.clearTimeout(this._discoverTimeoutID);
-      }
-
-      this._discoverTimeoutID = window.setTimeout(this._handleDiscoverTimeout.bind(this), 15000);
-      this.sendRemoteRequest('discover', this._peripheralOptions).catch(function (e) {
-        _this2._handleRequestError(e);
-      });
-    }
-    /**
-     * Try connecting to the input peripheral id, and then call the connect
-     * callback if connection is successful.
-     * @param {number} id - the id of the peripheral to connect to
-     */
-
-  }, {
-    key: "connectPeripheral",
-    value: function connectPeripheral(id) {
-      var _this3 = this;
-
-      this.sendRemoteRequest('connect', {
-        peripheralId: id
-      }).then(function () {
-        _this3._connected = true;
-
-        _this3._runtime.emit(_this3._runtime.constructor.PERIPHERAL_CONNECTED);
-
-        _this3._connectCallback();
-      }).catch(function (e) {
-        _this3._handleRequestError(e);
-      });
-    }
-    /**
-     * Close the websocket.
-     */
-
-  }, {
-    key: "disconnect",
-    value: function disconnect() {
-      if (this._connected) {
-        this._connected = false;
-      }
-
-      if (this._socket.isOpen()) {
-        this._socket.close();
-      }
-
-      if (this._discoverTimeoutID) {
-        window.clearTimeout(this._discoverTimeoutID);
-      } // Sets connection status icon to orange
-
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
-    }
-    /**
-     * @return {bool} whether the peripheral is connected.
-     */
-
-  }, {
-    key: "isConnected",
-    value: function isConnected() {
-      return this._connected;
-    }
-    /**
-     * Start receiving notifications from the specified ble service.
-     * @param {number} serviceId - the ble service to read.
-     * @param {number} characteristicId - the ble characteristic to get notifications from.
-     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
-     * @return {Promise} - a promise from the remote startNotifications request.
-     */
-
-  }, {
-    key: "startNotifications",
-    value: function startNotifications(serviceId, characteristicId) {
-      var _this4 = this;
-
-      var onCharacteristicChanged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-      var params = {
-        serviceId: serviceId,
-        characteristicId: characteristicId
-      };
-      this._characteristicDidChangeCallback = onCharacteristicChanged;
-      return this.sendRemoteRequest('startNotifications', params).catch(function (e) {
-        _this4.handleDisconnectError(e);
-      });
-    }
-    /**
-     * Read from the specified ble service.
-     * @param {number} serviceId - the ble service to read.
-     * @param {number} characteristicId - the ble characteristic to read.
-     * @param {boolean} optStartNotifications - whether to start receiving characteristic change notifications.
-     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
-     * @return {Promise} - a promise from the remote read request.
-     */
-
-  }, {
-    key: "read",
-    value: function read(serviceId, characteristicId) {
-      var _this5 = this;
-
-      var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-      var params = {
-        serviceId: serviceId,
-        characteristicId: characteristicId
-      };
-
-      if (optStartNotifications) {
-        params.startNotifications = true;
-      }
-
-      if (onCharacteristicChanged) {
-        this._characteristicDidChangeCallback = onCharacteristicChanged;
-      }
-
-      return this.sendRemoteRequest('read', params).catch(function (e) {
-        _this5.handleDisconnectError(e);
-      });
-    }
-    /**
-     * Write data to the specified ble service.
-     * @param {number} serviceId - the ble service to write.
-     * @param {number} characteristicId - the ble characteristic to write.
-     * @param {string} message - the message to send.
-     * @param {string} encoding - the message encoding type.
-     * @param {boolean} withResponse - if true, resolve after peripheral's response.
-     * @return {Promise} - a promise from the remote send request.
-     */
-
-  }, {
-    key: "write",
-    value: function write(serviceId, characteristicId, message) {
-      var _this6 = this;
-
-      var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-      var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-      var params = {
-        serviceId: serviceId,
-        characteristicId: characteristicId,
-        message: message
-      };
-
-      if (encoding) {
-        params.encoding = encoding;
-      }
-
-      if (withResponse !== null) {
-        params.withResponse = withResponse;
-      }
-
-      return this.sendRemoteRequest('write', params).catch(function (e) {
-        _this6.handleDisconnectError(e);
-      });
-    }
-    /**
-     * Handle a received call from the socket.
-     * @param {string} method - a received method label.
-     * @param {object} params - a received list of parameters.
-     * @return {object} - optional return value.
-     */
-
-  }, {
-    key: "didReceiveCall",
-    value: function didReceiveCall(method, params) {
-      switch (method) {
-        case 'didDiscoverPeripheral':
-          this._availablePeripherals[params.peripheralId] = params;
-
-          this._runtime.emit(this._runtime.constructor.PERIPHERAL_LIST_UPDATE, this._availablePeripherals);
-
-          if (this._discoverTimeoutID) {
-            window.clearTimeout(this._discoverTimeoutID);
-          }
-
-          break;
-
-        case 'userDidPickPeripheral':
-          this._availablePeripherals[params.peripheralId] = params;
-
-          this._runtime.emit(this._runtime.constructor.USER_PICKED_PERIPHERAL, this._availablePeripherals);
-
-          if (this._discoverTimeoutID) {
-            window.clearTimeout(this._discoverTimeoutID);
-          }
-
-          break;
-
-        case 'userDidNotPickPeripheral':
-          this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
-
-          if (this._discoverTimeoutID) {
-            window.clearTimeout(this._discoverTimeoutID);
-          }
-
-          break;
-
-        case 'characteristicDidChange':
-          if (this._characteristicDidChangeCallback) {
-            this._characteristicDidChangeCallback(params.message);
-          }
-
-          break;
-
-        case 'ping':
-          return 42;
-      }
-    }
-    /**
-     * Handle an error resulting from losing connection to a peripheral.
-     *
-     * This could be due to:
-     * - battery depletion
-     * - going out of bluetooth range
-     * - being powered down
-     *
-     * Disconnect the socket, and if the extension using this socket has a
-     * reset callback, call it. Finally, emit an error to the runtime.
-     */
-
-  }, {
-    key: "handleDisconnectError",
-    value: function handleDisconnectError()
-    /* e */
-    {
-      // log.error(`BLE error: ${JSON.stringify(e)}`);
-      if (!this._connected) return;
-      this.disconnect();
-
-      if (this._resetCallback) {
-        this._resetCallback();
-      }
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
-        message: "Scratch lost connection to",
-        extensionId: this._extensionId
-      });
-    }
-  }, {
-    key: "_handleRequestError",
-    value: function _handleRequestError()
-    /* e */
-    {
-      // log.error(`BLE error: ${JSON.stringify(e)}`);
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
-        message: "Scratch lost connection to",
-        extensionId: this._extensionId
-      });
-    }
-  }, {
-    key: "_handleDiscoverTimeout",
-    value: function _handleDiscoverTimeout() {
-      if (this._discoverTimeoutID) {
-        window.clearTimeout(this._discoverTimeoutID);
-      }
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
-    }
-  }]);
-
-  return BLE;
-}(jsonrpc);
-
-var ble = BLE;
 
 var lookup = [];
 var revLookup = [];
@@ -12104,6 +11780,592 @@ var Base64Util = /*#__PURE__*/function () {
 }();
 
 var base64Util = Base64Util;
+
+var WebBLE = /*#__PURE__*/function () {
+  /**
+   * A BLE peripheral object.  It handles connecting, over Web Bluetooth API, to
+   * BLE peripherals, and reading and writing data to them.
+   * @param {Runtime} runtime - the Runtime for sending/receiving GUI update events.
+   * @param {string} extensionId - the id of the extension using this object.
+   * @param {object} peripheralOptions - the list of options for peripheral discovery.
+   * @param {object} connectCallback - a callback for connection.
+   * @param {object} resetCallback - a callback for resetting extension state.
+   */
+  function WebBLE(runtime, extensionId, peripheralOptions, connectCallback) {
+    var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+
+    _classCallCheck(this, WebBLE);
+
+    /**
+     * Remote device which have been connected.
+     * @type {BluetoothDevice}
+     */
+    this._device = null;
+    /**
+     * Remote GATT server
+     * @type {BluetoothRemoteGATTServer}
+     */
+
+    this._server = null;
+    this._connectCallback = connectCallback;
+    this._disconnected = true;
+    this._characteristicDidChangeCallback = null;
+    this._resetCallback = resetCallback;
+    this._extensionId = extensionId;
+    this._peripheralOptions = peripheralOptions;
+    this._runtime = runtime;
+    this.requestPeripheral();
+  }
+  /**
+   * Request connection to the peripheral.
+   * Request user to choose a device, and then connect it automatically.
+   */
+
+
+  _createClass(WebBLE, [{
+    key: "requestPeripheral",
+    value: function requestPeripheral() {
+      var _this = this;
+
+      if (this._server) {
+        this.disconnect();
+      }
+
+      navigator.bluetooth.requestDevice(this._peripheralOptions).then(function (device) {
+        _this._device = device;
+        log.debug("device=".concat(_this._device.name));
+
+        _this._runtime.connectPeripheral(_this._extensionId, _this._device.id);
+      }).catch(function (e) {
+        _this._handleRequestError(e);
+      });
+    }
+    /**
+     * Try connecting to the GATT server of the device, and then call the connect
+     * callback when connection is successful.
+     */
+
+  }, {
+    key: "connectPeripheral",
+    value: function connectPeripheral()
+    /* id */
+    {
+      var _this2 = this;
+
+      if (!this._device) {
+        throw new Error('device is not chosen');
+      }
+
+      this._device.gatt.connect().then(function (gattServer) {
+        log.debug("GATTServer is connected");
+        _this2._server = gattServer;
+
+        _this2._runtime.emit(_this2._runtime.constructor.PERIPHERAL_CONNECTED);
+
+        _this2._disconnected = false;
+
+        _this2._connectCallback();
+
+        _this2._device.addEventListener('gattserverdisconnected', function (event) {
+          _this2.onDisconnected(event);
+        });
+      });
+    }
+    /**
+     * Disconnect from the device and clean up.
+     * Then emit the connection state by the runtime.
+     */
+
+  }, {
+    key: "disconnect",
+    value: function disconnect() {
+      if (!this._server) return;
+
+      this._server.disconnect();
+
+      this._disconnected = true;
+      this._server = null;
+      this._device = null;
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
+    }
+    /**
+     * @return {bool} whether the peripheral is connected.
+     */
+
+  }, {
+    key: "isConnected",
+    value: function isConnected() {
+      if (!this._server) return false;
+      return this._server.connected;
+    }
+    /**
+     * Start receiving notifications from the specified ble service.
+     * @param {number} serviceId - the ble service to read.
+     * @param {number} characteristicId - the ble characteristic to get notifications from.
+     * @param {object} onCharacteristicChanged - callback for characteristic change notifications
+     *  like function(base64message).
+     * @return {Promise} - a promise from the remote startNotifications request.
+     */
+
+  }, {
+    key: "startNotifications",
+    value: function startNotifications(serviceId, characteristicId) {
+      var onCharacteristicChanged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      return this._server.getPrimaryService(serviceId).then(function (service) {
+        return service.getCharacteristic(characteristicId);
+      }).then(function (characteristic) {
+        characteristic.addEventListener('characteristicvaluechanged', function (event) {
+          var dataView = event.target.value;
+          onCharacteristicChanged(base64Util.arrayBufferToBase64(dataView.buffer));
+        });
+        characteristic.startNotifications();
+      });
+    }
+    /**
+     * Read from the specified ble service.
+     * @param {number} serviceId - the ble service to read.
+     * @param {number} characteristicId - the ble characteristic to read.
+     * @param {boolean} optStartNotifications - whether to start receiving characteristic change notifications.
+     * @param {object} onCharacteristicChanged - callback for characteristic change notifications
+     *  like function(base64message).
+     * @return {Promise} - a promise from the remote read request which resolve {message: base64string}.
+     */
+
+  }, {
+    key: "read",
+    value: function read(serviceId, characteristicId) {
+      var _this3 = this;
+
+      var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      return this._server.getPrimaryService(serviceId).then(function (service) {
+        return service.getCharacteristic(characteristicId);
+      }).then(function (characteristic) {
+        if (optStartNotifications) {
+          _this3.startNotifications(serviceId, characteristicId, onCharacteristicChanged);
+        }
+
+        return characteristic.readValue();
+      }).then(function (dataView) {
+        return {
+          message: base64Util.arrayBufferToBase64(dataView.buffer)
+        };
+      });
+    }
+    /**
+     * Write data to the specified ble service.
+     * @param {number} serviceId - the ble service to write.
+     * @param {number} characteristicId - the ble characteristic to write.
+     * @param {string} message - the message to send.
+     * @param {string} encoding - the message encoding type.
+     * @param {boolean} withResponse - if true, resolve after peripheral's response.
+     * @return {Promise} - a promise from the remote send request.
+     */
+    // eslint-disable-next-line no-unused-vars
+
+  }, {
+    key: "write",
+    value: function write(serviceId, characteristicId, message) {
+      var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+      var value = encoding === 'base64' ? base64Util.base64ToUint8Array(message) : message;
+      return this._server.getPrimaryService(serviceId).then(function (service) {
+        return service.getCharacteristic(characteristicId);
+      }).then(function (characteristic) {
+        if (withResponse && characteristic.writeValueWithResponse) {
+          return characteristic.writeValueWithResponse(value);
+        }
+
+        if (characteristic.writeValueWithoutResponse) {
+          return characteristic.writeValueWithoutResponse(value);
+        }
+
+        return characteristic.writeValue(value);
+      });
+    }
+    /**
+     * Handle an error resulting from losing connection to a peripheral.
+     *
+     * This could be due to:
+     * - battery depletion
+     * - going out of bluetooth range
+     * - being powered down
+     *
+     * Disconnect the device, and if the extension using this object has a
+     * reset callback, call it. Finally, emit an error to the runtime.
+     */
+
+  }, {
+    key: "handleDisconnectError",
+    value: function handleDisconnectError()
+    /* e */
+    {
+      // log.error(`BLE error: ${JSON.stringify(e)}`);
+      if (this._disconnected) return;
+      this.disconnect();
+
+      if (this._resetCallback) {
+        this._resetCallback();
+      }
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
+        message: "Scratch lost connection to",
+        extensionId: this._extensionId
+      });
+    }
+  }, {
+    key: "_handleRequestError",
+    value: function _handleRequestError()
+    /* e */
+    {
+      // log.error(`BLE error: ${JSON.stringify(e)}`);
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
+        message: "Scratch lost connection to",
+        extensionId: this._extensionId
+      });
+    }
+    /**
+     * Called when disconnected by the device.
+     */
+
+  }, {
+    key: "onDisconnected",
+    value: function onDisconnected()
+    /* event */
+    {
+      this.handleDisconnectError(new Error('device disconnected'));
+    }
+  }]);
+
+  return WebBLE;
+}();
+
+var bleWeb = WebBLE;
+
+var BLE = /*#__PURE__*/function (_JSONRPC) {
+  _inherits(BLE, _JSONRPC);
+
+  var _super = _createSuper(BLE);
+
+  /**
+   * A BLE peripheral socket object.  It handles connecting, over web sockets, to
+   * BLE peripherals, and reading and writing data to them.
+   * @param {Runtime} runtime - the Runtime for sending/receiving GUI update events.
+   * @param {string} extensionId - the id of the extension using this socket.
+   * @param {object} peripheralOptions - the list of options for peripheral discovery.
+   * @param {object} connectCallback - a callback for connection.
+   * @param {object} resetCallback - a callback for resetting extension state.
+   */
+  function BLE(runtime, extensionId, peripheralOptions, connectCallback) {
+    var _this;
+
+    var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+
+    _classCallCheck(this, BLE);
+
+    _this = _super.call(this);
+    _this._socket = runtime.getScratchLinkSocket('BLE');
+
+    _this._socket.setOnOpen(_this.requestPeripheral.bind(_assertThisInitialized(_this)));
+
+    _this._socket.setOnClose(_this.handleDisconnectError.bind(_assertThisInitialized(_this)));
+
+    _this._socket.setOnError(_this._handleRequestError.bind(_assertThisInitialized(_this)));
+
+    _this._socket.setHandleMessage(_this._handleMessage.bind(_assertThisInitialized(_this)));
+
+    _this._sendMessage = _this._socket.sendMessage.bind(_this._socket);
+    _this._availablePeripherals = {};
+    _this._connectCallback = connectCallback;
+    _this._connected = false;
+    _this._characteristicDidChangeCallback = null;
+    _this._resetCallback = resetCallback;
+    _this._discoverTimeoutID = null;
+    _this._extensionId = extensionId;
+    _this._peripheralOptions = peripheralOptions;
+    _this._runtime = runtime;
+
+    _this._socket.open();
+
+    return _this;
+  }
+  /**
+   * Request connection to the peripheral.
+   * If the web socket is not yet open, request when the socket promise resolves.
+   */
+
+
+  _createClass(BLE, [{
+    key: "requestPeripheral",
+    value: function requestPeripheral() {
+      var _this2 = this;
+
+      this._availablePeripherals = {};
+
+      if (this._discoverTimeoutID) {
+        window.clearTimeout(this._discoverTimeoutID);
+      }
+
+      this._discoverTimeoutID = window.setTimeout(this._handleDiscoverTimeout.bind(this), 15000);
+      this.sendRemoteRequest('discover', this._peripheralOptions).catch(function (e) {
+        _this2._handleRequestError(e);
+      });
+    }
+    /**
+     * Try connecting to the input peripheral id, and then call the connect
+     * callback if connection is successful.
+     * @param {number} id - the id of the peripheral to connect to
+     */
+
+  }, {
+    key: "connectPeripheral",
+    value: function connectPeripheral(id) {
+      var _this3 = this;
+
+      this.sendRemoteRequest('connect', {
+        peripheralId: id
+      }).then(function () {
+        _this3._connected = true;
+
+        _this3._runtime.emit(_this3._runtime.constructor.PERIPHERAL_CONNECTED);
+
+        _this3._connectCallback();
+      }).catch(function (e) {
+        _this3._handleRequestError(e);
+      });
+    }
+    /**
+     * Close the websocket.
+     */
+
+  }, {
+    key: "disconnect",
+    value: function disconnect() {
+      if (this._connected) {
+        this._connected = false;
+      }
+
+      if (this._socket.isOpen()) {
+        this._socket.close();
+      }
+
+      if (this._discoverTimeoutID) {
+        window.clearTimeout(this._discoverTimeoutID);
+      } // Sets connection status icon to orange
+
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
+    }
+    /**
+     * @return {bool} whether the peripheral is connected.
+     */
+
+  }, {
+    key: "isConnected",
+    value: function isConnected() {
+      return this._connected;
+    }
+    /**
+     * Start receiving notifications from the specified ble service.
+     * @param {number} serviceId - the ble service to read.
+     * @param {number} characteristicId - the ble characteristic to get notifications from.
+     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
+     * @return {Promise} - a promise from the remote startNotifications request.
+     */
+
+  }, {
+    key: "startNotifications",
+    value: function startNotifications(serviceId, characteristicId) {
+      var _this4 = this;
+
+      var onCharacteristicChanged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      var params = {
+        serviceId: serviceId,
+        characteristicId: characteristicId
+      };
+      this._characteristicDidChangeCallback = onCharacteristicChanged;
+      return this.sendRemoteRequest('startNotifications', params).catch(function (e) {
+        _this4.handleDisconnectError(e);
+      });
+    }
+    /**
+     * Read from the specified ble service.
+     * @param {number} serviceId - the ble service to read.
+     * @param {number} characteristicId - the ble characteristic to read.
+     * @param {boolean} optStartNotifications - whether to start receiving characteristic change notifications.
+     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
+     * @return {Promise} - a promise from the remote read request.
+     */
+
+  }, {
+    key: "read",
+    value: function read(serviceId, characteristicId) {
+      var _this5 = this;
+
+      var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      var params = {
+        serviceId: serviceId,
+        characteristicId: characteristicId
+      };
+
+      if (optStartNotifications) {
+        params.startNotifications = true;
+      }
+
+      if (onCharacteristicChanged) {
+        this._characteristicDidChangeCallback = onCharacteristicChanged;
+      }
+
+      return this.sendRemoteRequest('read', params).catch(function (e) {
+        _this5.handleDisconnectError(e);
+      });
+    }
+    /**
+     * Write data to the specified ble service.
+     * @param {number} serviceId - the ble service to write.
+     * @param {number} characteristicId - the ble characteristic to write.
+     * @param {string} message - the message to send.
+     * @param {string} encoding - the message encoding type.
+     * @param {boolean} withResponse - if true, resolve after peripheral's response.
+     * @return {Promise} - a promise from the remote send request.
+     */
+
+  }, {
+    key: "write",
+    value: function write(serviceId, characteristicId, message) {
+      var _this6 = this;
+
+      var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+      var params = {
+        serviceId: serviceId,
+        characteristicId: characteristicId,
+        message: message
+      };
+
+      if (encoding) {
+        params.encoding = encoding;
+      }
+
+      if (withResponse !== null) {
+        params.withResponse = withResponse;
+      }
+
+      return this.sendRemoteRequest('write', params).catch(function (e) {
+        _this6.handleDisconnectError(e);
+      });
+    }
+    /**
+     * Handle a received call from the socket.
+     * @param {string} method - a received method label.
+     * @param {object} params - a received list of parameters.
+     * @return {object} - optional return value.
+     */
+
+  }, {
+    key: "didReceiveCall",
+    value: function didReceiveCall(method, params) {
+      switch (method) {
+        case 'didDiscoverPeripheral':
+          this._availablePeripherals[params.peripheralId] = params;
+
+          this._runtime.emit(this._runtime.constructor.PERIPHERAL_LIST_UPDATE, this._availablePeripherals);
+
+          if (this._discoverTimeoutID) {
+            window.clearTimeout(this._discoverTimeoutID);
+          }
+
+          break;
+
+        case 'userDidPickPeripheral':
+          this._availablePeripherals[params.peripheralId] = params;
+
+          this._runtime.emit(this._runtime.constructor.USER_PICKED_PERIPHERAL, this._availablePeripherals);
+
+          if (this._discoverTimeoutID) {
+            window.clearTimeout(this._discoverTimeoutID);
+          }
+
+          break;
+
+        case 'userDidNotPickPeripheral':
+          this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
+
+          if (this._discoverTimeoutID) {
+            window.clearTimeout(this._discoverTimeoutID);
+          }
+
+          break;
+
+        case 'characteristicDidChange':
+          if (this._characteristicDidChangeCallback) {
+            this._characteristicDidChangeCallback(params.message);
+          }
+
+          break;
+
+        case 'ping':
+          return 42;
+      }
+    }
+    /**
+     * Handle an error resulting from losing connection to a peripheral.
+     *
+     * This could be due to:
+     * - battery depletion
+     * - going out of bluetooth range
+     * - being powered down
+     *
+     * Disconnect the socket, and if the extension using this socket has a
+     * reset callback, call it. Finally, emit an error to the runtime.
+     */
+
+  }, {
+    key: "handleDisconnectError",
+    value: function handleDisconnectError()
+    /* e */
+    {
+      // log.error(`BLE error: ${JSON.stringify(e)}`);
+      if (!this._connected) return;
+      this.disconnect();
+
+      if (this._resetCallback) {
+        this._resetCallback();
+      }
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
+        message: "Scratch lost connection to",
+        extensionId: this._extensionId
+      });
+    }
+  }, {
+    key: "_handleRequestError",
+    value: function _handleRequestError()
+    /* e */
+    {
+      // log.error(`BLE error: ${JSON.stringify(e)}`);
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
+        message: "Scratch lost connection to",
+        extensionId: this._extensionId
+      });
+    }
+  }, {
+    key: "_handleDiscoverTimeout",
+    value: function _handleDiscoverTimeout() {
+      if (this._discoverTimeoutID) {
+        window.clearTimeout(this._discoverTimeoutID);
+      }
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
+    }
+  }]);
+
+  return BLE;
+}(jsonrpc);
+
+var ble = navigator.bluetooth ? bleWeb : BLE;
 
 var formatMessageParse = createCommonjsModule(function (module, exports) {
   /*::
@@ -14737,7 +14999,7 @@ var EXTENSION_ID = 'microbitMore';
  * @type {string}
  */
 
-var extensionURL = 'https://yokobond.github.io/mbit-more/dist/microbitMore.mjs';
+var extensionURL = 'https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs';
 /**
  * Icon png to be displayed at the left edge of each extension block, encoded as a data URI.
  * @type {string}

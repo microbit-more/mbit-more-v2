@@ -20,7 +20,7 @@ cp microbitMore/src/entry/microbitMore-illustration.svg src/lib/libraries/extens
 mv src/lib/libraries/extensions/index.jsx src/lib/libraries/extensions/index.jsx_orig
 MICROBIT_MORE="\
     {${LF}\
-        name: 'micro:bit MORE v0.5.0',${LF}\
+        name: 'micro:bit MORE v2 (0.1.0)',${LF}\
         extensionId: 'microbitMore',${LF}\
         collaborator: 'Yengawa Lab',${LF}\
         iconURL: microbitMoreIconURL,${LF}\
