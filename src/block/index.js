@@ -368,13 +368,13 @@ class MbitMore {
          * @type {boolean}
          * @private
          */
-        this._busy = false;
+        this.bleBusy = true;
 
         /**
          * ID for a timeout which is used to clear the busy flag if it has been
          * true for a long time.
          */
-        this._busyTimeoutID = null;
+        this.bleBusyTimeoutID = null;
 
         this.reset = this.reset.bind(this);
         this._onConnect = this._onConnect.bind(this);
@@ -600,14 +600,14 @@ class MbitMore {
         if ((Date.now() - this.analogInLastUpdated[pinIndex]) < this.analogInUpdateInterval) {
             return Promise.resolve(this.analogValue[pinIndex]);
         }
-        if (this._busy) {
+        if (this.bleBusy) {
             this.bleAccessWaiting = true;
             if (util) util.yield(); // re-try this call after a while.
             return; // Do not return Promise.resolve() to re-try.
         }
-        this._busy = true;
-        this._busyTimeoutID = window.setTimeout(() => {
-            this._busy = false;
+        this.bleBusy = true;
+        this.bleBusyTimeoutID = window.setTimeout(() => {
+            this.bleBusy = false;
             this.bleAccessWaiting = false;
         }, 1000);
         return new Promise(resolve => this._ble.read(
@@ -615,8 +615,8 @@ class MbitMore {
             MM_SERVICE.ANALOG_IN_CH[pinIndex],
             false)
             .then(result => {
-                window.clearTimeout(this._busyTimeoutID);
-                this._busy = false;
+                window.clearTimeout(this.bleBusyTimeoutID);
+                this.bleBusy = false;
                 this.bleAccessWaiting = false;
                 if (!result) {
                     return resolve(this.analogValue[pinIndex]);
@@ -636,12 +636,12 @@ class MbitMore {
      */
     updateState () {
         if (!this.isConnected()) return Promise.resolve(this);
-        if (this._busy) {
+        if (this.bleBusy) {
             return Promise.resolve(this);
         }
-        this._busy = true;
-        this._busyTimeoutID = window.setTimeout(() => {
-            this._busy = false;
+        this.bleBusy = true;
+        this.bleBusyTimeoutID = window.setTimeout(() => {
+            this.bleBusy = false;
         }, 1000);
         return new Promise(resolve => {
             this._ble.read(
@@ -649,8 +649,8 @@ class MbitMore {
                 MM_SERVICE.STATE_CH,
                 false)
                 .then(result => {
-                    window.clearTimeout(this._busyTimeoutID);
-                    this._busy = false;
+                    window.clearTimeout(this.bleBusyTimeoutID);
+                    this.bleBusy = false;
                     if (!result) return resolve(this);
                     const data = Base64Util.base64ToUint8Array(result.message);
                     const dataView = new DataView(data.buffer, 0);
@@ -780,12 +780,12 @@ class MbitMore {
      */
     updateMotion () {
         if (!this.isConnected()) return Promise.resolve(this);
-        if (this._busy) {
+        if (this.bleBusy) {
             return Promise.resolve(this);
         }
-        this._busy = true;
-        this._busyTimeoutID = window.setTimeout(() => {
-            this._busy = false;
+        this.bleBusy = true;
+        this.bleBusyTimeoutID = window.setTimeout(() => {
+            this.bleBusy = false;
         }, 1000);
         return new Promise(resolve => {
             this._ble.read(
@@ -793,8 +793,8 @@ class MbitMore {
                 MM_SERVICE.MOTION_CH,
                 false)
                 .then(result => {
-                    window.clearTimeout(this._busyTimeoutID);
-                    this._busy = false;
+                    window.clearTimeout(this.bleBusyTimeoutID);
+                    this.bleBusy = false;
                     if (!result) return resolve(this);
                     const data = Base64Util.base64ToUint8Array(result.message);
                     const dataView = new DataView(data.buffer, 0);
@@ -898,6 +898,7 @@ class MbitMore {
         if (this._ble) {
             this._ble.disconnect();
         }
+        this.bleBusy = true;
         this._ble = new BLE(this.runtime, this._extensionId, {
             filters: [
                 {namePrefix: 'BBC micro:bit'},
@@ -983,7 +984,7 @@ class MbitMore {
      */
     sendCommandSet (commands, util) {
         if (!this.isConnected()) return Promise.resolve();
-        if (this._busy) {
+        if (this.bleBusy) {
             this.bleAccessWaiting = true;
             if (util) {
                 util.yield(); // re-try this call after a while.
@@ -992,10 +993,10 @@ class MbitMore {
             }
             return; // Do not return Promise.resolve() to re-try.
         }
-        this._busy = true;
+        this.bleBusy = true;
         // Clear busy and BLE access waiting flag when the scratch-link does not respond.
-        this._busyTimeoutID = window.setTimeout(() => {
-            this._busy = false;
+        this.bleBusyTimeoutID = window.setTimeout(() => {
+            this.bleBusy = false;
             this.bleAccessWaiting = false;
         }, 1000);
         return new Promise(resolve => {
@@ -1005,9 +1006,9 @@ class MbitMore {
                     if (i === commands.length - 1) {
                         // the last command
                         sendPromise.then(() => {
-                            this._busy = false;
+                            this.bleBusy = false;
                             this.bleAccessWaiting = false;
-                            window.clearTimeout(this._busyTimeoutID);
+                            window.clearTimeout(this.bleBusyTimeoutID);
                             resolve();
                         });
                     }
@@ -1040,8 +1041,7 @@ class MbitMore {
                 log.info('no service: messaging');
             });
         this.initConfig();
-        this.bleAccessWaiting = false;
-        this._busy = false;
+        this.bleBusy = false;
         this.startUpdater();
         this.resetConnectionTimeout();
     }
