@@ -87,8 +87,9 @@ const MbitMorePullMode = {
  * @enum {number}
  */
 const MbitMoreDataFormat = {
-    PIN_EVENT: 0x10,
-    ACTION_EVENT: 0x11,
+    CONFIG: 0x10, // not used at this version
+    PIN_EVENT: 0x11,
+    ACTION_EVENT: 0x12,
     MESSAGE_NUMBER: 0x13,
     MESSAGE_TEXT: 0x14
 };
