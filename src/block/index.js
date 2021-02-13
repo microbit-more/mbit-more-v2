@@ -48,7 +48,7 @@ const BLECommand = {
  * @readonly
  * @enum {number}
  */
-const MMPinCommand =
+const MbitMorePinCommand =
 {
     SET_OUTPUT: 0x01,
     SET_PWM: 0x02,
@@ -86,7 +86,7 @@ const MbitMorePullMode = {
  * @readonly
  * @enum {number}
  */
-const MMDataFormat = {
+const MbitMoreDataFormat = {
     PIN_EVENT: 0x10,
     ACTION_EVENT: 0x11,
     MESSAGE_NUMBER: 0x13,
@@ -123,7 +123,7 @@ const MbitMoreButtonID = {
  * @readonly
  * @enum {number}
  */
-const MMButtonEvent = {
+const MbitMoreButtonEvent = {
     DOWN: 1,
     UP: 2,
     CLICK: 3,
@@ -157,7 +157,7 @@ const MbitMoreGestureEvent =
  * @readonly
  * @enum {number}
  */
-const MMPinEventType = {
+const MbitMorePinEventType = {
     NONE: 0,
     ON_EDGE: 1,
     ON_PULSE: 2,
@@ -169,7 +169,7 @@ const MMPinEventType = {
  * @readonly
  * @enum {number}
  */
-const MMPinEvent = {
+const MbitMorePinEvent = {
     RISE: 2,
     FALL: 3,
     PULSE_HIGH: 4,
@@ -493,7 +493,7 @@ class MbitMore {
     setPullMode (pinIndex, pullMode, util) {
         return this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_PULL,
+                id: (BLECommand.CMD_PIN << 5) | MbitMorePinCommand.SET_PULL,
                 message: new Uint8Array([
                     pinIndex,
                     pullMode
@@ -513,7 +513,7 @@ class MbitMore {
     setPinOutput (pinIndex, level, util) {
         return this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_OUTPUT,
+                id: (BLECommand.CMD_PIN << 5) | MbitMorePinCommand.SET_OUTPUT,
                 message: new Uint8Array(
                     [
                         pinIndex,
@@ -537,7 +537,7 @@ class MbitMore {
         dataView.setUint16(0, level, true);
         return this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_PWM,
+                id: (BLECommand.CMD_PIN << 5) | MbitMorePinCommand.SET_PWM,
                 message: new Uint8Array(
                     [
                         pinIndex,
@@ -559,7 +559,7 @@ class MbitMore {
         dataView.setUint16(4, center, true);
         return this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_SERVO,
+                id: (BLECommand.CMD_PIN << 5) | MbitMorePinCommand.SET_SERVO,
                 message: new Uint8Array(
                     [
                         pinIndex,
@@ -1055,7 +1055,7 @@ class MbitMore {
         const data = Base64Util.base64ToUint8Array(msg);
         const dataView = new DataView(data.buffer, 0);
         const dataFormat = dataView.getUint8(19);
-        if (dataFormat === MMDataFormat.ACTION_EVENT) {
+        if (dataFormat === MbitMoreDataFormat.ACTION_EVENT) {
             const actionEventType = dataView.getUint8(0);
             if (actionEventType === MbitMoreActionEvent.BUTTON) {
                 const buttonID = dataView.getUint8(1);
@@ -1067,7 +1067,7 @@ class MbitMore {
                 const event = dataView.getUint8(1);
                 this.gestureEvents[event] = dataView.getUint32(2, true); // Timestamp
             }
-        } else if (dataFormat === MMDataFormat.PIN_EVENT) {
+        } else if (dataFormat === MbitMoreDataFormat.PIN_EVENT) {
             const pinIndex = dataView.getUint8(0);
             if (!this._pinEvents[pinIndex]) {
                 this._pinEvents[pinIndex] = {};
@@ -1078,14 +1078,14 @@ class MbitMore {
                 value: dataView.getUint32(2, true), // timesamp of the edge or duration of the pulse
                 timestamp: Date.now() // received time
             };
-        } else if (dataFormat === MMDataFormat.MESSAGE_NUMBER) {
+        } else if (dataFormat === MbitMoreDataFormat.MESSAGE_NUMBER) {
             const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
             this.receivedMessages[label] =
             {
                 content: dataView.getFloat32(8, true),
                 timestamp: Date.now()
             };
-        } else if (dataFormat === MMDataFormat.MESSAGE_TEXT) {
+        } else if (dataFormat === MbitMoreDataFormat.MESSAGE_TEXT) {
             const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
             this.receivedMessages[label] =
             {
@@ -1184,7 +1184,7 @@ class MbitMore {
     /**
      * Return the last timestamp of the button event or undefined if the event is not received.
      * @param {MbitMoreButtonID} buttonID - ID of the button to get the event.
-     * @param {MMButtonEvent} event - event to get.
+     * @param {MbitMoreButtonEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
     getButtonEventTimestamp (buttonID, event) {
@@ -1209,7 +1209,7 @@ class MbitMore {
     /**
      * Return the last value of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
-     * @param {MMPinEvent} event - event to get.
+     * @param {MbitMorePinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
     getPinEventValue (pinIndex, event) {
@@ -1222,7 +1222,7 @@ class MbitMore {
     /**
      * Return the last timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
-     * @param {MMPinEvent} event - event to get.
+     * @param {MbitMorePinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
     getPinEventTimestamp (pinIndex, event) {
@@ -1235,14 +1235,14 @@ class MbitMore {
     /**
      * Set event type to be get from the pin.
      * @param {number} pinIndex - Index of the pin to set.
-     * @param {MMPinEventType} eventType - Event type to set.
+     * @param {MbitMorePinEventType} eventType - Event type to set.
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     listenPinEventType (pinIndex, eventType, util) {
         return this.sendCommandSet(
             [{
-                id: (BLECommand.CMD_PIN << 5) | MMPinCommand.SET_EVENT,
+                id: (BLECommand.CMD_PIN << 5) | MbitMorePinCommand.SET_EVENT,
                 message: new Uint8Array([
                     pinIndex,
                     eventType
@@ -1296,7 +1296,7 @@ class MbitMore {
     /**
      * Return the last content of the message or undefined if the message which has the label was not received.
      * @param {string} messageLabel - label of the message.
-     * @param {MMPinEvent} event - event to get.
+     * @param {MbitMorePinEvent} event - event to get.
      * @return {?(number | string)} content of the message or null.
      */
     getMessageContent (messageLabel) {
@@ -1495,7 +1495,7 @@ class MbitMoreBlocks {
                     default: 'down',
                     description: 'label for button down event'
                 }),
-                value: MMButtonEvent.DOWN
+                value: MbitMoreButtonEvent.DOWN
             },
             {
                 text: formatMessage({
@@ -1503,7 +1503,7 @@ class MbitMoreBlocks {
                     default: 'up',
                     description: 'label for button up event'
                 }),
-                value: MMButtonEvent.UP
+                value: MbitMoreButtonEvent.UP
             },
             {
                 text: formatMessage({
@@ -1511,7 +1511,7 @@ class MbitMoreBlocks {
                     default: 'click',
                     description: 'label for button click event'
                 }),
-                value: MMButtonEvent.CLICK
+                value: MbitMoreButtonEvent.CLICK
             // },
             // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
@@ -1520,7 +1520,7 @@ class MbitMoreBlocks {
             //         default: 'pressed',
             //         description: 'label for button hold event'
             //     }),
-            //     value: MMButtonEvent.HOLD
+            //     value: MbitMoreButtonEvent.HOLD
             // },
             // {
             //     text: formatMessage({
@@ -1528,7 +1528,7 @@ class MbitMoreBlocks {
             //         default: 'long click',
             //         description: 'label for button long click event'
             //     }),
-            //     value: MMButtonEvent.LONG_CLICK
+            //     value: MbitMoreButtonEvent.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
@@ -1536,7 +1536,7 @@ class MbitMoreBlocks {
             //         default: 'double click',
             //         description: 'label for button double click event'
             //     }),
-            //     value: MMButtonEvent.DOUBLE_CLICK
+            //     value: MbitMoreButtonEvent.DOUBLE_CLICK
             }
         ];
     }
@@ -1580,7 +1580,7 @@ class MbitMoreBlocks {
                     default: 'touched',
                     description: 'label for touched event'
                 }),
-                value: MMButtonEvent.DOWN
+                value: MbitMoreButtonEvent.DOWN
             },
             {
                 text: formatMessage({
@@ -1588,7 +1588,7 @@ class MbitMoreBlocks {
                     default: 'released',
                     description: 'label for released event'
                 }),
-                value: MMButtonEvent.UP
+                value: MbitMoreButtonEvent.UP
             },
             {
                 text: formatMessage({
@@ -1596,7 +1596,7 @@ class MbitMoreBlocks {
                     default: 'tapped',
                     description: 'label for tapped event'
                 }),
-                value: MMButtonEvent.CLICK
+                value: MbitMoreButtonEvent.CLICK
             // },
             // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
@@ -1605,7 +1605,7 @@ class MbitMoreBlocks {
             //         default: 'pressed',
             //         description: 'label for hold event in touch'
             //     }),
-            //     value: MMButtonEvent.HOLD
+            //     value: MbitMoreButtonEvent.HOLD
             // },
             // {
             //     text: formatMessage({
@@ -1613,7 +1613,7 @@ class MbitMoreBlocks {
             //         default: 'long click',
             //         description: 'label for long click event in touch'
             //     }),
-            //     value: MMButtonEvent.LONG_CLICK
+            //     value: MbitMoreButtonEvent.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
@@ -1621,7 +1621,7 @@ class MbitMoreBlocks {
             //         default: 'double click',
             //         description: 'label for double click event in touch'
             //     }),
-            //     value: MMButtonEvent.DOUBLE_CLICK
+            //     value: MbitMoreButtonEvent.DOUBLE_CLICK
             }
         ];
     }
@@ -1970,7 +1970,7 @@ class MbitMoreBlocks {
                         EVENT: {
                             type: ArgumentType.NUMBER,
                             menu: 'buttonEventMenu',
-                            defaultValue: MMButtonEvent.DOWN
+                            defaultValue: MbitMoreButtonEvent.DOWN
                         }
                     }
                 },
@@ -2007,7 +2007,7 @@ class MbitMoreBlocks {
                         EVENT: {
                             type: ArgumentType.NUMBER,
                             menu: 'touchEventMenu',
-                            defaultValue: MMButtonEvent.DOWN
+                            defaultValue: MbitMoreButtonEvent.DOWN
                         }
                     }
                 },
@@ -2948,7 +2948,7 @@ class MbitMoreBlocks {
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
     */
     listenPinEventType (args, util) {
-        return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MMPinEventType[args.EVENT_TYPE], util);
+        return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MbitMorePinEventType[args.EVENT_TYPE], util);
     }
 
     /**
@@ -2960,7 +2960,7 @@ class MbitMoreBlocks {
      * @return {number} - timestamp of the event or 0.
      */
     getPinEventValue (args) {
-        const value = this._peripheral.getPinEventValue(parseInt(args.PIN, 10), MMPinEvent[args.EVENT]);
+        const value = this._peripheral.getPinEventValue(parseInt(args.PIN, 10), MbitMorePinEvent[args.EVENT]);
         return value ? value : 0;
     }
 
@@ -2983,7 +2983,7 @@ class MbitMoreBlocks {
     /**
      * Return the previous timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
-     * @param {MMPinEvent} eventID - ID of the event to get.
+     * @param {MbitMorePinEvent} eventID - ID of the event to get.
      * @return {?number} Timestamp of the previous event or null.
      */
     getPrevPinEventTimestamp (pinIndex, eventID) {
@@ -3008,7 +3008,7 @@ class MbitMoreBlocks {
             }, this.runtime.currentStepTime);
         }
         const pinIndex = parseInt(args.PIN, 10);
-        const eventID = MMPinEvent[args.EVENT];
+        const eventID = MbitMorePinEvent[args.EVENT];
         const lastTimestamp =
             this._peripheral.getPinEventTimestamp(pinIndex, eventID);
         if (lastTimestamp === null) return false;
