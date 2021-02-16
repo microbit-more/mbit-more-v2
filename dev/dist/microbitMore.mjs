@@ -15120,11 +15120,9 @@ var MbitMore = /*#__PURE__*/function () {
       this.runtime.on('PROJECT_STOP_ALL', this.stopTone);
     }
 
-    this.analogInUpdateInterval = 80; // milli-seconds
+    this.analogInUpdateInterval = 100; // milli-seconds
 
     this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
-    this.microbitUpdateInterval = 50; // milli-seconds
-
     this.initConfig();
   }
   /**
@@ -15798,10 +15796,11 @@ var MbitMore = /*#__PURE__*/function () {
         _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.PIN_EVENT_CH, _this9.onNotify);
 
         if (_this9.hardware === MbitMoreHardwareVersion.MICROBIT_V1) {
-          _this9.microbitUpdateInterval = 100;
-          _this9.analogInUpdateInterval = 100;
+          _this9.microbitUpdateInterval = 100; // milli-seconds
         } else {
           _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.MESSAGE_CH, _this9.onNotify);
+
+          _this9.microbitUpdateInterval = 50; // milli-seconds
         }
 
         _this9.initConfig();
