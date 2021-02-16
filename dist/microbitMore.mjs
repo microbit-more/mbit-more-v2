@@ -8400,566 +8400,6 @@ var BlockType = {
 };
 var blockType = BlockType;
 
-function M$1() {
-  this._events = {};
-}
-
-M$1.prototype = {
-  on: function on(ev, cb) {
-    this._events || (this._events = {});
-    var e = this._events;
-    (e[ev] || (e[ev] = [])).push(cb);
-    return this;
-  },
-  removeListener: function removeListener(ev, cb) {
-    var e = this._events[ev] || [],
-        i;
-
-    for (i = e.length - 1; i >= 0 && e[i]; i--) {
-      if (e[i] === cb || e[i].cb === cb) {
-        e.splice(i, 1);
-      }
-    }
-  },
-  removeAllListeners: function removeAllListeners(ev) {
-    if (!ev) {
-      this._events = {};
-    } else {
-      this._events[ev] && (this._events[ev] = []);
-    }
-  },
-  listeners: function listeners(ev) {
-    return this._events ? this._events[ev] || [] : [];
-  },
-  emit: function emit(ev) {
-    this._events || (this._events = {});
-    var args = Array.prototype.slice.call(arguments, 1),
-        i,
-        e = this._events[ev] || [];
-
-    for (i = e.length - 1; i >= 0 && e[i]; i--) {
-      e[i].apply(this, args);
-    }
-
-    return this;
-  },
-  when: function when(ev, cb) {
-    return this.once(ev, cb, true);
-  },
-  once: function once(ev, cb, when) {
-    if (!cb) return this;
-
-    function c() {
-      if (!when) this.removeListener(ev, c);
-      if (cb.apply(this, arguments) && when) this.removeListener(ev, c);
-    }
-
-    c.cb = cb;
-    this.on(ev, c);
-    return this;
-  }
-};
-
-M$1.mixin = function (dest) {
-  var o = M$1.prototype,
-      k;
-
-  for (k in o) {
-    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
-  }
-};
-
-var microee = M$1;
-
-function Transform() {}
-
-microee.mixin(Transform); // The write() signature is different from Node's
-// --> makes it much easier to work with objects in logs.
-// One of the lessons from v1 was that it's better to target
-// a good browser rather than the lowest common denominator
-// internally.
-// If you want to use external streams, pipe() to ./stringify.js first.
-
-Transform.prototype.write = function (name, level, args) {
-  this.emit('item', name, level, args);
-};
-
-Transform.prototype.end = function () {
-  this.emit('end');
-  this.removeAllListeners();
-};
-
-Transform.prototype.pipe = function (dest) {
-  var s = this; // prevent double piping
-
-  s.emit('unpipe', dest); // tell the dest that it's being piped to
-
-  dest.emit('pipe', s);
-
-  function onItem() {
-    dest.write.apply(dest, Array.prototype.slice.call(arguments));
-  }
-
-  function onEnd() {
-    !dest._isStdio && dest.end();
-  }
-
-  s.on('item', onItem);
-  s.on('end', onEnd);
-  s.when('unpipe', function (from) {
-    var match = from === dest || typeof from == 'undefined';
-
-    if (match) {
-      s.removeListener('item', onItem);
-      s.removeListener('end', onEnd);
-      dest.emit('unpipe');
-    }
-
-    return match;
-  });
-  return dest;
-};
-
-Transform.prototype.unpipe = function (from) {
-  this.emit('unpipe', from);
-  return this;
-};
-
-Transform.prototype.format = function (dest) {
-  throw new Error(['Warning: .format() is deprecated in Minilog v2! Use .pipe() instead. For example:', 'var Minilog = require(\'minilog\');', 'Minilog', '  .pipe(Minilog.backends.console.formatClean)', '  .pipe(Minilog.backends.console);'].join('\n'));
-};
-
-Transform.mixin = function (dest) {
-  var o = Transform.prototype,
-      k;
-
-  for (k in o) {
-    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
-  }
-};
-
-var transform = Transform;
-
-var levelMap = {
-  debug: 1,
-  info: 2,
-  warn: 3,
-  error: 4
-};
-
-function Filter() {
-  this.enabled = true;
-  this.defaultResult = true;
-  this.clear();
-}
-
-transform.mixin(Filter); // allow all matching, with level >= given level
-
-Filter.prototype.allow = function (name, level) {
-  this._white.push({
-    n: name,
-    l: levelMap[level]
-  });
-
-  return this;
-}; // deny all matching, with level <= given level
-
-
-Filter.prototype.deny = function (name, level) {
-  this._black.push({
-    n: name,
-    l: levelMap[level]
-  });
-
-  return this;
-};
-
-Filter.prototype.clear = function () {
-  this._white = [];
-  this._black = [];
-  return this;
-};
-
-function test(rule, name) {
-  // use .test for RegExps
-  return rule.n.test ? rule.n.test(name) : rule.n == name;
-}
-
-Filter.prototype.test = function (name, level) {
-  var i,
-      len = Math.max(this._white.length, this._black.length);
-
-  for (i = 0; i < len; i++) {
-    if (this._white[i] && test(this._white[i], name) && levelMap[level] >= this._white[i].l) {
-      return true;
-    }
-
-    if (this._black[i] && test(this._black[i], name) && levelMap[level] <= this._black[i].l) {
-      return false;
-    }
-  }
-
-  return this.defaultResult;
-};
-
-Filter.prototype.write = function (name, level, args) {
-  if (!this.enabled || this.test(name, level)) {
-    return this.emit('item', name, level, args);
-  }
-};
-
-var filter = Filter;
-
-var minilog = createCommonjsModule(function (module, exports) {
-  var log = new transform(),
-      slice = Array.prototype.slice;
-
-  exports = module.exports = function create(name) {
-    var o = function o() {
-      log.write(name, undefined, slice.call(arguments));
-      return o;
-    };
-
-    o.debug = function () {
-      log.write(name, 'debug', slice.call(arguments));
-      return o;
-    };
-
-    o.info = function () {
-      log.write(name, 'info', slice.call(arguments));
-      return o;
-    };
-
-    o.warn = function () {
-      log.write(name, 'warn', slice.call(arguments));
-      return o;
-    };
-
-    o.error = function () {
-      log.write(name, 'error', slice.call(arguments));
-      return o;
-    };
-
-    o.log = o.debug; // for interface compliance with Node and browser consoles
-
-    o.suggest = exports.suggest;
-    o.format = log.format;
-    return o;
-  }; // filled in separately
-
-
-  exports.defaultBackend = exports.defaultFormatter = null;
-
-  exports.pipe = function (dest) {
-    return log.pipe(dest);
-  };
-
-  exports.end = exports.unpipe = exports.disable = function (from) {
-    return log.unpipe(from);
-  };
-
-  exports.Transform = transform;
-  exports.Filter = filter; // this is the default filter that's applied when .enable() is called normally
-  // you can bypass it completely and set up your own pipes
-
-  exports.suggest = new filter();
-
-  exports.enable = function () {
-    if (exports.defaultFormatter) {
-      return log.pipe(exports.suggest) // filter
-      .pipe(exports.defaultFormatter) // formatter
-      .pipe(exports.defaultBackend); // backend
-    }
-
-    return log.pipe(exports.suggest) // filter
-    .pipe(exports.defaultBackend); // formatter
-  };
-});
-
-var hex = {
-  black: '#000',
-  red: '#c23621',
-  green: '#25bc26',
-  yellow: '#bbbb00',
-  blue: '#492ee1',
-  magenta: '#d338d3',
-  cyan: '#33bbc8',
-  gray: '#808080',
-  purple: '#708'
-};
-
-function color(fg, isInverse) {
-  if (isInverse) {
-    return 'color: #fff; background: ' + hex[fg] + ';';
-  } else {
-    return 'color: ' + hex[fg] + ';';
-  }
-}
-
-var util = color;
-
-var colors = {
-  debug: ['cyan'],
-  info: ['purple'],
-  warn: ['yellow', true],
-  error: ['red', true]
-},
-    logger = new transform();
-
-logger.write = function (name, level, args) {
-  var fn = console.log;
-
-  if (console[level] && console[level].apply) {
-    fn = console[level];
-    fn.apply(console, ['%c' + name + ' %c' + level, util('gray'), util.apply(util, colors[level])].concat(args));
-  }
-}; // NOP, because piping the formatted logs can only cause trouble.
-
-
-logger.pipe = function () {};
-
-var color_1 = logger;
-
-var colors$1 = {
-  debug: ['gray'],
-  info: ['purple'],
-  warn: ['yellow', true],
-  error: ['red', true]
-},
-    logger$1 = new transform();
-
-logger$1.write = function (name, level, args) {
-  var fn = console.log;
-
-  if (level != 'debug' && console[level]) {
-    fn = console[level];
-  }
-
-  var i = 0;
-
-  if (level != 'info') {
-    for (; i < args.length; i++) {
-      if (typeof args[i] != 'string') break;
-    }
-
-    fn.apply(console, ['%c' + name + ' ' + args.slice(0, i).join(' '), util.apply(util, colors$1[level])].concat(args.slice(i)));
-  } else {
-    fn.apply(console, ['%c' + name, util.apply(util, colors$1[level])].concat(args));
-  }
-}; // NOP, because piping the formatted logs can only cause trouble.
-
-
-logger$1.pipe = function () {};
-
-var minilog$1 = logger$1;
-
-var newlines = /\n+$/,
-    logger$2 = new transform();
-
-logger$2.write = function (name, level, args) {
-  var i = args.length - 1;
-
-  if (typeof console === 'undefined' || !console.log) {
-    return;
-  }
-
-  if (console.log.apply) {
-    return console.log.apply(console, [name, level].concat(args));
-  } else if (JSON && JSON.stringify) {
-    // console.log.apply is undefined in IE8 and IE9
-    // for IE8/9: make console.log at least a bit less awful
-    if (args[i] && typeof args[i] == 'string') {
-      args[i] = args[i].replace(newlines, '');
-    }
-
-    try {
-      for (i = 0; i < args.length; i++) {
-        args[i] = JSON.stringify(args[i]);
-      }
-    } catch (e) {}
-
-    console.log(args.join(' '));
-  }
-};
-
-logger$2.formatters = ['color', 'minilog'];
-logger$2.color = color_1;
-logger$2.minilog = minilog$1;
-var console_1 = logger$2;
-
-var cache = [];
-var logger$3 = new transform();
-
-logger$3.write = function (name, level, args) {
-  cache.push([name, level, args]);
-}; // utility functions
-
-
-logger$3.get = function () {
-  return cache;
-};
-
-logger$3.empty = function () {
-  cache = [];
-};
-
-var array = logger$3;
-
-var cache$1 = false;
-var logger$4 = new transform();
-
-logger$4.write = function (name, level, args) {
-  if (typeof window == 'undefined' || typeof JSON == 'undefined' || !JSON.stringify || !JSON.parse) return;
-
-  try {
-    if (!cache$1) {
-      cache$1 = window.localStorage.minilog ? JSON.parse(window.localStorage.minilog) : [];
-    }
-
-    cache$1.push([new Date().toString(), name, level, args]);
-    window.localStorage.minilog = JSON.stringify(cache$1);
-  } catch (e) {}
-};
-
-var localstorage = logger$4;
-
-var cid = new Date().valueOf().toString(36);
-
-function AjaxLogger(options) {
-  this.url = options.url || '';
-  this.cache = [];
-  this.timer = null;
-  this.interval = options.interval || 30 * 1000;
-  this.enabled = true;
-  this.jQuery = window.jQuery;
-  this.extras = {};
-}
-
-transform.mixin(AjaxLogger);
-
-AjaxLogger.prototype.write = function (name, level, args) {
-  if (!this.timer) {
-    this.init();
-  }
-
-  this.cache.push([name, level].concat(args));
-};
-
-AjaxLogger.prototype.init = function () {
-  if (!this.enabled || !this.jQuery) return;
-  var self = this;
-  this.timer = setTimeout(function () {
-    var i,
-        logs = [],
-        ajaxData,
-        url = self.url;
-    if (self.cache.length == 0) return self.init(); // Test each log line and only log the ones that are valid (e.g. don't have circular references).
-    // Slight performance hit but benefit is we log all valid lines.
-
-    for (i = 0; i < self.cache.length; i++) {
-      try {
-        JSON.stringify(self.cache[i]);
-        logs.push(self.cache[i]);
-      } catch (e) {}
-    }
-
-    if (self.jQuery.isEmptyObject(self.extras)) {
-      ajaxData = JSON.stringify({
-        logs: logs
-      });
-      url = self.url + '?client_id=' + cid;
-    } else {
-      ajaxData = JSON.stringify(self.jQuery.extend({
-        logs: logs
-      }, self.extras));
-    }
-
-    self.jQuery.ajax(url, {
-      type: 'POST',
-      cache: false,
-      processData: false,
-      data: ajaxData,
-      contentType: 'application/json',
-      timeout: 10000
-    }).success(function (data, status, jqxhr) {
-      if (data.interval) {
-        self.interval = Math.max(1000, data.interval);
-      }
-    }).error(function () {
-      self.interval = 30000;
-    }).always(function () {
-      self.init();
-    });
-    self.cache = [];
-  }, this.interval);
-};
-
-AjaxLogger.prototype.end = function () {}; // wait until jQuery is defined. Useful if you don't control the load order.
-
-
-AjaxLogger.jQueryWait = function (onDone) {
-  if (typeof window !== 'undefined' && (window.jQuery || window.$)) {
-    return onDone(window.jQuery || window.$);
-  } else if (typeof window !== 'undefined') {
-    setTimeout(function () {
-      AjaxLogger.jQueryWait(onDone);
-    }, 200);
-  }
-};
-
-var jquery_simple = AjaxLogger;
-
-var web = createCommonjsModule(function (module, exports) {
-  var oldEnable = minilog.enable,
-      oldDisable = minilog.disable,
-      isChrome = typeof navigator != 'undefined' && /chrome/i.test(navigator.userAgent); // Use a more capable logging backend if on Chrome
-
-  minilog.defaultBackend = isChrome ? console_1.minilog : console_1; // apply enable inputs from localStorage and from the URL
-
-  if (typeof window != 'undefined') {
-    try {
-      minilog.enable(JSON.parse(window.localStorage['minilogSettings']));
-    } catch (e) {}
-
-    if (window.location && window.location.search) {
-      var match = RegExp('[?&]minilog=([^&]*)').exec(window.location.search);
-      match && minilog.enable(decodeURIComponent(match[1]));
-    }
-  } // Make enable also add to localStorage
-
-
-  minilog.enable = function () {
-    oldEnable.call(minilog, true);
-
-    try {
-      window.localStorage['minilogSettings'] = JSON.stringify(true);
-    } catch (e) {}
-
-    return this;
-  };
-
-  minilog.disable = function () {
-    oldDisable.call(minilog);
-
-    try {
-      delete window.localStorage.minilogSettings;
-    } catch (e) {}
-
-    return this;
-  };
-
-  exports = module.exports = minilog;
-  exports.backends = {
-    array: array,
-    browser: minilog.defaultBackend,
-    localStorage: localstorage,
-    jQuery: jquery_simple
-  };
-});
-
-web.enable();
-var log = web('vm');
-
 var Color = /*#__PURE__*/function () {
   function Color() {
     _classCallCheck(this, Color);
@@ -9216,7 +8656,7 @@ var Color = /*#__PURE__*/function () {
   return Color;
 }();
 
-var color$1 = Color;
+var color = Color;
 
 /**
  * @fileoverview
@@ -9328,22 +8768,22 @@ var Cast = /*#__PURE__*/function () {
   }, {
     key: "toRgbColorObject",
     value: function toRgbColorObject(value) {
-      var color;
+      var color$1;
 
       if (typeof value === 'string' && value.substring(0, 1) === '#') {
-        color = color$1.hexToRgb(value); // If the color wasn't *actually* a hex color, cast to black
+        color$1 = color.hexToRgb(value); // If the color wasn't *actually* a hex color, cast to black
 
-        if (!color) color = {
+        if (!color$1) color$1 = {
           r: 0,
           g: 0,
           b: 0,
           a: 255
         };
       } else {
-        color = color$1.decimalToRgb(Cast.toNumber(value));
+        color$1 = color.decimalToRgb(Cast.toNumber(value));
       }
 
-      return color;
+      return color$1;
     }
     /**
      * Determine if a Scratch argument is a white space string (or null / empty).
@@ -11780,6 +11220,566 @@ var Base64Util = /*#__PURE__*/function () {
 }();
 
 var base64Util = Base64Util;
+
+function M$1() {
+  this._events = {};
+}
+
+M$1.prototype = {
+  on: function on(ev, cb) {
+    this._events || (this._events = {});
+    var e = this._events;
+    (e[ev] || (e[ev] = [])).push(cb);
+    return this;
+  },
+  removeListener: function removeListener(ev, cb) {
+    var e = this._events[ev] || [],
+        i;
+
+    for (i = e.length - 1; i >= 0 && e[i]; i--) {
+      if (e[i] === cb || e[i].cb === cb) {
+        e.splice(i, 1);
+      }
+    }
+  },
+  removeAllListeners: function removeAllListeners(ev) {
+    if (!ev) {
+      this._events = {};
+    } else {
+      this._events[ev] && (this._events[ev] = []);
+    }
+  },
+  listeners: function listeners(ev) {
+    return this._events ? this._events[ev] || [] : [];
+  },
+  emit: function emit(ev) {
+    this._events || (this._events = {});
+    var args = Array.prototype.slice.call(arguments, 1),
+        i,
+        e = this._events[ev] || [];
+
+    for (i = e.length - 1; i >= 0 && e[i]; i--) {
+      e[i].apply(this, args);
+    }
+
+    return this;
+  },
+  when: function when(ev, cb) {
+    return this.once(ev, cb, true);
+  },
+  once: function once(ev, cb, when) {
+    if (!cb) return this;
+
+    function c() {
+      if (!when) this.removeListener(ev, c);
+      if (cb.apply(this, arguments) && when) this.removeListener(ev, c);
+    }
+
+    c.cb = cb;
+    this.on(ev, c);
+    return this;
+  }
+};
+
+M$1.mixin = function (dest) {
+  var o = M$1.prototype,
+      k;
+
+  for (k in o) {
+    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
+  }
+};
+
+var microee = M$1;
+
+function Transform() {}
+
+microee.mixin(Transform); // The write() signature is different from Node's
+// --> makes it much easier to work with objects in logs.
+// One of the lessons from v1 was that it's better to target
+// a good browser rather than the lowest common denominator
+// internally.
+// If you want to use external streams, pipe() to ./stringify.js first.
+
+Transform.prototype.write = function (name, level, args) {
+  this.emit('item', name, level, args);
+};
+
+Transform.prototype.end = function () {
+  this.emit('end');
+  this.removeAllListeners();
+};
+
+Transform.prototype.pipe = function (dest) {
+  var s = this; // prevent double piping
+
+  s.emit('unpipe', dest); // tell the dest that it's being piped to
+
+  dest.emit('pipe', s);
+
+  function onItem() {
+    dest.write.apply(dest, Array.prototype.slice.call(arguments));
+  }
+
+  function onEnd() {
+    !dest._isStdio && dest.end();
+  }
+
+  s.on('item', onItem);
+  s.on('end', onEnd);
+  s.when('unpipe', function (from) {
+    var match = from === dest || typeof from == 'undefined';
+
+    if (match) {
+      s.removeListener('item', onItem);
+      s.removeListener('end', onEnd);
+      dest.emit('unpipe');
+    }
+
+    return match;
+  });
+  return dest;
+};
+
+Transform.prototype.unpipe = function (from) {
+  this.emit('unpipe', from);
+  return this;
+};
+
+Transform.prototype.format = function (dest) {
+  throw new Error(['Warning: .format() is deprecated in Minilog v2! Use .pipe() instead. For example:', 'var Minilog = require(\'minilog\');', 'Minilog', '  .pipe(Minilog.backends.console.formatClean)', '  .pipe(Minilog.backends.console);'].join('\n'));
+};
+
+Transform.mixin = function (dest) {
+  var o = Transform.prototype,
+      k;
+
+  for (k in o) {
+    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
+  }
+};
+
+var transform = Transform;
+
+var levelMap = {
+  debug: 1,
+  info: 2,
+  warn: 3,
+  error: 4
+};
+
+function Filter() {
+  this.enabled = true;
+  this.defaultResult = true;
+  this.clear();
+}
+
+transform.mixin(Filter); // allow all matching, with level >= given level
+
+Filter.prototype.allow = function (name, level) {
+  this._white.push({
+    n: name,
+    l: levelMap[level]
+  });
+
+  return this;
+}; // deny all matching, with level <= given level
+
+
+Filter.prototype.deny = function (name, level) {
+  this._black.push({
+    n: name,
+    l: levelMap[level]
+  });
+
+  return this;
+};
+
+Filter.prototype.clear = function () {
+  this._white = [];
+  this._black = [];
+  return this;
+};
+
+function test(rule, name) {
+  // use .test for RegExps
+  return rule.n.test ? rule.n.test(name) : rule.n == name;
+}
+
+Filter.prototype.test = function (name, level) {
+  var i,
+      len = Math.max(this._white.length, this._black.length);
+
+  for (i = 0; i < len; i++) {
+    if (this._white[i] && test(this._white[i], name) && levelMap[level] >= this._white[i].l) {
+      return true;
+    }
+
+    if (this._black[i] && test(this._black[i], name) && levelMap[level] <= this._black[i].l) {
+      return false;
+    }
+  }
+
+  return this.defaultResult;
+};
+
+Filter.prototype.write = function (name, level, args) {
+  if (!this.enabled || this.test(name, level)) {
+    return this.emit('item', name, level, args);
+  }
+};
+
+var filter = Filter;
+
+var minilog = createCommonjsModule(function (module, exports) {
+  var log = new transform(),
+      slice = Array.prototype.slice;
+
+  exports = module.exports = function create(name) {
+    var o = function o() {
+      log.write(name, undefined, slice.call(arguments));
+      return o;
+    };
+
+    o.debug = function () {
+      log.write(name, 'debug', slice.call(arguments));
+      return o;
+    };
+
+    o.info = function () {
+      log.write(name, 'info', slice.call(arguments));
+      return o;
+    };
+
+    o.warn = function () {
+      log.write(name, 'warn', slice.call(arguments));
+      return o;
+    };
+
+    o.error = function () {
+      log.write(name, 'error', slice.call(arguments));
+      return o;
+    };
+
+    o.log = o.debug; // for interface compliance with Node and browser consoles
+
+    o.suggest = exports.suggest;
+    o.format = log.format;
+    return o;
+  }; // filled in separately
+
+
+  exports.defaultBackend = exports.defaultFormatter = null;
+
+  exports.pipe = function (dest) {
+    return log.pipe(dest);
+  };
+
+  exports.end = exports.unpipe = exports.disable = function (from) {
+    return log.unpipe(from);
+  };
+
+  exports.Transform = transform;
+  exports.Filter = filter; // this is the default filter that's applied when .enable() is called normally
+  // you can bypass it completely and set up your own pipes
+
+  exports.suggest = new filter();
+
+  exports.enable = function () {
+    if (exports.defaultFormatter) {
+      return log.pipe(exports.suggest) // filter
+      .pipe(exports.defaultFormatter) // formatter
+      .pipe(exports.defaultBackend); // backend
+    }
+
+    return log.pipe(exports.suggest) // filter
+    .pipe(exports.defaultBackend); // formatter
+  };
+});
+
+var hex = {
+  black: '#000',
+  red: '#c23621',
+  green: '#25bc26',
+  yellow: '#bbbb00',
+  blue: '#492ee1',
+  magenta: '#d338d3',
+  cyan: '#33bbc8',
+  gray: '#808080',
+  purple: '#708'
+};
+
+function color$1(fg, isInverse) {
+  if (isInverse) {
+    return 'color: #fff; background: ' + hex[fg] + ';';
+  } else {
+    return 'color: ' + hex[fg] + ';';
+  }
+}
+
+var util = color$1;
+
+var colors = {
+  debug: ['cyan'],
+  info: ['purple'],
+  warn: ['yellow', true],
+  error: ['red', true]
+},
+    logger = new transform();
+
+logger.write = function (name, level, args) {
+  var fn = console.log;
+
+  if (console[level] && console[level].apply) {
+    fn = console[level];
+    fn.apply(console, ['%c' + name + ' %c' + level, util('gray'), util.apply(util, colors[level])].concat(args));
+  }
+}; // NOP, because piping the formatted logs can only cause trouble.
+
+
+logger.pipe = function () {};
+
+var color_1 = logger;
+
+var colors$1 = {
+  debug: ['gray'],
+  info: ['purple'],
+  warn: ['yellow', true],
+  error: ['red', true]
+},
+    logger$1 = new transform();
+
+logger$1.write = function (name, level, args) {
+  var fn = console.log;
+
+  if (level != 'debug' && console[level]) {
+    fn = console[level];
+  }
+
+  var i = 0;
+
+  if (level != 'info') {
+    for (; i < args.length; i++) {
+      if (typeof args[i] != 'string') break;
+    }
+
+    fn.apply(console, ['%c' + name + ' ' + args.slice(0, i).join(' '), util.apply(util, colors$1[level])].concat(args.slice(i)));
+  } else {
+    fn.apply(console, ['%c' + name, util.apply(util, colors$1[level])].concat(args));
+  }
+}; // NOP, because piping the formatted logs can only cause trouble.
+
+
+logger$1.pipe = function () {};
+
+var minilog$1 = logger$1;
+
+var newlines = /\n+$/,
+    logger$2 = new transform();
+
+logger$2.write = function (name, level, args) {
+  var i = args.length - 1;
+
+  if (typeof console === 'undefined' || !console.log) {
+    return;
+  }
+
+  if (console.log.apply) {
+    return console.log.apply(console, [name, level].concat(args));
+  } else if (JSON && JSON.stringify) {
+    // console.log.apply is undefined in IE8 and IE9
+    // for IE8/9: make console.log at least a bit less awful
+    if (args[i] && typeof args[i] == 'string') {
+      args[i] = args[i].replace(newlines, '');
+    }
+
+    try {
+      for (i = 0; i < args.length; i++) {
+        args[i] = JSON.stringify(args[i]);
+      }
+    } catch (e) {}
+
+    console.log(args.join(' '));
+  }
+};
+
+logger$2.formatters = ['color', 'minilog'];
+logger$2.color = color_1;
+logger$2.minilog = minilog$1;
+var console_1 = logger$2;
+
+var cache = [];
+var logger$3 = new transform();
+
+logger$3.write = function (name, level, args) {
+  cache.push([name, level, args]);
+}; // utility functions
+
+
+logger$3.get = function () {
+  return cache;
+};
+
+logger$3.empty = function () {
+  cache = [];
+};
+
+var array = logger$3;
+
+var cache$1 = false;
+var logger$4 = new transform();
+
+logger$4.write = function (name, level, args) {
+  if (typeof window == 'undefined' || typeof JSON == 'undefined' || !JSON.stringify || !JSON.parse) return;
+
+  try {
+    if (!cache$1) {
+      cache$1 = window.localStorage.minilog ? JSON.parse(window.localStorage.minilog) : [];
+    }
+
+    cache$1.push([new Date().toString(), name, level, args]);
+    window.localStorage.minilog = JSON.stringify(cache$1);
+  } catch (e) {}
+};
+
+var localstorage = logger$4;
+
+var cid = new Date().valueOf().toString(36);
+
+function AjaxLogger(options) {
+  this.url = options.url || '';
+  this.cache = [];
+  this.timer = null;
+  this.interval = options.interval || 30 * 1000;
+  this.enabled = true;
+  this.jQuery = window.jQuery;
+  this.extras = {};
+}
+
+transform.mixin(AjaxLogger);
+
+AjaxLogger.prototype.write = function (name, level, args) {
+  if (!this.timer) {
+    this.init();
+  }
+
+  this.cache.push([name, level].concat(args));
+};
+
+AjaxLogger.prototype.init = function () {
+  if (!this.enabled || !this.jQuery) return;
+  var self = this;
+  this.timer = setTimeout(function () {
+    var i,
+        logs = [],
+        ajaxData,
+        url = self.url;
+    if (self.cache.length == 0) return self.init(); // Test each log line and only log the ones that are valid (e.g. don't have circular references).
+    // Slight performance hit but benefit is we log all valid lines.
+
+    for (i = 0; i < self.cache.length; i++) {
+      try {
+        JSON.stringify(self.cache[i]);
+        logs.push(self.cache[i]);
+      } catch (e) {}
+    }
+
+    if (self.jQuery.isEmptyObject(self.extras)) {
+      ajaxData = JSON.stringify({
+        logs: logs
+      });
+      url = self.url + '?client_id=' + cid;
+    } else {
+      ajaxData = JSON.stringify(self.jQuery.extend({
+        logs: logs
+      }, self.extras));
+    }
+
+    self.jQuery.ajax(url, {
+      type: 'POST',
+      cache: false,
+      processData: false,
+      data: ajaxData,
+      contentType: 'application/json',
+      timeout: 10000
+    }).success(function (data, status, jqxhr) {
+      if (data.interval) {
+        self.interval = Math.max(1000, data.interval);
+      }
+    }).error(function () {
+      self.interval = 30000;
+    }).always(function () {
+      self.init();
+    });
+    self.cache = [];
+  }, this.interval);
+};
+
+AjaxLogger.prototype.end = function () {}; // wait until jQuery is defined. Useful if you don't control the load order.
+
+
+AjaxLogger.jQueryWait = function (onDone) {
+  if (typeof window !== 'undefined' && (window.jQuery || window.$)) {
+    return onDone(window.jQuery || window.$);
+  } else if (typeof window !== 'undefined') {
+    setTimeout(function () {
+      AjaxLogger.jQueryWait(onDone);
+    }, 200);
+  }
+};
+
+var jquery_simple = AjaxLogger;
+
+var web = createCommonjsModule(function (module, exports) {
+  var oldEnable = minilog.enable,
+      oldDisable = minilog.disable,
+      isChrome = typeof navigator != 'undefined' && /chrome/i.test(navigator.userAgent); // Use a more capable logging backend if on Chrome
+
+  minilog.defaultBackend = isChrome ? console_1.minilog : console_1; // apply enable inputs from localStorage and from the URL
+
+  if (typeof window != 'undefined') {
+    try {
+      minilog.enable(JSON.parse(window.localStorage['minilogSettings']));
+    } catch (e) {}
+
+    if (window.location && window.location.search) {
+      var match = RegExp('[?&]minilog=([^&]*)').exec(window.location.search);
+      match && minilog.enable(decodeURIComponent(match[1]));
+    }
+  } // Make enable also add to localStorage
+
+
+  minilog.enable = function () {
+    oldEnable.call(minilog, true);
+
+    try {
+      window.localStorage['minilogSettings'] = JSON.stringify(true);
+    } catch (e) {}
+
+    return this;
+  };
+
+  minilog.disable = function () {
+    oldDisable.call(minilog);
+
+    try {
+      delete window.localStorage.minilogSettings;
+    } catch (e) {}
+
+    return this;
+  };
+
+  exports = module.exports = minilog;
+  exports.backends = {
+    array: array,
+    browser: minilog.defaultBackend,
+    localStorage: localstorage,
+    jQuery: jquery_simple
+  };
+});
+
+web.enable();
+var log = web('vm');
 
 var WebBLE = /*#__PURE__*/function () {
   /**
@@ -15008,6 +15008,16 @@ var extensionURL = 'https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mj
 
 var blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABG2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+Gkqr6gAAAYNpQ0NQc1JHQiBJRUM2MTk2Ni0yLjEAACiRdZHLK8RRFMc/82Dk0QgLC2XSsEKMGmwsZmIoLMYor83MzzzUPH79fjNpslW2U5TYeC34C9gqa6WIlGxsrIkN+jm/GTWSObdzz+d+7z2ne88FayippHR7H6TSWS0Y8Lnm5hdcjifsNFHNIO1hRVenZsZCVLT3WyxmvO4xa1U+96/VLUd1BSw1wiOKqmWFx4UnV7OqyVvCLUoivCx8ItytyQWFb0w9UuJnk+Ml/jRZCwX9YG0UdsV/ceQXKwktJSwvx51K5pSf+5gvqY+mZ2ckdoi3oRMkgA8XE4zix0s/wzJ76cFDr6yokN9XzJ8mI7mKzCp5NFaIkyBLt6g5qR6VGBM9KiNJ3uz/377qsQFPqXq9D6oeDeO1Exyb8FUwjI8Dw/g6BNsDnKfL+Zl9GHoTvVDW3HvgXIfTi7IW2YazDWi9V8NauCjZxK2xGLwcQ8M8NF9B7WKpZz/7HN1BaE2+6hJ2dqFLzjuXvgGIDmf1SJ4uQQAAAAlwSFlzAAALEwAACxMBAJqcGAAACJpJREFUWIXtmGlsXNUVx3/3vvdm7BnbSRxncRLHa+IsZCmIJbSlKQG1SLRNgoqiUFGpaoUUFSTURRQFlRLoQhekQtUPpYvEB0AiJQVBU1q2gptCUgjZIAl2xo4dJyHjZOzZ3nLv6YcZTwy2k1CpH5Dyl0bz3n1v3v29c849/6uBi7qoi/pkS310oL25RQFVgL7Qh2z+yW9fbKivafVc1wMIwqiQHhrZd//dm9Z/DBYD+N29KZkUsL25Rbfd9Js/eU2rbtFV08YBBu8+QWzxBgAkf4pocCde+w1EAzvwdz0CYj4Gz4clIkdCv3B316vPPjF2/EMQUzuvnxZrvuZrE8Lte4yo54XSG+VPUey6DxXlMMd2EPznN+PglFITfiaTUqrVi1dtbm9uiY8dd8eeVE9vnaFiNeOeEux7jKj7eZSXwOY/oNi1Bcl/QHRiN/bgNhCDqq7HSc4EwAwPIMHIpEBKKURkoivzAWdSwIk0CiciYEP8rvtQhXRp8kwPGogtWo81ETZ7HIB4x3KkeIYo9Y+zRSQggFIgci7ID+ucgMG+xwjff67y1tqGqGIa7Wi0gtLsgls7myD1MnboEMqpQsIM3rxV4OhKFEUEK4IVQKQMe37ISQFH4UYn0Aq01rha4TgOWqsyHtC7nao5VyJNV6EEJMohvS8Qj7mocgitCMZajLFEWBDB2v8xgmMjJyJordCqBOe5Dp7r4roajUIQTPEEUfc2rBUEwVEKx9E4ca9yT2SFKDIEIogojAjO1FaSi9cRJuYQpV4iKM95TsCxcKNSgCpHznNd4jGXFZk0Mwt5uua34cVj5PIFxIIbc/H9gJpkNWIss4eHuOTEcf42r41s+YVL6VbguMiUdkzfPwm7nz9/BAvvbx/x6hvPglVWoUIrcLTCczVxz+W2f71C3VCatmUrydyzmTfe2kMimWDJogX8dfvLXL96FflXX+PmZ7YS94t8cF0V/549D2OFMDKlZ4sQ9HcRHHjy46UYhAUdHWhdaodRGDAwMIDjaFxHE3MdnHwegM/u3c0bW7bgr76O3EiWVwaPU5OIc/zpZ/jmX54iHgQA1FqD52h8XUr//OZmBIX4bxK2NNNzJHXhgEuXLOEH37sN3/dLDRbY8uNfkzl9Gkc7uI5G67M97sq971ClFNvXrqVuylRiO3dx6zNb8cpwANrRpbrUmgUd7Xx709cx1uK6Lq7rctc9P6e/f2AcyzjHaGmeR3V1nFwuz+Z7f8kDP3uktFAcF6VKfUyPacAvXbsGqzUr9uzmxm1P07h/H7dufRLP9+lZsJBUa1tpIlWqY1XuBvl8gR/e9xD3//RhRIRkIklrS9M4nnEDdXW1uG4psBUMkcqxUgqlFaPt69CixWy7eQPGcVi65x3W/uFRvDDk8MJOnrrpq0TOWWNQUl5wUlosY33G81ym1NWOs55xKd6z912WLllMMplgy73fRakSoLFnvVasVFJsjKXw+dU87Tise/JxnCjiwMJO3rr9dmLDWVS5jhnT8oxYEolq7r3nTlzPRSnFmUyG/v6BcbuNCWtw/4ED/OiBh9Fal1pCFHF88DiJqlipTQDGWgAiYznw3vuYhtkM3LSBOSdP8PYly6GnD8fRRMaUk1D6nQDd3d384qFHEcAKhGE4Yf1NCgiKw909VF22iWDPH3GMj+fqSiCsCFqVzoPI0NLWzJHUAKda24ldfTUjBw6ytK2FdHqo0qosMgZS0XMkRWQMpuwmk9nexIBKEV/5LdwZywjGDIuAtVJxDIAwMuQLPtlCESc0DOey5IsB2UKBgh9U7ExsyYtFpOLFctYsJ9WEgLElG9D1najM4fIuREpwIlhriaxFyhMHkeF4aoDMSB5jLWeGswRBRE9qAAWYcoojKxhjsab8ahewk4FJtvXB/scpvPgdsjt+hUQFpAw5CheGESaRAGAExfq1N1DfUE/HgjY2blxPMYy48UtfYO68RkwyCUBOO4TGYqQEOgp5rk0sfGTLf9nl18ytq2/s/+hNTsWHNXHPI+Y5LE6foD6fY0dTG0XfJ7QQRQYrlpjn4SiIxz3m5nMsO3aUVzoWkTfgRxFBaAiNOZt+qXyPHD345uzu3lR+dO4JU7xgVjrT1pB+Np2r+dyu1JwmoVRDjopYs6h3pyivoYv5rdGUGZgwIrIKh4AvruzemQ90/PVDrcuNePiBoS+epL+tkytaBt/O++LvH6i7qug7lRR/ekHfoWrX3zeYmbJub3/DhaX4ms6jvb/bevobV7YNvOU5o/VnWd3ZU+w+uWSjterBzlnH8MOwFI3IsGbpEfNeX+0tgS93LG8alDAqjReDkE/N72Ok2HDnmVzDHSuaBjHlRTK9Js+iWSf+/vs/pzeumH8iNRHLuAi2zcjwmYXHlr3woOqfPTU/40i6oVTsVnF562DVVy49tNtzlbvrSCOe4+OoCFdHrGgadNZdOvSOCPJ2X6OKeyFaaapjEYvnnKZ1xt7nEEP/UB3WRCgtNE7N8uXL+jZd0ZFYH0TDs18/NC9/9OB5ANcs7WVqMlCZQt3MRGyYjasOMDXhExmNFUVgq5PTE8OsXuSzcv4gtdUhiVhAEClQbrVCWL04xfKmk8QcS0NdgWwxRjZMJGPa0jz9KB2z0jja0lCb5/DJuWq4mGicWZvm2iV93mtd5wAcGRo87WqVA5LTEtkxV0odSythSnUWrS1KGZSyaGXQyqCUg6MjYo4hNICyKG1xtEEpQ228UD62qIqnwMzaDDNrM0RGqPKiU0A0KaCJwkI6E7/r1HDVA3PrszV535WhkViuGGjHipJqL3I8x4+FolQm5/ln8p5fDJRb5bnadYyalizGrBU1lK3yz2RjgeOIMkZiRpRMT/oxrYQzOS8aynlFBUqsuPU12bigSI/Ec9m8+X53b2qsN4z/6wOgvbnFm2j8/yzp7k1F57/toi7qoj5Z+i+Wq1Nf6TRyQQAAAABJRU5ErkJggg==';
 /**
+ * Enum for version of the hardware.
+ * @readonly
+ * @enum {number}
+ */
+
+var MbitMoreHardwareVersion = {
+  MICROBIT_V1: 1,
+  MICROBIT_V2: 2
+};
+/**
  * Enum for micro:bit BLE command protocol.
  * https://github.com/LLK/scratch-microbit-firmware/blob/master/protocol.md
  * @readonly
@@ -15027,7 +15037,7 @@ var BLECommand = {
  * @enum {number}
  */
 
-var MMPinCommand = {
+var MbitMorePinCommand = {
   SET_OUTPUT: 0x01,
   SET_PWM: 0x02,
   SET_SERVO: 0x03,
@@ -15063,9 +15073,11 @@ var MbitMorePullMode = {
  * @enum {number}
  */
 
-var MMDataFormat = {
-  PIN_EVENT: 0x10,
-  ACTION_EVENT: 0x11,
+var MbitMoreDataFormat = {
+  CONFIG: 0x10,
+  // not used at this version
+  PIN_EVENT: 0x11,
+  ACTION_EVENT: 0x12,
   MESSAGE_NUMBER: 0x13,
   MESSAGE_TEXT: 0x14
 };
@@ -15100,7 +15112,7 @@ var MbitMoreButtonID = {
  * @enum {number}
  */
 
-var MMButtonEvent = {
+var MbitMoreButtonEvent = {
   DOWN: 1,
   UP: 2,
   CLICK: 3,
@@ -15133,7 +15145,7 @@ var MbitMoreGestureEvent = {
  * @enum {number}
  */
 
-var MMPinEventType = {
+var MbitMorePinEventType = {
   NONE: 0,
   ON_EDGE: 1,
   ON_PULSE: 2,
@@ -15145,7 +15157,7 @@ var MMPinEventType = {
  * @enum {number}
  */
 
-var MMPinEvent = {
+var MbitMorePinEvent = {
   RISE: 2,
   FALL: 3,
   PULSE_HIGH: 4,
@@ -15330,13 +15342,13 @@ var MbitMore = /*#__PURE__*/function () {
      * @private
      */
 
-    this._busy = false;
+    this.bleBusy = true;
     /**
      * ID for a timeout which is used to clear the busy flag if it has been
      * true for a long time.
      */
 
-    this._busyTimeoutID = null;
+    this.bleBusyTimeoutID = null;
     this.reset = this.reset.bind(this);
     this._onConnect = this._onConnect.bind(this);
     this.onNotify = this.onNotify.bind(this);
@@ -15349,7 +15361,6 @@ var MbitMore = /*#__PURE__*/function () {
     this.analogInUpdateInterval = 80; // milli-seconds
 
     this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
-    this.bleReadTimelimit = 40;
     this.microbitUpdateInterval = 50; // milli-seconds
 
     this.initConfig();
@@ -15456,7 +15467,7 @@ var MbitMore = /*#__PURE__*/function () {
     key: "setPullMode",
     value: function setPullMode(pinIndex, pullMode, util) {
       return this.sendCommandSet([{
-        id: BLECommand.CMD_PIN << 5 | MMPinCommand.SET_PULL,
+        id: BLECommand.CMD_PIN << 5 | MbitMorePinCommand.SET_PULL,
         message: new Uint8Array([pinIndex, pullMode])
       }], util);
     }
@@ -15472,7 +15483,7 @@ var MbitMore = /*#__PURE__*/function () {
     key: "setPinOutput",
     value: function setPinOutput(pinIndex, level, util) {
       return this.sendCommandSet([{
-        id: BLECommand.CMD_PIN << 5 | MMPinCommand.SET_OUTPUT,
+        id: BLECommand.CMD_PIN << 5 | MbitMorePinCommand.SET_OUTPUT,
         message: new Uint8Array([pinIndex, level ? 1 : 0])
       }], util);
     }
@@ -15490,7 +15501,7 @@ var MbitMore = /*#__PURE__*/function () {
       var dataView = new DataView(new ArrayBuffer(2));
       dataView.setUint16(0, level, true);
       return this.sendCommandSet([{
-        id: BLECommand.CMD_PIN << 5 | MMPinCommand.SET_PWM,
+        id: BLECommand.CMD_PIN << 5 | MbitMorePinCommand.SET_PWM,
         message: new Uint8Array([pinIndex, dataView.getUint8(0), dataView.getUint8(1)])
       }], util);
     }
@@ -15504,7 +15515,7 @@ var MbitMore = /*#__PURE__*/function () {
       dataView.setUint16(2, range, true);
       dataView.setUint16(4, center, true);
       return this.sendCommandSet([{
-        id: BLECommand.CMD_PIN << 5 | MMPinCommand.SET_SERVO,
+        id: BLECommand.CMD_PIN << 5 | MbitMorePinCommand.SET_SERVO,
         message: new Uint8Array([pinIndex, dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3), dataView.getUint8(4), dataView.getUint8(5)])
       }], util);
     }
@@ -15543,22 +15554,22 @@ var MbitMore = /*#__PURE__*/function () {
         return Promise.resolve(this.analogValue[pinIndex]);
       }
 
-      if (this._busy) {
+      if (this.bleBusy) {
         this.bleAccessWaiting = true;
         if (util) util.yield(); // re-try this call after a while.
 
         return; // Do not return Promise.resolve() to re-try.
       }
 
-      this._busy = true;
-      this._busyTimeoutID = window.setTimeout(function () {
-        _this3._busy = false;
+      this.bleBusy = true;
+      this.bleBusyTimeoutID = window.setTimeout(function () {
+        _this3.bleBusy = false;
         _this3.bleAccessWaiting = false;
       }, 1000);
       return new Promise(function (resolve) {
         return _this3._ble.read(MM_SERVICE.ID, MM_SERVICE.ANALOG_IN_CH[pinIndex], false).then(function (result) {
-          window.clearTimeout(_this3._busyTimeoutID);
-          _this3._busy = false;
+          window.clearTimeout(_this3.bleBusyTimeoutID);
+          _this3.bleBusy = false;
           _this3.bleAccessWaiting = false;
 
           if (!result) {
@@ -15585,18 +15596,18 @@ var MbitMore = /*#__PURE__*/function () {
 
       if (!this.isConnected()) return Promise.resolve(this);
 
-      if (this._busy) {
+      if (this.bleBusy) {
         return Promise.resolve(this);
       }
 
-      this._busy = true;
-      this._busyTimeoutID = window.setTimeout(function () {
-        _this4._busy = false;
+      this.bleBusy = true;
+      this.bleBusyTimeoutID = window.setTimeout(function () {
+        _this4.bleBusy = false;
       }, 1000);
       return new Promise(function (resolve) {
         _this4._ble.read(MM_SERVICE.ID, MM_SERVICE.STATE_CH, false).then(function (result) {
-          window.clearTimeout(_this4._busyTimeoutID);
-          _this4._busy = false;
+          window.clearTimeout(_this4.bleBusyTimeoutID);
+          _this4.bleBusy = false;
           if (!result) return resolve(_this4);
           var data = base64Util.base64ToUint8Array(result.message);
           var dataView = new DataView(data.buffer, 0); // Digital Input
@@ -15741,18 +15752,18 @@ var MbitMore = /*#__PURE__*/function () {
 
       if (!this.isConnected()) return Promise.resolve(this);
 
-      if (this._busy) {
+      if (this.bleBusy) {
         return Promise.resolve(this);
       }
 
-      this._busy = true;
-      this._busyTimeoutID = window.setTimeout(function () {
-        _this6._busy = false;
+      this.bleBusy = true;
+      this.bleBusyTimeoutID = window.setTimeout(function () {
+        _this6.bleBusy = false;
       }, 1000);
       return new Promise(function (resolve) {
         _this6._ble.read(MM_SERVICE.ID, MM_SERVICE.MOTION_CH, false).then(function (result) {
-          window.clearTimeout(_this6._busyTimeoutID);
-          _this6._busy = false;
+          window.clearTimeout(_this6.bleBusyTimeoutID);
+          _this6.bleBusy = false;
           if (!result) return resolve(_this6);
           var data = base64Util.base64ToUint8Array(result.message);
           var dataView = new DataView(data.buffer, 0); // Accelerometer
@@ -15865,6 +15876,7 @@ var MbitMore = /*#__PURE__*/function () {
         this._ble.disconnect();
       }
 
+      this.bleBusy = true;
       this._ble = new ble(this.runtime, this._extensionId, {
         filters: [{
           namePrefix: 'BBC micro:bit'
@@ -15963,7 +15975,7 @@ var MbitMore = /*#__PURE__*/function () {
 
       if (!this.isConnected()) return Promise.resolve();
 
-      if (this._busy) {
+      if (this.bleBusy) {
         this.bleAccessWaiting = true;
 
         if (util) {
@@ -15977,10 +15989,10 @@ var MbitMore = /*#__PURE__*/function () {
         return; // Do not return Promise.resolve() to re-try.
       }
 
-      this._busy = true; // Clear busy and BLE access waiting flag when the scratch-link does not respond.
+      this.bleBusy = true; // Clear busy and BLE access waiting flag when the scratch-link does not respond.
 
-      this._busyTimeoutID = window.setTimeout(function () {
-        _this8._busy = false;
+      this.bleBusyTimeoutID = window.setTimeout(function () {
+        _this8.bleBusy = false;
         _this8.bleAccessWaiting = false;
       }, 1000);
       return new Promise(function (resolve) {
@@ -15992,9 +16004,9 @@ var MbitMore = /*#__PURE__*/function () {
           if (i === commands.length - 1) {
             // the last command
             sendPromise.then(function () {
-              _this8._busy = false;
+              _this8.bleBusy = false;
               _this8.bleAccessWaiting = false;
-              window.clearTimeout(_this8._busyTimeoutID);
+              window.clearTimeout(_this8.bleBusyTimeoutID);
               resolve();
             });
           }
@@ -16011,20 +16023,33 @@ var MbitMore = /*#__PURE__*/function () {
   }, {
     key: "_onConnect",
     value: function _onConnect() {
-      this._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.ACTION_EVENT_CH, this.onNotify);
+      var _this9 = this;
 
-      this._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.PIN_EVENT_CH, this.onNotify);
+      this._ble.read(MM_SERVICE.ID, MM_SERVICE.COMMAND_CH, false).then(function (result) {
+        var data = base64Util.base64ToUint8Array(result.message);
+        var dataView = new DataView(data.buffer, 0);
+        _this9.hardware = dataView.getUint8(0);
+        _this9.protocol = dataView.getUint8(1);
 
-      this._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.MESSAGE_CH, this.onNotify).catch(function () {
-        // no service in micto:bit v1
-        log.info('no service: messaging');
+        _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.ACTION_EVENT_CH, _this9.onNotify);
+
+        _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.PIN_EVENT_CH, _this9.onNotify);
+
+        if (_this9.hardware === MbitMoreHardwareVersion.MICROBIT_V1) {
+          _this9.microbitUpdateInterval = 100;
+          _this9.analogInUpdateInterval = 100;
+        } else {
+          _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.MESSAGE_CH, _this9.onNotify);
+        }
+
+        _this9.initConfig();
+
+        _this9.bleBusy = false;
+
+        _this9.startUpdater();
+
+        _this9.resetConnectionTimeout();
       });
-
-      this.initConfig();
-      this.bleAccessWaiting = false;
-      this._busy = false;
-      this.startUpdater();
-      this.resetConnectionTimeout();
     }
     /**
      * Process the data from the incoming BLE characteristic.
@@ -16039,7 +16064,7 @@ var MbitMore = /*#__PURE__*/function () {
       var dataView = new DataView(data.buffer, 0);
       var dataFormat = dataView.getUint8(19);
 
-      if (dataFormat === MMDataFormat.ACTION_EVENT) {
+      if (dataFormat === MbitMoreDataFormat.ACTION_EVENT) {
         var actionEventType = dataView.getUint8(0);
 
         if (actionEventType === MbitMoreActionEvent.BUTTON) {
@@ -16051,7 +16076,7 @@ var MbitMore = /*#__PURE__*/function () {
 
           this.gestureEvents[_event] = dataView.getUint32(2, true); // Timestamp
         }
-      } else if (dataFormat === MMDataFormat.PIN_EVENT) {
+      } else if (dataFormat === MbitMoreDataFormat.PIN_EVENT) {
         var pinIndex = dataView.getUint8(0);
 
         if (!this._pinEvents[pinIndex]) {
@@ -16066,7 +16091,7 @@ var MbitMore = /*#__PURE__*/function () {
           timestamp: Date.now() // received time
 
         };
-      } else if (dataFormat === MMDataFormat.MESSAGE_NUMBER) {
+      } else if (dataFormat === MbitMoreDataFormat.MESSAGE_NUMBER) {
         var label = new TextDecoder().decode(data.slice(0, 8).filter(function (char) {
           return char !== 0;
         }));
@@ -16074,7 +16099,7 @@ var MbitMore = /*#__PURE__*/function () {
           content: dataView.getFloat32(8, true),
           timestamp: Date.now()
         };
-      } else if (dataFormat === MMDataFormat.MESSAGE_TEXT) {
+      } else if (dataFormat === MbitMoreDataFormat.MESSAGE_TEXT) {
         var _label = new TextDecoder().decode(data.slice(0, 8).filter(function (char) {
           return char !== 0;
         }));
@@ -16096,11 +16121,11 @@ var MbitMore = /*#__PURE__*/function () {
   }, {
     key: "resetConnectionTimeout",
     value: function resetConnectionTimeout() {
-      var _this9 = this;
+      var _this10 = this;
 
       if (this._timeoutID) window.clearTimeout(this._timeoutID);
       this._timeoutID = window.setTimeout(function () {
-        return _this9._ble.handleDisconnectError(BLEDataStoppedError);
+        return _this10._ble.handleDisconnectError(BLEDataStoppedError);
       }, BLETimeout);
     }
     /**
@@ -16141,7 +16166,7 @@ var MbitMore = /*#__PURE__*/function () {
   }, {
     key: "configTouchPin",
     value: function configTouchPin(buttonID, isTouch, util) {
-      var _this10 = this;
+      var _this11 = this;
 
       if (!this.isConnected()) {
         return Promise.resolve(false);
@@ -16158,8 +16183,8 @@ var MbitMore = /*#__PURE__*/function () {
 
       if (sendPromise) {
         sendPromise.then(function () {
-          _this10.config.touchPin[buttonID] = isTouch;
-          return _this10.config.touchPin[buttonID];
+          _this11.config.touchPin[buttonID] = isTouch;
+          return _this11.config.touchPin[buttonID];
         });
       }
 
@@ -16194,7 +16219,7 @@ var MbitMore = /*#__PURE__*/function () {
     /**
      * Return the last timestamp of the button event or undefined if the event is not received.
      * @param {MbitMoreButtonID} buttonID - ID of the button to get the event.
-     * @param {MMButtonEvent} event - event to get.
+     * @param {MbitMoreButtonEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
 
@@ -16225,7 +16250,7 @@ var MbitMore = /*#__PURE__*/function () {
     /**
      * Return the last value of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
-     * @param {MMPinEvent} event - event to get.
+     * @param {MbitMorePinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
 
@@ -16241,7 +16266,7 @@ var MbitMore = /*#__PURE__*/function () {
     /**
      * Return the last timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
-     * @param {MMPinEvent} event - event to get.
+     * @param {MbitMorePinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
 
@@ -16257,7 +16282,7 @@ var MbitMore = /*#__PURE__*/function () {
     /**
      * Set event type to be get from the pin.
      * @param {number} pinIndex - Index of the pin to set.
-     * @param {MMPinEventType} eventType - Event type to set.
+     * @param {MbitMorePinEventType} eventType - Event type to set.
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
@@ -16266,7 +16291,7 @@ var MbitMore = /*#__PURE__*/function () {
     key: "listenPinEventType",
     value: function listenPinEventType(pinIndex, eventType, util) {
       return this.sendCommandSet([{
-        id: BLECommand.CMD_PIN << 5 | MMPinCommand.SET_EVENT,
+        id: BLECommand.CMD_PIN << 5 | MbitMorePinCommand.SET_EVENT,
         message: new Uint8Array([pinIndex, eventType])
       }], util);
     }
@@ -16308,7 +16333,7 @@ var MbitMore = /*#__PURE__*/function () {
     /**
      * Return the last content of the message or undefined if the message which has the label was not received.
      * @param {string} messageLabel - label of the message.
-     * @param {MMPinEvent} event - event to get.
+     * @param {MbitMorePinEvent} event - event to get.
      * @return {?(number | string)} content of the message or null.
      */
 
@@ -16476,21 +16501,21 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
           default: 'down',
           description: 'label for button down event'
         }),
-        value: MMButtonEvent.DOWN
+        value: MbitMoreButtonEvent.DOWN
       }, {
         text: formatMessage$2({
           id: 'mbitMore.buttonEventMenu.up',
           default: 'up',
           description: 'label for button up event'
         }),
-        value: MMButtonEvent.UP
+        value: MbitMoreButtonEvent.UP
       }, {
         text: formatMessage$2({
           id: 'mbitMore.buttonEventMenu.click',
           default: 'click',
           description: 'label for button click event'
         }),
-        value: MMButtonEvent.CLICK // },
+        value: MbitMoreButtonEvent.CLICK // },
         // // These events are not in use because they are unstable in coal-microbit-v2.
         // {
         //     text: formatMessage({
@@ -16498,7 +16523,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         default: 'pressed',
         //         description: 'label for button hold event'
         //     }),
-        //     value: MMButtonEvent.HOLD
+        //     value: MbitMoreButtonEvent.HOLD
         // },
         // {
         //     text: formatMessage({
@@ -16506,7 +16531,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         default: 'long click',
         //         description: 'label for button long click event'
         //     }),
-        //     value: MMButtonEvent.LONG_CLICK
+        //     value: MbitMoreButtonEvent.LONG_CLICK
         // },
         // {
         //     text: formatMessage({
@@ -16514,7 +16539,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         default: 'double click',
         //         description: 'label for button double click event'
         //     }),
-        //     value: MMButtonEvent.DOUBLE_CLICK
+        //     value: MbitMoreButtonEvent.DOUBLE_CLICK
 
       }];
     }
@@ -16556,21 +16581,21 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
           default: 'touched',
           description: 'label for touched event'
         }),
-        value: MMButtonEvent.DOWN
+        value: MbitMoreButtonEvent.DOWN
       }, {
         text: formatMessage$2({
           id: 'mbitMore.touchEventMenu.released',
           default: 'released',
           description: 'label for released event'
         }),
-        value: MMButtonEvent.UP
+        value: MbitMoreButtonEvent.UP
       }, {
         text: formatMessage$2({
           id: 'mbitMore.touchEventMenu.tapped',
           default: 'tapped',
           description: 'label for tapped event'
         }),
-        value: MMButtonEvent.CLICK // },
+        value: MbitMoreButtonEvent.CLICK // },
         // // These events are not in use because they are unstable in coal-microbit-v2.
         // {
         //     text: formatMessage({
@@ -16578,7 +16603,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         default: 'pressed',
         //         description: 'label for hold event in touch'
         //     }),
-        //     value: MMButtonEvent.HOLD
+        //     value: MbitMoreButtonEvent.HOLD
         // },
         // {
         //     text: formatMessage({
@@ -16586,7 +16611,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         default: 'long click',
         //         description: 'label for long click event in touch'
         //     }),
-        //     value: MMButtonEvent.LONG_CLICK
+        //     value: MbitMoreButtonEvent.LONG_CLICK
         // },
         // {
         //     text: formatMessage({
@@ -16594,7 +16619,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         default: 'double click',
         //         description: 'label for double click event in touch'
         //     }),
-        //     value: MMButtonEvent.DOUBLE_CLICK
+        //     value: MbitMoreButtonEvent.DOUBLE_CLICK
 
       }];
     }
@@ -16966,7 +16991,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             EVENT: {
               type: argumentType.NUMBER,
               menu: 'buttonEventMenu',
-              defaultValue: MMButtonEvent.DOWN
+              defaultValue: MbitMoreButtonEvent.DOWN
             }
           }
         }, {
@@ -17001,7 +17026,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             EVENT: {
               type: argumentType.NUMBER,
               menu: 'touchEventMenu',
-              defaultValue: MMButtonEvent.DOWN
+              defaultValue: MbitMoreButtonEvent.DOWN
             }
           }
         }, {
@@ -17470,7 +17495,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "updatePrevButtonEvents",
     value: function updatePrevButtonEvents() {
-      var _this11 = this;
+      var _this12 = this;
 
       this.prevButtonEvents = {};
       Object.entries(this._peripheral.buttonEvents).forEach(function (_ref) {
@@ -17478,13 +17503,13 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             componentID = _ref2[0],
             events = _ref2[1];
 
-        _this11.prevButtonEvents[componentID] = {};
+        _this12.prevButtonEvents[componentID] = {};
         Object.entries(events).forEach(function (_ref3) {
           var _ref4 = _slicedToArray(_ref3, 2),
               eventID = _ref4[0],
               timestamp = _ref4[1];
 
-          _this11.prevButtonEvents[componentID][eventID] = timestamp;
+          _this12.prevButtonEvents[componentID][eventID] = timestamp;
         });
       });
     }
@@ -17499,13 +17524,13 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "whenButtonEvent",
     value: function whenButtonEvent(args) {
-      var _this12 = this;
+      var _this13 = this;
 
       if (!this.updateLastButtonEventTimer) {
         this.updateLastButtonEventTimer = setTimeout(function () {
-          _this12.updatePrevButtonEvents();
+          _this13.updatePrevButtonEvents();
 
-          _this12.updateLastButtonEventTimer = null;
+          _this13.updateLastButtonEventTimer = null;
         }, this.runtime.currentStepTime);
       }
 
@@ -17587,7 +17612,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "updatePrevGestureEvents",
     value: function updatePrevGestureEvents() {
-      var _this13 = this;
+      var _this14 = this;
 
       this.prevGestureEvents = {};
       Object.entries(this._peripheral.gestureEvents).forEach(function (_ref5) {
@@ -17595,7 +17620,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             gestureID = _ref6[0],
             timestamp = _ref6[1];
 
-        _this13.prevGestureEvents[gestureID] = timestamp;
+        _this14.prevGestureEvents[gestureID] = timestamp;
       });
     }
     /**
@@ -17608,13 +17633,13 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "whenGesture",
     value: function whenGesture(args) {
-      var _this14 = this;
+      var _this15 = this;
 
       if (!this.updateLastGestureEventTimer) {
         this.updateLastGestureEventTimer = setTimeout(function () {
-          _this14.updatePrevGestureEvents();
+          _this15.updatePrevGestureEvents();
 
-          _this14.updateLastGestureEventTimer = null;
+          _this15.updateLastGestureEventTimer = null;
         }, this.runtime.currentStepTime);
       }
 
@@ -17765,11 +17790,11 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "getSoundLevel",
     value: function getSoundLevel(args, util) {
-      var _this15 = this;
+      var _this16 = this;
 
       return this._peripheral.configMic(true, util).then(function (micState) {
         if (micState) {
-          return _this15._peripheral.readSoundLevel();
+          return _this16._peripheral.readSoundLevel();
         }
 
         return 0;
@@ -18004,7 +18029,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "listenPinEventType",
     value: function listenPinEventType(args, util) {
-      return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MMPinEventType[args.EVENT_TYPE], util);
+      return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MbitMorePinEventType[args.EVENT_TYPE], util);
     }
     /**
      * Rerutn value (timestamp of the edge or duration of the pulse) of the event or 0 when the event is not received.
@@ -18018,7 +18043,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "getPinEventValue",
     value: function getPinEventValue(args) {
-      var value = this._peripheral.getPinEventValue(parseInt(args.PIN, 10), MMPinEvent[args.EVENT]);
+      var value = this._peripheral.getPinEventValue(parseInt(args.PIN, 10), MbitMorePinEvent[args.EVENT]);
 
       return value ? value : 0;
     }
@@ -18029,7 +18054,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "updatePrevPinEvents",
     value: function updatePrevPinEvents() {
-      var _this16 = this;
+      var _this17 = this;
 
       this.prevPinEvents = {};
       Object.entries(this._peripheral._pinEvents).forEach(function (_ref7) {
@@ -18037,19 +18062,19 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             pinIndex = _ref8[0],
             events = _ref8[1];
 
-        _this16.prevPinEvents[pinIndex] = {};
+        _this17.prevPinEvents[pinIndex] = {};
         Object.entries(events).forEach(function (_ref9) {
           var _ref10 = _slicedToArray(_ref9, 2),
               eventID = _ref10[0],
               eventData = _ref10[1];
 
-          _this16.prevPinEvents[pinIndex][eventID] = {};
+          _this17.prevPinEvents[pinIndex][eventID] = {};
           Object.entries(eventData).forEach(function (_ref11) {
             var _ref12 = _slicedToArray(_ref11, 2),
                 key = _ref12[0],
                 value = _ref12[1];
 
-            _this16.prevPinEvents[pinIndex][eventID][key] = value;
+            _this17.prevPinEvents[pinIndex][eventID][key] = value;
           });
         });
       });
@@ -18057,7 +18082,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
     /**
      * Return the previous timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
-     * @param {MMPinEvent} eventID - ID of the event to get.
+     * @param {MbitMorePinEvent} eventID - ID of the event to get.
      * @return {?number} Timestamp of the previous event or null.
      */
 
@@ -18081,18 +18106,18 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "whenPinEvent",
     value: function whenPinEvent(args) {
-      var _this17 = this;
+      var _this18 = this;
 
       if (!this.updateLastPinEventTimer) {
         this.updateLastPinEventTimer = setTimeout(function () {
-          _this17.updatePrevPinEvents();
+          _this18.updatePrevPinEvents();
 
-          _this17.updateLastPinEventTimer = null;
+          _this18.updateLastPinEventTimer = null;
         }, this.runtime.currentStepTime);
       }
 
       var pinIndex = parseInt(args.PIN, 10);
-      var eventID = MMPinEvent[args.EVENT];
+      var eventID = MbitMorePinEvent[args.EVENT];
 
       var lastTimestamp = this._peripheral.getPinEventTimestamp(pinIndex, eventID);
 
@@ -18120,7 +18145,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "updatePrevMessages",
     value: function updatePrevMessages() {
-      var _this18 = this;
+      var _this19 = this;
 
       this.prevMessages = {};
       Object.entries(this._peripheral.receivedMessages).forEach(function (_ref13) {
@@ -18128,13 +18153,13 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             label = _ref14[0],
             contentData = _ref14[1];
 
-        _this18.prevMessages[label] = {};
+        _this19.prevMessages[label] = {};
         Object.entries(contentData).forEach(function (_ref15) {
           var _ref16 = _slicedToArray(_ref15, 2),
               key = _ref16[0],
               value = _ref16[1];
 
-          _this18.prevMessages[label][key] = value;
+          _this19.prevMessages[label][key] = value;
         });
       });
     }
@@ -18163,13 +18188,13 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "whenMessage",
     value: function whenMessage(args) {
-      var _this19 = this;
+      var _this20 = this;
 
       if (!this.updateLastMessageTimer) {
         this.updateLastMessageTimer = setTimeout(function () {
-          _this19.updatePrevMessages();
+          _this20.updatePrevMessages();
 
-          _this19.updateLastMessageTimer = null;
+          _this20.updateLastMessageTimer = null;
         }, this.runtime.currentStepTime);
       }
 
@@ -18358,6 +18383,7 @@ var extensionTranslations = {
     'mbitMore.pinModeMenu.pullUp': 'プルアップ',
     'mbitMore.pinModeMenu.pullDown': 'プルダウン',
     'mbitMore.listenPinEventType': 'ピン [PIN] で [EVENT_TYPE]',
+    'mbitMore.pinEventTypeMenu.none': 'イベントをうけない',
     'mbitMore.pinEventTypeMenu.edge': 'エッジイベントをうける',
     'mbitMore.pinEventTypeMenu.pulse': 'パルスイベントをうける',
     'mbitMore.pinEventTypeMenu.touch': 'タッチイベントをうける',
