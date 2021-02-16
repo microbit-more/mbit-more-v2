@@ -397,10 +397,8 @@ class MbitMore {
             this.runtime.on('PROJECT_STOP_ALL', this.stopTone);
         }
 
-        this.analogInUpdateInterval = 80; // milli-seconds
+        this.analogInUpdateInterval = 100; // milli-seconds
         this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
-
-        this.microbitUpdateInterval = 50; // milli-seconds
 
         this.initConfig();
     }
@@ -1052,13 +1050,13 @@ class MbitMore {
                     MM_SERVICE.PIN_EVENT_CH,
                     this.onNotify);
                 if (this.hardware === MbitMoreHardwareVersion.MICROBIT_V1) {
-                    this.microbitUpdateInterval = 100;
-                    this.analogInUpdateInterval = 100;
+                    this.microbitUpdateInterval = 100; // milli-seconds
                 } else {
                     this._ble.startNotifications(
                         MM_SERVICE.ID,
                         MM_SERVICE.MESSAGE_CH,
                         this.onNotify);
+                    this.microbitUpdateInterval = 50; // milli-seconds
                 }
                 this.initConfig();
                 this.bleBusy = false;
