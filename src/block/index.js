@@ -3265,6 +3265,7 @@ const extensionTranslations = {
         'mbitMore.pinModeMenu.pullUp': 'プルアップ',
         'mbitMore.pinModeMenu.pullDown': 'プルダウン',
         'mbitMore.listenPinEventType': 'ピン [PIN] で [EVENT_TYPE]',
+        'mbitMore.pinEventTypeMenu.none': 'イベントをうけない',
         'mbitMore.pinEventTypeMenu.edge': 'エッジイベントをうける',
         'mbitMore.pinEventTypeMenu.pulse': 'パルスイベントをうける',
         'mbitMore.pinEventTypeMenu.touch': 'タッチイベントをうける',
