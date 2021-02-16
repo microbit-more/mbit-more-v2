@@ -1,6 +1,6 @@
 {
-  "name": "scratch-microbit-more",
-  "version": "0.5.0",
+  "name": "mbit-more-v2",
+  "version": "0.1.0",
   "description": "Full-functional extension of micro:bit for Scratch3",
   "module": "./dist/microbitMore.mjs",
   "scripts": {
