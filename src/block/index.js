@@ -118,7 +118,7 @@ const MbitMoreActionEvent = {
 /**
  * Enum for ID of pin-mode
  * @readonly
- * @enum {number}
+ * @enum {string}
  */
 const MbitMorePinMode = {
     INPUT: 'INPUT',
@@ -131,7 +131,7 @@ const MbitMorePinMode = {
 /**
  * Enum for ID of buttons
  * @readonly
- * @enum {number}
+ * @enum {string}
  */
 const MbitMoreButtonName = {
     P0: 'P0',
@@ -145,7 +145,7 @@ const MbitMoreButtonName = {
 /**
  * Enum for componentID of buttons
  * @readonly
- * @enum {number}
+ * @enum {string}
  */
 const MbitMoreButtonID = {
     1: 'A',
@@ -182,25 +182,33 @@ const MbitMoreButtonStateIndex = {
 };
 
 /**
- * Enum for event value in the micro:bit runtime.
+ * Enum for name of event from button
  * @readonly
- * @enum {number}
+ * @enum {string}
  */
-const MbitMoreButtonEvent = {
-    DOWN: 1,
-    UP: 2,
-    CLICK: 3,
-    LONG_CLICK: 4,
-    HOLD: 5,
-    DOUBLE_CLICK: 6
+const MbitMoreButtonEventName = {
+    DOWN: 'DOWN',
+    UP: 'UP',
+    CLICK: 'CLICK',
+    LONG_CLICK: 'LONG_CLICK',
+    HOLD: 'HOLD',
+    DOUBLE_CLICK: 'DOUBLE_CLICK'
 };
 
 /**
- * Enum for event value of gesture.
+ * Enum for ID of event from button
  * @readonly
- * @enum {number}
+ * @enum {string}
  */
-const MbitMoreGestureEvent =
+const MbitMoreButtonEventID = {
+    1: 'DOWN',
+    2: 'UP',
+    3: 'CLICK',
+    4: 'LONG_CLICK',
+    5: 'HOLD',
+    6: 'DOUBLE_CLICK'
+};
+
 {
     TILT_UP: 1,
     TILT_DOWN: 2,
@@ -1130,10 +1138,9 @@ class MbitMore {
         if (dataFormat === MbitMoreDataFormat.ACTION_EVENT) {
             const actionEventType = dataView.getUint8(0);
             if (actionEventType === MbitMoreActionEvent.BUTTON) {
-                const componentID = dataView.getUint16(1, true);
-                const buttonName = MbitMoreButtonID[componentID];
-                const event = dataView.getUint16(3, true);
-                this.buttonEvents[buttonName][event] = dataView.getUint32(5, true); // Timestamp
+                const buttonName = MbitMoreButtonID[dataView.getUint16(1, true)];
+                const eventName = MbitMoreButtonEventID[dataView.getUint16(3, true)];
+                this.buttonEvents[buttonName][eventName] = dataView.getUint32(5, true); // Timestamp
             } else if (actionEventType === MbitMoreActionEvent.GESTURE) {
                 const event = dataView.getUint8(1);
                 this.gestureEvents[event] = dataView.getUint32(2, true); // Timestamp
@@ -1265,12 +1272,12 @@ class MbitMore {
     /**
      * Return the last timestamp of the button event or undefined if the event is not received.
      * @param {MbitMoreButtonName} buttonName - name of the button to get the event.
-     * @param {MbitMoreButtonEvent} event - event to get.
+     * @param {MbitMoreButtonEventName} eventName - name of event to get.
      * @return {?number} Timestamp of the last event or null.
      */
-    getButtonEventTimestamp (buttonName, event) {
-        if (this.buttonEvents[buttonName] && this.buttonEvents[buttonName][event]) {
-            return this.buttonEvents[buttonName][event];
+    getButtonEventTimestamp (buttonName, eventName) {
+        if (this.buttonEvents[buttonName] && this.buttonEvents[buttonName][eventName]) {
+            return this.buttonEvents[buttonName][eventName];
         }
         return null;
     }
@@ -1584,7 +1591,7 @@ class MbitMoreBlocks {
                     default: 'click',
                     description: 'label for button click event'
                 }),
-                value: MbitMoreButtonEvent.CLICK
+                value: MbitMoreButtonEventName.CLICK
             // },
             // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
@@ -1593,7 +1600,7 @@ class MbitMoreBlocks {
             //         default: 'pressed',
             //         description: 'label for button hold event'
             //     }),
-            //     value: MbitMoreButtonEvent.HOLD
+            //     value: MbitMoreButtonEventName.HOLD
             // },
             // {
             //     text: formatMessage({
@@ -1601,7 +1608,7 @@ class MbitMoreBlocks {
             //         default: 'long click',
             //         description: 'label for button long click event'
             //     }),
-            //     value: MbitMoreButtonEvent.LONG_CLICK
+            //     value: MbitMoreButtonEventName.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
@@ -1609,7 +1616,7 @@ class MbitMoreBlocks {
             //         default: 'double click',
             //         description: 'label for button double click event'
             //     }),
-            //     value: MbitMoreButtonEvent.DOUBLE_CLICK
+            //     value: MbitMoreButtonEventName.DOUBLE_CLICK
             }
         ];
     }
@@ -1653,7 +1660,7 @@ class MbitMoreBlocks {
                     default: 'touched',
                     description: 'label for touched event'
                 }),
-                value: MbitMoreButtonEvent.DOWN
+                value: MbitMoreButtonEventName.DOWN
             },
             {
                 text: formatMessage({
@@ -1661,7 +1668,7 @@ class MbitMoreBlocks {
                     default: 'released',
                     description: 'label for released event'
                 }),
-                value: MbitMoreButtonEvent.UP
+                value: MbitMoreButtonEventName.UP
             },
             {
                 text: formatMessage({
@@ -1669,7 +1676,7 @@ class MbitMoreBlocks {
                     default: 'tapped',
                     description: 'label for tapped event'
                 }),
-                value: MbitMoreButtonEvent.CLICK
+                value: MbitMoreButtonEventName.CLICK
             // },
             // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
@@ -1678,7 +1685,7 @@ class MbitMoreBlocks {
             //         default: 'pressed',
             //         description: 'label for hold event in touch'
             //     }),
-            //     value: MbitMoreButtonEvent.HOLD
+            //     value: MbitMoreButtonEventName.HOLD
             // },
             // {
             //     text: formatMessage({
@@ -1686,7 +1693,7 @@ class MbitMoreBlocks {
             //         default: 'long click',
             //         description: 'label for long click event in touch'
             //     }),
-            //     value: MbitMoreButtonEvent.LONG_CLICK
+            //     value: MbitMoreButtonEventName.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
@@ -1694,7 +1701,7 @@ class MbitMoreBlocks {
             //         default: 'double click',
             //         description: 'label for double click event in touch'
             //     }),
-            //     value: MbitMoreButtonEvent.DOUBLE_CLICK
+            //     value: MbitMoreButtonEventName.DOUBLE_CLICK
             }
         ];
     }
@@ -2033,9 +2040,9 @@ class MbitMoreBlocks {
                             defaultValue: MbitMoreButtonName.A
                         },
                         EVENT: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'buttonEventMenu',
-                            defaultValue: MbitMoreButtonEvent.DOWN
+                            defaultValue: MbitMoreButtonEventName.DOWN
                         }
                     }
                 },
@@ -2070,9 +2077,9 @@ class MbitMoreBlocks {
                             defaultValue: MbitMoreButtonName.LOGO
                         },
                         EVENT: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'touchEventMenu',
-                            defaultValue: MbitMoreButtonEvent.DOWN
+                            defaultValue: MbitMoreButtonEventName.DOWN
                         }
                     }
                 },
@@ -2579,8 +2586,8 @@ class MbitMoreBlocks {
         this.prevButtonEvents = {};
         Object.entries(this._peripheral.buttonEvents).forEach(([componentID, events]) => {
             this.prevButtonEvents[componentID] = {};
-            Object.entries(events).forEach(([eventID, timestamp]) => {
-                this.prevButtonEvents[componentID][eventID] = timestamp;
+            Object.entries(events).forEach(([eventName, timestamp]) => {
+                this.prevButtonEvents[componentID][eventName] = timestamp;
             });
         });
     }
@@ -2589,7 +2596,7 @@ class MbitMoreBlocks {
      * Test whether the event raised at the button.
      * @param {object} args - the block's arguments.
      * @param {string} args.NAME - name of the button.
-     * @param {string} args.EVENT - event to catch.
+     * @param {string} args.EVENT - name of event to catch.
      * @return {boolean} - true if the event raised.
      */
     whenButtonEvent (args) {
@@ -2600,12 +2607,12 @@ class MbitMoreBlocks {
             }, this.runtime.currentStepTime);
         }
         const buttonName = args.NAME;
-        const eventID = parseInt(args.EVENT, 10);
+        const eventName = args.EVENT;
         const lastTimestamp =
-            this._peripheral.getButtonEventTimestamp(buttonName, eventID);
+            this._peripheral.getButtonEventTimestamp(buttonName, eventName);
         if (lastTimestamp === null) return false;
         if (!this.prevButtonEvents[buttonName]) return true;
-        return lastTimestamp !== this.prevButtonEvents[buttonName][eventID];
+        return lastTimestamp !== this.prevButtonEvents[buttonName][eventName];
     }
 
     /**
