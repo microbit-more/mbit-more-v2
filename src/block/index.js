@@ -209,18 +209,44 @@ const MbitMoreButtonEventID = {
     6: 'DOUBLE_CLICK'
 };
 
+/**
+ * Enum for name of gesture.
+ * @readonly
+ * @enum {string}
+ */
+const MbitMoreGestureName =
 {
-    TILT_UP: 1,
-    TILT_DOWN: 2,
-    TILT_LEFT: 3,
-    TILT_RIGHT: 4,
-    FACE_UP: 5,
-    FACE_DOWN: 6,
-    FREEFALL: 7,
-    G3: 8,
-    G6: 9,
-    G8: 10,
-    SHAKE: 11
+    TILT_UP: 'TILT_UP',
+    TILT_DOWN: 'TILT_DOWN',
+    TILT_LEFT: 'TILT_LEFT',
+    TILT_RIGHT: 'TILT_RIGHT',
+    FACE_UP: 'FACE_UP',
+    FACE_DOWN: 'FACE_DOWN',
+    FREEFALL: 'FREEFALL',
+    G3: 'G3',
+    G6: 'G6',
+    G8: 'G8',
+    SHAKE: 'SHAKE'
+};
+
+/**
+ * Enum for ID of gesture.
+ * @readonly
+ * @enum {string}
+ */
+const MbitMoreGestureID =
+{
+    1: 'TILT_UP',
+    2: 'TILT_DOWN',
+    3: 'TILT_LEFT',
+    4: 'TILT_RIGHT',
+    5: 'FACE_UP',
+    6: 'FACE_DOWN',
+    7: 'FREEFALL',
+    8: 'G3',
+    9: 'G6',
+    10: 'G8',
+    11: 'SHAKE'
 };
 
 /**
@@ -1142,8 +1168,8 @@ class MbitMore {
                 const eventName = MbitMoreButtonEventID[dataView.getUint16(3, true)];
                 this.buttonEvents[buttonName][eventName] = dataView.getUint32(5, true); // Timestamp
             } else if (actionEventType === MbitMoreActionEvent.GESTURE) {
-                const event = dataView.getUint8(1);
-                this.gestureEvents[event] = dataView.getUint32(2, true); // Timestamp
+                const gestureName = MbitMoreGestureID[dataView.getUint8(1)];
+                this.gestureEvents[gestureName] = dataView.getUint32(2, true); // Timestamp
             }
         } else if (dataFormat === MbitMoreDataFormat.PIN_EVENT) {
             const pinIndex = dataView.getUint8(0);
@@ -1284,12 +1310,12 @@ class MbitMore {
 
     /**
      * Return the last timestamp of the gesture event or undefined if the event is not received.
-     * @param {MbitMoreGestureEvent} gestureID - ID of the event.
+     * @param {MbitMoreGestureName} gestureName - name of the event.
      * @return {?number} Timestamp of the last event or null.
      */
-    getGestureEventTimestamp (gestureID) {
-        if (this.gestureEvents[gestureID]) {
-            return this.gestureEvents[gestureID];
+    getGestureEventTimestamp (gestureName) {
+        if (this.gestureEvents[gestureName]) {
+            return this.gestureEvents[gestureName];
         }
         return null;
     }
@@ -1453,7 +1479,7 @@ class MbitMoreBlocks {
                     default: 'titl up',
                     description: 'label for tilt up gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_UP
+                value: MbitMoreGestureName.TILT_UP
             },
             {
                 text: formatMessage({
@@ -1461,7 +1487,7 @@ class MbitMoreBlocks {
                     default: 'titl down',
                     description: 'label for tilt down gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_DOWN
+                value: MbitMoreGestureName.TILT_DOWN
             },
             {
                 text: formatMessage({
@@ -1469,7 +1495,7 @@ class MbitMoreBlocks {
                     default: 'titl left',
                     description: 'label for tilt left gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_LEFT
+                value: MbitMoreGestureName.TILT_LEFT
             },
             {
                 text: formatMessage({
@@ -1477,7 +1503,7 @@ class MbitMoreBlocks {
                     default: 'titl right',
                     description: 'label for tilt right gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_RIGHT
+                value: MbitMoreGestureName.TILT_RIGHT
             },
             {
                 text: formatMessage({
@@ -1485,7 +1511,7 @@ class MbitMoreBlocks {
                     default: 'face up',
                     description: 'label for face up gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.FACE_UP
+                value: MbitMoreGestureName.FACE_UP
             },
             {
                 text: formatMessage({
@@ -1493,7 +1519,7 @@ class MbitMoreBlocks {
                     default: 'face down',
                     description: 'label for face down gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.FACE_DOWN
+                value: MbitMoreGestureName.FACE_DOWN
             },
             {
                 text: formatMessage({
@@ -1501,7 +1527,7 @@ class MbitMoreBlocks {
                     default: 'freefall',
                     description: 'label for freefall gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.FREEFALL
+                value: MbitMoreGestureName.FREEFALL
             },
             {
                 text: formatMessage({
@@ -1509,7 +1535,7 @@ class MbitMoreBlocks {
                     default: '3G',
                     description: 'label for 3G gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.G3
+                value: MbitMoreGestureName.G3
             },
             {
                 text: formatMessage({
@@ -1517,7 +1543,7 @@ class MbitMoreBlocks {
                     default: '6G',
                     description: 'label for 6G gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.G6
+                value: MbitMoreGestureName.G6
             },
             {
                 text: formatMessage({
@@ -1525,7 +1551,7 @@ class MbitMoreBlocks {
                     default: '8G',
                     description: 'label for 3G gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.G8
+                value: MbitMoreGestureName.G8
             },
             {
                 text: formatMessage({
@@ -1533,7 +1559,7 @@ class MbitMoreBlocks {
                     default: 'shake',
                     description: 'label for shaken gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.SHAKE
+                value: MbitMoreGestureName.SHAKE
             }
 
         ];
@@ -1575,7 +1601,7 @@ class MbitMoreBlocks {
                     default: 'down',
                     description: 'label for button down event'
                 }),
-                value: MbitMoreButtonEvent.DOWN
+                value: MbitMoreButtonEventName.DOWN
             },
             {
                 text: formatMessage({
@@ -1583,7 +1609,7 @@ class MbitMoreBlocks {
                     default: 'up',
                     description: 'label for button up event'
                 }),
-                value: MbitMoreButtonEvent.UP
+                value: MbitMoreButtonEventName.UP
             },
             {
                 text: formatMessage({
@@ -2110,9 +2136,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.HAT,
                     arguments: {
                         GESTURE: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gestures',
-                            defaultValue: MbitMoreGestureEvent.SHAKE
+                            defaultValue: MbitMoreGestureName.SHAKE
                         }
                     }
                 },
@@ -2672,15 +2698,15 @@ class MbitMoreBlocks {
      */
     updatePrevGestureEvents () {
         this.prevGestureEvents = {};
-        Object.entries(this._peripheral.gestureEvents).forEach(([gestureID, timestamp]) => {
-            this.prevGestureEvents[gestureID] = timestamp;
+        Object.entries(this._peripheral.gestureEvents).forEach(([gestureName, timestamp]) => {
+            this.prevGestureEvents[gestureName] = timestamp;
         });
     }
 
     /**
      * Test whether the gesture event raised.
      * @param {object} args - the block's arguments.
-     * @param {number} args.GESTURE - ID of the gesture.
+     * @param {string} args.GESTURE - name of the gesture.
      * @return {boolean} - true if the event raised.
      */
     whenGesture (args) {
@@ -2690,12 +2716,12 @@ class MbitMoreBlocks {
                 this.updateLastGestureEventTimer = null;
             }, this.runtime.currentStepTime);
         }
-        const gestureID = args.GESTURE;
+        const gestureName = args.GESTURE;
         const lastTimestamp =
-            this._peripheral.getGestureEventTimestamp(gestureID);
+            this._peripheral.getGestureEventTimestamp(gestureName);
         if (lastTimestamp === null) return false;
-        if (!this.prevGestureEvents[gestureID]) return true;
-        return lastTimestamp !== this.prevGestureEvents[gestureID];
+        if (!this.prevGestureEvents[gestureName]) return true;
+        return lastTimestamp !== this.prevGestureEvents[gestureName];
     }
 
     /**
