@@ -1737,7 +1737,7 @@ class MbitMoreBlocks {
             pinIndex =>
                 Object.create({
                     text: `P${pinIndex.toString()}`,
-                    value: pinIndex
+                    value: pinIndex.toString()
                 })
         );
     }
@@ -2284,9 +2284,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.REPORTER,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'analogInPins',
-                            defaultValue: this.ANALOG_IN_PINS_MENU[0].value
+                            defaultValue: '0'
                         }
                     }
                 },
