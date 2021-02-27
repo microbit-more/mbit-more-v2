@@ -1176,8 +1176,8 @@ class MbitMore {
             const actionEventType = dataView.getUint8(0);
             if (actionEventType === MbitMoreActionEvent.BUTTON) {
                 const buttonName = MbitMoreButtonID[dataView.getUint16(1, true)];
-                const eventName = MbitMoreButtonEventID[dataView.getUint16(3, true)];
-                this.buttonEvents[buttonName][eventName] = dataView.getUint32(5, true); // Timestamp
+                const eventName = MbitMoreButtonEventID[dataView.getUint8(3)];
+                this.buttonEvents[buttonName][eventName] = dataView.getUint32(4, true); // Timestamp
             } else if (actionEventType === MbitMoreActionEvent.GESTURE) {
                 const gestureName = MbitMoreGestureID[dataView.getUint8(1)];
                 this.gestureEvents[gestureName] = dataView.getUint32(2, true); // Timestamp
