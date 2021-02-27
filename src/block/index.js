@@ -82,14 +82,25 @@ const MbitMoreDisplayCommand =
 };
 
 /**
- * Enum for pull mode.
+ * Enum for name of pull mode.
  * @readonly
  * @enum {number}
  */
-const MbitMorePullMode = {
-    None: 0,
-    Down: 1,
-    Up: 2
+const MbitMorePullModeName = {
+    NONE: 'NONE',
+    DOWN: 'DOWN',
+    UP: 'UP'
+};
+
+/**
+ * Enum for ID of pull mode.
+ * @readonly
+ * @enum {number}
+ */
+const MbitMorePullModeID = {
+    NONE: 0,
+    DOWN: 1,
+    UP: 2
 };
 
 /**
@@ -579,7 +590,7 @@ class MbitMore {
     /**
      * Set pull mode to the pin.
      * @param {number} pinIndex - index of the pin
-     * @param {MbitMorePullMode} pullMode - pull mode to set
+     * @param {MbitMorePullModeID} pullMode - pull mode to set
      * @param {BlockUtility} util - utility object provided from the runtime
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
@@ -1748,7 +1759,7 @@ class MbitMoreBlocks {
             pinIndex =>
                 Object.create({
                     text: `P${pinIndex.toString()}`,
-                    value: pinIndex
+                    value: pinIndex.toString()
                 })
         );
     }
@@ -1822,7 +1833,7 @@ class MbitMoreBlocks {
                     default: 'pull none',
                     description: 'label for pullNone mode'
                 }),
-                value: MbitMorePullMode.None
+                value: MbitMorePullModeName.NONE
             },
             {
                 text: formatMessage({
@@ -1830,7 +1841,7 @@ class MbitMoreBlocks {
                     default: 'pull up',
                     description: 'label for pullUp mode'
                 }),
-                value: MbitMorePullMode.Up
+                value: MbitMorePullModeName.UP
             },
             {
                 text: formatMessage({
@@ -1838,7 +1849,7 @@ class MbitMoreBlocks {
                     default: 'pull down',
                     description: 'label for pullDown mode'
                 }),
-                value: MbitMorePullMode.Down
+                value: MbitMorePullModeName.DOWN
             }
         ];
     }
@@ -2300,14 +2311,14 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         MODE: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'pinMode',
-                            defaultValue: MbitMorePullMode.Up
+                            defaultValue: MbitMorePullModeName.UP
                         }
                     }
                 },
@@ -2321,9 +2332,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.BOOLEAN,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2338,9 +2349,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         LEVEL: {
                             type: ArgumentType.STRING,
@@ -2359,9 +2370,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         LEVEL: {
                             type: ArgumentType.NUMBER,
@@ -2407,9 +2418,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         ANGLE: {
                             type: ArgumentType.NUMBER,
@@ -2438,12 +2449,12 @@ class MbitMoreBlocks {
                         EVENT_TYPE: {
                             type: ArgumentType.STRING,
                             menu: 'pinEventTypeMenu',
-                            defaultValue: this.PIN_EVENT_TYPE_MENU[0].value
+                            defaultValue: 'NONE'
                         },
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2463,9 +2474,9 @@ class MbitMoreBlocks {
                             defaultValue: 'PULSE_LOW'
                         },
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2484,9 +2495,9 @@ class MbitMoreBlocks {
                             defaultValue: 'PULSE_LOW'
                         },
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2905,12 +2916,12 @@ class MbitMoreBlocks {
      * Set pull mode of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @param {MbitMorePullMode} args.MODE - mode to set.
+     * @param {MbitMorePullModeName} args.MODE - mode to set.
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {undefined}
      */
     setPullMode (args, util) {
-        this._peripheral.setPullMode(parseInt(args.PIN, 10), args.MODE, util);
+        this._peripheral.setPullMode(parseInt(args.PIN, 10), MbitMorePullModeID[args.MODE], util);
     }
 
     /**
