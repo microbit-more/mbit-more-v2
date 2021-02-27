@@ -8275,7 +8275,7 @@ var translationMap = {
   }
 };
 var entry = {
-  name: 'micro:bit MORE v2 (0.1.0)',
+  name: 'micro:bit MORE',
   extensionId: 'microbitMore',
   extensionURL: 'https://yokobond.github.io/mbit-more-v2/dev/dist/microbitMore.mjs',
   collaborator: 'Yengawa Lab',
