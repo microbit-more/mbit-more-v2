@@ -20,7 +20,7 @@ const EXTENSION_ID = 'microbitMore';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-let extensionURL = 'https://yokobond.github.io/mbit-more/dist/microbitMore.mjs';
+let extensionURL = 'https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs';
 
 /**
  * Icon png to be displayed at the left edge of each extension block, encoded as a data URI.
@@ -82,14 +82,25 @@ const MbitMoreDisplayCommand =
 };
 
 /**
- * Enum for pull mode.
+ * Enum for name of pull mode.
  * @readonly
  * @enum {number}
  */
-const MbitMorePullMode = {
-    None: 0,
-    Down: 1,
-    Up: 2
+const MbitMorePullModeName = {
+    NONE: 'NONE',
+    DOWN: 'DOWN',
+    UP: 'UP'
+};
+
+/**
+ * Enum for ID of pull mode.
+ * @readonly
+ * @enum {number}
+ */
+const MbitMorePullModeID = {
+    NONE: 0,
+    DOWN: 1,
+    UP: 2
 };
 
 /**
@@ -116,52 +127,137 @@ const MbitMoreActionEvent = {
 };
 
 /**
- * Enum for event value in the micro:bit runtime.
+ * Enum for ID of pin-mode
  * @readonly
- * @enum {number}
+ * @enum {string}
+ */
+const MbitMorePinMode = {
+    INPUT: 'INPUT',
+    OUTPUT: 'OUTPUT',
+    PWM: 'PWM',
+    SERVO: 'SERVO',
+    TOUCH: 'TOUCH'
+};
+
+/**
+ * Enum for ID of buttons
+ * @readonly
+ * @enum {string}
+ */
+const MbitMoreButtonName = {
+    P0: 'P0',
+    P1: 'P1',
+    P2: 'P2',
+    A: 'A',
+    B: 'B',
+    LOGO: 'LOGO'
+};
+
+/**
+ * Enum for componentID of buttons
+ * @readonly
+ * @enum {string}
  */
 const MbitMoreButtonID = {
-    P0: 24,
-    P1: 25,
-    P2: 26,
-    A: 27,
-    B: 28,
-    LOGO: 29,
-    ANY: 255
+    1: 'A',
+    2: 'B',
+    100: 'P0',
+    101: 'P1',
+    102: 'P2',
+    121: 'LOGO'
 };
 
 /**
- * Enum for event value in the micro:bit runtime.
+ * Enum for index of pin for buttons
  * @readonly
  * @enum {number}
  */
-const MbitMoreButtonEvent = {
-    DOWN: 1,
-    UP: 2,
-    CLICK: 3,
-    LONG_CLICK: 4,
-    HOLD: 5,
-    DOUBLE_CLICK: 6
+const MbitMoreButtonPinIndex = {
+    P0: 0,
+    P1: 1,
+    P2: 2
 };
 
 /**
- * Enum for event value of gesture.
+ * Enum for index in data of button state
  * @readonly
  * @enum {number}
  */
-const MbitMoreGestureEvent =
+const MbitMoreButtonStateIndex = {
+    P0: 0,
+    P1: 1,
+    P2: 2,
+    A: 3,
+    B: 4,
+    LOGO: 5
+};
+
+/**
+ * Enum for name of event from button
+ * @readonly
+ * @enum {string}
+ */
+const MbitMoreButtonEventName = {
+    DOWN: 'DOWN',
+    UP: 'UP',
+    CLICK: 'CLICK',
+    LONG_CLICK: 'LONG_CLICK',
+    HOLD: 'HOLD',
+    DOUBLE_CLICK: 'DOUBLE_CLICK'
+};
+
+/**
+ * Enum for ID of event from button
+ * @readonly
+ * @enum {string}
+ */
+const MbitMoreButtonEventID = {
+    1: 'DOWN',
+    2: 'UP',
+    3: 'CLICK',
+    4: 'LONG_CLICK',
+    5: 'HOLD',
+    6: 'DOUBLE_CLICK'
+};
+
+/**
+ * Enum for name of gesture.
+ * @readonly
+ * @enum {string}
+ */
+const MbitMoreGestureName =
 {
-    TILT_UP: 1,
-    TILT_DOWN: 2,
-    TILT_LEFT: 3,
-    TILT_RIGHT: 4,
-    FACE_UP: 5,
-    FACE_DOWN: 6,
-    FREEFALL: 7,
-    G3: 8,
-    G6: 9,
-    G8: 10,
-    SHAKE: 11
+    TILT_UP: 'TILT_UP',
+    TILT_DOWN: 'TILT_DOWN',
+    TILT_LEFT: 'TILT_LEFT',
+    TILT_RIGHT: 'TILT_RIGHT',
+    FACE_UP: 'FACE_UP',
+    FACE_DOWN: 'FACE_DOWN',
+    FREEFALL: 'FREEFALL',
+    G3: 'G3',
+    G6: 'G6',
+    G8: 'G8',
+    SHAKE: 'SHAKE'
+};
+
+/**
+ * Enum for ID of gesture.
+ * @readonly
+ * @enum {string}
+ */
+const MbitMoreGestureID =
+{
+    1: 'TILT_UP',
+    2: 'TILT_DOWN',
+    3: 'TILT_LEFT',
+    4: 'TILT_RIGHT',
+    5: 'FACE_UP',
+    6: 'FACE_DOWN',
+    7: 'FREEFALL',
+    8: 'G3',
+    9: 'G6',
+    10: 'G8',
+    11: 'SHAKE'
 };
 
 /**
@@ -319,7 +415,7 @@ class MbitMore {
             z: 0
         };
 
-        this.touchState = {};
+        this.buttonState = {};
 
         /**
          * The most recently received button events for each buttons.
@@ -327,8 +423,8 @@ class MbitMore {
          * @private
          */
         this.buttonEvents = {};
-        Object.values(MbitMoreButtonID).forEach(id => {
-            this.buttonEvents[id] = {};
+        Object.keys(MbitMoreButtonStateIndex).forEach(name => {
+            this.buttonEvents[name] = {};
         });
 
         /**
@@ -409,7 +505,7 @@ class MbitMore {
     initConfig () {
         this.config = {};
         this.config.mic = false;
-        this.config.touchPin = {};
+        this.config.pinMode = {};
     }
 
     /**
@@ -494,11 +590,12 @@ class MbitMore {
     /**
      * Set pull mode to the pin.
      * @param {number} pinIndex - index of the pin
-     * @param {MbitMorePullMode} pullMode - pull mode to set
+     * @param {MbitMorePullModeID} pullMode - pull mode to set
      * @param {BlockUtility} util - utility object provided from the runtime
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     setPullMode (pinIndex, pullMode, util) {
+        this.config.pinMode[pinIndex] = MbitMorePinMode.INPUT;
         return this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_PIN << 5) | MbitMorePinCommand.SET_PULL,
@@ -519,6 +616,7 @@ class MbitMore {
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     setPinOutput (pinIndex, level, util) {
+        this.config.pinMode[pinIndex] = MbitMorePinMode.OUTPUT;
         return this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_PIN << 5) | MbitMorePinCommand.SET_OUTPUT,
@@ -541,6 +639,7 @@ class MbitMore {
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
     setPinPWM (pinIndex, level, util) {
+        this.config.pinMode[pinIndex] = MbitMorePinMode.PWM;
         const dataView = new DataView(new ArrayBuffer(2));
         dataView.setUint16(0, level, true);
         return this.sendCommandSet(
@@ -559,6 +658,7 @@ class MbitMore {
     }
 
     setPinServo (pinIndex, angle, range, center, util) {
+        this.config.pinMode[pinIndex] = MbitMorePinMode.SERVO;
         if (!range || range < 0) range = 0;
         if (!center || center < 0) center = 0;
         const dataView = new DataView(new ArrayBuffer(6));
@@ -667,12 +767,10 @@ class MbitMore {
                     for (let i = 0; i < this.gpio.length; i++) {
                         this.digitalLevel[this.gpio[i]] = (gpioData >> this.gpio[i]) & 1;
                     }
-                    this.digitalLevel[MbitMoreButtonID.A] = (gpioData >> MbitMoreButtonID.A) & 1;
-                    this.digitalLevel[MbitMoreButtonID.B] = (gpioData >> MbitMoreButtonID.B) & 1;
-                    this.touchState[MbitMoreButtonID.LOGO] = (gpioData >> MbitMoreButtonID.LOGO) & 1;
-                    this.touchState[MbitMoreButtonID.P0] = (gpioData >> MbitMoreButtonID.P0) & 1;
-                    this.touchState[MbitMoreButtonID.P1] = (gpioData >> MbitMoreButtonID.P1) & 1;
-                    this.touchState[MbitMoreButtonID.P2] = (gpioData >> MbitMoreButtonID.P2) & 1;
+                    Object.keys(MbitMoreButtonStateIndex).forEach(
+                        name => {
+                            this.buttonState[name] = (gpioData >> (24 + MbitMoreButtonStateIndex[name])) & 1;
+                        });
                     this.lightLevel = dataView.getUint8(4);
                     this.temperature = dataView.getUint8(5) - 128;
                     this.soundLevel = dataView.getUint8(6);
@@ -1077,14 +1175,12 @@ class MbitMore {
         if (dataFormat === MbitMoreDataFormat.ACTION_EVENT) {
             const actionEventType = dataView.getUint8(0);
             if (actionEventType === MbitMoreActionEvent.BUTTON) {
-                const buttonID = dataView.getUint8(1);
-                const event = dataView.getUint8(2, true);
-                this.buttonEvents[MbitMoreButtonID.ANY][event] =
-                 this.buttonEvents[buttonID][event] =
-                  dataView.getUint32(3, true); // Timestamp
+                const buttonName = MbitMoreButtonID[dataView.getUint16(1, true)];
+                const eventName = MbitMoreButtonEventID[dataView.getUint8(3)];
+                this.buttonEvents[buttonName][eventName] = dataView.getUint32(4, true); // Timestamp
             } else if (actionEventType === MbitMoreActionEvent.GESTURE) {
-                const event = dataView.getUint8(1);
-                this.gestureEvents[event] = dataView.getUint32(2, true); // Timestamp
+                const gestureName = MbitMoreGestureID[dataView.getUint8(1)];
+                this.gestureEvents[gestureName] = dataView.getUint32(2, true); // Timestamp
             }
         } else if (dataFormat === MbitMoreDataFormat.PIN_EVENT) {
             const pinIndex = dataView.getUint8(0);
@@ -1146,81 +1242,91 @@ class MbitMore {
     }
 
     /**
-     * Configurate touch mode of the pin.
-     * @param {number} buttonID - ID of the pin as a button.
-     * @param {boolean} isTouch - true if the pin is touch mode.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves configured state or undefined if the process was yield.
+     * Return whether the button is pressed.
+     * @param {string} buttonName - name of the button
+     * @return {boolean} - true when it is pressed
      */
-    configTouchPin (buttonID, isTouch, util) {
+    isButtonPressed (buttonName) {
         if (!this.isConnected()) {
-            return Promise.resolve(false);
+            return false;
         }
-        if (this.config.touchPin[buttonID] === isTouch) {
-            return Promise.resolve(this.config.touchPin[buttonID]);
+        return this.buttonState[buttonName] === 1;
+    }
+
+    /**
+     * Return whether the pin is touch-mode.
+     * @param {number} pinIndex - indesx of the pin
+     * @return {boolean} - true when it is touch-mode
+     */
+    isPinTouchMode (pinIndex) {
+        return this.config.pinMode[pinIndex] === MbitMorePinMode.TOUCH;
+    }
+
+    /**
+     * Configurate touch mode of the pin.
+     * @param {number} pinIndex - index of the pin as a button.
+     * @param {object} util - utility object provided by the runtime.
+     * @return {Promise} - a Promise that resolves when configured or the process was yield.
+     */
+    configTouchPin (pinIndex, util) {
+        if (!this.isConnected()) {
+            return Promise.resolve();
+        }
+        if (this.isPinTouchMode(pinIndex)) {
+            return Promise.resolve();
         }
         const sendPromise = this.sendCommandSet(
             [{
                 id: (BLECommand.CMD_CONFIG << 5) | MbitMoreConfig.TOUCH,
                 message: new Uint8Array([
-                    buttonID,
-                    (isTouch ? 1 : 0)
+                    pinIndex,
+                    1
                 ])
             }],
             util
         );
         if (sendPromise) {
-            sendPromise
+            return sendPromise
                 .then(() => {
-                    this.config.touchPin[buttonID] = isTouch;
-                    return this.config.touchPin[buttonID];
+                    this.config.pinMode[pinIndex] = MbitMorePinMode.TOUCH;
                 });
         }
-        return;
+        return Promise.resolve();
     }
 
     /**
      * Return whether the touche-pin is touched.
-     * @param {number} buttonID - ID to check.
-     * @param {object} util - utility object provided by the runtime.
+     * @param {string} buttonName - ID to check.
      * @return {boolean} - whether the id is high or not.
      */
-    isTouched (buttonID, util) {
+    isTouched (buttonName) {
         if (!this.isConnected()) {
             return false;
         }
-        if (buttonID === MbitMoreButtonID.LOGO) {
-            return this.touchState[buttonID] === 1;
-        }
-        if (this.config.touchPin[buttonID]) {
-            return this.touchState[buttonID] === 1;
-        }
-        // Change the pin to touch mode at first time.
-        this.configTouchPin(buttonID, true, util);
-        return false;
+        return this.buttonState[buttonName] === 1;
     }
 
     /**
      * Return the last timestamp of the button event or undefined if the event is not received.
-     * @param {MbitMoreButtonID} buttonID - ID of the button to get the event.
-     * @param {MbitMoreButtonEvent} event - event to get.
+     * @param {MbitMoreButtonName} buttonName - name of the button to get the event.
+     * @param {MbitMoreButtonEventName} eventName - name of event to get.
      * @return {?number} Timestamp of the last event or null.
      */
-    getButtonEventTimestamp (buttonID, event) {
-        if (this.buttonEvents[buttonID] && this.buttonEvents[buttonID][event]) {
-            return this.buttonEvents[buttonID][event];
+    getButtonEventTimestamp (buttonName, eventName) {
+        if (this.buttonEvents[buttonName] && this.buttonEvents[buttonName][eventName]) {
+            return this.buttonEvents[buttonName][eventName];
         }
         return null;
     }
 
     /**
      * Return the last timestamp of the gesture event or undefined if the event is not received.
-     * @param {MbitMoreGestureEvent} gestureID - ID of the event.
+     * @param {MbitMoreGestureName} gestureName - name of the event.
      * @return {?number} Timestamp of the last event or null.
      */
-    getGestureEventTimestamp (gestureID) {
-        if (this.gestureEvents[gestureID]) {
-            return this.gestureEvents[gestureID];
+    getGestureEventTimestamp (gestureName) {
+        if (this.gestureEvents[gestureName]) {
+            return this.gestureEvents[gestureName];
         }
         return null;
     }
@@ -1384,7 +1490,7 @@ class MbitMoreBlocks {
                     default: 'titl up',
                     description: 'label for tilt up gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_UP
+                value: MbitMoreGestureName.TILT_UP
             },
             {
                 text: formatMessage({
@@ -1392,7 +1498,7 @@ class MbitMoreBlocks {
                     default: 'titl down',
                     description: 'label for tilt down gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_DOWN
+                value: MbitMoreGestureName.TILT_DOWN
             },
             {
                 text: formatMessage({
@@ -1400,7 +1506,7 @@ class MbitMoreBlocks {
                     default: 'titl left',
                     description: 'label for tilt left gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_LEFT
+                value: MbitMoreGestureName.TILT_LEFT
             },
             {
                 text: formatMessage({
@@ -1408,7 +1514,7 @@ class MbitMoreBlocks {
                     default: 'titl right',
                     description: 'label for tilt right gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.TILT_RIGHT
+                value: MbitMoreGestureName.TILT_RIGHT
             },
             {
                 text: formatMessage({
@@ -1416,7 +1522,7 @@ class MbitMoreBlocks {
                     default: 'face up',
                     description: 'label for face up gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.FACE_UP
+                value: MbitMoreGestureName.FACE_UP
             },
             {
                 text: formatMessage({
@@ -1424,7 +1530,7 @@ class MbitMoreBlocks {
                     default: 'face down',
                     description: 'label for face down gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.FACE_DOWN
+                value: MbitMoreGestureName.FACE_DOWN
             },
             {
                 text: formatMessage({
@@ -1432,7 +1538,7 @@ class MbitMoreBlocks {
                     default: 'freefall',
                     description: 'label for freefall gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.FREEFALL
+                value: MbitMoreGestureName.FREEFALL
             },
             {
                 text: formatMessage({
@@ -1440,7 +1546,7 @@ class MbitMoreBlocks {
                     default: '3G',
                     description: 'label for 3G gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.G3
+                value: MbitMoreGestureName.G3
             },
             {
                 text: formatMessage({
@@ -1448,7 +1554,7 @@ class MbitMoreBlocks {
                     default: '6G',
                     description: 'label for 6G gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.G6
+                value: MbitMoreGestureName.G6
             },
             {
                 text: formatMessage({
@@ -1456,7 +1562,7 @@ class MbitMoreBlocks {
                     default: '8G',
                     description: 'label for 3G gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.G8
+                value: MbitMoreGestureName.G8
             },
             {
                 text: formatMessage({
@@ -1464,7 +1570,7 @@ class MbitMoreBlocks {
                     default: 'shake',
                     description: 'label for shaken gesture in gesture picker for microbit more extension'
                 }),
-                value: MbitMoreGestureEvent.SHAKE
+                value: MbitMoreGestureName.SHAKE
             }
 
         ];
@@ -1482,7 +1588,7 @@ class MbitMoreBlocks {
                     default: 'A',
                     description: 'label for "A" element in button picker for micro:bit more extension'
                 }),
-                value: MbitMoreButtonID.A
+                value: MbitMoreButtonName.A
             },
             {
                 text: formatMessage({
@@ -1490,15 +1596,7 @@ class MbitMoreBlocks {
                     default: 'B',
                     description: 'label for "B" element in button picker for micro:bit more extension'
                 }),
-                value: MbitMoreButtonID.B
-            // },
-            // {
-            //     text: formatMessage({
-            //         id: 'mbitMore.buttonIDMenu.any',
-            //         default: 'any',
-            //         description: 'label for "any" element in button picker for micro:bit more extension'
-            //     }),
-            //     value: MbitMoreButtonID.ANY
+                value: MbitMoreButtonName.B
             }
         ];
     }
@@ -1514,7 +1612,7 @@ class MbitMoreBlocks {
                     default: 'down',
                     description: 'label for button down event'
                 }),
-                value: MbitMoreButtonEvent.DOWN
+                value: MbitMoreButtonEventName.DOWN
             },
             {
                 text: formatMessage({
@@ -1522,7 +1620,7 @@ class MbitMoreBlocks {
                     default: 'up',
                     description: 'label for button up event'
                 }),
-                value: MbitMoreButtonEvent.UP
+                value: MbitMoreButtonEventName.UP
             },
             {
                 text: formatMessage({
@@ -1530,7 +1628,7 @@ class MbitMoreBlocks {
                     default: 'click',
                     description: 'label for button click event'
                 }),
-                value: MbitMoreButtonEvent.CLICK
+                value: MbitMoreButtonEventName.CLICK
             // },
             // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
@@ -1539,7 +1637,7 @@ class MbitMoreBlocks {
             //         default: 'pressed',
             //         description: 'label for button hold event'
             //     }),
-            //     value: MbitMoreButtonEvent.HOLD
+            //     value: MbitMoreButtonEventName.HOLD
             // },
             // {
             //     text: formatMessage({
@@ -1547,7 +1645,7 @@ class MbitMoreBlocks {
             //         default: 'long click',
             //         description: 'label for button long click event'
             //     }),
-            //     value: MbitMoreButtonEvent.LONG_CLICK
+            //     value: MbitMoreButtonEventName.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
@@ -1555,7 +1653,7 @@ class MbitMoreBlocks {
             //         default: 'double click',
             //         description: 'label for button double click event'
             //     }),
-            //     value: MbitMoreButtonEvent.DOUBLE_CLICK
+            //     value: MbitMoreButtonEventName.DOUBLE_CLICK
             }
         ];
     }
@@ -1571,19 +1669,19 @@ class MbitMoreBlocks {
                     default: 'LOGO',
                     description: 'label for "LOGO" element in touch button picker for micro:bit more extension'
                 }),
-                value: MbitMoreButtonID.LOGO
+                value: MbitMoreButtonName.LOGO
             },
             {
                 text: 'P0',
-                value: MbitMoreButtonID.P0
+                value: MbitMoreButtonName.P0
             },
             {
                 text: 'P1',
-                value: MbitMoreButtonID.P1
+                value: MbitMoreButtonName.P1
             },
             {
                 text: 'P2',
-                value: MbitMoreButtonID.P2
+                value: MbitMoreButtonName.P2
             }
         ];
     }
@@ -1599,7 +1697,7 @@ class MbitMoreBlocks {
                     default: 'touched',
                     description: 'label for touched event'
                 }),
-                value: MbitMoreButtonEvent.DOWN
+                value: MbitMoreButtonEventName.DOWN
             },
             {
                 text: formatMessage({
@@ -1607,7 +1705,7 @@ class MbitMoreBlocks {
                     default: 'released',
                     description: 'label for released event'
                 }),
-                value: MbitMoreButtonEvent.UP
+                value: MbitMoreButtonEventName.UP
             },
             {
                 text: formatMessage({
@@ -1615,7 +1713,7 @@ class MbitMoreBlocks {
                     default: 'tapped',
                     description: 'label for tapped event'
                 }),
-                value: MbitMoreButtonEvent.CLICK
+                value: MbitMoreButtonEventName.CLICK
             // },
             // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
@@ -1624,7 +1722,7 @@ class MbitMoreBlocks {
             //         default: 'pressed',
             //         description: 'label for hold event in touch'
             //     }),
-            //     value: MbitMoreButtonEvent.HOLD
+            //     value: MbitMoreButtonEventName.HOLD
             // },
             // {
             //     text: formatMessage({
@@ -1632,7 +1730,7 @@ class MbitMoreBlocks {
             //         default: 'long click',
             //         description: 'label for long click event in touch'
             //     }),
-            //     value: MbitMoreButtonEvent.LONG_CLICK
+            //     value: MbitMoreButtonEventName.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
@@ -1640,7 +1738,7 @@ class MbitMoreBlocks {
             //         default: 'double click',
             //         description: 'label for double click event in touch'
             //     }),
-            //     value: MbitMoreButtonEvent.DOUBLE_CLICK
+            //     value: MbitMoreButtonEventName.DOUBLE_CLICK
             }
         ];
     }
@@ -1650,7 +1748,7 @@ class MbitMoreBlocks {
             pinIndex =>
                 Object.create({
                     text: `P${pinIndex.toString()}`,
-                    value: pinIndex
+                    value: pinIndex.toString()
                 })
         );
     }
@@ -1661,7 +1759,7 @@ class MbitMoreBlocks {
             pinIndex =>
                 Object.create({
                     text: `P${pinIndex.toString()}`,
-                    value: pinIndex
+                    value: pinIndex.toString()
                 })
         );
     }
@@ -1735,7 +1833,7 @@ class MbitMoreBlocks {
                     default: 'pull none',
                     description: 'label for pullNone mode'
                 }),
-                value: MbitMorePullMode.None
+                value: MbitMorePullModeName.NONE
             },
             {
                 text: formatMessage({
@@ -1743,7 +1841,7 @@ class MbitMoreBlocks {
                     default: 'pull up',
                     description: 'label for pullUp mode'
                 }),
-                value: MbitMorePullMode.Up
+                value: MbitMorePullModeName.UP
             },
             {
                 text: formatMessage({
@@ -1751,7 +1849,7 @@ class MbitMoreBlocks {
                     default: 'pull down',
                     description: 'label for pullDown mode'
                 }),
-                value: MbitMorePullMode.Down
+                value: MbitMorePullModeName.DOWN
             }
         ];
     }
@@ -1864,14 +1962,6 @@ class MbitMoreBlocks {
                     description: 'label for edge event type'
                 }),
                 value: 'ON_EDGE'
-            // },
-            // {
-            //     text: formatMessage({
-            //         id: 'mbitMore.pinEventTypeMenu.touch',
-            //         default: 'touch',
-            //         description: 'label for touch event type'
-            //     }),
-            //     value: 'ON_TOUCH'
             }
         ];
     }
@@ -1976,20 +2066,20 @@ class MbitMoreBlocks {
                     opcode: 'whenButtonEvent',
                     text: formatMessage({
                         id: 'mbitMore.whenButtonEvent',
-                        default: 'when button [ID] is [EVENT]',
+                        default: 'when button [NAME] is [EVENT]',
                         description: 'when the selected button on the micro:bit get the selected event'
                     }),
                     blockType: BlockType.HAT,
                     arguments: {
-                        ID: {
-                            type: ArgumentType.NUMBER,
+                        NAME: {
+                            type: ArgumentType.STRING,
                             menu: 'buttonIDMenu',
-                            defaultValue: MbitMoreButtonID.A
+                            defaultValue: MbitMoreButtonName.A
                         },
                         EVENT: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'buttonEventMenu',
-                            defaultValue: MbitMoreButtonEvent.DOWN
+                            defaultValue: MbitMoreButtonEventName.DOWN
                         }
                     }
                 },
@@ -1997,15 +2087,15 @@ class MbitMoreBlocks {
                     opcode: 'isButtonPressed',
                     text: formatMessage({
                         id: 'mbitMore.isButtonPressed',
-                        default: 'button [ID] pressed?',
+                        default: 'button [NAME] pressed?',
                         description: 'is the selected button on the micro:bit pressed?'
                     }),
                     blockType: BlockType.BOOLEAN,
                     arguments: {
-                        ID: {
-                            type: ArgumentType.NUMBER,
+                        NAME: {
+                            type: ArgumentType.STRING,
                             menu: 'buttonIDMenu',
-                            defaultValue: MbitMoreButtonID.A
+                            defaultValue: MbitMoreButtonName.A
                         }
                     }
                 },
@@ -2013,20 +2103,20 @@ class MbitMoreBlocks {
                     opcode: 'whenTouchEvent',
                     text: formatMessage({
                         id: 'mbitMore.whenTouchEvent',
-                        default: 'when pin [ID] is [EVENT]',
+                        default: 'when pin [NAME] is [EVENT]',
                         description: 'when the selected touch pin on the micro:bit is touched'
                     }),
                     blockType: BlockType.HAT,
                     arguments: {
-                        ID: {
-                            type: ArgumentType.NUMBER,
+                        NAME: {
+                            type: ArgumentType.STRING,
                             menu: 'touchIDMenu',
-                            defaultValue: MbitMoreButtonID.LOGO
+                            defaultValue: MbitMoreButtonName.LOGO
                         },
                         EVENT: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'touchEventMenu',
-                            defaultValue: MbitMoreButtonEvent.DOWN
+                            defaultValue: MbitMoreButtonEventName.DOWN
                         }
                     }
                 },
@@ -2034,15 +2124,15 @@ class MbitMoreBlocks {
                     opcode: 'isPinTouched',
                     text: formatMessage({
                         id: 'mbitMore.isPinTouched',
-                        default: 'pin [ID] is touched?',
+                        default: 'pin [NAME] is touched?',
                         description: 'is the selected pin is touched?'
                     }),
                     blockType: BlockType.BOOLEAN,
                     arguments: {
-                        ID: {
-                            type: ArgumentType.NUMBER,
+                        NAME: {
+                            type: ArgumentType.STRING,
                             menu: 'touchIDMenu',
-                            defaultValue: MbitMoreButtonID.LOGO
+                            defaultValue: MbitMoreButtonName.LOGO
                         }
                     }
                 },
@@ -2057,9 +2147,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.HAT,
                     arguments: {
                         GESTURE: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gestures',
-                            defaultValue: MbitMoreGestureEvent.SHAKE
+                            defaultValue: MbitMoreGestureName.SHAKE
                         }
                     }
                 },
@@ -2205,9 +2295,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.REPORTER,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'analogInPins',
-                            defaultValue: this.ANALOG_IN_PINS_MENU[0].value
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2221,14 +2311,14 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         MODE: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'pinMode',
-                            defaultValue: MbitMorePullMode.Up
+                            defaultValue: MbitMorePullModeName.UP
                         }
                     }
                 },
@@ -2242,9 +2332,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.BOOLEAN,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2259,9 +2349,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         LEVEL: {
                             type: ArgumentType.STRING,
@@ -2280,9 +2370,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         LEVEL: {
                             type: ArgumentType.NUMBER,
@@ -2328,9 +2418,9 @@ class MbitMoreBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         },
                         ANGLE: {
                             type: ArgumentType.NUMBER,
@@ -2359,12 +2449,12 @@ class MbitMoreBlocks {
                         EVENT_TYPE: {
                             type: ArgumentType.STRING,
                             menu: 'pinEventTypeMenu',
-                            defaultValue: this.PIN_EVENT_TYPE_MENU[0].value
+                            defaultValue: 'NONE'
                         },
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2384,9 +2474,9 @@ class MbitMoreBlocks {
                             defaultValue: 'PULSE_LOW'
                         },
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2405,9 +2495,9 @@ class MbitMoreBlocks {
                             defaultValue: 'PULSE_LOW'
                         },
                         PIN: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'gpio',
-                            defaultValue: 0
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -2533,8 +2623,8 @@ class MbitMoreBlocks {
         this.prevButtonEvents = {};
         Object.entries(this._peripheral.buttonEvents).forEach(([componentID, events]) => {
             this.prevButtonEvents[componentID] = {};
-            Object.entries(events).forEach(([eventID, timestamp]) => {
-                this.prevButtonEvents[componentID][eventID] = timestamp;
+            Object.entries(events).forEach(([eventName, timestamp]) => {
+                this.prevButtonEvents[componentID][eventName] = timestamp;
             });
         });
     }
@@ -2542,8 +2632,8 @@ class MbitMoreBlocks {
     /**
      * Test whether the event raised at the button.
      * @param {object} args - the block's arguments.
-     * @param {string} args.ID - ID of the button.
-     * @param {string} args.EVENT - event to catch.
+     * @param {string} args.NAME - name of the button.
+     * @param {string} args.EVENT - name of event to catch.
      * @return {boolean} - true if the event raised.
      */
     whenButtonEvent (args) {
@@ -2553,64 +2643,65 @@ class MbitMoreBlocks {
                 this.updateLastButtonEventTimer = null;
             }, this.runtime.currentStepTime);
         }
-        const buttonID = parseInt(args.ID, 10);
-        const eventID = parseInt(args.EVENT, 10);
+        const buttonName = args.NAME;
+        const eventName = args.EVENT;
         const lastTimestamp =
-            this._peripheral.getButtonEventTimestamp(buttonID, eventID);
+            this._peripheral.getButtonEventTimestamp(buttonName, eventName);
         if (lastTimestamp === null) return false;
-        if (!this.prevButtonEvents[buttonID]) return true;
-        return lastTimestamp !== this.prevButtonEvents[buttonID][eventID];
+        if (!this.prevButtonEvents[buttonName]) return true;
+        return lastTimestamp !== this.prevButtonEvents[buttonName][eventName];
     }
 
     /**
      * Test whether the A or B button is pressed
      * @param {object} args - the block's arguments.
-     * @param {string} args.ID - ID of the button.
+     * @param {string} args.NAME - name of the button.
      * @param {object} util - utility object provided by the runtime.
      * @return {boolean} - whether the button is pressed or not.
      */
     isButtonPressed (args) {
-        if (!this._peripheral.isConnected()) return false;
-        const buttonID = parseInt(args.ID, 10);
-        if (buttonID === MbitMoreButtonID.ANY) {
-            if (this._peripheral.readDigitalLevel(MbitMoreButtonID.A) === 1) return true;
-            if (this._peripheral.readDigitalLevel(MbitMoreButtonID.B) === 1) return true;
-        }
-        return (this._peripheral.readDigitalLevel(buttonID) === 1);
+        const buttonName = args.NAME;
+        return this._peripheral.isButtonPressed(buttonName);
     }
 
 
     /**
      * Test whether the touch event raised at the pin.
      * @param {object} args - the block's arguments.
-     * @param {string} args.ID - ID of the pin to catch.
+     * @param {string} args.NAME - name of the pin to catch.
      * @param {string} args.EVENT - event to catch.
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves that resolves the touch state.
      */
     whenTouchEvent (args, util) {
-        const buttonID = parseInt(args.ID, 10);
-        if (buttonID === MbitMoreButtonID.LOGO) {
+        const buttonName = args.NAME;
+        if (buttonName === MbitMoreButtonName.LOGO) {
             return this.whenButtonEvent(args);
         }
-        if (this._peripheral.config.touchPin[buttonID]) {
+        if (this._peripheral.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
             return this.whenButtonEvent(args);
         }
-        // Change the pin to touch mode at first time.
-        this._peripheral.configTouchPin(buttonID, true, util);
+        this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
         return false;
     }
 
     /**
      * Test whether the touch-pin is touched.
      * @param {object} args - the block's arguments.
-     * @param {string} args.ID - ID of the pin.
+     * @param {string} args.NAME - name of the pin.
      * @param {object} util - utility object provided by the runtime.
      * @return {boolean} - whether the button is pressed or not.
      */
     isPinTouched (args, util) {
-        const buttonID = parseInt(args.ID, 10);
-        return this._peripheral.isTouched(buttonID, util);
+        const buttonName = args.NAME;
+        if (buttonName === MbitMoreButtonName.LOGO) {
+            return this._peripheral.isTouched(buttonName);
+        }
+        if (this._peripheral.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
+            return this._peripheral.isTouched(buttonName);
+        }
+        this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
+        return false;
     }
 
     /**
@@ -2618,15 +2709,15 @@ class MbitMoreBlocks {
      */
     updatePrevGestureEvents () {
         this.prevGestureEvents = {};
-        Object.entries(this._peripheral.gestureEvents).forEach(([gestureID, timestamp]) => {
-            this.prevGestureEvents[gestureID] = timestamp;
+        Object.entries(this._peripheral.gestureEvents).forEach(([gestureName, timestamp]) => {
+            this.prevGestureEvents[gestureName] = timestamp;
         });
     }
 
     /**
      * Test whether the gesture event raised.
      * @param {object} args - the block's arguments.
-     * @param {number} args.GESTURE - ID of the gesture.
+     * @param {string} args.GESTURE - name of the gesture.
      * @return {boolean} - true if the event raised.
      */
     whenGesture (args) {
@@ -2636,12 +2727,12 @@ class MbitMoreBlocks {
                 this.updateLastGestureEventTimer = null;
             }, this.runtime.currentStepTime);
         }
-        const gestureID = args.GESTURE;
+        const gestureName = args.GESTURE;
         const lastTimestamp =
-            this._peripheral.getGestureEventTimestamp(gestureID);
+            this._peripheral.getGestureEventTimestamp(gestureName);
         if (lastTimestamp === null) return false;
-        if (!this.prevGestureEvents[gestureID]) return true;
-        return lastTimestamp !== this.prevGestureEvents[gestureID];
+        if (!this.prevGestureEvents[gestureName]) return true;
+        return lastTimestamp !== this.prevGestureEvents[gestureName];
     }
 
     /**
@@ -2825,12 +2916,12 @@ class MbitMoreBlocks {
      * Set pull mode of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @param {MbitMorePullMode} args.MODE - mode to set.
+     * @param {MbitMorePullModeName} args.MODE - mode to set.
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {undefined}
      */
     setPullMode (args, util) {
-        this._peripheral.setPullMode(parseInt(args.PIN, 10), args.MODE, util);
+        this._peripheral.setPullMode(parseInt(args.PIN, 10), MbitMorePullModeID[args.MODE], util);
     }
 
     /**
@@ -3121,19 +3212,18 @@ class MbitMoreBlocks {
 
 const extensionTranslations = {
     'ja': {
-        'mbitMore.whenButtonEvent': 'ボタン [ID] が [EVENT] とき',
+        'mbitMore.whenButtonEvent': 'ボタン [NAME] が [EVENT] とき',
         'mbitMore.buttonIDMenu.a': 'A',
         'mbitMore.buttonIDMenu.b': 'B',
-        'mbitMore.buttonIDMenu.any': 'どれかの',
         'mbitMore.buttonEventMenu.down': '下がった',
         'mbitMore.buttonEventMenu.pressed': '押された',
         'mbitMore.buttonEventMenu.up': '上がった',
         'mbitMore.buttonEventMenu.click': 'クリックされた',
         'mbitMore.buttonEventMenu.longClick': '長くクリックされた',
         'mbitMore.buttonEventMenu.doubleClick': 'ダブルクリックされた',
-        'mbitMore.isButtonPressed': 'ボタン [ID] が押された',
-        'mbitMore.whenTouchEvent': 'ピン [ID] が [EVENT] とき',
-        'mbitMore.isPinTouched': 'ピン [ID] が触れられた',
+        'mbitMore.isButtonPressed': 'ボタン [NAME] が押された',
+        'mbitMore.whenTouchEvent': 'ピン [NAME] が [EVENT] とき',
+        'mbitMore.isPinTouched': 'ピン [NAME] が触れられた',
         'mbitMore.touchIDMenu.logo': 'ロゴ',
         'mbitMore.touchEventMenu.touched': '触れられた',
         'mbitMore.touchEventMenu.pressed': '押された',
@@ -3202,20 +3292,18 @@ const extensionTranslations = {
         'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
     },
     'ja-Hira': {
-        'mbitMore.whenButtonEvent': '[ID] ボタンが[EVENT]とき',
+        'mbitMore.whenButtonEvent': '[NAME] ボタンが [EVENT] とき',
         'mbitMore.buttonIDMenu.a': 'A',
         'mbitMore.buttonIDMenu.b': 'B',
-        'mbitMore.buttonIDMenu.logo': 'ロゴ',
-        'mbitMore.buttonIDMenu.any': 'どれかの',
         'mbitMore.buttonEventMenu.down': 'さがった',
         'mbitMore.buttonEventMenu.hold': 'おされた',
         'mbitMore.buttonEventMenu.up': 'あがった',
         'mbitMore.buttonEventMenu.click': 'クリックされた',
         'mbitMore.buttonEventMenu.longClick': 'ながくクリックされた',
         'mbitMore.buttonEventMenu.doubleClick': 'ダブルクリックされた',
-        'mbitMore.isButtonPressed': '[ID] ボタンがおされた',
-        'mbitMore.whenTouchEvent': 'ピン [ID] が [EVENT] とき',
-        'mbitMore.isPinTouched': 'ピン [ID] がふれられた',
+        'mbitMore.isButtonPressed': '[NAME] ボタンがおされた',
+        'mbitMore.whenTouchEvent': 'ピン [NAME] が [EVENT] とき',
+        'mbitMore.isPinTouched': 'ピン [NAME] がふれられた',
         'mbitMore.touchIDMenu.logo': 'ロゴ',
         'mbitMore.touchEventMenu.touched': 'ふれられた',
         'mbitMore.touchEventMenu.pressed': 'おされた',

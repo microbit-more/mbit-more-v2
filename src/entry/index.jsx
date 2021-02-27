@@ -16,9 +16,9 @@ const translationMap = {
 };
 
 const entry = {
-    name: 'micro:bit MORE v2 (0.1.0)',
+    name: 'micro:bit MORE',
     extensionId: 'microbitMore',
-    extensionURL: 'https://yokobond.github.io/mbit-more/dist/microbitMore.mjs',
+    extensionURL: 'https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs',
     collaborator: 'Yengawa Lab',
     iconURL: microbitMoreIconURL,
     insetIconURL: microbitMoreInsetIconURL,
