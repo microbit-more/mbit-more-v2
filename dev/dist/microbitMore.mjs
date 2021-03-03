@@ -14791,7 +14791,7 @@ var BLECommand = {
   CMD_PIN: 0x01,
   CMD_DISPLAY: 0x02,
   CMD_AUDIO: 0x03,
-  CMD_MESSAGE: 0x04
+  CMD_DATA: 0x04
 };
 /**
  * Enum for command about gpio pins.
@@ -14851,8 +14851,8 @@ var MbitMoreDataFormat = {
   // not used at this version
   PIN_EVENT: 0x11,
   ACTION_EVENT: 0x12,
-  MESSAGE_NUMBER: 0x13,
-  MESSAGE_TEXT: 0x14
+  DATA_NUMBER: 0x13,
+  DATA_TEXT: 0x14
 };
 /**
  * Enum for action event type.
@@ -15021,12 +15021,14 @@ var MbitMorePinEvent = {
   PULSE_LOW: 5
 };
 /**
- * Data type of message content.
+ * Enum for data type of data-sending.
+ * @readonly
+ * @enum {number}
  */
 
-var MbitMoreMessageType = {
-  MM_MSG_NUMBER: 1,
-  MM_MSG_TEXT: 2
+var MbitMoreSendingDataType = {
+  NUMBER: 1,
+  TEXT: 2
 };
 /**
  * Enum for sub-command about configurations.
@@ -15171,12 +15173,12 @@ var MbitMore = /*#__PURE__*/function () {
 
     this._pinEvents = {};
     /**
-     * The most recently received messages.
-     * @type {Object} - Store of messages
+     * The most recently received data from micro:bit.
+     * @type {Object} - Store of received data
      * @private
      */
 
-    this.receivedMessages = {};
+    this.receivedData = {};
     this.analogIn = [0, 1, 2];
     this.analogValue = [];
     this.analogIn.forEach(function (pinIndex) {
@@ -15946,20 +15948,20 @@ var MbitMore = /*#__PURE__*/function () {
           timestamp: Date.now() // received time
 
         };
-      } else if (dataFormat === MbitMoreDataFormat.MESSAGE_NUMBER) {
+      } else if (dataFormat === MbitMoreDataFormat.DATA_NUMBER) {
         var label = new TextDecoder().decode(data.slice(0, 8).filter(function (char) {
           return char !== 0;
         }));
-        this.receivedMessages[label] = {
+        this.receivedData[label] = {
           content: dataView.getFloat32(8, true),
           timestamp: Date.now()
         };
-      } else if (dataFormat === MbitMoreDataFormat.MESSAGE_TEXT) {
+      } else if (dataFormat === MbitMoreDataFormat.DATA_TEXT) {
         var _label = new TextDecoder().decode(data.slice(0, 8).filter(function (char) {
           return char !== 0;
         }));
 
-        this.receivedMessages[_label] = {
+        this.receivedData[_label] = {
           content: new TextDecoder().decode(data.slice(8, 20).filter(function (char) {
             return char !== 0;
           })),
@@ -16164,16 +16166,16 @@ var MbitMore = /*#__PURE__*/function () {
       }], util);
     }
     /**
-     * Send message to micro:bit.
-     * @param {string} label - label of the message [ascii]
-     * @param {string} content - content of the message [ascii | number]
+     * Send data to micro:bit.
+     * @param {string} label - label of the data [ascii]
+     * @param {string} content - content of the data [ascii | number]
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when sending done or undefined if this process was yield.
      */
 
   }, {
-    key: "sendMessage",
-    value: function sendMessage(label, content, util) {
+    key: "sendData",
+    value: function sendData(label, content, util) {
       var labelData = new Array(8).fill().map(function (_value, index) {
         return label.charCodeAt(index);
       });
@@ -16182,49 +16184,48 @@ var MbitMore = /*#__PURE__*/function () {
       var type;
 
       if (Number.isNaN(contentNumber)) {
-        type = MbitMoreMessageType.MM_MSG_TEXT;
+        type = MbitMoreSendingDataType.TEXT;
         contentData = content.split('').map(function (ascii) {
           return ascii.charCodeAt(0);
         }).slice(0, 11);
       } else {
-        type = MbitMoreMessageType.MM_MSG_NUMBER;
+        type = MbitMoreSendingDataType.NUMBER;
         var dataView = new DataView(new ArrayBuffer(4));
         dataView.setFloat32(0, contentNumber, true);
         contentData = [dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3)];
       }
 
       return this.sendCommandSet([{
-        id: BLECommand.CMD_MESSAGE << 5 | type,
+        id: BLECommand.CMD_DATA << 5 | type,
         message: new Uint8Array([].concat(_toConsumableArray(labelData), _toConsumableArray(contentData)))
       }], util);
     }
     /**
-     * Return the last content of the message or undefined if the message which has the label was not received.
-     * @param {string} messageLabel - label of the message.
-     * @param {MbitMorePinEvent} event - event to get.
-     * @return {?(number | string)} content of the message or null.
+     * Return the last data with the label or undefined if no data received with the label.
+     * @param {string} label - label to get.
+     * @return {?(number | string)} data of the label or null.
      */
 
   }, {
-    key: "getMessageContent",
-    value: function getMessageContent(messageLabel) {
-      if (this.receivedMessages[messageLabel]) {
-        return this.receivedMessages[messageLabel].content;
+    key: "getDataLabeled",
+    value: function getDataLabeled(label) {
+      if (this.receivedData[label]) {
+        return this.receivedData[label].content;
       }
 
       return null;
     }
     /**
-     * Return the last timestamp of the message or undefined if the message is not received.
-     * @param {string} messageLabel - label of the message.
-     * @return {?number} Timestamp of the last message or null.
+     * Return the last timestamp of the data or undefined if the data is not received.
+     * @param {string} label - label of the data.
+     * @return {?number} Timestamp of the last data or null.
      */
 
   }, {
-    key: "getMessageTimestamp",
-    value: function getMessageTimestamp(messageLabel) {
-      if (this.receivedMessages[messageLabel]) {
-        return this.receivedMessages[messageLabel].timestamp;
+    key: "getDataTimestamp",
+    value: function getDataTimestamp(label) {
+      if (this.receivedData[label]) {
+        return this.receivedData[label].timestamp;
       }
 
       return null;
@@ -16282,7 +16283,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @type {Object.<number, Object>} pin index to object with event and timestamp.
      */
 
-    this.prevMessages = {};
+    this.prevReceivedData = {};
   }
   /**
    * @returns {object} metadata for this extension and its blocks.
@@ -17193,11 +17194,11 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             }
           }
         }, '---', {
-          opcode: 'whenMessage',
+          opcode: 'whenDataReceived',
           text: formatMessage({
-            id: 'mbitMore.whenMessage',
-            default: 'when [LABEL] received',
-            description: 'when the message which has the label received'
+            id: 'mbitMore.whenDataReceived',
+            default: 'when data with loabel [LABEL] received from micro:bit',
+            description: 'when the data which has the label received'
           }),
           blockType: blockType.HAT,
           arguments: {
@@ -17207,11 +17208,11 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             }
           }
         }, {
-          opcode: 'getMessageContent',
+          opcode: 'getDataLabeled',
           text: formatMessage({
-            id: 'mbitMore.getMessageContent',
-            default: 'message [LABEL]',
-            description: 'content of the message which has the label'
+            id: 'mbitMore.getDataLabeled',
+            default: 'data of label [LABEL]',
+            description: 'the last data which has the label'
           }),
           blockType: blockType.REPORTER,
           arguments: {
@@ -17221,11 +17222,11 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             }
           }
         }, {
-          opcode: 'sendMessage',
+          opcode: 'sendData',
           text: formatMessage({
-            id: 'mbitMore.sendMessage',
-            default: 'send message [LABEL] with [CONTENT]',
-            description: 'send message label and content'
+            id: 'mbitMore.sendData',
+            default: 'send data [DATA] with label [LABEL] to micro:bit',
+            description: 'send data content with label to micro:bit'
           }),
           blockType: blockType.COMMAND,
           arguments: {
@@ -17233,9 +17234,9 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
               type: argumentType.STRING,
               defaultValue: 'label-01'
             },
-            CONTENT: {
+            DATA: {
               type: argumentType.STRING,
-              defaultValue: 'content'
+              defaultValue: 'data'
             }
           }
         }],
@@ -17659,22 +17660,22 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
       return this._peripheral.readDigitalLevel(parseInt(args.PIN, 10));
     }
     /**
-     * Send message label and content.
+     * Send data with label.
      * @param {object} args - the block's arguments.
-     * @property {string} args.LABEL - label of the message.
-     * @property {string} args.CONTENT - content of the message.
+     * @property {string} args.LABEL - label of the data.
+     * @property {string} args.DATA - content of the data.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves when the process was done or undefined if labels was empty.
      */
 
   }, {
-    key: "sendMessage",
-    value: function sendMessage(args, util) {
+    key: "sendData",
+    value: function sendData(args, util) {
       if (args.LABEL.length <= 0) {
         return;
       }
 
-      return this._peripheral.sendMessage(args.LABEL, args.CONTENT, util);
+      return this._peripheral.sendData(args.LABEL, args.DATA, util);
     }
     /**
      * Set pull mode of the pin.
@@ -17943,83 +17944,83 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
       return lastTimestamp !== prevTimestamp;
     }
     /**
-     * Rerutn the last content of the messge or undefined if the message which has the label is not received.
+     * Rerutn the last content of the messge or undefined if the data which has the label is not received.
      * @param {object} args - the block's arguments.
-     * @param {number} args.LABEL - label of the message.
-     * @return {?(string | number)} - content of the message.
+     * @param {number} args.LABEL - label of the data.
+     * @return {?(string | number)} - content of the data.
      */
 
   }, {
-    key: "getMessageContent",
-    value: function getMessageContent(args) {
-      return this._peripheral.getMessageContent(args.LABEL);
+    key: "getDataLabeled",
+    value: function getDataLabeled(args) {
+      return this._peripheral.getDataLabeled(args.LABEL);
     }
     /**
-     * Update the previous occured time of all received messages.
+     * Update the previous occured time of all received data.
      */
 
   }, {
-    key: "updatePrevMessages",
-    value: function updatePrevMessages() {
+    key: "updatePrevReceivedData",
+    value: function updatePrevReceivedData() {
       var _this19 = this;
 
-      this.prevMessages = {};
-      Object.entries(this._peripheral.receivedMessages).forEach(function (_ref13) {
+      this.prevReceivedData = {};
+      Object.entries(this._peripheral.receivedData).forEach(function (_ref13) {
         var _ref14 = _slicedToArray(_ref13, 2),
             label = _ref14[0],
-            contentData = _ref14[1];
+            contentObject = _ref14[1];
 
-        _this19.prevMessages[label] = {};
-        Object.entries(contentData).forEach(function (_ref15) {
+        _this19.prevReceivedData[label] = {};
+        Object.entries(contentObject).forEach(function (_ref15) {
           var _ref16 = _slicedToArray(_ref15, 2),
               key = _ref16[0],
               value = _ref16[1];
 
-          _this19.prevMessages[label][key] = value;
+          _this19.prevReceivedData[label][key] = value;
         });
       });
     }
     /**
-     * Return the previous timestamp of the message or undefined if the message was not received.
-     * @param {string} messageLabel - label of the message.
-     * @return {?number} Timestamp of the previous message or null.
+     * Return the previous timestamp of the data or undefined if the data was not received.
+     * @param {string} label - label of the data.
+     * @return {?number} Timestamp of the previous data or null.
      */
 
   }, {
-    key: "getPrevMessageTimestamp",
-    value: function getPrevMessageTimestamp(messageLabel) {
-      if (this.prevMessages[messageLabel]) {
-        return this.prevMessages[messageLabel].timestamp;
+    key: "getPrevReceivedDataTimestamp",
+    value: function getPrevReceivedDataTimestamp(label) {
+      if (this.prevReceivedData[label]) {
+        return this.prevReceivedData[label].timestamp;
       }
 
       return null;
     }
     /**
-     * Test whether the message received which had the label.
+     * Test whether the data received which had the label.
      * @param {object} args - the block's arguments.
-     * @param {number} args.LABEL - label of the message.
-     * @return {boolean} - true if the message received.
+     * @param {number} args.LABEL - label of the data.
+     * @return {boolean} - true if the data received.
      */
 
   }, {
-    key: "whenMessage",
-    value: function whenMessage(args) {
+    key: "whenDataReceived",
+    value: function whenDataReceived(args) {
       var _this20 = this;
 
-      if (!this.updateLastMessageTimer) {
-        this.updateLastMessageTimer = setTimeout(function () {
-          _this20.updatePrevMessages();
+      if (!this.updateLastDataTimer) {
+        this.updateLastDataTimer = setTimeout(function () {
+          _this20.updatePrevReceivedData();
 
-          _this20.updateLastMessageTimer = null;
+          _this20.updateLastDataTimer = null;
         }, this.runtime.currentStepTime);
       }
 
       var label = args.LABEL;
 
-      var lastTimestamp = this._peripheral.getMessageTimestamp(label);
+      var lastTimestamp = this._peripheral.getDataTimestamp(label);
 
       if (lastTimestamp === null) return false;
-      var prevTimestamp = this.getPrevMessageTimestamp(label);
+      var prevTimestamp = this.getPrevReceivedDataTimestamp(label);
       if (prevTimestamp === null) return true;
       return lastTimestamp !== prevTimestamp;
     }
@@ -18135,7 +18136,6 @@ var extensionTranslations = {
     'mbitMore.roll': 'ロール',
     'mbitMore.soundLevel': '音の大きさ',
     'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
-    'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] を送る',
     'mbitMore.setPullMode': 'ピン [PIN] を [MODE] 入力にする',
     'mbitMore.setDigitalOut': 'ピン [PIN] をデジタル出力 [LEVEL] にする',
     'mbitMore.setAnalogOut': 'ピン [PIN] をアナログ出力 [LEVEL] %にする',
@@ -18166,8 +18166,9 @@ var extensionTranslations = {
     'mbitMore.pinEventTimestampMenu.fall': 'フォールの時刻',
     'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスの期間',
     'mbitMore.pinEventTimestampMenu.pulseLow': 'ローパルスの期間',
-    'mbitMore.whenMessage': 'メッセージ [LABEL] を受け取ったとき',
-    'mbitMore.getMessageContent': 'メッセージ [LABEL]',
+    'mbitMore.whenDataReceived': 'micro:bit からラベル [LABEL] のデータを受け取ったとき',
+    'mbitMore.getDataLabeled': 'ラベル [LABEL] のデータ',
+    'mbitMore.sendData': 'micro:bit へデータ [DATA] にラベル [LABEL] を付けて送る',
     'mbitMore.connectionStateMenu.connected': 'つながった',
     'mbitMore.connectionStateMenu.disconnected': '切れた',
     'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
@@ -18215,7 +18216,6 @@ var extensionTranslations = {
     'mbitMore.roll': 'ロール',
     'mbitMore.soundLevel': 'おとのおおきさ',
     'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
-    'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] をおくる',
     'mbitMore.setPullMode': 'ピン [PIN] を [MODE] にゅうりょくにする',
     'mbitMore.setDigitalOut': 'ピン [PIN] をデジタルしゅつりょく [LEVEL] にする',
     'mbitMore.setAnalogOut': 'ピン [PIN] をアナログしゅつりょく [LEVEL] パーセントにする',
@@ -18246,8 +18246,9 @@ var extensionTranslations = {
     'mbitMore.pinEventTimestampMenu.fall': 'フォールのじかん',
     'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスのきかん',
     'mbitMore.pinEventTimestampMenu.pulseLow': 'ローパルスのきかん',
-    'mbitMore.whenMessage': 'メッセージ [LABEL] をうけとったとき',
-    'mbitMore.getMessageContent': 'メッセージ [LABEL]',
+    'mbitMore.whenDataReceived': 'micro:bit からラベル [LABEL] のデータをうけとったとき',
+    'mbitMore.getDataLabeled': 'ラベル [LABEL] のデータ',
+    'mbitMore.sendData': 'micro:bit へデータ [DATA] にラベル [LABEL] をつけておくる',
     'mbitMore.connectionStateMenu.connected': 'つながった',
     'mbitMore.connectionStateMenu.disconnected': 'きれた',
     'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
