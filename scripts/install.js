@@ -81,12 +81,12 @@ function copyDir(from, to) {
 const ExtId = 'microbitMore';
 const ExtDirName = 'microbitMore';
 
-const VmRoot = args['vm'] ?
-    path.resolve(process.cwd(), args['vm']) :
-    path.resolve(__dirname, '../../scratch-vm');
 const GuiRoot = args['gui'] ?
     path.resolve(process.cwd(), args['gui']) :
     path.resolve(__dirname, '../../scratch-gui');
+const VmRoot = args['vm'] ?
+    path.resolve(process.cwd(), args['vm']) :
+    path.resolve(GuiRoot, './node_modules/scratch-vm');
 
 const ExtBlockPath = path.resolve(__dirname, '../src/block');
 const ExtEntryPath = path.resolve(__dirname, '../src/entry');

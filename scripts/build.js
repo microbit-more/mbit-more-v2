@@ -29,8 +29,7 @@ const optionDefinitions = [
     },
     {
         name: 'vm',
-        type:String,
-        defaultValue: '../scratch-vm'
+        type:String
     },
     {
         name: 'gui',
@@ -62,10 +61,12 @@ if (!options['entry']) {
     throw('set --entry <entry directory>');
 }
 const entrySrcDir = path.resolve(process.cwd(), options['entry']);
-const VmRoot = path.resolve(process.cwd(), options['vm']);
-console.log(`vm = ${VmRoot}`);
 const GuiRoot = path.resolve(process.cwd(), options['gui']);
 console.log(`gui = ${GuiRoot}`);
+const VmRoot = options['vm'] ?
+    path.resolve(process.cwd(), options['vm']):
+    path.resolve(GuiRoot, './node_modules/scratch-vm');
+console.log(`vm = ${VmRoot}`);
 const outputDir = path.resolve(process.cwd(), options['output']);
 console.log(`output = ${outputDir}`);
 
