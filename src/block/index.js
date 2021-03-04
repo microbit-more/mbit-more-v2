@@ -51,7 +51,7 @@ const BLECommand = {
     CMD_PIN: 0x01,
     CMD_DISPLAY: 0x02,
     CMD_AUDIO: 0x03,
-    CMD_MESSAGE: 0x04
+    CMD_DATA: 0x04
 };
 
 /**
@@ -112,8 +112,8 @@ const MbitMoreDataFormat = {
     CONFIG: 0x10, // not used at this version
     PIN_EVENT: 0x11,
     ACTION_EVENT: 0x12,
-    MESSAGE_NUMBER: 0x13,
-    MESSAGE_TEXT: 0x14
+    DATA_NUMBER: 0x13,
+    DATA_TEXT: 0x14
 };
 
 /**
@@ -285,11 +285,13 @@ const MbitMorePinEvent = {
 };
 
 /**
- * Data type of message content.
+ * Enum for data type of data-sending.
+ * @readonly
+ * @enum {number}
  */
-const MbitMoreMessageType = {
-    MM_MSG_NUMBER: 1,
-    MM_MSG_TEXT: 2
+const MbitMoreSendingDataType = {
+    NUMBER: 1,
+    TEXT: 2
 };
 
 /**
@@ -443,11 +445,11 @@ class MbitMore {
         this._pinEvents = {};
 
         /**
-         * The most recently received messages.
-         * @type {Object} - Store of messages
+         * The most recently received data from micro:bit.
+         * @type {Object} - Store of received data
          * @private
          */
-        this.receivedMessages = {};
+        this.receivedData = {};
 
         this.analogIn = [0, 1, 2];
         this.analogValue = [];
@@ -1193,16 +1195,16 @@ class MbitMore {
                 value: dataView.getUint32(2, true), // timesamp of the edge or duration of the pulse
                 timestamp: Date.now() // received time
             };
-        } else if (dataFormat === MbitMoreDataFormat.MESSAGE_NUMBER) {
+        } else if (dataFormat === MbitMoreDataFormat.DATA_NUMBER) {
             const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
-            this.receivedMessages[label] =
+            this.receivedData[label] =
             {
                 content: dataView.getFloat32(8, true),
                 timestamp: Date.now()
             };
-        } else if (dataFormat === MbitMoreDataFormat.MESSAGE_TEXT) {
+        } else if (dataFormat === MbitMoreDataFormat.DATA_TEXT) {
             const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
-            this.receivedMessages[label] =
+            this.receivedData[label] =
             {
                 content: new TextDecoder().decode(data.slice(8, 20).filter(char => (char !== 0))),
                 timestamp: Date.now()
@@ -1378,13 +1380,13 @@ class MbitMore {
     }
 
     /**
-     * Send message to micro:bit.
-     * @param {string} label - label of the message [ascii]
-     * @param {string} content - content of the message [ascii | number]
+     * Send data to micro:bit.
+     * @param {string} label - label of the data [ascii]
+     * @param {string} content - content of the data [ascii | number]
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when sending done or undefined if this process was yield.
      */
-    sendMessage (label, content, util) {
+    sendData (label, content, util) {
         const labelData = new Array(8)
             .fill()
             .map((_value, index) => label.charCodeAt(index));
@@ -1392,13 +1394,13 @@ class MbitMore {
         let contentData;
         let type;
         if (Number.isNaN(contentNumber)) {
-            type = MbitMoreMessageType.MM_MSG_TEXT;
+            type = MbitMoreSendingDataType.TEXT;
             contentData = content
                 .split('')
                 .map(ascii => ascii.charCodeAt(0))
                 .slice(0, 11);
         } else {
-            type = MbitMoreMessageType.MM_MSG_NUMBER;
+            type = MbitMoreSendingDataType.NUMBER;
             const dataView = new DataView(new ArrayBuffer(4));
             dataView.setFloat32(0, contentNumber, true);
             contentData = [
@@ -1410,7 +1412,7 @@ class MbitMore {
         }
         return this.sendCommandSet(
             [{
-                id: ((BLECommand.CMD_MESSAGE << 5) | type),
+                id: ((BLECommand.CMD_DATA << 5) | type),
                 message: new Uint8Array([
                     ...labelData,
                     ...contentData])
@@ -1419,26 +1421,25 @@ class MbitMore {
     }
 
     /**
-     * Return the last content of the message or undefined if the message which has the label was not received.
-     * @param {string} messageLabel - label of the message.
-     * @param {MbitMorePinEvent} event - event to get.
-     * @return {?(number | string)} content of the message or null.
+     * Return the last data with the label or undefined if no data received with the label.
+     * @param {string} label - label to get.
+     * @return {?(number | string)} data of the label or null.
      */
-    getMessageContent (messageLabel) {
-        if (this.receivedMessages[messageLabel]) {
-            return this.receivedMessages[messageLabel].content;
+    getDataLabeled (label) {
+        if (this.receivedData[label]) {
+            return this.receivedData[label].content;
         }
         return null;
     }
 
     /**
-     * Return the last timestamp of the message or undefined if the message is not received.
-     * @param {string} messageLabel - label of the message.
-     * @return {?number} Timestamp of the last message or null.
+     * Return the last timestamp of the data or undefined if the data is not received.
+     * @param {string} label - label of the data.
+     * @return {?number} Timestamp of the last data or null.
      */
-    getMessageTimestamp (messageLabel) {
-        if (this.receivedMessages[messageLabel]) {
-            return this.receivedMessages[messageLabel].timestamp;
+    getDataTimestamp (label) {
+        if (this.receivedData[label]) {
+            return this.receivedData[label].timestamp;
         }
         return null;
     }
@@ -2030,7 +2031,7 @@ class MbitMoreBlocks {
          * The previous timestamps of messages.
          * @type {Object.<number, Object>} pin index to object with event and timestamp.
          */
-        this.prevMessages = {};
+        this.prevReceivedData = {};
     }
 
     /**
@@ -2503,11 +2504,11 @@ class MbitMoreBlocks {
                 },
                 '---',
                 {
-                    opcode: 'whenMessage',
+                    opcode: 'whenDataReceived',
                     text: formatMessage({
-                        id: 'mbitMore.whenMessage',
-                        default: 'when [LABEL] received',
-                        description: 'when the message which has the label received'
+                        id: 'mbitMore.whenDataReceived',
+                        default: 'when data with loabel [LABEL] received from micro:bit',
+                        description: 'when the data which has the label received'
 
                     }),
                     blockType: BlockType.HAT,
@@ -2519,11 +2520,11 @@ class MbitMoreBlocks {
                     }
                 },
                 {
-                    opcode: 'getMessageContent',
+                    opcode: 'getDataLabeled',
                     text: formatMessage({
-                        id: 'mbitMore.getMessageContent',
-                        default: 'message [LABEL]',
-                        description: 'content of the message which has the label'
+                        id: 'mbitMore.getDataLabeled',
+                        default: 'data of label [LABEL]',
+                        description: 'the last data which has the label'
                     }),
                     blockType: BlockType.REPORTER,
                     arguments: {
@@ -2534,11 +2535,11 @@ class MbitMoreBlocks {
                     }
                 },
                 {
-                    opcode: 'sendMessage',
+                    opcode: 'sendData',
                     text: formatMessage({
-                        id: 'mbitMore.sendMessage',
-                        default: 'send message [LABEL] with [CONTENT]',
-                        description: 'send message label and content'
+                        id: 'mbitMore.sendData',
+                        default: 'send data [DATA] with label [LABEL] to micro:bit',
+                        description: 'send data content with label to micro:bit'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
@@ -2546,9 +2547,9 @@ class MbitMoreBlocks {
                             type: ArgumentType.STRING,
                             defaultValue: 'label-01'
                         },
-                        CONTENT: {
+                        DATA: {
                             type: ArgumentType.STRING,
-                            defaultValue: 'content'
+                            defaultValue: 'data'
                         }
                     }
                 }
@@ -2898,18 +2899,18 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Send message label and content.
+     * Send data with label.
      * @param {object} args - the block's arguments.
-     * @property {string} args.LABEL - label of the message.
-     * @property {string} args.CONTENT - content of the message.
+     * @property {string} args.LABEL - label of the data.
+     * @property {string} args.DATA - content of the data.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves when the process was done or undefined if labels was empty.
      */
-    sendMessage (args, util) {
+    sendData (args, util) {
         if (args.LABEL.length <= 0) {
             return;
         }
-        return this._peripheral.sendMessage(args.LABEL, args.CONTENT, util);
+        return this._peripheral.sendData(args.LABEL, args.DATA, util);
     }
 
     /**
@@ -3128,58 +3129,58 @@ class MbitMoreBlocks {
     }
 
     /**
-     * Rerutn the last content of the messge or undefined if the message which has the label is not received.
+     * Rerutn the last content of the messge or undefined if the data which has the label is not received.
      * @param {object} args - the block's arguments.
-     * @param {number} args.LABEL - label of the message.
-     * @return {?(string | number)} - content of the message.
+     * @param {number} args.LABEL - label of the data.
+     * @return {?(string | number)} - content of the data.
      */
-    getMessageContent (args) {
-        return this._peripheral.getMessageContent(args.LABEL);
+    getDataLabeled (args) {
+        return this._peripheral.getDataLabeled(args.LABEL);
     }
 
     /**
-     * Update the previous occured time of all received messages.
+     * Update the previous occured time of all received data.
      */
-    updatePrevMessages () {
-        this.prevMessages = {};
-        Object.entries(this._peripheral.receivedMessages).forEach(([label, contentData]) => {
-            this.prevMessages[label] = {};
-            Object.entries(contentData).forEach(([key, value]) => {
-                this.prevMessages[label][key] = value;
+    updatePrevReceivedData () {
+        this.prevReceivedData = {};
+        Object.entries(this._peripheral.receivedData).forEach(([label, contentObject]) => {
+            this.prevReceivedData[label] = {};
+            Object.entries(contentObject).forEach(([key, value]) => {
+                this.prevReceivedData[label][key] = value;
             });
         });
     }
 
     /**
-     * Return the previous timestamp of the message or undefined if the message was not received.
-     * @param {string} messageLabel - label of the message.
-     * @return {?number} Timestamp of the previous message or null.
+     * Return the previous timestamp of the data or undefined if the data was not received.
+     * @param {string} label - label of the data.
+     * @return {?number} Timestamp of the previous data or null.
      */
-    getPrevMessageTimestamp (messageLabel) {
-        if (this.prevMessages[messageLabel]) {
-            return this.prevMessages[messageLabel].timestamp;
+    getPrevReceivedDataTimestamp (label) {
+        if (this.prevReceivedData[label]) {
+            return this.prevReceivedData[label].timestamp;
         }
         return null;
     }
 
     /**
-     * Test whether the message received which had the label.
+     * Test whether the data received which had the label.
      * @param {object} args - the block's arguments.
-     * @param {number} args.LABEL - label of the message.
-     * @return {boolean} - true if the message received.
+     * @param {number} args.LABEL - label of the data.
+     * @return {boolean} - true if the data received.
      */
-    whenMessage (args) {
-        if (!this.updateLastMessageTimer) {
-            this.updateLastMessageTimer = setTimeout(() => {
-                this.updatePrevMessages();
-                this.updateLastMessageTimer = null;
+    whenDataReceived (args) {
+        if (!this.updateLastDataTimer) {
+            this.updateLastDataTimer = setTimeout(() => {
+                this.updatePrevReceivedData();
+                this.updateLastDataTimer = null;
             }, this.runtime.currentStepTime);
         }
         const label = args.LABEL;
         const lastTimestamp =
-            this._peripheral.getMessageTimestamp(label);
+            this._peripheral.getDataTimestamp(label);
         if (lastTimestamp === null) return false;
-        const prevTimestamp = this.getPrevMessageTimestamp(label);
+        const prevTimestamp = this.getPrevReceivedDataTimestamp(label);
         if (prevTimestamp === null) return true;
         return lastTimestamp !== prevTimestamp;
     }
@@ -3254,7 +3255,6 @@ const extensionTranslations = {
         'mbitMore.roll': 'ロール',
         'mbitMore.soundLevel': '音の大きさ',
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
-        'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] を送る',
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] 入力にする',
         'mbitMore.setDigitalOut': 'ピン [PIN] をデジタル出力 [LEVEL] にする',
         'mbitMore.setAnalogOut': 'ピン [PIN] をアナログ出力 [LEVEL] %にする',
@@ -3285,8 +3285,9 @@ const extensionTranslations = {
         'mbitMore.pinEventTimestampMenu.fall': 'フォールの時刻',
         'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスの期間',
         'mbitMore.pinEventTimestampMenu.pulseLow': 'ローパルスの期間',
-        'mbitMore.whenMessage': 'メッセージ [LABEL] を受け取ったとき',
-        'mbitMore.getMessageContent': 'メッセージ [LABEL]',
+        'mbitMore.whenDataReceived': 'micro:bit からラベル [LABEL] のデータを受け取ったとき',
+        'mbitMore.getDataLabeled': 'ラベル [LABEL] のデータ',
+        'mbitMore.sendData': 'micro:bit へデータ [DATA] にラベル [LABEL] を付けて送る',
         'mbitMore.connectionStateMenu.connected': 'つながった',
         'mbitMore.connectionStateMenu.disconnected': '切れた',
         'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
@@ -3334,7 +3335,6 @@ const extensionTranslations = {
         'mbitMore.roll': 'ロール',
         'mbitMore.soundLevel': 'おとのおおきさ',
         'mbitMore.analogValue': 'ピン [PIN] のアナログレベル',
-        'mbitMore.sendMessage': 'メッセージ [LABEL] で [CONTENT] をおくる',
         'mbitMore.setPullMode': 'ピン [PIN] を [MODE] にゅうりょくにする',
         'mbitMore.setDigitalOut': 'ピン [PIN] をデジタルしゅつりょく [LEVEL] にする',
         'mbitMore.setAnalogOut': 'ピン [PIN] をアナログしゅつりょく [LEVEL] パーセントにする',
@@ -3365,8 +3365,9 @@ const extensionTranslations = {
         'mbitMore.pinEventTimestampMenu.fall': 'フォールのじかん',
         'mbitMore.pinEventTimestampMenu.pulseHigh': 'ハイパルスのきかん',
         'mbitMore.pinEventTimestampMenu.pulseLow': 'ローパルスのきかん',
-        'mbitMore.whenMessage': 'メッセージ [LABEL] をうけとったとき',
-        'mbitMore.getMessageContent': 'メッセージ [LABEL]',
+        'mbitMore.whenDataReceived': 'micro:bit からラベル [LABEL] のデータをうけとったとき',
+        'mbitMore.getDataLabeled': 'ラベル [LABEL] のデータ',
+        'mbitMore.sendData': 'micro:bit へデータ [DATA] にラベル [LABEL] をつけておくる',
         'mbitMore.connectionStateMenu.connected': 'つながった',
         'mbitMore.connectionStateMenu.disconnected': 'きれた',
         'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'

@@ -1,31 +1,22 @@
-const path = require('path');
 module.exports = {
     root: true,
-    extends: ['scratch', 'scratch/es6', 'scratch/react', 'plugin:import/errors'],
+    extends: ['scratch', 'scratch/node', 'scratch/es6', 'scratch/react'],
     env: {
-        browser: true
+        browser: true,
+        worker: true
     },
     globals: {
-        process: true
+        process: true,
+        Scratch: true
     },
     rules: {
-        'import/no-mutable-exports': 'error',
-        'import/no-commonjs': 'error',
-        'import/no-amd': 'error',
-        'import/no-nodejs-modules': 'error',
-        'react/jsx-no-literals': 'error',
         'no-confusing-arrow': ['error', {
-            'allowParens': true
+            allowParens: true
         }]
     },
     settings: {
         react: {
             version: '16.2' // Prevent 16.3 lifecycle method errors
-        },
-        'import/resolver': {
-            webpack: {
-                config: path.resolve(__dirname, '../webpack.config.js')
-            }
         }
     }
 };
