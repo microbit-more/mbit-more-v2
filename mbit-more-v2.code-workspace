@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../scratch-gui"
+		},
+		{
+			"path": "../scratch-gui/node_modules/scratch-vm"
+		}
+	],
+	"settings": {
+		"eslint.format.enable": true,
+		"files.watcherExclude": {
+			"**/build/**": true,
+			"**/node_modules/**": false,
+			"**/translations/**": true
+		},
+		"liveServer.settings.multiRootWorkspaceName": "mbit-more-v2"
+	}
+}

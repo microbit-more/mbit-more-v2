@@ -1,0 +1,29 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Desktop",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder:scratch-desktop}",
+      "runtimeExecutable": "/Users/ky/.nvm/versions/node/v12.16.0/bin/npm",
+      "autoAttachChildProcesses": true,
+      "runtimeArgs": [
+        "start",
+        "--"
+      ],
+      "protocol": "inspector",
+      "skipFiles": [
+        // it seems like skipFiles only reliably works with 1 entry :(
+        //"<node_internals>/**",
+        "${workspaceFolder:scratch-desktop}/node_modules/electron/dist/resources/*.asar/**"
+      ],
+      "sourceMaps": true,
+      "timeout": 30000,
+      "outputCapture": "std"
+    },
+  ]
+}

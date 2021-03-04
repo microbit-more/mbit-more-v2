@@ -13,7 +13,6 @@ npm-*
 
 # Editor
 /.idea
-/.vscode
 
 # Build
 /build
