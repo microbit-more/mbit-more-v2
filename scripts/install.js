@@ -78,8 +78,16 @@ function copyDir(from, to) {
     console.log(`copy dir ${from} -> ${to}`);
 }
 
-const ExtId = 'microbitMore';
-const ExtDirName = 'microbitMore';
+if (!args['id']) {
+    process.stderr.write('"--id <extensionID>" is not set\n');
+    process.exit(1);
+} 
+
+const ExtId = args['id'];
+
+const ExtDirName = args['dir'] ?
+    args['dir'] :
+    ExtId;
 
 const GuiRoot = args['gui'] ?
     path.resolve(process.cwd(), args['gui']) :
