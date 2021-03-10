@@ -7,7 +7,7 @@
 			"path": "../scratch-gui"
 		},
 		{
-			"path": "../scratch-gui/node_modules/scratch-vm"
+			"path": "../scratch-vm"
 		}
 	],
 	"settings": {
