@@ -22,13 +22,7 @@ jobs:
           repository: yokobond/mbit-more-v2
           ref: master
           path: ./mbit-more-v2
-      - run: node ./scripts/install.js --vm=../scratch-gui/node_modules/scratch-vm --gui=../scratch-gui --url="https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs" -C
-        working-directory: ./mbit-more-v2
-      - run: npm install
-        working-directory: ./mbit-more-v2
-      - run: rm -rf ./dist && mkdir -p ./dist
-        working-directory: ./mbit-more-v2
-      - run: node ./scripts/build.js --name=microbitMore --url="https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs" --block=./src/block --entry=./src/entry --vm=../scratch-gui/node_modules/scratch-vm --gui=../scratch-gui --output=./dist
+      - run: node ./scripts/install.js --id=microbitMore --gui=../scratch-gui -C
         working-directory: ./mbit-more-v2
       - run: node ./scripts/change-logo.js -gui=../scratch-gui
         working-directory: ./mbit-more-v2
