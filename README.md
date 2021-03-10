@@ -12,7 +12,7 @@
   </a>
 </p>
 <p>
-  <img alt="work with micro:bit v1 and v2" src="https://cdn.sanity.io/images/ajwvhvgo/production/17d9277789c6f781092ee9c2f6993b0457c6ce94-1454x421.png" style="max-width: 160px; background-color: white;">
+  <img alt="work with micro:bit v1 and v2" src="https://cdn.sanity.io/images/ajwvhvgo/production/17d9277789c6f781092ee9c2f6993b0457c6ce94-1454x421.png" height="48">
 </p>
 
 > Full-functional extension of micro:bit for Scratch3
