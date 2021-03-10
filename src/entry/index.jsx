@@ -1,10 +1,10 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
-import microbitMoreIconURL from './microbitMore-icon.png';
-import microbitMoreInsetIconURL from './microbitMore-inset-icon.svg';
-import microbitMoreConnectionIconURL from './microbitMore-connection-icon.svg';
-import microbitMoreConnectionSmallIconURL from './microbitMore-connection-small-icon.svg';
+import microbitMoreIconURL from './entry-icon.png';
+import microbitMoreInsetIconURL from './inset-icon.svg';
+import microbitMoreConnectionIconURL from './connection-icon.svg';
+import microbitMoreConnectionSmallIconURL from './connection-small-icon.svg';
 
 const translationMap = {
     'ja': {
