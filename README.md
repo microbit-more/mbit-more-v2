@@ -11,6 +11,9 @@
     <img alt="License: MIT" src="https://img.shields.io/github/license/yokobond/mbit-more-v2" />
   </a>
 </p>
+<p>
+  <img alt="work with micro:bit v1 and v2" src="https://cdn.sanity.io/images/ajwvhvgo/production/17d9277789c6f781092ee9c2f6993b0457c6ce94-1454x421.png" style="max-width: 160px; background-color: white;">
+</p>
 
 > Full-functional extension of micro:bit for Scratch3
 
@@ -26,7 +29,7 @@ You don't need to run [Scratch Link](https://scratch.mit.edu/microbit) when your
 
 Get a micro:bit (either v1 or v2) and a PC then follow the steps below.
 
-1. download extension program [microbit-mbit-more-v2-0_1_0.hex](https://github.com/yokobond/pxt-mbit-more-v2/releases/download/0.1.0/microbit-mbit-more-v2-0_1_0.hex) on your micro:bit
+1. download extension program [microbit-mbit-more-v2-0_2_0.hex](https://github.com/yokobond/pxt-mbit-more-v2/releases/download/0.1.0/microbit-mbit-more-v2-0_2_0.hex) on your micro:bit
 2. calibrate compass by playing 'TILT TO FILL SCREEN' ([How to calibrate the micro:bit compass : Help & Support](https://support.microbit.org/support/solutions/articles/19000008874-calibrating-the-micro-bit-compass))
 3. open [Microbit More Web-App](https://yokobond.github.io/mbit-more-v2)
 4. click **(!) button** in the "Microbit More" category to scan micro:bit (run [Scratch Link](https://scratch.mit.edu/microbit) if you claimed it)
@@ -45,7 +48,6 @@ Download the Scratch3 repositories according to the supporsed directory configur
 ```
 .
 |-- mbit-more-v2
-|-- scratch-vm
 |-- scratch-gui
 ```
 
@@ -63,12 +65,18 @@ npm run install:local
 To install this extention into your selfbuild Scratch3, execute `scripts/install.js` with options as follows.
 
 ```sh
-node ./scripts/install.js --gui="../scratch-gui" --vm="../scratch-gui/node_modules/scratch-vm" --url="https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs"
+node ./scripts/install.js --id=microbitMore --gui="../scratch-gui"
 ```
 
-- --gui : location of scratch-gui from current dir.
-- --vm : location of scratch-vm form current dir.
-- --url : URL to get its module as a lodable extension for Xcratch.
+install.js accepts these commandline arguments.
+
+- --link : use symbolic link instead of copy sources
+- --id : extensionID of this extension
+- --dir : directory name of the extension will be copied (optional, default: extensionID)
+- --gui : location of scratch-gui from current dir (optional, default: "../scratch-gui")
+- --vm : location of scratch-vm form current dir (optional, default: "gui/node_modules/scratch-vm")
+- --url : URL to get this module as a lodable extension for Xcratch (optional)
+- -C : make the extension as a member of core-extensions
 
 **CAUTION:** This script will change '`extension default`' in `scratch-gui/src/lib/libraries/extensions/index.jsx` as follows.
 
@@ -93,16 +101,19 @@ It may break installation mechanism of the other extensions.
 Build module as loadable extension for [Xcratch](https://github.com/yokobond/xcratch).
 
 ```sh
-node ./scripts/build.js --name=microbitMore --url="https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs" --block="./src/block" --entry="./src/entry" --vm="../scratch-vm" --gui="../scratch-gui" --output="./dist"
+node ./scripts/build.js --name=microbitMore --block="./src/block" --entry="./src/entry" --gui="../scratch-gui" --output="./dist"
 ```
 
-- --name: name of the module file (without '.mjs').
-- --url : URL to get its module as a lodable extension for Xcratch.
-- --block : location of block files from current dir.
-- --entry : location of entry files from current dir.
-- --gui : location of scratch-gui from current dir.
-- --vm : location of scratch-vm form current dir.
-- --output : location to save module form current dir.
+build.js accepts these commandline arguments.
+
+- --name: name of the module file (without '.mjs')
+- --block : location of block files from current dir
+- --entry : location of entry files from current dir
+- --gui : location of scratch-gui from current dir (optional, default: "../scratch-gui")
+- --vm : location of scratch-vm form current dir (optional, default: "gui/node_modules/scratch-vm")
+- --url : URL to get its module as a lodable extension for Xcratch (optional)
+- --output : location to save module form current dir (optional, default: "./build")
+
 
 ## Author
 
