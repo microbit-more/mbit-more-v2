@@ -109,7 +109,18 @@ const VmExtManagerFile = path.resolve(VmRoot, './src/extension-support/extension
 const VmVirtualMachineFile = path.resolve(VmRoot, './src/virtual-machine.js');
 const GuiExtIndexFile = path.resolve(GuiRoot, './src/lib/libraries/extensions/index.jsx');
 
-let stdout;
+// Applay patch if it was not Xcratch
+if (!args['xcratch']) {
+    try {
+        execSync(`cd ${VmRoot} && patch -p1 -N -s < ${path.resolve(__dirname, './scratch-vm.patch')}`);
+        console.log(`Apply patch: scratch-vm.patch`);
+        execSync(`cd ${GuiRoot} && patch -p1 -N -s < ${path.resolve(__dirname, './scratch-gui.patch')}`);
+        console.log(`Apply patch: scratch-gui.patch`);
+    } catch (err) {
+        // console.log(`fail to apply patch: ${err}`);
+        console.error(err);
+    }
+}
 
 if (args['link']) {
     // Make symbolic link in scratch-vm. 
@@ -144,7 +155,7 @@ let managerCode = fs.readFileSync(VmExtManagerFile, 'utf-8');
 if (managerCode.includes(ExtId)) {
     console.log(`Already registered in manager: ${ExtId}`);
 } else {
-    fs.copyFileSync(VmExtManagerFile, `${VmExtManagerFile}_orig`);
+    fs.copyFileSync(VmExtManagerFile, `${VmExtManagerFile}.orig`);
     managerCode = managerCode.replace(/builtinExtensions = {[\s\S]*?};/, `$&\n\nbuiltinExtensions.${ExtId} = () => require('../extensions/${ExtDirName}');`);
     fs.writeFileSync(VmExtManagerFile, managerCode);
     console.log(`Registered in manager: ${ExtId}`);
@@ -156,7 +167,7 @@ if (args['C']) {
     if (vmCode.includes(ExtId)) {
         console.log(`Already added as a core extension: ${ExtId}`);
     } else {
-        fs.copyFileSync(VmVirtualMachineFile, `${VmVirtualMachineFile}_orig`);
+        fs.copyFileSync(VmVirtualMachineFile, `${VmVirtualMachineFile}.orig`);
         vmCode = vmCode.replace(/CORE_EXTENSIONS = \[[\s\S]*?\];/, `$&\n\nCORE_EXTENSIONS.push('${ExtId}');`);
         fs.writeFileSync(VmVirtualMachineFile, vmCode);
         console.log(`Add as a core extension: ${ExtId}`);
@@ -168,7 +179,7 @@ let indexCode = fs.readFileSync(GuiExtIndexFile, 'utf-8');
 if (indexCode.includes(ExtId)) {
     console.log(`Already added to extrnsion list: ${ExtId}`);
 } else {
-    fs.copyFileSync(GuiExtIndexFile, `${GuiExtIndexFile}_orig`);
+    fs.copyFileSync(GuiExtIndexFile, `${GuiExtIndexFile}.orig`);
     const immutableDefault = /^\s*export\s+default\s+\[/m
     if (immutableDefault.test(indexCode)) {
         // Make the list of extensions mutable.
@@ -181,14 +192,4 @@ if (indexCode.includes(ExtId)) {
     indexCode += '\n';
     fs.writeFileSync(GuiExtIndexFile, indexCode);
     console.log(`Added to extrnsion list: ${ExtId}`);
-}
-
-// Applay patch fro translation to scratch-gui
-try {
-    stdout = execSync(`cd ${GuiRoot} && patch -p1 -N -s --no-backup-if-mismatch < ${path.resolve(__dirname, './scratch-gui-translation.patch')}`);
-    console.log(`stdout: ${stdout.toString()}`);
-} catch (err) {
-    // already applyed
-    console.log(`fail scratch-gui-translation.patch`);
-    // console.error(err);
 }

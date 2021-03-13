@@ -43,6 +43,14 @@ Get a micro:bit (either v1 or v2) and a PC then follow the steps below.
 
 ## Setup Development Environment
 
+Use [yokobond/scratch-gui at xcratch](https://github.com/yokobond/scratch-gui/tree/xcratch) as a base scratch-gui if you use Web Bluetooth feature.
+
+(This extension works well on "LLK/scratch-gui". But the normal Scratch does not have Web Bluetooth feature. So you have to launch "Scratch Link" with normal Scratch.)
+
+```sh
+git clone -b xcratch https://github.com/yokobond/scratch-gui.git
+```
+
 Download the Scratch3 repositories according to the supporsed directory configuration.
 
 ```
@@ -57,16 +65,24 @@ Install node modules and setup to use local repo for development.
 cd ./mbit-more-v2
 npm install
 npm run setup:local
-npm run install:local
 ```
 
 ## Install into selfbuild Scratch3
 
 To install this extention into your selfbuild Scratch3, execute `scripts/install.js` with options as follows.
 
+CAUTION: The normal "LLK/scratch-gui" doesn't have Web Bluetooth featur.
+
 ```sh
 node ./scripts/install.js --id=microbitMore --gui="../scratch-gui"
 ```
+
+When you use Xcratch for scratch-gui, install with `--xcratch`.
+
+```sh
+node ./scripts/install.js --id=microbitMore --gui="../scratch-gui" --xcratch
+```
+
 
 install.js accepts these commandline arguments.
 
