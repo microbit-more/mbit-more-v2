@@ -83,9 +83,9 @@ When you use Xcratch for scratch-gui, install with `--xcratch`.
 node ./scripts/install.js --id=microbitMore --gui="../scratch-gui" --xcratch
 ```
 
-
 install.js accepts these commandline arguments.
 
+- --xcratch : switch to install on xcratch
 - --link : use symbolic link instead of copy sources
 - --id : extensionID of this extension
 - --dir : directory name of the extension will be copied (optional, default: extensionID)
