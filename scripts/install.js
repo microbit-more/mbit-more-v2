@@ -96,8 +96,13 @@ const VmRoot = args['vm'] ?
     path.resolve(process.cwd(), args['vm']) :
     path.resolve(GuiRoot, './node_modules/scratch-vm');
 
-const ExtBlockPath = path.resolve(__dirname, '../src/block');
-const ExtEntryPath = path.resolve(__dirname, '../src/entry');
+const ExtBlockPath = args['block'] ?
+    path.resolve(process.cwd(), args['block']) :
+    path.resolve(process.cwd(), './src/block');
+
+const ExtEntryPath = args['entry'] ?
+    path.resolve(process.cwd(), args['entry']) :
+    path.resolve(process.cwd(), './src/entry');
 
 const VmExtDirPath = path.resolve(VmRoot, `src/extensions/${ExtDirName}`);
 const GuiExtDirPath = path.resolve(GuiRoot, `src/lib/libraries/extensions/${ExtDirName}`);

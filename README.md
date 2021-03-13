@@ -88,6 +88,8 @@ install.js accepts these commandline arguments.
 - --xcratch : switch to install on xcratch
 - --link : use symbolic link instead of copy sources
 - --id : extensionID of this extension
+- --block : location of block files from current dir (optional, default: "./src/block")
+- --entry : location of entry files from current dir (optional, default: "./src/ently")
 - --dir : directory name of the extension will be copied (optional, default: extensionID)
 - --gui : location of scratch-gui from current dir (optional, default: "../scratch-gui")
 - --vm : location of scratch-vm form current dir (optional, default: "gui/node_modules/scratch-vm")
