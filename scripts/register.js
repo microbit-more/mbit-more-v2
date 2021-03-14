@@ -1,3 +1,7 @@
+/**
+ * Register an extension in the local Scratch
+ */
+
 const path = require('path');
 const fs = require('fs');
 const { execSync } = require('child_process')
@@ -91,7 +95,7 @@ const ExtDirName = args['dir'] ?
 
 const GuiRoot = args['gui'] ?
     path.resolve(process.cwd(), args['gui']) :
-    path.resolve(__dirname, '../../scratch-gui');
+    path.resolve(process.cwd(), '../scratch-gui');
 const VmRoot = args['vm'] ?
     path.resolve(process.cwd(), args['vm']) :
     path.resolve(GuiRoot, './node_modules/scratch-vm');
@@ -115,14 +119,13 @@ const VmVirtualMachineFile = path.resolve(VmRoot, './src/virtual-machine.js');
 const GuiExtIndexFile = path.resolve(GuiRoot, './src/lib/libraries/extensions/index.jsx');
 
 // Applay patch if it was not Xcratch
-if (!args['xcratch']) {
+if (args['base'] === 'LLK') {
     try {
-        execSync(`cd ${VmRoot} && patch -p1 -N -s < ${path.resolve(__dirname, './scratch-vm.patch')}`);
+        execSync(`cd ${VmRoot} && patch -p1 -N -s < ${path.resolve(__dirname, 'register/LLK/scratch-vm.patch')}`);
         console.log(`Apply patch: scratch-vm.patch`);
-        execSync(`cd ${GuiRoot} && patch -p1 -N -s < ${path.resolve(__dirname, './scratch-gui.patch')}`);
+        execSync(`cd ${GuiRoot} && patch -p1 -N -s < ${path.resolve(__dirname, 'register/LLK/scratch-gui.patch')}`);
         console.log(`Apply patch: scratch-gui.patch`);
     } catch (err) {
-        // console.log(`fail to apply patch: ${err}`);
         console.error(err);
     }
 }
