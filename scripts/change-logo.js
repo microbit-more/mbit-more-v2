@@ -38,10 +38,8 @@ console.log(`Overwrite ${GuiMenuBarLogoFile} `);
 
 // Applay patch to scratch-gui
 try {
-    execSync(`cd ${GuiRoot} && patch -p1 -N -s --no-backup-if-mismatch < ${path.resolve(__dirname, './scratch-gui-logo.patch')}`);
-    console.log(`Patch ${path.resolve(__dirname, './scratch-gui-logo.patch')}`);
+    execSync(`cd ${GuiRoot} && patch -p1 -N -s --no-backup-if-mismatch < ${path.resolve(__dirname, 'change-logo/LLK/scratch-gui.patch')}`);
+    console.log(`Patch ${path.resolve(__dirname, 'change-logo/LLK/scratch-gui.patch')}`);
 } catch (err) {
-    // already applyed?
-    console.log(`Fail patch ${path.resolve(__dirname, './scratch-gui-logo.patch')}`);
-    // console.error(err);
+    console.error(err);
 }
