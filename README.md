@@ -49,6 +49,8 @@ Use [yokobond/scratch-gui at xcratch](https://github.com/yokobond/scratch-gui/tr
 
 ```sh
 git clone -b xcratch https://github.com/yokobond/scratch-gui.git
+cd ./scratch-gui
+npm install
 ```
 
 Download the Scratch3 repositories according to the supporsed directory configuration.
@@ -65,27 +67,28 @@ Install node modules and setup to use local repo for development.
 cd ./mbit-more-v2
 npm install
 npm run setup:local
+npm run register:local
 ```
 
-## Install into selfbuild Scratch3
+## Register in self-build Scratch3
 
-To install this extention into your selfbuild Scratch3, execute `scripts/install.js` with options as follows.
+To register this extention in your self-build Scratch3 based on Xcratch, execute `scripts/register.js` with options as follows.
+
+```sh
+node ./scripts/register.js --id=microbitMore --gui="../scratch-gui"
+```
+
+When you use the normal "LLK/scratch-gui", register with `--base=LLK`.
 
 CAUTION: The normal "LLK/scratch-gui" doesn't have Web Bluetooth featur.
 
 ```sh
-node ./scripts/install.js --id=microbitMore --gui="../scratch-gui"
+node ./scripts/register.js --id=microbitMore --gui="../scratch-gui" --base=LLK
 ```
 
-When you use Xcratch for scratch-gui, install with `--xcratch`.
+register.js accepts these commandline arguments.
 
-```sh
-node ./scripts/install.js --id=microbitMore --gui="../scratch-gui" --xcratch
-```
-
-install.js accepts these commandline arguments.
-
-- --xcratch : switch to install on xcratch
+- --base : base code to register in (optional, availables: "LLK")
 - --link : use symbolic link instead of copy sources
 - --id : extensionID of this extension
 - --block : location of block files from current dir (optional, default: "./src/block")
@@ -96,7 +99,7 @@ install.js accepts these commandline arguments.
 - --url : URL to get this module as a lodable extension for Xcratch (optional)
 - -C : make the extension as a member of core-extensions
 
-**CAUTION:** This script will change '`extension default`' in `scratch-gui/src/lib/libraries/extensions/index.jsx` as follows.
+**CAUTION:** register-script will change '`extension default`' in `scratch-gui/src/lib/libraries/extensions/index.jsx` as follows.
 
 change from the original code
 
@@ -111,7 +114,7 @@ const extensions = [...];
 export default extensions;
 ```
 
-It may break installation mechanism of the other extensions.
+It may break registration mechanism of the other extensions.
 
 
 ## Xcratch Module Building
