@@ -14,9 +14,10 @@ mv node_modules/scratch-vm/src/extension-support/extension-manager.js node_modul
 sed -e "s|class ExtensionManager {$|builtinExtensions['microbitMore'] = () => require('../extensions/microbitMore');${LF}${LF}class ExtensionManager {|g" node_modules/scratch-vm/src/extension-support/extension-manager.js_orig > node_modules/scratch-vm/src/extension-support/extension-manager.js
 
 mkdir -p src/lib/libraries/extensions/microbitMore
-cp microbitMore/src/entry/microbitMore.png src/lib/libraries/extensions/microbitMore/
-cp microbitMore/src/entry/microbitMore-small.svg src/lib/libraries/extensions/microbitMore/
-cp microbitMore/src/entry/microbitMore-illustration.svg src/lib/libraries/extensions/microbitMore/
+cp microbitMore/src/entry/entry-icon.png src/lib/libraries/extensions/microbitMore/
+cp microbitMore/src/entry/inset-icon.svg src/lib/libraries/extensions/microbitMore/
+cp microbitMore/src/entry/connection-icon.svg src/lib/libraries/extensions/microbitMore/
+cp microbitMore/src/entry/connection-small-icon.svg src/lib/libraries/extensions/microbitMore/
 mv src/lib/libraries/extensions/index.jsx src/lib/libraries/extensions/index.jsx_orig
 MICROBIT_MORE="\
     {${LF}\
