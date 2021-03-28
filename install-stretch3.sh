@@ -50,4 +50,4 @@ MICROBIT_MORE="\
         ),${LF}\
         helpLink: 'https://microbit-more.github.io/'${LF}\
     },"
-sed -e "s|^export default \[$|import microbitMoreIconURL from './microbitMore/microbitMore.png';${LF}import microbitMoreInsetIconURL from './microbitMore/microbitMore-small.svg';${LF}import microbitMoreConnectionIconURL from './microbitMore/microbitMore-illustration.svg';${LF}import microbitMoreConnectionSmallIconURL from './microbitMore/microbitMore-small.svg';${LF}${LF}export default [${LF}${MICROBIT_MORE}|g" src/lib/libraries/extensions/index.jsx_orig > src/lib/libraries/extensions/index.jsx
+sed -e "s|^export default \[$|import microbitMoreIconURL from './microbitMore/entry-icon.png';${LF}import microbitMoreInsetIconURL from './microbitMore/inset-icon.svg';${LF}import microbitMoreConnectionIconURL from './microbitMore/connection-icon.svg';${LF}import microbitMoreConnectionSmallIconURL from './microbitMore/connection-small-icon.svg';${LF}${LF}export default [${LF}${MICROBIT_MORE}|g" src/lib/libraries/extensions/index.jsx_orig > src/lib/libraries/extensions/index.jsx
