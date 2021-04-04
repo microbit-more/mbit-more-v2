@@ -8301,7 +8301,7 @@ var entry = {
     description: "Message to help people connect to their micro:bit.",
     id: "gui.extension.microbit.connectingMessage"
   }),
-  helpLink: 'https://lab.yengawa.com/project/scratch-microbit-more/',
+  helpLink: 'https://microbit-more.github.io/',
   translationMap: translationMap
 };
 
