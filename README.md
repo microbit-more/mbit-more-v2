@@ -1,6 +1,6 @@
 <h1 align="center">Microbit More v2</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://yokobond.github.io/mbit-more-v2" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
@@ -17,7 +17,7 @@
 
 > Full-functional extension of micro:bit for Scratch3
 
-### 🏠 [Homepage](https://lab.yengawa.com/project/scratch-microbit-more/) (in Japanese)
+### 🏠 [Homepage](https://microbit-more.github.io/)
 
 ### ✨ Open [Microbit More Web-App](https://yokobond.github.io/mbit-more-v2) 
 This is a mod application from [Scratch3 by MIT](https://scratch.mit.edu/). You can code using 'Microbit More' and all blocks in nomal Scratch3 on this app.
@@ -32,7 +32,7 @@ Get a micro:bit (either v1 or v2) and a PC then follow the steps below.
 1. download extension program [microbit-mbit-more-v2-0_2_0.hex](https://github.com/yokobond/pxt-mbit-more-v2/releases/download/0.1.0/microbit-mbit-more-v2-0_2_0.hex) on your micro:bit
 2. calibrate compass by playing 'TILT TO FILL SCREEN' ([How to calibrate the micro:bit compass : Help & Support](https://support.microbit.org/support/solutions/articles/19000008874-calibrating-the-micro-bit-compass))
 3. open [Microbit More Web-App](https://yokobond.github.io/mbit-more-v2)
-4. click **(!) button** in the "Microbit More" category to scan micro:bit (run [Scratch Link](https://scratch.mit.edu/microbit) if you claimed it)
+4. click **(!) button** in the "Microbit More" category to scan micro:bit (run [Scratch Link](https://scratch.mit.edu/microbit) when your browser does not support Web Bluetooth)
 5. select your micro:bit on the device list then click **pair**
 6. return to the editor and click **[display pattern [:heart:]]** to check the connection with your micro:bit
 
