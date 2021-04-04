@@ -147,7 +147,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 var onClickLogo = function onClickLogo() {
-  window.location = 'https://lab.yengawa.com/project/scratch-microbit-more/';
+  window.location = 'https://microbit-more.github.io/';
 };
 
 var handleTelemetryModalCancel = function handleTelemetryModalCancel() {
@@ -205,7 +205,7 @@ var handleTelemetryModalOptOut = function handleTelemetryModalOptOut() {
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedGui, {
     canEditTitle: true,
     backpackVisible: true,
-    showComingSoon: false,
+    showComingSoon: true,
     backpackHost: backpackHost,
     canSave: false,
     onClickLogo: onClickLogo
