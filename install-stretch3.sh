@@ -48,6 +48,6 @@ MICROBIT_MORE="\
                id='gui.extension.microbit.connectingMessage'${LF}\
            />${LF}\
         ),${LF}\
-        helpLink: 'https://lab.yengawa.com/project/scratch-microbit-more/'${LF}\
+        helpLink: 'https://microbit-more.github.io/'${LF}\
     },"
 sed -e "s|^export default \[$|import microbitMoreIconURL from './microbitMore/microbitMore.png';${LF}import microbitMoreInsetIconURL from './microbitMore/microbitMore-small.svg';${LF}import microbitMoreConnectionIconURL from './microbitMore/microbitMore-illustration.svg';${LF}import microbitMoreConnectionSmallIconURL from './microbitMore/microbitMore-small.svg';${LF}${LF}export default [${LF}${MICROBIT_MORE}|g" src/lib/libraries/extensions/index.jsx_orig > src/lib/libraries/extensions/index.jsx

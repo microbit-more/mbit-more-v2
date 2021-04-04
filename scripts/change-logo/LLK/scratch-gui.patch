@@ -7,7 +7,7 @@ index 4084f6bfc..de6f65785 100644
              <div className={styles.embedScratchLogo}>
                  <a
 -                    href="https://scratch.mit.edu"
-+                    href="https://lab.yengawa.com/project/scratch-microbit-more/"
++                    href="https://microbit-more.github.io/"
                      rel="noopener noreferrer"
                      target="_blank"
                  >
@@ -20,7 +20,7 @@ index 0f15fbfa7..993894bba 100644
  
  const onClickLogo = () => {
 -    window.location = 'https://scratch.mit.edu';
-+    window.location = 'https://lab.yengawa.com/project/scratch-microbit-more/';
++    window.location = 'https://microbit-more.github.io/';
  };
  
  const handleTelemetryModalCancel = () => {

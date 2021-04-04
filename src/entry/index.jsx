@@ -44,7 +44,7 @@ const entry = {
             id="gui.extension.microbit.connectingMessage"
         />
     ),
-    helpLink: 'https://lab.yengawa.com/project/scratch-microbit-more/',
+    helpLink: 'https://microbit-more.github.io/',
     translationMap: translationMap
 };
 
