@@ -8,6 +8,12 @@
 		},
 		{
 			"path": "../scratch-vm"
+		},
+		{
+			"path": "../microbit-more.github.io"
+		},
+		{
+			"path": "../microbit-more-doc"
 		}
 	],
 	"settings": {
