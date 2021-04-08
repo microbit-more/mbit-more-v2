@@ -8277,7 +8277,7 @@ var translationMap = {
   }
 };
 var entry = {
-  name: 'micro:bit MORE',
+  name: 'Microbit More',
   extensionId: 'microbitMore',
   extensionURL: 'https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs',
   collaborator: 'Yengawa Lab',
@@ -8285,7 +8285,7 @@ var entry = {
   insetIconURL: img$1,
   description: /*#__PURE__*/react.createElement(FormattedMessage, {
     defaultMessage: "Play with all functions of micro:bit.",
-    description: "Description for the 'micro:bit MORE' extension",
+    description: "Description for the 'Microbit More' extension",
     id: "gui.extension.microbitMore.description"
   }),
   featured: true,
