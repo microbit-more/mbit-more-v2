@@ -716,11 +716,11 @@ function escape$1(a) {
 }
 
 var L = /\/+/g,
-    M$1 = [];
+    M = [];
 
 function N(a, b, e, c) {
-  if (M$1.length) {
-    var d = M$1.pop();
+  if (M.length) {
+    var d = M.pop();
     d.result = a;
     d.keyPrefix = b;
     d.func = e;
@@ -744,7 +744,7 @@ function O(a) {
   a.func = null;
   a.context = null;
   a.count = 0;
-  10 > M$1.length && M$1.push(a);
+  10 > M.length && M.push(a);
 }
 
 function P(a, b, e, c) {
@@ -8277,7 +8277,7 @@ var translationMap = {
   }
 };
 var entry = {
-  name: 'micro:bit MORE',
+  name: 'Microbit More',
   extensionId: 'microbitMore',
   extensionURL: 'https://yokobond.github.io/mbit-more-v2/dev/dist/microbitMore.mjs',
   collaborator: 'Yengawa Lab',
@@ -8285,7 +8285,7 @@ var entry = {
   insetIconURL: img$2,
   description: /*#__PURE__*/react.createElement(FormattedMessage, {
     defaultMessage: "Play with all functions of micro:bit.",
-    description: "Description for the 'micro:bit MORE' extension",
+    description: "Description for the 'Microbit More' extension",
     id: "gui.extension.microbitMore.description"
   }),
   featured: true,
@@ -8658,7 +8658,7 @@ var Color = /*#__PURE__*/function () {
   return Color;
 }();
 
-var color$1 = Color;
+var color = Color;
 
 /**
  * @fileoverview
@@ -8770,22 +8770,22 @@ var Cast = /*#__PURE__*/function () {
   }, {
     key: "toRgbColorObject",
     value: function toRgbColorObject(value) {
-      var color;
+      var color$1;
 
       if (typeof value === 'string' && value.substring(0, 1) === '#') {
-        color = color$1.hexToRgb(value); // If the color wasn't *actually* a hex color, cast to black
+        color$1 = color.hexToRgb(value); // If the color wasn't *actually* a hex color, cast to black
 
-        if (!color) color = {
+        if (!color$1) color$1 = {
           r: 0,
           g: 0,
           b: 0,
           a: 255
         };
       } else {
-        color = color$1.decimalToRgb(Cast.toNumber(value));
+        color$1 = color.decimalToRgb(Cast.toNumber(value));
       }
 
-      return color;
+      return color$1;
     }
     /**
      * Determine if a Scratch argument is a white space string (or null / empty).
@@ -9076,6 +9076,330 @@ var JSONRPC = /*#__PURE__*/function () {
 }();
 
 var jsonrpc = JSONRPC;
+
+var BLE = /*#__PURE__*/function (_JSONRPC) {
+  _inherits(BLE, _JSONRPC);
+
+  var _super = _createSuper(BLE);
+
+  /**
+   * A BLE peripheral socket object.  It handles connecting, over web sockets, to
+   * BLE peripherals, and reading and writing data to them.
+   * @param {Runtime} runtime - the Runtime for sending/receiving GUI update events.
+   * @param {string} extensionId - the id of the extension using this socket.
+   * @param {object} peripheralOptions - the list of options for peripheral discovery.
+   * @param {object} connectCallback - a callback for connection.
+   * @param {object} resetCallback - a callback for resetting extension state.
+   */
+  function BLE(runtime, extensionId, peripheralOptions, connectCallback) {
+    var _this;
+
+    var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+
+    _classCallCheck(this, BLE);
+
+    _this = _super.call(this);
+    _this._socket = runtime.getScratchLinkSocket('BLE');
+
+    _this._socket.setOnOpen(_this.requestPeripheral.bind(_assertThisInitialized(_this)));
+
+    _this._socket.setOnClose(_this.handleDisconnectError.bind(_assertThisInitialized(_this)));
+
+    _this._socket.setOnError(_this._handleRequestError.bind(_assertThisInitialized(_this)));
+
+    _this._socket.setHandleMessage(_this._handleMessage.bind(_assertThisInitialized(_this)));
+
+    _this._sendMessage = _this._socket.sendMessage.bind(_this._socket);
+    _this._availablePeripherals = {};
+    _this._connectCallback = connectCallback;
+    _this._connected = false;
+    _this._characteristicDidChangeCallback = null;
+    _this._resetCallback = resetCallback;
+    _this._discoverTimeoutID = null;
+    _this._extensionId = extensionId;
+    _this._peripheralOptions = peripheralOptions;
+    _this._runtime = runtime;
+
+    _this._socket.open();
+
+    return _this;
+  }
+  /**
+   * Request connection to the peripheral.
+   * If the web socket is not yet open, request when the socket promise resolves.
+   */
+
+
+  _createClass(BLE, [{
+    key: "requestPeripheral",
+    value: function requestPeripheral() {
+      var _this2 = this;
+
+      this._availablePeripherals = {};
+
+      if (this._discoverTimeoutID) {
+        window.clearTimeout(this._discoverTimeoutID);
+      }
+
+      this._discoverTimeoutID = window.setTimeout(this._handleDiscoverTimeout.bind(this), 15000);
+      this.sendRemoteRequest('discover', this._peripheralOptions).catch(function (e) {
+        _this2._handleRequestError(e);
+      });
+    }
+    /**
+     * Try connecting to the input peripheral id, and then call the connect
+     * callback if connection is successful.
+     * @param {number} id - the id of the peripheral to connect to
+     */
+
+  }, {
+    key: "connectPeripheral",
+    value: function connectPeripheral(id) {
+      var _this3 = this;
+
+      this.sendRemoteRequest('connect', {
+        peripheralId: id
+      }).then(function () {
+        _this3._connected = true;
+
+        _this3._runtime.emit(_this3._runtime.constructor.PERIPHERAL_CONNECTED);
+
+        _this3._connectCallback();
+      }).catch(function (e) {
+        _this3._handleRequestError(e);
+      });
+    }
+    /**
+     * Close the websocket.
+     */
+
+  }, {
+    key: "disconnect",
+    value: function disconnect() {
+      if (this._connected) {
+        this._connected = false;
+      }
+
+      if (this._socket.isOpen()) {
+        this._socket.close();
+      }
+
+      if (this._discoverTimeoutID) {
+        window.clearTimeout(this._discoverTimeoutID);
+      } // Sets connection status icon to orange
+
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
+    }
+    /**
+     * @return {bool} whether the peripheral is connected.
+     */
+
+  }, {
+    key: "isConnected",
+    value: function isConnected() {
+      return this._connected;
+    }
+    /**
+     * Start receiving notifications from the specified ble service.
+     * @param {number} serviceId - the ble service to read.
+     * @param {number} characteristicId - the ble characteristic to get notifications from.
+     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
+     * @return {Promise} - a promise from the remote startNotifications request.
+     */
+
+  }, {
+    key: "startNotifications",
+    value: function startNotifications(serviceId, characteristicId) {
+      var _this4 = this;
+
+      var onCharacteristicChanged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      var params = {
+        serviceId: serviceId,
+        characteristicId: characteristicId
+      };
+      this._characteristicDidChangeCallback = onCharacteristicChanged;
+      return this.sendRemoteRequest('startNotifications', params).catch(function (e) {
+        _this4.handleDisconnectError(e);
+      });
+    }
+    /**
+     * Read from the specified ble service.
+     * @param {number} serviceId - the ble service to read.
+     * @param {number} characteristicId - the ble characteristic to read.
+     * @param {boolean} optStartNotifications - whether to start receiving characteristic change notifications.
+     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
+     * @return {Promise} - a promise from the remote read request.
+     */
+
+  }, {
+    key: "read",
+    value: function read(serviceId, characteristicId) {
+      var _this5 = this;
+
+      var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      var params = {
+        serviceId: serviceId,
+        characteristicId: characteristicId
+      };
+
+      if (optStartNotifications) {
+        params.startNotifications = true;
+      }
+
+      if (onCharacteristicChanged) {
+        this._characteristicDidChangeCallback = onCharacteristicChanged;
+      }
+
+      return this.sendRemoteRequest('read', params).catch(function (e) {
+        _this5.handleDisconnectError(e);
+      });
+    }
+    /**
+     * Write data to the specified ble service.
+     * @param {number} serviceId - the ble service to write.
+     * @param {number} characteristicId - the ble characteristic to write.
+     * @param {string} message - the message to send.
+     * @param {string} encoding - the message encoding type.
+     * @param {boolean} withResponse - if true, resolve after peripheral's response.
+     * @return {Promise} - a promise from the remote send request.
+     */
+
+  }, {
+    key: "write",
+    value: function write(serviceId, characteristicId, message) {
+      var _this6 = this;
+
+      var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+      var params = {
+        serviceId: serviceId,
+        characteristicId: characteristicId,
+        message: message
+      };
+
+      if (encoding) {
+        params.encoding = encoding;
+      }
+
+      if (withResponse !== null) {
+        params.withResponse = withResponse;
+      }
+
+      return this.sendRemoteRequest('write', params).catch(function (e) {
+        _this6.handleDisconnectError(e);
+      });
+    }
+    /**
+     * Handle a received call from the socket.
+     * @param {string} method - a received method label.
+     * @param {object} params - a received list of parameters.
+     * @return {object} - optional return value.
+     */
+
+  }, {
+    key: "didReceiveCall",
+    value: function didReceiveCall(method, params) {
+      switch (method) {
+        case 'didDiscoverPeripheral':
+          this._availablePeripherals[params.peripheralId] = params;
+
+          this._runtime.emit(this._runtime.constructor.PERIPHERAL_LIST_UPDATE, this._availablePeripherals);
+
+          if (this._discoverTimeoutID) {
+            window.clearTimeout(this._discoverTimeoutID);
+          }
+
+          break;
+
+        case 'userDidPickPeripheral':
+          this._availablePeripherals[params.peripheralId] = params;
+
+          this._runtime.emit(this._runtime.constructor.USER_PICKED_PERIPHERAL, this._availablePeripherals);
+
+          if (this._discoverTimeoutID) {
+            window.clearTimeout(this._discoverTimeoutID);
+          }
+
+          break;
+
+        case 'userDidNotPickPeripheral':
+          this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
+
+          if (this._discoverTimeoutID) {
+            window.clearTimeout(this._discoverTimeoutID);
+          }
+
+          break;
+
+        case 'characteristicDidChange':
+          if (this._characteristicDidChangeCallback) {
+            this._characteristicDidChangeCallback(params.message);
+          }
+
+          break;
+
+        case 'ping':
+          return 42;
+      }
+    }
+    /**
+     * Handle an error resulting from losing connection to a peripheral.
+     *
+     * This could be due to:
+     * - battery depletion
+     * - going out of bluetooth range
+     * - being powered down
+     *
+     * Disconnect the socket, and if the extension using this socket has a
+     * reset callback, call it. Finally, emit an error to the runtime.
+     */
+
+  }, {
+    key: "handleDisconnectError",
+    value: function handleDisconnectError()
+    /* e */
+    {
+      // log.error(`BLE error: ${JSON.stringify(e)}`);
+      if (!this._connected) return;
+      this.disconnect();
+
+      if (this._resetCallback) {
+        this._resetCallback();
+      }
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
+        message: "Scratch lost connection to",
+        extensionId: this._extensionId
+      });
+    }
+  }, {
+    key: "_handleRequestError",
+    value: function _handleRequestError()
+    /* e */
+    {
+      // log.error(`BLE error: ${JSON.stringify(e)}`);
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
+        message: "Scratch lost connection to",
+        extensionId: this._extensionId
+      });
+    }
+  }, {
+    key: "_handleDiscoverTimeout",
+    value: function _handleDiscoverTimeout() {
+      if (this._discoverTimeoutID) {
+        window.clearTimeout(this._discoverTimeoutID);
+      }
+
+      this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
+    }
+  }]);
+
+  return BLE;
+}(jsonrpc);
+
+var ble = BLE;
 
 var lookup = [];
 var revLookup = [];
@@ -11222,1152 +11546,6 @@ var Base64Util = /*#__PURE__*/function () {
 }();
 
 var base64Util = Base64Util;
-
-function M() {
-  this._events = {};
-}
-
-M.prototype = {
-  on: function on(ev, cb) {
-    this._events || (this._events = {});
-    var e = this._events;
-    (e[ev] || (e[ev] = [])).push(cb);
-    return this;
-  },
-  removeListener: function removeListener(ev, cb) {
-    var e = this._events[ev] || [],
-        i;
-
-    for (i = e.length - 1; i >= 0 && e[i]; i--) {
-      if (e[i] === cb || e[i].cb === cb) {
-        e.splice(i, 1);
-      }
-    }
-  },
-  removeAllListeners: function removeAllListeners(ev) {
-    if (!ev) {
-      this._events = {};
-    } else {
-      this._events[ev] && (this._events[ev] = []);
-    }
-  },
-  listeners: function listeners(ev) {
-    return this._events ? this._events[ev] || [] : [];
-  },
-  emit: function emit(ev) {
-    this._events || (this._events = {});
-    var args = Array.prototype.slice.call(arguments, 1),
-        i,
-        e = this._events[ev] || [];
-
-    for (i = e.length - 1; i >= 0 && e[i]; i--) {
-      e[i].apply(this, args);
-    }
-
-    return this;
-  },
-  when: function when(ev, cb) {
-    return this.once(ev, cb, true);
-  },
-  once: function once(ev, cb, when) {
-    if (!cb) return this;
-
-    function c() {
-      if (!when) this.removeListener(ev, c);
-      if (cb.apply(this, arguments) && when) this.removeListener(ev, c);
-    }
-
-    c.cb = cb;
-    this.on(ev, c);
-    return this;
-  }
-};
-
-M.mixin = function (dest) {
-  var o = M.prototype,
-      k;
-
-  for (k in o) {
-    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
-  }
-};
-
-var microee = M;
-
-function Transform() {}
-
-microee.mixin(Transform); // The write() signature is different from Node's
-// --> makes it much easier to work with objects in logs.
-// One of the lessons from v1 was that it's better to target
-// a good browser rather than the lowest common denominator
-// internally.
-// If you want to use external streams, pipe() to ./stringify.js first.
-
-Transform.prototype.write = function (name, level, args) {
-  this.emit('item', name, level, args);
-};
-
-Transform.prototype.end = function () {
-  this.emit('end');
-  this.removeAllListeners();
-};
-
-Transform.prototype.pipe = function (dest) {
-  var s = this; // prevent double piping
-
-  s.emit('unpipe', dest); // tell the dest that it's being piped to
-
-  dest.emit('pipe', s);
-
-  function onItem() {
-    dest.write.apply(dest, Array.prototype.slice.call(arguments));
-  }
-
-  function onEnd() {
-    !dest._isStdio && dest.end();
-  }
-
-  s.on('item', onItem);
-  s.on('end', onEnd);
-  s.when('unpipe', function (from) {
-    var match = from === dest || typeof from == 'undefined';
-
-    if (match) {
-      s.removeListener('item', onItem);
-      s.removeListener('end', onEnd);
-      dest.emit('unpipe');
-    }
-
-    return match;
-  });
-  return dest;
-};
-
-Transform.prototype.unpipe = function (from) {
-  this.emit('unpipe', from);
-  return this;
-};
-
-Transform.prototype.format = function (dest) {
-  throw new Error(['Warning: .format() is deprecated in Minilog v2! Use .pipe() instead. For example:', 'var Minilog = require(\'minilog\');', 'Minilog', '  .pipe(Minilog.backends.console.formatClean)', '  .pipe(Minilog.backends.console);'].join('\n'));
-};
-
-Transform.mixin = function (dest) {
-  var o = Transform.prototype,
-      k;
-
-  for (k in o) {
-    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
-  }
-};
-
-var transform = Transform;
-
-var levelMap = {
-  debug: 1,
-  info: 2,
-  warn: 3,
-  error: 4
-};
-
-function Filter() {
-  this.enabled = true;
-  this.defaultResult = true;
-  this.clear();
-}
-
-transform.mixin(Filter); // allow all matching, with level >= given level
-
-Filter.prototype.allow = function (name, level) {
-  this._white.push({
-    n: name,
-    l: levelMap[level]
-  });
-
-  return this;
-}; // deny all matching, with level <= given level
-
-
-Filter.prototype.deny = function (name, level) {
-  this._black.push({
-    n: name,
-    l: levelMap[level]
-  });
-
-  return this;
-};
-
-Filter.prototype.clear = function () {
-  this._white = [];
-  this._black = [];
-  return this;
-};
-
-function test(rule, name) {
-  // use .test for RegExps
-  return rule.n.test ? rule.n.test(name) : rule.n == name;
-}
-
-Filter.prototype.test = function (name, level) {
-  var i,
-      len = Math.max(this._white.length, this._black.length);
-
-  for (i = 0; i < len; i++) {
-    if (this._white[i] && test(this._white[i], name) && levelMap[level] >= this._white[i].l) {
-      return true;
-    }
-
-    if (this._black[i] && test(this._black[i], name) && levelMap[level] <= this._black[i].l) {
-      return false;
-    }
-  }
-
-  return this.defaultResult;
-};
-
-Filter.prototype.write = function (name, level, args) {
-  if (!this.enabled || this.test(name, level)) {
-    return this.emit('item', name, level, args);
-  }
-};
-
-var filter = Filter;
-
-var minilog$1 = createCommonjsModule(function (module, exports) {
-  var log = new transform(),
-      slice = Array.prototype.slice;
-
-  exports = module.exports = function create(name) {
-    var o = function o() {
-      log.write(name, undefined, slice.call(arguments));
-      return o;
-    };
-
-    o.debug = function () {
-      log.write(name, 'debug', slice.call(arguments));
-      return o;
-    };
-
-    o.info = function () {
-      log.write(name, 'info', slice.call(arguments));
-      return o;
-    };
-
-    o.warn = function () {
-      log.write(name, 'warn', slice.call(arguments));
-      return o;
-    };
-
-    o.error = function () {
-      log.write(name, 'error', slice.call(arguments));
-      return o;
-    };
-
-    o.log = o.debug; // for interface compliance with Node and browser consoles
-
-    o.suggest = exports.suggest;
-    o.format = log.format;
-    return o;
-  }; // filled in separately
-
-
-  exports.defaultBackend = exports.defaultFormatter = null;
-
-  exports.pipe = function (dest) {
-    return log.pipe(dest);
-  };
-
-  exports.end = exports.unpipe = exports.disable = function (from) {
-    return log.unpipe(from);
-  };
-
-  exports.Transform = transform;
-  exports.Filter = filter; // this is the default filter that's applied when .enable() is called normally
-  // you can bypass it completely and set up your own pipes
-
-  exports.suggest = new filter();
-
-  exports.enable = function () {
-    if (exports.defaultFormatter) {
-      return log.pipe(exports.suggest) // filter
-      .pipe(exports.defaultFormatter) // formatter
-      .pipe(exports.defaultBackend); // backend
-    }
-
-    return log.pipe(exports.suggest) // filter
-    .pipe(exports.defaultBackend); // formatter
-  };
-});
-
-var hex = {
-  black: '#000',
-  red: '#c23621',
-  green: '#25bc26',
-  yellow: '#bbbb00',
-  blue: '#492ee1',
-  magenta: '#d338d3',
-  cyan: '#33bbc8',
-  gray: '#808080',
-  purple: '#708'
-};
-
-function color(fg, isInverse) {
-  if (isInverse) {
-    return 'color: #fff; background: ' + hex[fg] + ';';
-  } else {
-    return 'color: ' + hex[fg] + ';';
-  }
-}
-
-var util = color;
-
-var colors$1 = {
-  debug: ['cyan'],
-  info: ['purple'],
-  warn: ['yellow', true],
-  error: ['red', true]
-},
-    logger$4 = new transform();
-
-logger$4.write = function (name, level, args) {
-  var fn = console.log;
-
-  if (console[level] && console[level].apply) {
-    fn = console[level];
-    fn.apply(console, ['%c' + name + ' %c' + level, util('gray'), util.apply(util, colors$1[level])].concat(args));
-  }
-}; // NOP, because piping the formatted logs can only cause trouble.
-
-
-logger$4.pipe = function () {};
-
-var color_1 = logger$4;
-
-var colors = {
-  debug: ['gray'],
-  info: ['purple'],
-  warn: ['yellow', true],
-  error: ['red', true]
-},
-    logger$3 = new transform();
-
-logger$3.write = function (name, level, args) {
-  var fn = console.log;
-
-  if (level != 'debug' && console[level]) {
-    fn = console[level];
-  }
-
-  var i = 0;
-
-  if (level != 'info') {
-    for (; i < args.length; i++) {
-      if (typeof args[i] != 'string') break;
-    }
-
-    fn.apply(console, ['%c' + name + ' ' + args.slice(0, i).join(' '), util.apply(util, colors[level])].concat(args.slice(i)));
-  } else {
-    fn.apply(console, ['%c' + name, util.apply(util, colors[level])].concat(args));
-  }
-}; // NOP, because piping the formatted logs can only cause trouble.
-
-
-logger$3.pipe = function () {};
-
-var minilog = logger$3;
-
-var newlines = /\n+$/,
-    logger$2 = new transform();
-
-logger$2.write = function (name, level, args) {
-  var i = args.length - 1;
-
-  if (typeof console === 'undefined' || !console.log) {
-    return;
-  }
-
-  if (console.log.apply) {
-    return console.log.apply(console, [name, level].concat(args));
-  } else if (JSON && JSON.stringify) {
-    // console.log.apply is undefined in IE8 and IE9
-    // for IE8/9: make console.log at least a bit less awful
-    if (args[i] && typeof args[i] == 'string') {
-      args[i] = args[i].replace(newlines, '');
-    }
-
-    try {
-      for (i = 0; i < args.length; i++) {
-        args[i] = JSON.stringify(args[i]);
-      }
-    } catch (e) {}
-
-    console.log(args.join(' '));
-  }
-};
-
-logger$2.formatters = ['color', 'minilog'];
-logger$2.color = color_1;
-logger$2.minilog = minilog;
-var console_1 = logger$2;
-
-var cache$1 = [];
-var logger$1 = new transform();
-
-logger$1.write = function (name, level, args) {
-  cache$1.push([name, level, args]);
-}; // utility functions
-
-
-logger$1.get = function () {
-  return cache$1;
-};
-
-logger$1.empty = function () {
-  cache$1 = [];
-};
-
-var array = logger$1;
-
-var cache = false;
-var logger = new transform();
-
-logger.write = function (name, level, args) {
-  if (typeof window == 'undefined' || typeof JSON == 'undefined' || !JSON.stringify || !JSON.parse) return;
-
-  try {
-    if (!cache) {
-      cache = window.localStorage.minilog ? JSON.parse(window.localStorage.minilog) : [];
-    }
-
-    cache.push([new Date().toString(), name, level, args]);
-    window.localStorage.minilog = JSON.stringify(cache);
-  } catch (e) {}
-};
-
-var localstorage = logger;
-
-var cid = new Date().valueOf().toString(36);
-
-function AjaxLogger(options) {
-  this.url = options.url || '';
-  this.cache = [];
-  this.timer = null;
-  this.interval = options.interval || 30 * 1000;
-  this.enabled = true;
-  this.jQuery = window.jQuery;
-  this.extras = {};
-}
-
-transform.mixin(AjaxLogger);
-
-AjaxLogger.prototype.write = function (name, level, args) {
-  if (!this.timer) {
-    this.init();
-  }
-
-  this.cache.push([name, level].concat(args));
-};
-
-AjaxLogger.prototype.init = function () {
-  if (!this.enabled || !this.jQuery) return;
-  var self = this;
-  this.timer = setTimeout(function () {
-    var i,
-        logs = [],
-        ajaxData,
-        url = self.url;
-    if (self.cache.length == 0) return self.init(); // Test each log line and only log the ones that are valid (e.g. don't have circular references).
-    // Slight performance hit but benefit is we log all valid lines.
-
-    for (i = 0; i < self.cache.length; i++) {
-      try {
-        JSON.stringify(self.cache[i]);
-        logs.push(self.cache[i]);
-      } catch (e) {}
-    }
-
-    if (self.jQuery.isEmptyObject(self.extras)) {
-      ajaxData = JSON.stringify({
-        logs: logs
-      });
-      url = self.url + '?client_id=' + cid;
-    } else {
-      ajaxData = JSON.stringify(self.jQuery.extend({
-        logs: logs
-      }, self.extras));
-    }
-
-    self.jQuery.ajax(url, {
-      type: 'POST',
-      cache: false,
-      processData: false,
-      data: ajaxData,
-      contentType: 'application/json',
-      timeout: 10000
-    }).success(function (data, status, jqxhr) {
-      if (data.interval) {
-        self.interval = Math.max(1000, data.interval);
-      }
-    }).error(function () {
-      self.interval = 30000;
-    }).always(function () {
-      self.init();
-    });
-    self.cache = [];
-  }, this.interval);
-};
-
-AjaxLogger.prototype.end = function () {}; // wait until jQuery is defined. Useful if you don't control the load order.
-
-
-AjaxLogger.jQueryWait = function (onDone) {
-  if (typeof window !== 'undefined' && (window.jQuery || window.$)) {
-    return onDone(window.jQuery || window.$);
-  } else if (typeof window !== 'undefined') {
-    setTimeout(function () {
-      AjaxLogger.jQueryWait(onDone);
-    }, 200);
-  }
-};
-
-var jquery_simple = AjaxLogger;
-
-var web = createCommonjsModule(function (module, exports) {
-  var oldEnable = minilog$1.enable,
-      oldDisable = minilog$1.disable,
-      isChrome = typeof navigator != 'undefined' && /chrome/i.test(navigator.userAgent); // Use a more capable logging backend if on Chrome
-
-  minilog$1.defaultBackend = isChrome ? console_1.minilog : console_1; // apply enable inputs from localStorage and from the URL
-
-  if (typeof window != 'undefined') {
-    try {
-      minilog$1.enable(JSON.parse(window.localStorage['minilogSettings']));
-    } catch (e) {}
-
-    if (window.location && window.location.search) {
-      var match = RegExp('[?&]minilog=([^&]*)').exec(window.location.search);
-      match && minilog$1.enable(decodeURIComponent(match[1]));
-    }
-  } // Make enable also add to localStorage
-
-
-  minilog$1.enable = function () {
-    oldEnable.call(minilog$1, true);
-
-    try {
-      window.localStorage['minilogSettings'] = JSON.stringify(true);
-    } catch (e) {}
-
-    return this;
-  };
-
-  minilog$1.disable = function () {
-    oldDisable.call(minilog$1);
-
-    try {
-      delete window.localStorage.minilogSettings;
-    } catch (e) {}
-
-    return this;
-  };
-
-  exports = module.exports = minilog$1;
-  exports.backends = {
-    array: array,
-    browser: minilog$1.defaultBackend,
-    localStorage: localstorage,
-    jQuery: jquery_simple
-  };
-});
-
-web.enable();
-var log = web('vm');
-
-var WebBLE = /*#__PURE__*/function () {
-  /**
-   * A BLE peripheral object.  It handles connecting, over Web Bluetooth API, to
-   * BLE peripherals, and reading and writing data to them.
-   * @param {Runtime} runtime - the Runtime for sending/receiving GUI update events.
-   * @param {string} extensionId - the id of the extension using this object.
-   * @param {object} peripheralOptions - the list of options for peripheral discovery.
-   * @param {object} connectCallback - a callback for connection.
-   * @param {object} resetCallback - a callback for resetting extension state.
-   */
-  function WebBLE(runtime, extensionId, peripheralOptions, connectCallback) {
-    var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-
-    _classCallCheck(this, WebBLE);
-
-    /**
-     * Remote device which have been connected.
-     * @type {BluetoothDevice}
-     */
-    this._device = null;
-    /**
-     * Remote GATT server
-     * @type {BluetoothRemoteGATTServer}
-     */
-
-    this._server = null;
-    this._connectCallback = connectCallback;
-    this._disconnected = true;
-    this._characteristicDidChangeCallback = null;
-    this._resetCallback = resetCallback;
-    this._extensionId = extensionId;
-    this._peripheralOptions = peripheralOptions;
-    this._runtime = runtime;
-    this.requestPeripheral();
-  }
-  /**
-   * Request connection to the peripheral.
-   * Request user to choose a device, and then connect it automatically.
-   */
-
-
-  _createClass(WebBLE, [{
-    key: "requestPeripheral",
-    value: function requestPeripheral() {
-      var _this = this;
-
-      if (this._server) {
-        this.disconnect();
-      }
-
-      navigator.bluetooth.requestDevice(this._peripheralOptions).then(function (device) {
-        _this._device = device;
-        log.debug("device=".concat(_this._device.name));
-
-        _this._runtime.connectPeripheral(_this._extensionId, _this._device.id);
-      }).catch(function (e) {
-        _this._handleRequestError(e);
-      });
-    }
-    /**
-     * Try connecting to the GATT server of the device, and then call the connect
-     * callback when connection is successful.
-     */
-
-  }, {
-    key: "connectPeripheral",
-    value: function connectPeripheral()
-    /* id */
-    {
-      var _this2 = this;
-
-      if (!this._device) {
-        throw new Error('device is not chosen');
-      }
-
-      this._device.gatt.connect().then(function (gattServer) {
-        log.debug("GATTServer is connected");
-        _this2._server = gattServer;
-
-        _this2._runtime.emit(_this2._runtime.constructor.PERIPHERAL_CONNECTED);
-
-        _this2._disconnected = false;
-
-        _this2._connectCallback();
-
-        _this2._device.addEventListener('gattserverdisconnected', function (event) {
-          _this2.onDisconnected(event);
-        });
-      });
-    }
-    /**
-     * Disconnect from the device and clean up.
-     * Then emit the connection state by the runtime.
-     */
-
-  }, {
-    key: "disconnect",
-    value: function disconnect() {
-      if (!this._server) return;
-
-      this._server.disconnect();
-
-      this._disconnected = true;
-      this._server = null;
-      this._device = null;
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
-    }
-    /**
-     * @return {bool} whether the peripheral is connected.
-     */
-
-  }, {
-    key: "isConnected",
-    value: function isConnected() {
-      if (!this._server) return false;
-      return this._server.connected;
-    }
-    /**
-     * Start receiving notifications from the specified ble service.
-     * @param {number} serviceId - the ble service to read.
-     * @param {number} characteristicId - the ble characteristic to get notifications from.
-     * @param {object} onCharacteristicChanged - callback for characteristic change notifications
-     *  like function(base64message).
-     * @return {Promise} - a promise from the remote startNotifications request.
-     */
-
-  }, {
-    key: "startNotifications",
-    value: function startNotifications(serviceId, characteristicId) {
-      var onCharacteristicChanged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-      return this._server.getPrimaryService(serviceId).then(function (service) {
-        return service.getCharacteristic(characteristicId);
-      }).then(function (characteristic) {
-        characteristic.addEventListener('characteristicvaluechanged', function (event) {
-          var dataView = event.target.value;
-          onCharacteristicChanged(base64Util.arrayBufferToBase64(dataView.buffer));
-        });
-        characteristic.startNotifications();
-      });
-    }
-    /**
-     * Read from the specified ble service.
-     * @param {number} serviceId - the ble service to read.
-     * @param {number} characteristicId - the ble characteristic to read.
-     * @param {boolean} optStartNotifications - whether to start receiving characteristic change notifications.
-     * @param {object} onCharacteristicChanged - callback for characteristic change notifications
-     *  like function(base64message).
-     * @return {Promise} - a promise from the remote read request which resolve {message: base64string}.
-     */
-
-  }, {
-    key: "read",
-    value: function read(serviceId, characteristicId) {
-      var _this3 = this;
-
-      var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-      return this._server.getPrimaryService(serviceId).then(function (service) {
-        return service.getCharacteristic(characteristicId);
-      }).then(function (characteristic) {
-        if (optStartNotifications) {
-          _this3.startNotifications(serviceId, characteristicId, onCharacteristicChanged);
-        }
-
-        return characteristic.readValue();
-      }).then(function (dataView) {
-        return {
-          message: base64Util.arrayBufferToBase64(dataView.buffer)
-        };
-      });
-    }
-    /**
-     * Write data to the specified ble service.
-     * @param {number} serviceId - the ble service to write.
-     * @param {number} characteristicId - the ble characteristic to write.
-     * @param {string} message - the message to send.
-     * @param {string} encoding - the message encoding type.
-     * @param {boolean} withResponse - if true, resolve after peripheral's response.
-     * @return {Promise} - a promise from the remote send request.
-     */
-    // eslint-disable-next-line no-unused-vars
-
-  }, {
-    key: "write",
-    value: function write(serviceId, characteristicId, message) {
-      var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-      var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-      var value = encoding === 'base64' ? base64Util.base64ToUint8Array(message) : message;
-      return this._server.getPrimaryService(serviceId).then(function (service) {
-        return service.getCharacteristic(characteristicId);
-      }).then(function (characteristic) {
-        if (withResponse && characteristic.writeValueWithResponse) {
-          return characteristic.writeValueWithResponse(value);
-        }
-
-        if (characteristic.writeValueWithoutResponse) {
-          return characteristic.writeValueWithoutResponse(value);
-        }
-
-        return characteristic.writeValue(value);
-      });
-    }
-    /**
-     * Handle an error resulting from losing connection to a peripheral.
-     *
-     * This could be due to:
-     * - battery depletion
-     * - going out of bluetooth range
-     * - being powered down
-     *
-     * Disconnect the device, and if the extension using this object has a
-     * reset callback, call it. Finally, emit an error to the runtime.
-     */
-
-  }, {
-    key: "handleDisconnectError",
-    value: function handleDisconnectError()
-    /* e */
-    {
-      // log.error(`BLE error: ${JSON.stringify(e)}`);
-      if (this._disconnected) return;
-      this.disconnect();
-
-      if (this._resetCallback) {
-        this._resetCallback();
-      }
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
-        message: "Scratch lost connection to",
-        extensionId: this._extensionId
-      });
-    }
-  }, {
-    key: "_handleRequestError",
-    value: function _handleRequestError()
-    /* e */
-    {
-      // log.error(`BLE error: ${JSON.stringify(e)}`);
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
-        message: "Scratch lost connection to",
-        extensionId: this._extensionId
-      });
-    }
-    /**
-     * Called when disconnected by the device.
-     */
-
-  }, {
-    key: "onDisconnected",
-    value: function onDisconnected()
-    /* event */
-    {
-      this.handleDisconnectError(new Error('device disconnected'));
-    }
-  }]);
-
-  return WebBLE;
-}();
-
-var bleWeb = WebBLE;
-
-var BLE = /*#__PURE__*/function (_JSONRPC) {
-  _inherits(BLE, _JSONRPC);
-
-  var _super = _createSuper(BLE);
-
-  /**
-   * A BLE peripheral socket object.  It handles connecting, over web sockets, to
-   * BLE peripherals, and reading and writing data to them.
-   * @param {Runtime} runtime - the Runtime for sending/receiving GUI update events.
-   * @param {string} extensionId - the id of the extension using this socket.
-   * @param {object} peripheralOptions - the list of options for peripheral discovery.
-   * @param {object} connectCallback - a callback for connection.
-   * @param {object} resetCallback - a callback for resetting extension state.
-   */
-  function BLE(runtime, extensionId, peripheralOptions, connectCallback) {
-    var _this;
-
-    var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-
-    _classCallCheck(this, BLE);
-
-    _this = _super.call(this);
-    _this._socket = runtime.getScratchLinkSocket('BLE');
-
-    _this._socket.setOnOpen(_this.requestPeripheral.bind(_assertThisInitialized(_this)));
-
-    _this._socket.setOnClose(_this.handleDisconnectError.bind(_assertThisInitialized(_this)));
-
-    _this._socket.setOnError(_this._handleRequestError.bind(_assertThisInitialized(_this)));
-
-    _this._socket.setHandleMessage(_this._handleMessage.bind(_assertThisInitialized(_this)));
-
-    _this._sendMessage = _this._socket.sendMessage.bind(_this._socket);
-    _this._availablePeripherals = {};
-    _this._connectCallback = connectCallback;
-    _this._connected = false;
-    _this._characteristicDidChangeCallback = null;
-    _this._resetCallback = resetCallback;
-    _this._discoverTimeoutID = null;
-    _this._extensionId = extensionId;
-    _this._peripheralOptions = peripheralOptions;
-    _this._runtime = runtime;
-
-    _this._socket.open();
-
-    return _this;
-  }
-  /**
-   * Request connection to the peripheral.
-   * If the web socket is not yet open, request when the socket promise resolves.
-   */
-
-
-  _createClass(BLE, [{
-    key: "requestPeripheral",
-    value: function requestPeripheral() {
-      var _this2 = this;
-
-      this._availablePeripherals = {};
-
-      if (this._discoverTimeoutID) {
-        window.clearTimeout(this._discoverTimeoutID);
-      }
-
-      this._discoverTimeoutID = window.setTimeout(this._handleDiscoverTimeout.bind(this), 15000);
-      this.sendRemoteRequest('discover', this._peripheralOptions).catch(function (e) {
-        _this2._handleRequestError(e);
-      });
-    }
-    /**
-     * Try connecting to the input peripheral id, and then call the connect
-     * callback if connection is successful.
-     * @param {number} id - the id of the peripheral to connect to
-     */
-
-  }, {
-    key: "connectPeripheral",
-    value: function connectPeripheral(id) {
-      var _this3 = this;
-
-      this.sendRemoteRequest('connect', {
-        peripheralId: id
-      }).then(function () {
-        _this3._connected = true;
-
-        _this3._runtime.emit(_this3._runtime.constructor.PERIPHERAL_CONNECTED);
-
-        _this3._connectCallback();
-      }).catch(function (e) {
-        _this3._handleRequestError(e);
-      });
-    }
-    /**
-     * Close the websocket.
-     */
-
-  }, {
-    key: "disconnect",
-    value: function disconnect() {
-      if (this._connected) {
-        this._connected = false;
-      }
-
-      if (this._socket.isOpen()) {
-        this._socket.close();
-      }
-
-      if (this._discoverTimeoutID) {
-        window.clearTimeout(this._discoverTimeoutID);
-      } // Sets connection status icon to orange
-
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
-    }
-    /**
-     * @return {bool} whether the peripheral is connected.
-     */
-
-  }, {
-    key: "isConnected",
-    value: function isConnected() {
-      return this._connected;
-    }
-    /**
-     * Start receiving notifications from the specified ble service.
-     * @param {number} serviceId - the ble service to read.
-     * @param {number} characteristicId - the ble characteristic to get notifications from.
-     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
-     * @return {Promise} - a promise from the remote startNotifications request.
-     */
-
-  }, {
-    key: "startNotifications",
-    value: function startNotifications(serviceId, characteristicId) {
-      var _this4 = this;
-
-      var onCharacteristicChanged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-      var params = {
-        serviceId: serviceId,
-        characteristicId: characteristicId
-      };
-      this._characteristicDidChangeCallback = onCharacteristicChanged;
-      return this.sendRemoteRequest('startNotifications', params).catch(function (e) {
-        _this4.handleDisconnectError(e);
-      });
-    }
-    /**
-     * Read from the specified ble service.
-     * @param {number} serviceId - the ble service to read.
-     * @param {number} characteristicId - the ble characteristic to read.
-     * @param {boolean} optStartNotifications - whether to start receiving characteristic change notifications.
-     * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
-     * @return {Promise} - a promise from the remote read request.
-     */
-
-  }, {
-    key: "read",
-    value: function read(serviceId, characteristicId) {
-      var _this5 = this;
-
-      var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-      var params = {
-        serviceId: serviceId,
-        characteristicId: characteristicId
-      };
-
-      if (optStartNotifications) {
-        params.startNotifications = true;
-      }
-
-      if (onCharacteristicChanged) {
-        this._characteristicDidChangeCallback = onCharacteristicChanged;
-      }
-
-      return this.sendRemoteRequest('read', params).catch(function (e) {
-        _this5.handleDisconnectError(e);
-      });
-    }
-    /**
-     * Write data to the specified ble service.
-     * @param {number} serviceId - the ble service to write.
-     * @param {number} characteristicId - the ble characteristic to write.
-     * @param {string} message - the message to send.
-     * @param {string} encoding - the message encoding type.
-     * @param {boolean} withResponse - if true, resolve after peripheral's response.
-     * @return {Promise} - a promise from the remote send request.
-     */
-
-  }, {
-    key: "write",
-    value: function write(serviceId, characteristicId, message) {
-      var _this6 = this;
-
-      var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-      var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-      var params = {
-        serviceId: serviceId,
-        characteristicId: characteristicId,
-        message: message
-      };
-
-      if (encoding) {
-        params.encoding = encoding;
-      }
-
-      if (withResponse !== null) {
-        params.withResponse = withResponse;
-      }
-
-      return this.sendRemoteRequest('write', params).catch(function (e) {
-        _this6.handleDisconnectError(e);
-      });
-    }
-    /**
-     * Handle a received call from the socket.
-     * @param {string} method - a received method label.
-     * @param {object} params - a received list of parameters.
-     * @return {object} - optional return value.
-     */
-
-  }, {
-    key: "didReceiveCall",
-    value: function didReceiveCall(method, params) {
-      switch (method) {
-        case 'didDiscoverPeripheral':
-          this._availablePeripherals[params.peripheralId] = params;
-
-          this._runtime.emit(this._runtime.constructor.PERIPHERAL_LIST_UPDATE, this._availablePeripherals);
-
-          if (this._discoverTimeoutID) {
-            window.clearTimeout(this._discoverTimeoutID);
-          }
-
-          break;
-
-        case 'userDidPickPeripheral':
-          this._availablePeripherals[params.peripheralId] = params;
-
-          this._runtime.emit(this._runtime.constructor.USER_PICKED_PERIPHERAL, this._availablePeripherals);
-
-          if (this._discoverTimeoutID) {
-            window.clearTimeout(this._discoverTimeoutID);
-          }
-
-          break;
-
-        case 'userDidNotPickPeripheral':
-          this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
-
-          if (this._discoverTimeoutID) {
-            window.clearTimeout(this._discoverTimeoutID);
-          }
-
-          break;
-
-        case 'characteristicDidChange':
-          if (this._characteristicDidChangeCallback) {
-            this._characteristicDidChangeCallback(params.message);
-          }
-
-          break;
-
-        case 'ping':
-          return 42;
-      }
-    }
-    /**
-     * Handle an error resulting from losing connection to a peripheral.
-     *
-     * This could be due to:
-     * - battery depletion
-     * - going out of bluetooth range
-     * - being powered down
-     *
-     * Disconnect the socket, and if the extension using this socket has a
-     * reset callback, call it. Finally, emit an error to the runtime.
-     */
-
-  }, {
-    key: "handleDisconnectError",
-    value: function handleDisconnectError()
-    /* e */
-    {
-      // log.error(`BLE error: ${JSON.stringify(e)}`);
-      if (!this._connected) return;
-      this.disconnect();
-
-      if (this._resetCallback) {
-        this._resetCallback();
-      }
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
-        message: "Scratch lost connection to",
-        extensionId: this._extensionId
-      });
-    }
-  }, {
-    key: "_handleRequestError",
-    value: function _handleRequestError()
-    /* e */
-    {
-      // log.error(`BLE error: ${JSON.stringify(e)}`);
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
-        message: "Scratch lost connection to",
-        extensionId: this._extensionId
-      });
-    }
-  }, {
-    key: "_handleDiscoverTimeout",
-    value: function _handleDiscoverTimeout() {
-      if (this._discoverTimeoutID) {
-        window.clearTimeout(this._discoverTimeoutID);
-      }
-
-      this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
-    }
-  }]);
-
-  return BLE;
-}(jsonrpc);
-
-var ble = navigator.bluetooth ? bleWeb : BLE;
 
 var formatMessageParse = createCommonjsModule(function (module, exports) {
   /*::
@@ -16389,14 +15567,14 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         text: formatMessage({
           id: 'mbitMore.buttonIDMenu.a',
           default: 'A',
-          description: 'label for "A" element in button picker for micro:bit more extension'
+          description: 'label for "A" element in button picker for Microbit More extension'
         }),
         value: MbitMoreButtonName.A
       }, {
         text: formatMessage({
           id: 'mbitMore.buttonIDMenu.b',
           default: 'B',
-          description: 'label for "B" element in button picker for micro:bit more extension'
+          description: 'label for "B" element in button picker for Microbit More extension'
         }),
         value: MbitMoreButtonName.B
       }];
@@ -16467,7 +15645,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         text: formatMessage({
           id: 'mbitMore.touchIDMenu.logo',
           default: 'LOGO',
-          description: 'label for "LOGO" element in touch button picker for micro:bit more extension'
+          description: 'label for "LOGO" element in touch button picker for Microbit More extension'
         }),
         value: MbitMoreButtonName.LOGO
       }, {
@@ -18060,7 +17238,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {string} - the name of this extension.
      */
     function get() {
-      return 'micro:bit more';
+      return 'Microbit More';
     }
     /**
      * @return {string} - the ID of this extension.
