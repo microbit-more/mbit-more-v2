@@ -16577,14 +16577,14 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         text: formatMessage$2({
           id: 'mbitMore.buttonIDMenu.a',
           default: 'A',
-          description: 'label for "A" element in button picker for micro:bit more extension'
+          description: 'label for "A" element in button picker for Microbit More extension'
         }),
         value: MbitMoreButtonName.A
       }, {
         text: formatMessage$2({
           id: 'mbitMore.buttonIDMenu.b',
           default: 'B',
-          description: 'label for "B" element in button picker for micro:bit more extension'
+          description: 'label for "B" element in button picker for Microbit More extension'
         }),
         value: MbitMoreButtonName.B
       }];
@@ -16655,7 +16655,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         text: formatMessage$2({
           id: 'mbitMore.touchIDMenu.logo',
           default: 'LOGO',
-          description: 'label for "LOGO" element in touch button picker for micro:bit more extension'
+          description: 'label for "LOGO" element in touch button picker for Microbit More extension'
         }),
         value: MbitMoreButtonName.LOGO
       }, {
@@ -16965,7 +16965,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {string} - the name of this extension.
      */
     get: function get() {
-      return 'micro:bit more';
+      return 'Microbit More';
     }
     /**
      * @return {string} - the ID of this extension.
