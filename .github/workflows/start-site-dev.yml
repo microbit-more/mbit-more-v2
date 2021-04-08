@@ -38,6 +38,7 @@ jobs:
       - run: cp ./mbit-more-v2/site/favicon.ico ./scratch-gui/build/static/favicon.ico
       - run: cp -r ./mbit-more-v2/dist ./scratch-gui/build/dist
       - run: cp -r ./mbit-more-v2/examples ./scratch-gui/build/examples
+      - run: touch ./scratch-gui/build/.nojekyll
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
