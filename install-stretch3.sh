@@ -21,7 +21,7 @@ cp microbitMore/src/entry/connection-small-icon.svg src/lib/libraries/extensions
 mv src/lib/libraries/extensions/index.jsx src/lib/libraries/extensions/index.jsx_orig
 MICROBIT_MORE="\
     {${LF}\
-        name: 'micro:bit MORE v2 (0.1.0)',${LF}\
+        name: 'Microbit More v2 (0.1.0)',${LF}\
         extensionId: 'microbitMore',${LF}\
         collaborator: 'Yengawa Lab',${LF}\
         iconURL: microbitMoreIconURL,${LF}\
@@ -29,7 +29,7 @@ MICROBIT_MORE="\
         description: (${LF}\
             <FormattedMessage${LF}\
                 defaultMessage='Connect your projects with the world.'${LF}\
-                description='Description for the micro:bit more extension'${LF}\
+                description='Description for the Microbit More extension'${LF}\
                 id='gui.extension.microbitmore.description'${LF}\
             />${LF}\
         ),${LF}\

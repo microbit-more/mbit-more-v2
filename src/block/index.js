@@ -1454,7 +1454,7 @@ class MbitMoreBlocks {
      * @return {string} - the name of this extension.
      */
     static get EXTENSION_NAME () {
-        return 'micro:bit more';
+        return 'Microbit More';
     }
 
     /**
@@ -1587,7 +1587,7 @@ class MbitMoreBlocks {
                 text: formatMessage({
                     id: 'mbitMore.buttonIDMenu.a',
                     default: 'A',
-                    description: 'label for "A" element in button picker for micro:bit more extension'
+                    description: 'label for "A" element in button picker for Microbit More extension'
                 }),
                 value: MbitMoreButtonName.A
             },
@@ -1595,7 +1595,7 @@ class MbitMoreBlocks {
                 text: formatMessage({
                     id: 'mbitMore.buttonIDMenu.b',
                     default: 'B',
-                    description: 'label for "B" element in button picker for micro:bit more extension'
+                    description: 'label for "B" element in button picker for Microbit More extension'
                 }),
                 value: MbitMoreButtonName.B
             }
@@ -1668,7 +1668,7 @@ class MbitMoreBlocks {
                 text: formatMessage({
                     id: 'mbitMore.touchIDMenu.logo',
                     default: 'LOGO',
-                    description: 'label for "LOGO" element in touch button picker for micro:bit more extension'
+                    description: 'label for "LOGO" element in touch button picker for Microbit More extension'
                 }),
                 value: MbitMoreButtonName.LOGO
             },
