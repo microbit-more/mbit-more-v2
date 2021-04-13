@@ -2860,7 +2860,7 @@ class MbitMoreBlocks {
         return this._peripheral.configMic(true, util)
             .then(micState => {
                 if (micState) {
-                    return this._peripheral.readSoundLevel();
+                    return Math.round(this._peripheral.readSoundLevel() * 1000 / 255) / 10;
                 }
                 return 0;
             });
