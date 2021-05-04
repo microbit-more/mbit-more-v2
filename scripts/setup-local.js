@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-// const { execSync } = require('child_process')
+const { execSync } = require('child_process')
 
 const VmRoot = path.resolve(__dirname, '../../scratch-vm');
 const GuiRoot = path.resolve(__dirname, '../../scratch-gui');
@@ -31,3 +31,11 @@ makeSymbolickLink(
     VmRoot,
     path.resolve(GuiRoot, './node_modules/scratch-vm')
 )
+
+// Setup for dev server
+try {
+    execSync(`cd ${GuiRoot} && patch -p1 -N -s < ${path.resolve(__dirname, 'dev_server.patch')}`);
+    console.log(`Apply patch: dev_server.patch`);
+} catch (err) {
+    console.log(err);
+}
