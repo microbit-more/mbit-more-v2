@@ -17,29 +17,12 @@
 
 > Full-functional extension of micro:bit for Scratch3
 
-### 🏠 [Homepage](https://microbit-more.github.io/)
+### ✨ Open [Microbit More](https://microbit-more.github.io/)
 
-### ✨ Open [Microbit More Web-App](https://yokobond.github.io/mbit-more-v2) 
-This is a mod application from [Scratch3 by MIT](https://scratch.mit.edu/). You can code using 'Microbit More' and all blocks in nomal Scratch3 on this app.
+This is a mod application from [Scratch3 by MIT](https://scratch.mit.edu/). You can code using 'Microbit More' and all blocks in nomal Scratch3 on this app. 
+The program of micro:bit for Microbit More is [yokobond/pxt-mbit-more-v2](https://yokobond.github.io/pxt-mbit-more-v2/).
 
 You don't need to run [Scratch Link](https://scratch.mit.edu/microbit) when your browser is Chrome, Edge or 'Web Bluetooth API' supporting one (the browser in Chromebook, [‎Bluefy](https://apps.apple.com/jp/app/bluefy-web-ble-browser/id1492822055) in iPadOS, like that).
-
-
-## How to Use
-
-Get a micro:bit (either v1 or v2) and a PC then follow the steps below.
-
-1. download extension program [microbit-mbit-more-v2-0_2_0.hex](https://github.com/yokobond/pxt-mbit-more-v2/releases/download/0.1.0/microbit-mbit-more-v2-0_2_0.hex) on your micro:bit
-2. calibrate compass by playing 'TILT TO FILL SCREEN' ([How to calibrate the micro:bit compass : Help & Support](https://support.microbit.org/support/solutions/articles/19000008874-calibrating-the-micro-bit-compass))
-3. open [Microbit More Web-App](https://yokobond.github.io/mbit-more-v2)
-4. click **(!) button** in the "Microbit More" category to scan micro:bit (run [Scratch Link](https://scratch.mit.edu/microbit) when your browser does not support Web Bluetooth)
-5. select your micro:bit on the device list then click **pair**
-6. return to the editor and click **[display pattern [:heart:]]** to check the connection with your micro:bit
-
-## Restrictions
-
-* Do not share on the official Scratch website. (You can save project on your PC and share the file)
-* Messaging blocks are not available for micro:bit v1.
 
 ## Setup Development Environment
 
@@ -51,9 +34,10 @@ Use [yokobond/scratch-gui at xcratch](https://github.com/yokobond/scratch-gui/tr
 git clone -b xcratch https://github.com/yokobond/scratch-gui.git
 cd ./scratch-gui
 npm install
+npm install https://github.com/yokobond/scratch-vm.git#xcratch
 ```
 
-Download the Scratch3 repositories according to the supporsed directory configuration.
+Download the Scratch3 repositories according to the supposed directory configuration.
 
 ```
 .
@@ -114,7 +98,7 @@ const extensions = [...];
 export default extensions;
 ```
 
-It may break registration mechanism of the other extensions.
+It may break registration mechanism of the other user-made extensions.
 
 
 ## Xcratch Module Building
