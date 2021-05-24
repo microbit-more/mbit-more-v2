@@ -2794,9 +2794,9 @@ class MbitMoreBlocks {
             .replace(/[^ -~]/g, '?');
         let delay = parseInt(args.DELAY, 10);
         delay = isNaN(delay) ? 120 : delay; // Use default delay if NaN.
-        if (text.length > 0) this._peripheral.displayText(text, delay, util);
+        const resultPromise = this._peripheral.displayText(text, delay, util);
+        if (!resultPromise) return; // This thread was yielded.
         const yieldDelay = delay * ((6 * text.length) + 6);
-
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve();
@@ -2857,7 +2857,9 @@ class MbitMoreBlocks {
      * @return {Promise} - a Promise that resolves digital input value of the pin.
      */
     getSoundLevel (args, util) {
-        return this._peripheral.configMic(true, util)
+        const resultPromise = this._peripheral.configMic(true, util);
+        if (!resultPromise) return; // This thread was yielded.
+        return resultPromise
             .then(micState => {
                 if (micState) {
                     return Math.round(this._peripheral.readSoundLevel() * 1000 / 255) / 10;
