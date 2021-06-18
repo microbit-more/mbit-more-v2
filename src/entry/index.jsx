@@ -6,12 +6,17 @@ import microbitMoreInsetIconURL from './inset-icon.svg';
 import microbitMoreConnectionIconURL from './connection-icon.svg';
 import microbitMoreConnectionSmallIconURL from './connection-small-icon.svg';
 
+const version = 'v2-0.2.1';
+
 const translationMap = {
+    'en': {
+        'gui.extension.microbitMore.description': `Play with all functions of micro:bit. (${version})`
+    },
     'ja': {
-        'gui.extension.microbitMore.description': 'micro:bitのすべての機能で遊ぶ。'
+        'gui.extension.microbitMore.description': `micro:bitのすべての機能で遊ぶ。 (${version})`
     },
     'ja-Hira': {
-        'gui.extension.microbitMore.description': 'マイクロビットのすべてのきのうであそぶ。'
+        'gui.extension.microbitMore.description': `マイクロビットのすべてのきのうであそぶ。 (${version})`
     }
 };
 
