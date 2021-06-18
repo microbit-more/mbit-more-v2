@@ -18,7 +18,7 @@ const translationMap = {
 const entry = {
     name: 'Microbit More',
     extensionId: 'microbitMore',
-    extensionURL: 'https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs',
+    extensionURL: 'https://microbit-more.github.io/dist/microbitMore.mjs',
     collaborator: 'Yengawa Lab',
     iconURL: microbitMoreIconURL,
     insetIconURL: microbitMoreInsetIconURL,
