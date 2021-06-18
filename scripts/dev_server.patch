@@ -9,7 +9,7 @@ index 00ad0983f..2f07b4de8 100644
 +    watchOptions: {
 +        ignored: [
 +            /node_modules([\\]+|\/)+(?!scratch-vm)/,
-+            /\some_npm_module_name([\\]+|\/)node_modules/
++            /\scratch-vm([\\]+|\/)node_modules/
 +        ]
 +    },
      output: {
