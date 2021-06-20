@@ -1719,24 +1719,24 @@ class MbitMoreBlocks {
             // // These events are not in use because they are unstable in coal-microbit-v2.
             // {
             //     text: formatMessage({
-            //         id: 'mbitMore.touchEventMenu.pressed',
-            //         default: 'pressed',
+            //         id: 'mbitMore.touchEventMenu.hold',
+            //         default: 'hold',
             //         description: 'label for hold event in touch'
             //     }),
             //     value: MbitMoreButtonEventName.HOLD
             // },
             // {
             //     text: formatMessage({
-            //         id: 'mbitMore.touchEventMenu.longClick',
-            //         default: 'long click',
+            //         id: 'mbitMore.touchEventMenu.longTapped',
+            //         default: 'long tapped',
             //         description: 'label for long click event in touch'
             //     }),
             //     value: MbitMoreButtonEventName.LONG_CLICK
             // },
             // {
             //     text: formatMessage({
-            //         id: 'mbitMore.touchEventMenu.doubleClick',
-            //         default: 'double click',
+            //         id: 'mbitMore.touchEventMenu.doubleTapped',
+            //         default: 'double tapped',
             //         description: 'label for double click event in touch'
             //     }),
             //     value: MbitMoreButtonEventName.DOUBLE_CLICK
@@ -3226,12 +3226,14 @@ const extensionTranslations = {
         'mbitMore.buttonEventMenu.doubleClick': 'ダブルクリックされた',
         'mbitMore.isButtonPressed': 'ボタン [NAME] が押されている',
         'mbitMore.whenTouchEvent': 'ピン [NAME] が [EVENT] とき',
-        'mbitMore.isPinTouched': 'ピン [NAME] が触れられた',
+        'mbitMore.isPinTouched': 'ピン [NAME] がタッチされた',
         'mbitMore.touchIDMenu.logo': 'ロゴ',
-        'mbitMore.touchEventMenu.touched': '触れられた',
-        'mbitMore.touchEventMenu.pressed': '押された',
-        'mbitMore.touchEventMenu.released': '放された',
+        'mbitMore.touchEventMenu.touched': 'タッチされた',
+        'mbitMore.touchEventMenu.hold': '長押しされた',
+        'mbitMore.touchEventMenu.released': '離された',
         'mbitMore.touchEventMenu.tapped': 'タップされた',
+        'mbitMore.touchEventMenu.longTapped': 'ロングタップされた',
+        'mbitMore.touchEventMenu.doubleTapped': 'ダブルタップされた',
         'mbitMore.whenGesture': '[GESTURE] とき',
         'mbitMore.gesturesMenu.tiltUp': '上へ傾いた',
         'mbitMore.gesturesMenu.tiltDown': '下へ傾いた',
@@ -3306,12 +3308,14 @@ const extensionTranslations = {
         'mbitMore.buttonEventMenu.doubleClick': 'ダブルクリックされた',
         'mbitMore.isButtonPressed': '[NAME] ボタンがおされている',
         'mbitMore.whenTouchEvent': 'ピン [NAME] が [EVENT] とき',
-        'mbitMore.isPinTouched': 'ピン [NAME] がふれられた',
+        'mbitMore.isPinTouched': 'ピン [NAME] がタッチされた',
         'mbitMore.touchIDMenu.logo': 'ロゴ',
-        'mbitMore.touchEventMenu.touched': 'ふれられた',
-        'mbitMore.touchEventMenu.pressed': 'おされた',
+        'mbitMore.touchEventMenu.touched': 'タッチされた',
+        'mbitMore.touchEventMenu.hold': 'ながおしされた',
         'mbitMore.touchEventMenu.released': 'はなされた',
         'mbitMore.touchEventMenu.tapped': 'タップされた',
+        'mbitMore.touchEventMenu.longTapped': 'ロングタップされた',
+        'mbitMore.touchEventMenu.doubleTapped': 'ダブルタップされた',
         'mbitMore.whenGesture': '[GESTURE] とき',
         'mbitMore.gesturesMenu.tiltUp': 'うえへかたむいた',
         'mbitMore.gesturesMenu.tiltDown': 'したへかたむいた',
