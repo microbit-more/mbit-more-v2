@@ -6,7 +6,7 @@ import microbitMoreInsetIconURL from './inset-icon.svg';
 import microbitMoreConnectionIconURL from './connection-icon.svg';
 import microbitMoreConnectionSmallIconURL from './connection-small-icon.svg';
 
-const version = 'v2-0.2.1';
+const version = 'v2-0.2.2';
 
 const translationMap = {
     'en': {
