@@ -5,6 +5,9 @@ const cast = require('../../util/cast');
 const BLE = require('../../io/ble');
 const Base64Util = require('../../util/base64-util');
 
+const WebBLE = require('./web-ble');
+const WebSerial = require('./web-serial');
+
 
 /**
  * Formatter which is used for translating.
@@ -999,6 +1002,127 @@ class MbitMore {
         return this.magneticForce[axis];
     }
 
+    scanBLE () {
+        const connectorClass = ('bluetooth' in navigator) ? WebBLE : BLE;
+        this._ble = new connectorClass(
+            this.runtime,
+            this._extensionId,
+            {
+                filters: [
+                    {namePrefix: 'BBC micro:bit'},
+                    {services: [MM_SERVICE.ID]}
+                ]
+            },
+            this._onConnect,
+            this.reset
+        );
+    }
+
+    scanSerial () {
+        this._ble = new WebSerial(
+            this.runtime,
+            this._extensionId,
+            {
+                filters: [
+                    {usbVendorId: 0x0d28, usbProductId: 0x0204}
+                ]
+            },
+            this._onConnect,
+            this.reset
+        );
+    }
+
+    selectCommunicationRoute () {
+        const selectDialog = document.createElement('dialog');
+        selectDialog.style.padding = '0px';
+        const dialogFace = document.createElement('div');
+        dialogFace.style.padding = '16px';
+        selectDialog.appendChild(dialogFace);
+        const label = document.createTextNode(formatMessage({
+            id: 'mbitMore.selectCommunicationRoute.connectWith',
+            default: 'Connect with',
+            description: 'label of select communication route dialog for microbit more extension'
+        }));
+        dialogFace.appendChild(label);
+        // Dialog form
+        const selectForm = document.createElement('form');
+        selectForm.setAttribute('method', 'dialog');
+        selectForm.style.margin = '8px';
+        dialogFace.appendChild(selectForm);
+        // API select
+        const apiSelect = document.createElement('select');
+        apiSelect.setAttribute('id', 'api');
+        selectForm.appendChild(apiSelect);
+        // BLE option
+        const bleOption = document.createElement('option');
+        bleOption.setAttribute('value', 'ble');
+        bleOption.textContent = formatMessage({
+            id: 'mbitMore.selectCommunicationRoute.bluetooth',
+            default: 'Bluetooth',
+            description: 'bluetooth button on select communication route dialog for microbit more extension'
+        });
+        apiSelect.appendChild(bleOption);
+        // USB option
+        const usbOption = document.createElement('option');
+        usbOption.setAttribute('value', 'usb');
+        usbOption.textContent = formatMessage({
+            id: 'mbitMore.selectCommunicationRoute.usb',
+            default: 'USB',
+            description: 'usb button on select communication route dialog for microbit more extension'
+        });
+        apiSelect.appendChild(usbOption);
+        // Cancel button
+        const cancelButton = document.createElement('button');
+        cancelButton.textContent = formatMessage({
+            id: 'mbitMore.selectCommunicationRoute.cancel',
+            default: 'cancel',
+            description: 'cancel button on select communication route dialog for microbit more extension'
+        });
+        cancelButton.style.margin = '8px';
+        dialogFace.appendChild(cancelButton);
+        // OK button
+        const confirmButton = document.createElement('button');
+        confirmButton.textContent = formatMessage({
+            id: 'mbitMore.selectCommunicationRoute.connect',
+            default: 'connect',
+            description: 'connect button on select communication route dialog for microbit more extension'
+        });
+        confirmButton.style.margin = '8px';
+        dialogFace.appendChild(confirmButton);
+        // Add onClick action
+        const selectProcess = () => {
+            if (apiSelect.value === 'ble') {
+                this.scanBLE();
+            }
+            if (apiSelect.value === 'usb') {
+                this.scanSerial();
+            }
+            document.body.removeChild(selectDialog);
+        };
+        cancelButton.onclick = () => {
+            document.body.removeChild(selectDialog);
+            this.runtime.emit(this.runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
+                message: `Scan was canceled by user`,
+                extensionId: this._extensionId
+            });
+        };
+        confirmButton.onclick = selectProcess;
+        selectDialog.addEventListener('keydown', e => {
+            if (e.code === 'Enter') {
+                selectProcess();
+            }
+        });
+        // When click outside of the dialog
+        // selectDialog.onclick = e => {
+        //     if (!e.target.closest('div')) {
+        //         e.target.close();
+        //         selectProcess();
+        //     }
+        // };
+        document.body.appendChild(selectDialog);
+        selectDialog.showModal();
+    }
+
     /**
      * Called by the runtime when user wants to scan for a peripheral.
      */
@@ -1007,12 +1131,11 @@ class MbitMore {
             this._ble.disconnect();
         }
         this.bleBusy = true;
-        this._ble = new BLE(this.runtime, this._extensionId, {
-            filters: [
-                {namePrefix: 'BBC micro:bit'},
-                {services: [MM_SERVICE.ID]}
-            ]
-        }, this._onConnect, this.reset);
+        if ('serial' in navigator) {
+            this.selectCommunicationRoute();
+        } else {
+            this.scanBLE();
+        }
     }
 
     /**
@@ -1137,6 +1260,9 @@ class MbitMore {
             MM_SERVICE.COMMAND_CH,
             false)
             .then(result => {
+                if (!result) {
+                    throw new Error('Config is not readable');
+                }
                 const data = Base64Util.base64ToUint8Array(result.message);
                 const dataView = new DataView(data.buffer, 0);
                 this.hardware = dataView.getUint8(0);
@@ -1162,7 +1288,8 @@ class MbitMore {
                 this.bleBusy = false;
                 this.startUpdater();
                 this.resetConnectionTimeout();
-            });
+            })
+            .catch(() => this._ble.handleDisconnectError());
     }
 
     /**
@@ -3294,7 +3421,12 @@ const extensionTranslations = {
         'mbitMore.sendData': 'micro:bit へデータ [DATA] にラベル [LABEL] を付けて送る',
         'mbitMore.connectionStateMenu.connected': 'つながった',
         'mbitMore.connectionStateMenu.disconnected': '切れた',
-        'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
+        'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき',
+        'mbitMore.selectCommunicationRoute.connectWith': 'つなぎ方',
+        'mbitMore.selectCommunicationRoute.bluetooth': 'Bluetooth',
+        'mbitMore.selectCommunicationRoute.usb': 'USB',
+        'mbitMore.selectCommunicationRoute.connect': 'つなぐ',
+        'mbitMore.selectCommunicationRoute.cancel': 'やめる'
     },
     'ja-Hira': {
         'mbitMore.whenButtonEvent': '[NAME] ボタンが [EVENT] とき',
@@ -3376,7 +3508,12 @@ const extensionTranslations = {
         'mbitMore.sendData': 'micro:bit へデータ [DATA] にラベル [LABEL] をつけておくる',
         'mbitMore.connectionStateMenu.connected': 'つながった',
         'mbitMore.connectionStateMenu.disconnected': 'きれた',
-        'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき'
+        'mbitMore.whenConnectionChanged': 'micro:bit と[STATE]とき',
+        'mbitMore.selectCommunicationRoute.connectWith': 'つなぎかた',
+        'mbitMore.selectCommunicationRoute.bluetooth': 'むせん',
+        'mbitMore.selectCommunicationRoute.usb': 'ゆうせん',
+        'mbitMore.selectCommunicationRoute.connect': 'つなぐ',
+        'mbitMore.selectCommunicationRoute.cancel': 'やめる'
     },
     'pt-br': {
         'mbitMore.lightLevel': 'Intensidade da Luz',
