@@ -1,6 +1,6 @@
 const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
-// const log = require('../../util/log');
+const log = require('../../util/log');
 const cast = require('../../util/cast');
 const BLE = require('../../io/ble');
 const Base64Util = require('../../util/base64-util');
@@ -41,6 +41,15 @@ const MbitMoreHardwareVersion =
 {
     MICROBIT_V1: 1,
     MICROBIT_V2: 2
+};
+
+/**
+ * Communication route between Scratch and micro:bit
+ *
+ */
+const CommunicationRoute = {
+    BLE: 0,
+    SERIAL: 1
 };
 
 /**
@@ -325,11 +334,6 @@ const MbitMoreAudioCommand =
  */
 const BLETimeout = 4500;
 
-/**
- * A time interval to wait (in milliseconds) while a block that sends a BLE message is running.
- * @type {number}
- */
-const BLESendInterval = 30;
 
 /**
  * A string to report to the BLE socket when the micro:bit has stopped receiving data.
@@ -489,7 +493,7 @@ class MbitMore {
          */
         this.bleBusyTimeoutID = null;
 
-        this.reset = this.reset.bind(this);
+        this.onDisconnect = this.onDisconnect.bind(this);
         this._onConnect = this._onConnect.bind(this);
         this.onNotify = this.onNotify.bind(this);
 
@@ -500,6 +504,12 @@ class MbitMore {
 
         this.analogInUpdateInterval = 100; // milli-seconds
         this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
+
+        /**
+         * A time interval to wait (in milliseconds) while a block that sends a BLE message is running.
+         * @type {number}
+         */
+        this.sendCommandInterval = 30;
 
         this.initConfig();
     }
@@ -1014,7 +1024,7 @@ class MbitMore {
                 ]
             },
             this._onConnect,
-            this.reset
+            this.onDisconnect
         );
     }
 
@@ -1028,7 +1038,7 @@ class MbitMore {
                 ]
             },
             this._onConnect,
-            this.reset
+            this.onDisconnect
         );
     }
 
@@ -1155,14 +1165,14 @@ class MbitMore {
         if (this._ble) {
             this._ble.disconnect();
         }
-        this.stopUpdater();
-        this.reset();
+        this.onDisconnect();
     }
 
     /**
      * Reset all the state and timeout/interval ids.
      */
-    reset () {
+    onDisconnect () {
+        this.stopUpdater();
         if (this._timeoutID) {
             window.clearTimeout(this._timeoutID);
             this._timeoutID = null;
@@ -1203,7 +1213,7 @@ class MbitMore {
                 'base64',
                 false
             );
-            setTimeout(() => resolve(), BLESendInterval);
+            setTimeout(() => resolve(), this.sendCommandInterval);
         });
     }
 
@@ -1211,7 +1221,7 @@ class MbitMore {
      * Send multiple commands sequentially.
      * @param {Array.<{id: number, message: Uint8Array}>} commands array of command.
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @return {Promise} a Promise that resolves when the all commands was sent.
+     * @return {?Promise} a Promise that resolves when the all commands was sent.
      */
     sendCommandSet (commands, util) {
         if (!this.isConnected()) return Promise.resolve();
@@ -1231,22 +1241,21 @@ class MbitMore {
             this.bleAccessWaiting = false;
         }, 1000);
         return new Promise(resolve => {
-            commands.reduce(
-                (acc, cur, i) => {
-                    const sendPromise = acc.then(() => this.sendCommand(cur));
-                    if (i === commands.length - 1) {
-                        // the last command
-                        sendPromise.then(() => {
-                            this.bleBusy = false;
-                            this.bleAccessWaiting = false;
-                            window.clearTimeout(this.bleBusyTimeoutID);
-                            resolve();
-                        });
-                    }
-                    return sendPromise;
-                },
+            commands.reduce((acc, cur) => acc.then(() => this.sendCommand(cur)),
                 Promise.resolve()
-            );
+            )
+                .then(() => {
+                    window.clearTimeout(this.bleBusyTimeoutID);
+                })
+                .catch(err => {
+                    log.log(err);
+                    this._ble.handleDisconnectError(err);
+                })
+                .finally(() => {
+                    this.bleBusy = false;
+                    this.bleAccessWaiting = false;
+                    resolve();
+                });
         });
     }
 
@@ -1267,6 +1276,7 @@ class MbitMore {
                 const dataView = new DataView(data.buffer, 0);
                 this.hardware = dataView.getUint8(0);
                 this.protocol = dataView.getUint8(1);
+                this.route = dataView.getUint8(2);
                 this._ble.startNotifications(
                     MM_SERVICE.ID,
                     MM_SERVICE.ACTION_EVENT_CH,
@@ -1276,20 +1286,25 @@ class MbitMore {
                     MM_SERVICE.PIN_EVENT_CH,
                     this.onNotify);
                 if (this.hardware === MbitMoreHardwareVersion.MICROBIT_V1) {
-                    this.microbitUpdateInterval = 100; // milli-seconds
+                    this.microbitUpdateInterval = 100; // milliseconds
                 } else {
                     this._ble.startNotifications(
                         MM_SERVICE.ID,
                         MM_SERVICE.MESSAGE_CH,
                         this.onNotify);
-                    this.microbitUpdateInterval = 50; // milli-seconds
+                    this.microbitUpdateInterval = 50; // milliseconds
+                }
+                if (this.route === CommunicationRoute.SERIAL) {
+                    this.sendCommandInterval = 100; // milliseconds
+                } else {
+                    this.sendCommandInterval = 30; // milliseconds
                 }
                 this.initConfig();
                 this.bleBusy = false;
                 this.startUpdater();
                 this.resetConnectionTimeout();
             })
-            .catch(() => this._ble.handleDisconnectError());
+            .catch(err => this._ble.handleDisconnectError(err));
     }
 
     /**

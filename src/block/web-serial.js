@@ -60,7 +60,7 @@ class WebSerial {
          * Remote device which have been connected.
          * @type {SerialPort}
          */
-        this._port = null;
+        this.port = null;
 
         this._connectCallback = connectCallback;
         this.state = 'init';
@@ -68,10 +68,12 @@ class WebSerial {
         this._extensionId = extensionId;
         this._peripheralOptions = peripheralOptions;
         this._serialOptions = {
-            baudRate: 115200
+            // baudRate: 57600
+            baudRate: 115200 // Default for micro:bit
         };
         this._runtime = runtime;
-        this.receivingInterval = 10;
+        this.receivingInterval = 1;
+        this.sendDataInterval = 10; // Time for receiving process in micro:bit
 
         /**
          * Store of received type and value for each characteristics.
@@ -91,7 +93,7 @@ class WebSerial {
     /**
      * Request connection to the peripheral.
      * Request user to choose a device, and then connect it automatically.
-     * @return {Promise} - a Promise which will resolved when a port was selected.
+     * @return {Promise} - a Promise which will resolved when a serial-port was selected.
      */
     requestPeripheral () {
         let promise = Promise.resolve();
@@ -100,8 +102,8 @@ class WebSerial {
         }
         return promise.then(() => {
             navigator.serial.requestPort(this._peripheralOptions)
-                .then(port => {
-                    this._port = port;
+                .then(selected => {
+                    this.port = selected;
                     this._runtime.connectPeripheral(this._extensionId, null);
                 })
                 .catch(e => {
@@ -111,11 +113,11 @@ class WebSerial {
     }
 
     /**
-     * Try connecting to the serial port of the device, and then call the connect
+     * Try connecting to the serial-port of the device, and then call the connect
      * callback when connection is successful.
      */
     connectPeripheral (/* id */) {
-        if (!this._port) {
+        if (!this.port) {
             throw new Error('device is not chosen');
         }
         class ChValueTransformer {
@@ -146,12 +148,23 @@ class WebSerial {
                 }
                 const ch = (this.chunks[2] << 8) | this.chunks[3];
                 const valueLength = this.chunks[4];
-                if (this.chunks.length < (5 + valueLength)) {
+                const frameEnd = 5 + valueLength;
+                if (this.chunks.length < (frameEnd + 1)) {
                     return;
                 }
-                this.chunks.splice(0, 5); // remove before value
-                const value = this.chunks.splice(0, valueLength);
-                controller.enqueue({ch: ch, data: {type: type, value: value}});
+                const value = this.chunks.slice(5, frameEnd);
+                // Checksum
+                const checksum = this.chunks.slice(0, frameEnd).reduce((acc, cur) => acc + cur) % 0xFF;
+                if (checksum === this.chunks[frameEnd]) {
+                    // Received successfully
+                    this.chunks.splice(0, frameEnd + 1);
+                    controller.enqueue({ch: ch, data: {type: type, value: value}});
+                } else {
+                    // Error occurred
+                    log.debug(this.chunks); // debug
+                    this.chunks.shift(); // Remove current SFD
+                    return;
+                }
             }
 
             flush (controller) {
@@ -159,16 +172,16 @@ class WebSerial {
                 controller.terminate();
             }
         }
-        this._port.open(this._serialOptions)
+        this.port.open(this._serialOptions)
             .then(() => {
                 log.log(`SerialPort: open`);
                 this.state = 'open';
-                this.writer = this._port.writable.getWriter();
+                this.writer = this.port.writable.getWriter();
                 // eslint-disable-next-line no-undef
                 const chValueTransformStream = new TransformStream(new ChValueTransformer());
-                this.readableStreamClosed = this._port.readable.pipeTo(chValueTransformStream.writable);
+                this.readableStreamClosed = this.port.readable.pipeTo(chValueTransformStream.writable);
                 this.reader = chValueTransformStream.readable.getReader();
-                this._port.addEventListener('disconnect',
+                this.port.addEventListener('disconnect',
                     event => {
                         this.onDisconnected(event);
                     });
@@ -181,7 +194,7 @@ class WebSerial {
     /**
      * Disconnect from the device and clean up.
      * Then emit the connection state by the runtime.
-     * @return {Promise} - a Promise which will resolve when the port was disconnected.
+     * @return {Promise} - a Promise which will resolve when the serial-port was disconnected.
      */
     disconnect () {
         if (this.state !== 'open') return Promise.resolve();
@@ -195,11 +208,11 @@ class WebSerial {
                 return this.write.closed;
             })
             .then(() => {
-                this._port.close();
+                this.port.close();
                 this.state = 'close';
                 this.reader = null;
                 this.writer = null;
-                this._port = null;
+                this.port = null;
                 this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
             });
     }
@@ -246,12 +259,12 @@ class WebSerial {
         this.dataReceiving = window.setTimeout(() => {
             if (this.state !== 'open') return;
             this.receiveData()
-                .catch(err => {
-                    log.error(err);
-                })
-                .finally(() => {
+                .then(() => {
                     // start again
                     this.startReceiving();
+                })
+                .catch(() => {
+                    this.handleDisconnectError();
                 });
         }, this.receivingInterval);
     }
@@ -271,7 +284,10 @@ class WebSerial {
      */
     sendData (data) {
         return this.writer.ready
-            .then(() => this.writer.write(data));
+            .then(() => this.writer.write(data))
+            .then(() => new Promise(resolve => {
+                setTimeout(() => resolve(), this.sendDataInterval); // Wait for receiving process in micro:bit
+            }));
     }
 
     /**
@@ -290,37 +306,36 @@ class WebSerial {
 
     readCh (ch) {
         if (this.state !== 'open') {
-            return Promise.reject('port is not opened');
+            return Promise.reject(new Error('port is not opened'));
         }
         return new Promise(resolve => {
             const dataFrame = new Uint8Array(4);
             dataFrame[0] = SFD;
             dataFrame[1] = ChRequest.READ;
             dataFrame[2] = ch >> 8;
-            dataFrame[3] = ch & 0xff;
+            dataFrame[3] = ch & 0xFF;
             if (this.chValues[ch]) {
                 this.chValues[ch][ChResponse.READ] = null;
             }
-            let chRetrieveCounter = 20;
             this.sendData(dataFrame)
                 .then(() => {
                     const checkInterval = 10;
-                    const check = () => {
+                    const check = count => {
                         const received = this.chValues[ch];
                         if (received && received[ChResponse.READ]) {
                             return resolve({
                                 message: Base64Util.arrayBufferToBase64(received[ChResponse.READ])
                             });
                         }
-                        chRetrieveCounter--;
-                        if (chRetrieveCounter === 0) {
+                        count--;
+                        if (count === 0) {
                             return resolve(null);
                         }
                         setTimeout(() => {
-                            check();
+                            check(count);
                         }, checkInterval);
                     };
-                    check();
+                    check(20);
                 });
         });
     }
@@ -351,8 +366,8 @@ class WebSerial {
         }
         const readRetry = count => new Promise((resolve, reject) => {
             if (count < 0) {
-                reject(`no response`);
-                log.error(`ch: ${ch} dose not response`);
+                reject(new Error(`no response`));
+                log.debug(`read ch: ${ch} dose not response`);
                 return;
             }
             this.readCh(ch)
@@ -366,11 +381,22 @@ class WebSerial {
                         resolve(result);
                         return;
                     }
-                    resolve(readRetry(--count));
+                    count--;
+                    resolve(readRetry(count));
+                    return;
+                })
+                .catch(err => {
+                    resolve(null);
+                    log.debug(err);
                     return;
                 });
         });
-        return readRetry(3);
+        return readRetry(2)
+            .catch(err => {
+                log.debug(err);
+                this.handleDisconnectError(err);
+                return;
+            });
     }
     
     /**
@@ -382,35 +408,35 @@ class WebSerial {
      */
     writeCh (ch, value, withResponse) {
         if (this.state !== 'open') {
-            return Promise.reject('port is not opened');
+            return Promise.reject(new Error('port is not opened'));
         }
         return new Promise(resolve => {
             const header = new Uint8Array(5);
             header[0] = SFD;
             header[1] = withResponse ? ChRequest.WRITE_RESPONSE : ChRequest.WRITE;
             header[2] = ch >> 8;
-            header[3] = ch & 0xff;
+            header[3] = ch & 0xFF;
             header[4] = value.length;
-            const dataFrame = new Uint8Array([...header, ...value]);
+            const dataFrame = new Uint8Array([...header, ...value, 0]);
+            dataFrame[dataFrame.length - 1] = dataFrame.reduce((acc, cur) => acc + cur) % 0xFF;
             if (withResponse) {
-                let chRetrieveCounter = 10;
                 this.sendData(dataFrame)
                     .then(() => {
                         const checkInterval = 10;
-                        const check = () => {
+                        const check = count => {
                             const received = this.chValues[ch];
                             if (received && (received[ChResponse.WRITE_RESPONSE])) {
                                 return resolve(received[ChResponse.WRITE_RESPONSE][0] === 1);
                             }
-                            chRetrieveCounter--;
-                            if (chRetrieveCounter === 0) {
+                            count--;
+                            if (count === 0) {
                                 return resolve(false);
                             }
                             setTimeout(() => {
-                                check();
+                                check(count);
                             }, checkInterval);
                         };
-                        check();
+                        check(20);
                     });
             } else {
                 this.sendData(dataFrame)
@@ -438,8 +464,8 @@ class WebSerial {
         }
         const writeRetry = count => new Promise((resolve, reject) => {
             if (count < 0) {
-                reject(`no response`);
-                log.error(`write ch: ${ch} dose not response`);
+                reject(new Error(`no response`));
+                log.debug(`write ch: ${ch} dose not response`);
                 return;
             }
             this.writeCh(ch, value, withResponse)
@@ -448,11 +474,22 @@ class WebSerial {
                         resolve(result);
                         return;
                     }
-                    resolve(writeRetry(--count));
+                    count--;
+                    resolve(writeRetry(count));
+                    return;
+                })
+                .catch(err => {
+                    resolve(null);
+                    log.debug(err);
                     return;
                 });
         });
-        return writeRetry(3);
+        return writeRetry(2)
+            .catch(err => {
+                log.debug(err);
+                this.handleDisconnectError(err);
+                return;
+            });
     }
 
     /**
