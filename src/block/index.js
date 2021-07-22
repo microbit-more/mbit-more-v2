@@ -512,6 +512,22 @@ class MbitMore {
         this.sendCommandInterval = 30;
 
         this.initConfig();
+
+        // keyboard monitor
+        this.keyState = {};
+        document.body.addEventListener('keydown', e => {
+            this.keyState[e.code] = {
+                key: e.key,
+                code: e.code,
+                alt: e.altKey,
+                ctrl: e.ctrlKey,
+                meta: e.metaKey,
+                shift: e.shiftKey
+            };
+        });
+        document.body.addEventListener('keyup', e => {
+            delete this.keyState[e.code];
+        });
     }
 
     /**
@@ -1134,6 +1150,15 @@ class MbitMore {
     }
 
     /**
+     * Whether the key is pressed at this moment.
+     * @param {string} key - key in keyboard event
+     * @returns {boolean} - return true when the key is pressed
+     */
+    isKeyPressing (key) {
+        return Object.values(this.keyState).find(state => state.key === key);
+    }
+
+    /**
      * Called by the runtime when user wants to scan for a peripheral.
      */
     scan () {
@@ -1141,7 +1166,7 @@ class MbitMore {
             this._ble.disconnect();
         }
         this.bleBusy = true;
-        if ('serial' in navigator) {
+        if (('serial' in navigator) && this.isKeyPressing('Shift')) {
             this.selectCommunicationRoute();
         } else {
             this.scanBLE();
