@@ -1,13 +1,13 @@
 <h1 align="center">Microbit More v2</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.2.2-blue.svg?cacheSeconds=2592000" />
-  <a href="https://yokobond.github.io/mbit-more-v2" target="_blank">
+  <a href="https://microbit-more.github.io/mbit-more-v2" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
-  <a href="https://github.com/yokobond/mbit-more-v2/graphs/commit-activity" target="_blank">
+  <a href="https://github.com/microbit-more/mbit-more-v2/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/yokobond/mbit-more-v2/blob/master/LICENSE" target="_blank">
+  <a href="https://github.com/microbit-more/mbit-more-v2/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/yokobond/mbit-more-v2" />
   </a>
 </p>
@@ -20,7 +20,7 @@
 ### ✨ Open [Microbit More](https://microbit-more.github.io/)
 
 This is a mod application from [Scratch3 by MIT](https://scratch.mit.edu/). You can code using 'Microbit More' and all blocks in nomal Scratch3 on this app. 
-The program of micro:bit for Microbit More is [yokobond/pxt-mbit-more-v2](https://yokobond.github.io/pxt-mbit-more-v2/).
+The program of micro:bit for Microbit More is [yokobond/pxt-mbit-more-v2](https://microbit-more.github.io/pxt-mbit-more-v2/).
 
 You don't need to run [Scratch Link](https://scratch.mit.edu/microbit) when your browser is Chrome, Edge or 'Web Bluetooth API' supporting one (the browser in Chromebook, [‎Bluefy](https://apps.apple.com/jp/app/bluefy-web-ble-browser/id1492822055) in iPadOS, like that).
 
@@ -103,7 +103,7 @@ It may break registration mechanism of the other user-made extensions.
 
 ## Xcratch Module Building
 
-Build module as loadable extension for [Xcratch](https://github.com/yokobond/xcratch).
+Build module as loadable extension for [Xcratch](https://xcratch.github.io/).
 
 ```sh
 node ./scripts/build.js --name=microbitMore --block="./src/block" --entry="./src/entry" --gui="../scratch-gui" --output="./dist"
@@ -129,7 +129,7 @@ build.js accepts these commandline arguments.
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yokobond/mbit-more-v2/issues). You can also take a look at the [contributing guide](https://github.com/yokobond/mbit-more-v2/blob/master/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/microbit-more/mbit-more-v2/issues). You can also take a look at the [contributing guide](https://github.com/microbit-more/mbit-more-v2/blob/master/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -139,7 +139,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2020-2021 [Koji Yokokawa](https://github.com/yokobond).<br />
-This project is [MIT](https://github.com/yokobond/mbit-more-v2/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/microbit-more/mbit-more-v2/blob/master/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

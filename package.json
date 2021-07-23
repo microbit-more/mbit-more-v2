@@ -5,19 +5,15 @@
   "module": "./dist/microbitMore.mjs",
   "scripts": {
     "setup:local": "node ./scripts/setup-local.js",
-    "setup:desktop": "node ./scripts/setup-desktop.js",
     "build:local": "rimraf ./build && mkdirp ./build && node ./scripts/build.js --name=microbitMore --url=\"http://127.0.0.1:5500/build/microbitMore.mjs\" --block=\"./src/block\" --entry=\"./src/entry\" --gui=\"../scratch-gui\" --output=\"./build\" --debug",
-    "build": "rimraf ./dist && mkdirp ./dist && node ./scripts/build.js --name=microbitMore --url=\"https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs\" --block=\"./src/block\" --entry=\"./src/entry\" --gui=\"../scratch-gui\" --output=\"./dist\"",
+    "build": "rimraf ./dist && mkdirp ./dist && node ./scripts/build.js --name=microbitMore --url=\"https://microbit-more.github.io/dist/microbitMore.mjs\" --block=\"./src/block\" --entry=\"./src/entry\" --gui=\"../scratch-gui\" --output=\"./dist\"",
     "register:local": "node ./scripts/register.js --link -C --id=\"microbitMore\" --gui=\"../scratch-gui\"",
-    "register:dev": "node ./scripts/register.js -C --id=\"microbitMore\" --gui=\"../scratch-gui\" --url=\"https://yokobond.github.io/mbit-more-v2/dev/dist/microbitMore.mjs\"",
-    "register:dist": "node ./scripts/register.js -C --id=\"microbitMore\" --gui=\"../scratch-gui\" --url=\"https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs\"",
-    "register:desktop": "node ./scripts/register.js --link -C --id=\"microbitMore\" --gui=\"../scratch-desktop/node_modules/scratch-gui\" --url=\"https://yokobond.github.io/mbit-more-v2/dist/microbitMore.mjs\"",
     "start:local": "cd ../scratch-gui && npm run start -- --https",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yokobond/mbit-more-v2.git"
+    "url": "git+https://github.com/microbit-more/mbit-more-v2.git"
   },
   "keywords": [
     "scratch",
@@ -26,9 +22,9 @@
   "author": "Koji Yokokawa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yokobond/mbit-more-v2/issues"
+    "url": "https://github.com/microbit-more/mbit-more-v2/issues"
   },
-  "homepage": "https://github.com/yokobond/mbit-more-v2#readme",
+  "homepage": "https://github.com/microbit-more/mbit-more-v2#readme",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
