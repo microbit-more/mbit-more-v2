@@ -30,7 +30,7 @@ MICROBIT_MORE="\
         insetIconURL: microbitMoreInsetIconURL,${LF}\
         description: (${LF}\
             <FormattedMessage${LF}\
-                defaultMessage='Play with all functions of micro:bit. (v2-0.2.2)'${LF}\
+                defaultMessage='Play with all functions of micro:bit. (v2-0.2.3)'${LF}\
                 description='Description for the Microbit More extension'${LF}\
                 id='gui.extension.microbitmore.description'${LF}\
             />${LF}\
