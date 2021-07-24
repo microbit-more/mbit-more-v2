@@ -8,7 +8,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/microbit-more/mbit-more-v2/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/yokobond/mbit-more-v2" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/microbit-more/mbit-more-v2" />
   </a>
 </p>
 <p>
@@ -19,10 +19,10 @@
 
 ### ✨ Open [Microbit More](https://microbit-more.github.io/)
 
-This is a mod application from [Scratch3 by MIT](https://scratch.mit.edu/). You can code using 'Microbit More' and all blocks in nomal Scratch3 on this app. 
-The program of micro:bit for Microbit More is [yokobond/pxt-mbit-more-v2](https://microbit-more.github.io/pxt-mbit-more-v2/).
+This is a mod application from [Scratch3 by MIT](https://scratch.mit.edu/). You can code using 'Microbit More' and all blocks in normal Scratch3 on this app. 
+The program of micro:bit for Microbit More is [microbit-more/pxt-mbit-more-v2](https://microbit-more.github.io/pxt-mbit-more-v2/).
 
-You don't need to run [Scratch Link](https://scratch.mit.edu/microbit) when your browser is Chrome, Edge or 'Web Bluetooth API' supporting one (the browser in Chromebook, [‎Bluefy](https://apps.apple.com/jp/app/bluefy-web-ble-browser/id1492822055) in iPadOS, like that).
+You don't need to run [Scratch Link](https://scratch.mit.edu/microbit) when your browser is Chrome, Edge or 'Web Bluetooth API' supporting one (the browser in Chromebook, [‎Scrub](https://apps.apple.com/jp/app/scrub-web-browser/id1569777095) in iPadOS, like that).
 
 ## Setup Development Environment
 
@@ -116,7 +116,7 @@ build.js accepts these commandline arguments.
 - --entry : location of entry files from current dir
 - --gui : location of scratch-gui from current dir (optional, default: "../scratch-gui")
 - --vm : location of scratch-vm form current dir (optional, default: "gui/node_modules/scratch-vm")
-- --url : URL to get its module as a lodable extension for Xcratch (optional)
+- --url : URL to get its module as a loadable extension for Xcratch (optional)
 - --output : location to save module form current dir (optional, default: "./build")
 
 
