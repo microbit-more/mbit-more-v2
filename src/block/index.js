@@ -2549,34 +2549,6 @@ class MbitMoreBlocks {
                     }
                 },
                 {
-                    opcode: 'playTone',
-                    text: formatMessage({
-                        id: 'mbitMore.playTone',
-                        default: 'play tone [FREQ] Hz volume [VOL] %',
-                        description: 'play tone on the speaker'
-                    }),
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        FREQ: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 440
-                        },
-                        VOL: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 100
-                        }
-                    }
-                },
-                {
-                    opcode: 'stopTone',
-                    text: formatMessage({
-                        id: 'mbitMore.stopTone',
-                        default: 'stop tone',
-                        description: 'stop tone on the speaker'
-                    }),
-                    blockType: BlockType.COMMAND
-                },
-                {
                     opcode: 'setServo',
                     text: formatMessage({
                         id: 'mbitMore.setServo',
@@ -2603,6 +2575,34 @@ class MbitMoreBlocks {
                             defaultValue: 1500
                         }
                     }
+                },
+                {
+                    opcode: 'playTone',
+                    text: formatMessage({
+                        id: 'mbitMore.playTone',
+                        default: 'play tone [FREQ] Hz volume [VOL] %',
+                        description: 'play tone on the speaker'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        FREQ: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 440
+                        },
+                        VOL: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 100
+                        }
+                    }
+                },
+                {
+                    opcode: 'stopTone',
+                    text: formatMessage({
+                        id: 'mbitMore.stopTone',
+                        default: 'stop tone',
+                        description: 'stop tone on the speaker'
+                    }),
+                    blockType: BlockType.COMMAND
                 },
                 '---',
                 {
