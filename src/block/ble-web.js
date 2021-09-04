@@ -1,5 +1,8 @@
-const Base64Util = require('../../util/base64-util');
+const {Buffer} = require('buffer');
 const log = require('../../util/log');
+
+const arrayBufferToBase64 = arrayBuffer => Buffer.from(arrayBuffer).toString('base64');
+const base64ToUint8Array = base64 => Buffer.from(base64, 'base64');
 
 class WebBLE {
 
@@ -113,7 +116,7 @@ class WebBLE {
                 characteristic.addEventListener('characteristicvaluechanged',
                     event => {
                         const dataView = event.target.value;
-                        onCharacteristicChanged(Base64Util.arrayBufferToBase64(dataView.buffer));
+                        onCharacteristicChanged(arrayBufferToBase64(dataView.buffer));
                     });
                 characteristic.startNotifications();
             });
@@ -138,7 +141,7 @@ class WebBLE {
                 return characteristic.readValue();
             })
             .then(dataView => ({
-                message: Base64Util.arrayBufferToBase64(dataView.buffer)
+                message: arrayBufferToBase64(dataView.buffer)
             }));
     }
 
@@ -153,7 +156,7 @@ class WebBLE {
      */
     // eslint-disable-next-line no-unused-vars
     write (serviceId, characteristicId, message, encoding = null, withResponse = null) {
-        const value = encoding === 'base64' ? Base64Util.base64ToUint8Array(message) : message;
+        const value = encoding === 'base64' ? base64ToUint8Array(message) : message;
         return this._server.getPrimaryService(serviceId)
             .then(service => service.getCharacteristic(characteristicId))
             .then(characteristic => {

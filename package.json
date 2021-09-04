@@ -4,49 +4,10 @@
   "description": "Full-functional extension of micro:bit for Scratch3",
   "module": "./dist/microbitMore.mjs",
   "scripts": {
-    "setup:local": "node ./scripts/setup-local.js",
-    "build:local": "rimraf ./build && mkdirp ./build && node ./scripts/build.js --name=microbitMore --url=\"http://127.0.0.1:5500/build/microbitMore.mjs\" --block=\"./src/block\" --entry=\"./src/entry\" --gui=\"../scratch-gui\" --output=\"./build\" --debug",
-    "build": "rimraf ./dist && mkdirp ./dist && node ./scripts/build.js --name=microbitMore --url=\"https://microbit-more.github.io/dist/microbitMore.mjs\" --block=\"./src/block\" --entry=\"./src/entry\" --gui=\"../scratch-gui\" --output=\"./dist\"",
-    "register:local": "node ./scripts/register.js --link -C --id=\"microbitMore\" --gui=\"../scratch-gui\"",
+    "register": "npx xcratch-register --link -C --id=microbitMore --gui=\"../scratch-gui\"",
+    "build": "npx xcratch-build --module=microbitMore --gui=\"../scratch-gui\"",
     "start:local": "cd ../scratch-gui && npm run start -- --https",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/microbit-more/mbit-more-v2.git"
-  },
-  "keywords": [
-    "scratch",
-    "microbit"
-  ],
-  "author": "Koji Yokokawa",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/microbit-more/mbit-more-v2/issues"
-  },
-  "homepage": "https://github.com/microbit-more/mbit-more-v2#readme",
-  "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-transform-react-jsx": "^7.10.4",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-react": "^7.10.4",
-    "@rollup/plugin-babel": "^5.2.1",
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-image": "^2.0.5",
-    "@rollup/plugin-multi-entry": "^4.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "command-line-args": "^5.1.1",
-    "eslint": "^7.21.0",
-    "eslint-config-scratch": "^6.0.0",
-    "eslint-plugin-react": "^7.22.0",
-    "fs-extra": "^9.0.1",
-    "mkdirp": "^1.0.4",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.26.11",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0"
   },
   "dependencies": {}
 }

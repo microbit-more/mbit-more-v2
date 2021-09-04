@@ -2,19 +2,16 @@ const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 const cast = require('../../util/cast');
-const BLE = require('../../io/ble');
-const Base64Util = require('../../util/base64-util');
+const BLE = require('./ble');
+const {Buffer} = require('buffer');
 
-const WebBLE = require('./web-ble');
-const WebSerial = require('./web-serial');
+const WebSerial = require('./serial-web');
+
+const uint8ArrayToBase64 = array => Buffer.from(array).toString('base64');
+const base64ToUint8Array = base64 => Buffer.from(base64, 'base64');
 
 
-/**
- * Formatter which is used for translating.
- * When it was loaded as a module, 'formatMessage' will be replaced which is used in the runtime.
- * @type {Function}
- */
-let formatMessage = require('format-message');
+let formatMessage = messageData => messageData.defaultMessage;
 
 const EXTENSION_ID = 'microbitMore';
 
@@ -760,7 +757,7 @@ class MbitMore {
                 if (!result) {
                     return resolve(this.analogValue[pinIndex]);
                 }
-                const data = Base64Util.base64ToUint8Array(result.message);
+                const data = base64ToUint8Array(result.message);
                 const dataView = new DataView(data.buffer, 0);
                 this.analogValue[pinIndex] = dataView.getUint16(0, true);
                 this.analogInLastUpdated = Date.now();
@@ -791,7 +788,7 @@ class MbitMore {
                     window.clearTimeout(this.bleBusyTimeoutID);
                     this.bleBusy = false;
                     if (!result) return resolve(this);
-                    const data = Base64Util.base64ToUint8Array(result.message);
+                    const data = base64ToUint8Array(result.message);
                     const dataView = new DataView(data.buffer, 0);
                     // Digital Input
                     const gpioData = dataView.getUint32(0, true);
@@ -933,7 +930,7 @@ class MbitMore {
                     window.clearTimeout(this.bleBusyTimeoutID);
                     this.bleBusy = false;
                     if (!result) return resolve(this);
-                    const data = Base64Util.base64ToUint8Array(result.message);
+                    const data = base64ToUint8Array(result.message);
                     const dataView = new DataView(data.buffer, 0);
                     // Accelerometer
                     this.pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
@@ -1029,7 +1026,7 @@ class MbitMore {
     }
 
     scanBLE () {
-        const connectorClass = ('bluetooth' in navigator) ? WebBLE : BLE;
+        const connectorClass = BLE;
         this._ble = new connectorClass(
             this.runtime,
             this._extensionId,
@@ -1224,7 +1221,7 @@ class MbitMore {
      * @return {Promise} a Promise that resolves when the data was sent.
      */
     sendCommand (command) {
-        const data = Base64Util.uint8ArrayToBase64(
+        const data = uint8ArrayToBase64(
             new Uint8Array([
                 command.id,
                 ...command.message
@@ -1297,7 +1294,7 @@ class MbitMore {
                 if (!result) {
                     throw new Error('Config is not readable');
                 }
-                const data = Base64Util.base64ToUint8Array(result.message);
+                const data = base64ToUint8Array(result.message);
                 const dataView = new DataView(data.buffer, 0);
                 this.hardware = dataView.getUint8(0);
                 this.protocol = dataView.getUint8(1);
@@ -1338,7 +1335,7 @@ class MbitMore {
      * @private
      */
     onNotify (msg) {
-        const data = Base64Util.base64ToUint8Array(msg);
+        const data = base64ToUint8Array(msg);
         const dataView = new DataView(data.buffer, 0);
         const dataFormat = dataView.getUint8(19);
         if (dataFormat === MbitMoreDataFormat.ACTION_EVENT) {
@@ -3581,5 +3578,4 @@ const extensionTranslations = {
     }
 };
 
-exports.blockClass = MbitMoreBlocks; // loadable-extension needs this line.
 module.exports = MbitMoreBlocks;

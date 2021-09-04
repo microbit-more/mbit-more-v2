@@ -1,6 +1,6 @@
-<h1 align="center">Microbit More v2</h1>
+<h1 align="center">MicroBit More v2</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.2.2-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.3-blue.svg?cacheSeconds=2592000" />
   <a href="https://microbit-more.github.io/mbit-more-v2" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
@@ -17,108 +17,26 @@
 
 > Full-functional extension of micro:bit for Scratch3
 
-### ✨ Open [Microbit More](https://microbit-more.github.io/)
+This is an extension for [Scratch3 by MIT](https://scratch.mit.edu/). You can code using all sensors and pins on micro:bit with normal Scratch3 blocks on this app.
 
-This is a mod application from [Scratch3 by MIT](https://scratch.mit.edu/). You can code using 'Microbit More' and all blocks in normal Scratch3 on this app. 
-The program of micro:bit for Microbit More is [microbit-more/pxt-mbit-more-v2](https://microbit-more.github.io/pxt-mbit-more-v2/).
+
+## What You Can Do With This Extension
+
+Open a Scratch3-Mod application ✨ [Microbit More](https://microbit-more.github.io/) to use this extension. You can code using its extended blocks and all blocks in normal Scratch3 on this app. 
 
 You don't need to run [Scratch Link](https://scratch.mit.edu/microbit) when your browser is Chrome, Edge or 'Web Bluetooth API' supporting one (the browser in Chromebook, [‎Scrub](https://apps.apple.com/jp/app/scrub-web-browser/id1569777095) in iPadOS, like that).
 
-## Setup Development Environment
 
-Use [yokobond/scratch-gui at xcratch](https://github.com/yokobond/scratch-gui/tree/xcratch) as a base scratch-gui if you use Web Bluetooth feature.
+## How to Use in Xcratch
 
-(This extension works well on "LLK/scratch-gui". But the normal Scratch does not have Web Bluetooth feature. So you have to launch "Scratch Link" with normal Scratch.)
-
-```sh
-git clone -b xcratch https://github.com/yokobond/scratch-gui.git
-cd ./scratch-gui
-npm install
-npm install https://github.com/yokobond/scratch-vm.git#xcratch
+This extension can be used with other extension in [Xcratch](https://xcratch.github.io/). 
+1. Open [Xcratch Editor](https://xcratch.github.io/editor)
+2. Click 'Add Extension' button
+3. Select 'Extension Loader' extension
+4. Type the module URL in the input field 
 ```
-
-Download the Scratch3 repositories according to the supposed directory configuration.
-
+https://microbit-more.github.io/dist/microbitMore.mjs
 ```
-.
-|-- mbit-more-v2
-|-- scratch-gui
-```
-
-Install node modules and setup to use local repo for development.
-
-```sh
-cd ./mbit-more-v2
-npm install
-npm run setup:local
-npm run register:local
-```
-
-## Register in self-build Scratch3
-
-To register this extention in your self-build Scratch3 based on Xcratch, execute `scripts/register.js` with options as follows.
-
-```sh
-node ./scripts/register.js --id=microbitMore --gui="../scratch-gui"
-```
-
-When you use the normal "LLK/scratch-gui", register with `--base=LLK`.
-
-CAUTION: The normal "LLK/scratch-gui" doesn't have Web Bluetooth featur.
-
-```sh
-node ./scripts/register.js --id=microbitMore --gui="../scratch-gui" --base=LLK
-```
-
-register.js accepts these commandline arguments.
-
-- --base : base code to register in (optional, availables: "LLK")
-- --link : use symbolic link instead of copy sources
-- --id : extensionID of this extension
-- --block : location of block files from current dir (optional, default: "./src/block")
-- --entry : location of entry files from current dir (optional, default: "./src/ently")
-- --dir : directory name of the extension will be copied (optional, default: extensionID)
-- --gui : location of scratch-gui from current dir (optional, default: "../scratch-gui")
-- --vm : location of scratch-vm form current dir (optional, default: "gui/node_modules/scratch-vm")
-- --url : URL to get this module as a lodable extension for Xcratch (optional)
-- -C : make the extension as a member of core-extensions
-
-**CAUTION:** register-script will change '`extension default`' in `scratch-gui/src/lib/libraries/extensions/index.jsx` as follows.
-
-change from the original code
-
-```js
-export default [...];
-```
-
-to
-
-```js
-const extensions = [...];
-export default extensions;
-```
-
-It may break registration mechanism of the other user-made extensions.
-
-
-## Xcratch Module Building
-
-Build module as loadable extension for [Xcratch](https://xcratch.github.io/).
-
-```sh
-node ./scripts/build.js --name=microbitMore --block="./src/block" --entry="./src/entry" --gui="../scratch-gui" --output="./dist"
-```
-
-build.js accepts these commandline arguments.
-
-- --name: name of the module file (without '.mjs')
-- --block : location of block files from current dir
-- --entry : location of entry files from current dir
-- --gui : location of scratch-gui from current dir (optional, default: "../scratch-gui")
-- --vm : location of scratch-vm form current dir (optional, default: "gui/node_modules/scratch-vm")
-- --url : URL to get its module as a loadable extension for Xcratch (optional)
-- --output : location to save module form current dir (optional, default: "./build")
-
 
 ## Author
 

@@ -9,9 +9,10 @@ LF=$(printf '\\\012_')
 LF=${LF%_}
 
 mkdir -p node_modules/scratch-vm/src/extensions/microbitMore
-cp microbitMore/src/block/index.js node_modules/scratch-vm/src/extensions/microbitMore/
-cp microbitMore/src/block/web-ble.js node_modules/scratch-vm/src/extensions/microbitMore/
-cp microbitMore/src/block/web-serial.js node_modules/scratch-vm/src/extensions/microbitMore/
+sed -e "s/let formatMessage = .*;/let formatMessage \= require('format-message');/" microbitMore/src/block/index.js > node_modules/scratch-vm/src/extensions/microbitMore/index.js
+cp microbitMore/src/block/ble-web.js node_modules/scratch-vm/src/extensions/microbitMore/
+cp microbitMore/src/block/ble-llk.js node_modules/scratch-vm/src/extensions/microbitMore/ble.js
+cp microbitMore/src/block/serial-web.js node_modules/scratch-vm/src/extensions/microbitMore/
 mv node_modules/scratch-vm/src/extension-support/extension-manager.js node_modules/scratch-vm/src/extension-support/extension-manager.js_orig
 sed -e "s|class ExtensionManager {$|builtinExtensions['microbitMore'] = () => require('../extensions/microbitMore');${LF}${LF}class ExtensionManager {|g" node_modules/scratch-vm/src/extension-support/extension-manager.js_orig > node_modules/scratch-vm/src/extension-support/extension-manager.js
 

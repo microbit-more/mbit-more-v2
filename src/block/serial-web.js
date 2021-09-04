@@ -1,5 +1,7 @@
-const Base64Util = require('../../util/base64-util');
 const log = require('../../util/log');
+const Buffer = require('buffer');
+const arrayBufferToBase64 = buffer => Buffer.from(buffer).toString('base64');
+const base64ToUint8Array = base64 => Buffer.from(base64, 'base64');
 
 /**
  * Characteristic ID on serial-port.
@@ -244,7 +246,7 @@ class WebSerial {
                     this.chValues[ch][data.type] = data.value;
                     if (data.type === ChResponse.NOTIFY) {
                         if (ch in this.notifyListeners) {
-                            this.notifyListeners[ch](Base64Util.arrayBufferToBase64(data.value));
+                            this.notifyListeners[ch](arrayBufferToBase64(data.value));
                         }
                     }
                     // log.debug({ch: ch, type: data.type, value: data.value});
@@ -324,7 +326,7 @@ class WebSerial {
                         const received = this.chValues[ch];
                         if (received && received[ChResponse.READ]) {
                             return resolve({
-                                message: Base64Util.arrayBufferToBase64(received[ChResponse.READ])
+                                message: arrayBufferToBase64(received[ChResponse.READ])
                             });
                         }
                         count--;
@@ -361,7 +363,7 @@ class WebSerial {
                 return Promise.resolve(null);
             }
             return Promise.resolve({
-                message: Base64Util.arrayBufferToBase64(this.chValues[ch][ChResponse.READ])
+                message: arrayBufferToBase64(this.chValues[ch][ChResponse.READ])
             });
         }
         const readRetry = count => new Promise((resolve, reject) => {
@@ -457,7 +459,7 @@ class WebSerial {
     // eslint-disable-next-line no-unused-vars
     write (serviceId, characteristicId, message, encoding = null, withResponse = null) {
         withResponse = true; // "response" is always required for noise tolerance on serial-port.
-        const value = (encoding === 'base64') ? Base64Util.base64ToUint8Array(message) : message;
+        const value = (encoding === 'base64') ? base64ToUint8Array(message) : message;
         const ch = SERIAL_CH_ID[characteristicId];
         if (this.chValues[ch]) {
             this.chValues[ch][ChResponse.WRITE_RESPONSE] = null;

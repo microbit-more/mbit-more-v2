@@ -1,5 +1,4 @@
-import React from 'react';
-import {FormattedMessage} from 'react-intl';
+let formatMessage = messageData => messageData.defaultMessage;
 
 import microbitMoreIconURL from './entry-icon.png';
 import microbitMoreInsetIconURL from './inset-icon.svg';
@@ -27,13 +26,13 @@ const entry = {
     collaborator: 'Yengawa Lab',
     iconURL: microbitMoreIconURL,
     insetIconURL: microbitMoreInsetIconURL,
-    description: (
-        <FormattedMessage
-            defaultMessage="Play with all functions of micro:bit."
-            description="Description for the 'Microbit More' extension"
-            id="gui.extension.microbitMore.description"
-        />
-    ),
+    get description () {
+        return formatMessage({
+            defaultMessage: 'Play with all functions of micro:bit.',
+            description: "Description for the 'Microbit More' extension",
+            id: 'gui.extension.microbitMore.description'
+        });
+    },
     featured: true,
     disabled: false,
     bluetoothRequired: true,
@@ -42,14 +41,17 @@ const entry = {
     useAutoScan: false,
     connectionIconURL: microbitMoreConnectionIconURL,
     connectionSmallIconURL: microbitMoreConnectionSmallIconURL,
-    connectingMessage: (
-        <FormattedMessage
-            defaultMessage="Connecting"
-            description="Message to help people connect to their micro:bit."
-            id="gui.extension.microbit.connectingMessage"
-        />
-    ),
+    get connectingMessage () {
+        return formatMessage({
+            defaultMessage: 'Connecting',
+            description: 'Message to help people connect to their micro:bit.',
+            id: 'gui.extension.microbit.connectingMessage'
+        });
+    },
     helpLink: 'https://microbit-more.github.io/',
+    setFormatMessage: formatter => {
+        formatMessage = formatter;
+    },
     translationMap: translationMap
 };
 
