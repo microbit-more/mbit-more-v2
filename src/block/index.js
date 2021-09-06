@@ -1432,7 +1432,7 @@ class MbitMore {
      * Configurate touch mode of the pin.
      * @param {number} pinIndex - index of the pin as a button.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves when configured or the process was yield.
+     * @return {?Promise} - a Promise that resolves when configured or undefined if the process was yield.
      */
     configTouchPin (pinIndex, util) {
         if (!this.isConnected()) {
@@ -1457,7 +1457,7 @@ class MbitMore {
                     this.config.pinMode[pinIndex] = MbitMorePinMode.TOUCH;
                 });
         }
-        return Promise.resolve();
+        return;
     }
 
     /**
@@ -2836,7 +2836,7 @@ class MbitMoreBlocks {
      * @param {string} args.NAME - name of the pin to catch.
      * @param {string} args.EVENT - event to catch.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves that resolves the touch state.
+     * @return {boolean|Promise<boolean>|undefined} - true if the event raised or promise that or undefinde if yield.
      */
     whenTouchEvent (args, util) {
         const buttonName = args.NAME;
@@ -2846,8 +2846,9 @@ class MbitMoreBlocks {
         if (this._peripheral.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
             return this.whenButtonEvent(args);
         }
-        this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
-        return false;
+        const configPromise = this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
+        if (!configPromise) return; // This thread was yielded.
+        return configPromise.then(() => this.whenButtonEvent(args));
     }
 
     /**
@@ -2855,7 +2856,7 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {string} args.NAME - name of the pin.
      * @param {object} util - utility object provided by the runtime.
-     * @return {boolean} - whether the button is pressed or not.
+     * @return {boolean|Promise<boolean>|undefined} - true if touched or promise that or undefinde if yield.
      */
     isPinTouched (args, util) {
         const buttonName = args.NAME;
@@ -2865,8 +2866,9 @@ class MbitMoreBlocks {
         if (this._peripheral.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
             return this._peripheral.isTouched(buttonName);
         }
-        this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
-        return false;
+        const configPromise = this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
+        if (!configPromise) return; // This thread was yielded.
+        return configPromise.then(() => this._peripheral.isTouched(buttonName));
     }
 
     /**
