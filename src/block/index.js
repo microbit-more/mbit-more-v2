@@ -3087,10 +3087,11 @@ class MbitMoreBlocks {
      * @param {number} args.PIN - pin ID.
      * @param {MbitMorePullModeName} args.MODE - mode to set.
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @return {undefined}
+     * @return {promise | undefined} - a Promise that resolves when the command was sent
+     *                                 or undefined if this process was yield.
      */
     setPullMode (args, util) {
-        this._peripheral.setPullMode(parseInt(args.PIN, 10), MbitMorePullModeID[args.MODE], util);
+        return this._peripheral.setPullMode(parseInt(args.PIN, 10), MbitMorePullModeID[args.MODE], util);
     }
 
     /**
@@ -3099,7 +3100,8 @@ class MbitMoreBlocks {
      * @param {number} args.PIN - pin ID.
      * @param {boolean | string | number} args.LEVEL - value to be set.
      * @param {object} util - utility object provided by the runtime.
-     * @return {undefined}
+     * @return {promise | undefined} - a Promise that resolves when the command was sent
+     *                                 or undefined if this process was yield.
      */
     setDigitalOut (args, util) {
         let level = (args.LEVEL === true);
@@ -3110,7 +3112,7 @@ class MbitMoreBlocks {
                 level = (num > 0);
             }
         }
-        this._peripheral.setPinOutput(parseInt(args.PIN, 10), level, util);
+        return this._peripheral.setPinOutput(parseInt(args.PIN, 10), level, util);
     }
 
     /**
