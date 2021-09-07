@@ -510,7 +510,7 @@ class MbitMore {
 
         this.initConfig();
 
-        // keyboard monitor
+        // keyboard state monitor
         this.keyState = {};
         document.body.addEventListener('keydown', e => {
             this.keyState[e.code] = {
@@ -637,7 +637,7 @@ class MbitMore {
     }
 
     /**
-     * Set pin to digital output mode and the level.
+     * Set pin to digital output mode on the level.
      * @param {number} pinIndex - Index of pin.
      * @param {boolean} level - Value in digital (true = High)
      * @param {BlockUtility} util - utility object provided by the runtime.
@@ -660,7 +660,7 @@ class MbitMore {
     }
 
     /**
-     *
+     * Set the pin to PWM mode on the level.
      * @param {number} pinIndex - index of the pin
      * @param {number} level - value of analog output [0..1024].
      * @param {BlockUtility} util - utility object provided by the runtime.
@@ -685,6 +685,17 @@ class MbitMore {
         );
     }
 
+
+    /**
+     * Set the pin to Servo mode on the angle in the range and center.
+     * @param {number} pinIndex - index of the pin.
+     * @param {number} angle - the level to set on the output pin, in the range 0 - 180.
+     * @param {number} range - the span of possible values. '0' means default(2000).
+     * @param {number} center - the center point from which to calculate the lower and upper bounds.
+     *                          '0' means default(1500).
+     * @param {BlockUtility} util - utility object provided by the runtime.
+     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
+     */
     setPinServo (pinIndex, angle, range, center, util) {
         this.config.pinMode[pinIndex] = MbitMorePinMode.SERVO;
         if (!range || range < 0) range = 0;
@@ -714,7 +725,7 @@ class MbitMore {
     /**
      * Read light level from the light sensor.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves light level.
+     * @return {number} - value of the light level [0..255].
      */
     readLightLevel () {
         if (!this.isConnected()) {
@@ -1025,6 +1036,9 @@ class MbitMore {
         return this.magneticForce[axis];
     }
 
+    /**
+     * Start to scan Bluetooth LE devices to find micro:bit with MicroBit More service.
+     */
     scanBLE () {
         const connectorClass = BLE;
         this._ble = new connectorClass(
@@ -1041,6 +1055,9 @@ class MbitMore {
         );
     }
 
+    /**
+     * Start to scan USB serial devices to find micro:bit v2.
+     */
     scanSerial () {
         this._ble = new WebSerial(
             this.runtime,
@@ -1055,6 +1072,9 @@ class MbitMore {
         );
     }
 
+    /**
+     * Open dialog to selector communication route [BLE | USB Serial]
+     */
     selectCommunicationRoute () {
         const selectDialog = document.createElement('dialog');
         selectDialog.style.padding = '0px';
@@ -1135,7 +1155,7 @@ class MbitMore {
                 selectProcess();
             }
         });
-        // When click outside of the dialog
+        // Close when click outside of the dialog
         // selectDialog.onclick = e => {
         //     if (!e.target.closest('div')) {
         //         e.target.close();
@@ -1218,7 +1238,7 @@ class MbitMore {
      * @param {object} command command to send.
      * @param {number} command.id ID of the command.
      * @param {Uint8Array} command.message Contents of the command.
-     * @return {Promise} a Promise that resolves when the data was sent.
+     * @return {Promise} a Promise that resolves when the data was sent and after send command interval.
      */
     sendCommand (command) {
         const data = uint8ArrayToBase64(
@@ -1283,7 +1303,6 @@ class MbitMore {
 
     /**
      * Starts reading data from peripheral after BLE has connected to it.
-     * @private
      */
     _onConnect () {
         this._ble.read(
@@ -2907,7 +2926,7 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {string} args.MATRIX - the pattern of the pixels.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves after a tick.
+     * @return {?Promise} - a Promise that resolves after a tick or undefinde if yield.
      */
     displayMatrix (args, util) {
         const matrixString = cast.toString(args.MATRIX)
@@ -2946,7 +2965,7 @@ class MbitMoreBlocks {
      * @param {string} args.TEXT - The contents to display.
      * @param {number} args.DELAY - The time to delay between characters, in milliseconds.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves after the text is done printing.
+     * @return {Promise} - a Promise that resolves after the text is done printing or undefinde if yield.
      * Note the limit is 18 characters
      * The print time is calculated by multiplying the number of horizontal pixels
      * by the default scroll delay of 120ms.
@@ -2974,7 +2993,7 @@ class MbitMoreBlocks {
      * Turn all 5x5 matrix LEDs off.
      * @param {object} args - the block's arguments.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves after a tick.
+     * @return {Promise} - a Promise that resolves after a tick or undefinde if yield.
      */
     displayClear (args, util) {
         const matrix = [
@@ -3020,7 +3039,7 @@ class MbitMoreBlocks {
      * Get loudness of the sound from microphone on micro:bit.
      * @param {object} args - the block's arguments.
      * @param {object} util - utility object provided by the runtime.
-     * @return {Promise} - a Promise that resolves digital input value of the pin.
+     * @return {Promise} - a Promise that resolves digital input value of the pin or undefinde if yield.
      */
     getSoundLevel (args, util) {
         const resultPromise = this._peripheral.configMic(true, util);
@@ -3060,7 +3079,7 @@ class MbitMoreBlocks {
      * Return digital value of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
-     * @return {Promise} - a Promise that resolves digital input value of the pin.
+     * @return {number} - digital input value of the pin.
      */
     getDigitalValue (args) {
         return this._peripheral.readDigitalLevel(parseInt(args.PIN, 10));
@@ -3072,7 +3091,7 @@ class MbitMoreBlocks {
      * @property {string} args.LABEL - label of the data.
      * @property {string} args.DATA - content of the data.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves when the process was done or undefined if labels was empty.
+     * @return {?Promise} - a Promise that resolves when the process was done or undefined if this process was yield.
      */
     sendData (args, util) {
         if (args.LABEL.length <= 0) {
@@ -3121,7 +3140,8 @@ class MbitMoreBlocks {
      * @param {number} args.PIN - pin ID.
      * @param {number} args.LEVEL - value[%] for PWM.
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
+     * @return {promise | undefined} - a Promise that resolves when the command was sent
+     *                                 or undefined if this process was yield.
      */
     setAnalogOut (args, util) {
         let percent = parseInt(args.LEVEL, 10);
@@ -3142,7 +3162,8 @@ class MbitMoreBlocks {
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
+     * @return {promise | undefined} - a Promise that resolves when the command was sent
+     *                                 or undefined if this process was yield.
      */
     setServo (args, util) {
         let angle = parseInt(args.ANGLE, 10);
@@ -3201,7 +3222,8 @@ class MbitMoreBlocks {
      * @param {string} args.FREQ - wave frequency to play
      * @param {string} args.VOL laudness of tone
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
+     * @return {promise | undefined} - a Promise that resolves when the command was sent
+     *                                 or undefined if this process was yield.
      */
     playTone (args, util) {
         const frequency = parseFloat(args.FREQ);
@@ -3214,7 +3236,8 @@ class MbitMoreBlocks {
      * Stop playing tone on the speaker.
      * @param {object} args - the block's arguments.
      * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
+     * @return {promise | undefined} - a Promise that resolves when the command was sent
+     *                                 or undefined if this process was yield.
      */
     stopTone (args, util) {
         return this._peripheral.stopTone(util);
@@ -3226,7 +3249,8 @@ class MbitMoreBlocks {
      * @param {number} args.PIN - pin ID.
      * @param {string} args.EVENT_TYPE - event to listen.
      * @param {BlockUtility} util - utility object provided by the runtime.
-     * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
+     * @return {promise | undefined} - a Promise that resolves when the command was sent
+     *                                 or undefined if this process was yield.
     */
     listenPinEventType (args, util) {
         return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MbitMorePinEventType[args.EVENT_TYPE], util);
