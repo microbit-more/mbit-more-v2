@@ -3326,10 +3326,14 @@ class MbitMoreBlocks {
      * Rerutn the last content of the messge or undefined if the data which has the label is not received.
      * @param {object} args - the block's arguments.
      * @param {number} args.LABEL - label of the data.
-     * @return {?(string | number)} - content of the data.
+     * @return {?(string | number)} - content of the data or empty string when the data was null
      */
     getDataLabeled (args) {
-        return this._peripheral.getDataLabeled(args.LABEL);
+        const data = this._peripheral.getDataLabeled(args.LABEL);
+        if (data === null) {
+            return '';
+        }
+        return data;
     }
 
     /**
