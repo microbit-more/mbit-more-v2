@@ -4,10 +4,13 @@
   "description": "Full-functional extension of micro:bit for Scratch3",
   "module": "./dist/microbitMore.mjs",
   "scripts": {
-    "register": "npx xcratch-register --link -C --id=microbitMore --gui=\"../scratch-gui\"",
-    "build": "npx xcratch-build --module=microbitMore --gui=\"../scratch-gui\"",
+    "register": "npx xcratch-register --link -C --id=microbitMore --gui=\"../scratch-gui\" --block=\"./src/block\" --entry=\"./src/entry\"",
+    "build": "npx xcratch-build --module=microbitMore --gui=\"../scratch-gui\" --block=\"./src/block\" --entry=\"./src/entry\"",
     "start:local": "cd ../scratch-gui && npm run start -- --https",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "xcratch-build": "^0.3.0",
+    "xcratch-register": "^0.3.1"
+  }
 }
