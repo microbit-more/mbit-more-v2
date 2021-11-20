@@ -3,12 +3,14 @@ const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 const cast = require('../../util/cast');
 const BLE = require('./ble');
-const {Buffer} = require('buffer');
 
 const WebSerial = require('./serial-web');
 
-const uint8ArrayToBase64 = array => Buffer.from(array).toString('base64');
-const base64ToUint8Array = base64 => Buffer.from(base64, 'base64');
+const uint8ArrayToBase64 = array => window.btoa(String.fromCharCode(...array));
+const base64ToUint8Array = base64 => {
+    const raw = window.atob(base64);
+    return Uint8Array.from(Array.prototype.map.call(raw, x => x.charCodeAt(0)));
+};
 
 
 let formatMessage = messageData => messageData.defaultMessage;

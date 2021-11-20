@@ -1,8 +1,10 @@
-const {Buffer} = require('buffer');
 const log = require('../../util/log');
 
-const arrayBufferToBase64 = arrayBuffer => Buffer.from(arrayBuffer).toString('base64');
-const base64ToUint8Array = base64 => Buffer.from(base64, 'base64');
+const uint8ArrayToBase64 = array => window.btoa(String.fromCharCode(...array));
+const base64ToUint8Array = base64 => {
+    const raw = window.atob(base64);
+    return Uint8Array.from(Array.prototype.map.call(raw, x => x.charCodeAt(0)));
+};
 
 class WebBLE {
 
@@ -116,7 +118,7 @@ class WebBLE {
                 characteristic.addEventListener('characteristicvaluechanged',
                     event => {
                         const dataView = event.target.value;
-                        onCharacteristicChanged(arrayBufferToBase64(dataView.buffer));
+                        onCharacteristicChanged(uint8ArrayToBase64(new Uint8Array(dataView.buffer)));
                     });
                 characteristic.startNotifications();
             });
@@ -141,7 +143,7 @@ class WebBLE {
                 return characteristic.readValue();
             })
             .then(dataView => ({
-                message: arrayBufferToBase64(dataView.buffer)
+                message: uint8ArrayToBase64(new Uint8Array(dataView.buffer))
             }));
     }
 

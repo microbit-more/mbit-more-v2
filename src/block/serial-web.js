@@ -1,7 +1,9 @@
 const log = require('../../util/log');
-const Buffer = require('buffer');
-const arrayBufferToBase64 = buffer => Buffer.from(buffer).toString('base64');
-const base64ToUint8Array = base64 => Buffer.from(base64, 'base64');
+const uint8ArrayToBase64 = array => window.btoa(String.fromCharCode(...array));
+const base64ToUint8Array = base64 => {
+    const raw = window.atob(base64);
+    return Uint8Array.from(Array.prototype.map.call(raw, x => x.charCodeAt(0)));
+};
 
 /**
  * Characteristic ID on serial-port.
@@ -246,7 +248,7 @@ class WebSerial {
                     this.chValues[ch][data.type] = data.value;
                     if (data.type === ChResponse.NOTIFY) {
                         if (ch in this.notifyListeners) {
-                            this.notifyListeners[ch](arrayBufferToBase64(data.value));
+                            this.notifyListeners[ch](uint8ArrayToBase64(data.value));
                         }
                     }
                     // log.debug({ch: ch, type: data.type, value: data.value});
@@ -326,7 +328,7 @@ class WebSerial {
                         const received = this.chValues[ch];
                         if (received && received[ChResponse.READ]) {
                             return resolve({
-                                message: arrayBufferToBase64(received[ChResponse.READ])
+                                message: uint8ArrayToBase64(received[ChResponse.READ])
                             });
                         }
                         count--;
@@ -363,7 +365,7 @@ class WebSerial {
                 return Promise.resolve(null);
             }
             return Promise.resolve({
-                message: arrayBufferToBase64(this.chValues[ch][ChResponse.READ])
+                message: uint8ArrayToBase64(this.chValues[ch][ChResponse.READ])
             });
         }
         const readRetry = count => new Promise((resolve, reject) => {
