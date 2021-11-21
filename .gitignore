@@ -1,24 +1,12 @@
-*.provisionprofile
-
-# Mac OS
-.DS_Store
-
 # NPM
 /node_modules
 npm-*
 
-# Testing
-/.nyc_output
-/coverage
+# app build
+*.provisionprofile
 
-# Editor
-/.idea
-
-# Build
+# local build
 /build
-# /dist
-/playground
-/benchmark
 
-# Localization
-/translations
+src/vm/*
+!src/vm/extensions/
