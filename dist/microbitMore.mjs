@@ -141,6 +141,9 @@ function _defineProperties(target, props) {
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
   return Constructor;
 }
 
@@ -159,8 +162,6 @@ function _nonIterableSpread() {
 function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
 }
-
-var _microbitMore = {};
 
 /**
  * Block argument types
@@ -1395,28 +1396,27 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
   if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
 }
 
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized(self);
@@ -1480,12 +1480,16 @@ var JSONRPC$1 = /*#__PURE__*/function () {
 
   }, {
     key: "didReceiveCall",
-    value: function didReceiveCall() {
+    value: function
+      /* method , params */
+    didReceiveCall() {
       throw new Error('Must override didReceiveCall');
     }
   }, {
     key: "_sendMessage",
-    value: function _sendMessage() {
+    value: function
+      /* jsonMessageObject */
+    _sendMessage() {
       throw new Error('Must override _sendMessage');
     }
   }, {
@@ -1653,7 +1657,9 @@ var WebBLE$1 = /*#__PURE__*/function () {
 
   }, {
     key: "connectPeripheral",
-    value: function connectPeripheral() {
+    value: function
+      /* id */
+    connectPeripheral() {
       var _this2 = this;
 
       if (!this._device) {
@@ -1802,7 +1808,9 @@ var WebBLE$1 = /*#__PURE__*/function () {
 
   }, {
     key: "handleDisconnectError",
-    value: function handleDisconnectError() {
+    value: function
+      /* e */
+    handleDisconnectError() {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
       if (this._disconnected) return;
       this.disconnect();
@@ -1818,7 +1826,9 @@ var WebBLE$1 = /*#__PURE__*/function () {
     }
   }, {
     key: "_handleRequestError",
-    value: function _handleRequestError() {
+    value: function
+      /* e */
+    _handleRequestError() {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
         message: "Scratch lost connection to",
@@ -1831,7 +1841,9 @@ var WebBLE$1 = /*#__PURE__*/function () {
 
   }, {
     key: "onDisconnected",
-    value: function onDisconnected() {
+    value: function
+      /* event */
+    onDisconnected() {
       this.handleDisconnectError(new Error('device disconnected'));
     }
   }]);
@@ -2128,7 +2140,9 @@ var BLE$2 = /*#__PURE__*/function (_JSONRPC) {
 
   }, {
     key: "handleDisconnectError",
-    value: function handleDisconnectError() {
+    value: function
+      /* e */
+    handleDisconnectError() {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
       if (!this._connected) return;
       this.disconnect();
@@ -2144,7 +2158,9 @@ var BLE$2 = /*#__PURE__*/function (_JSONRPC) {
     }
   }, {
     key: "_handleRequestError",
-    value: function _handleRequestError() {
+    value: function
+      /* e */
+    _handleRequestError() {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
         message: "Scratch lost connection to",
@@ -2312,7 +2328,9 @@ var WebSerial$1 = /*#__PURE__*/function () {
 
   }, {
     key: "connectPeripheral",
-    value: function connectPeripheral() {
+    value: function
+      /* id */
+    connectPeripheral() {
       var _this2 = this;
 
       if (!this.port) {
@@ -2827,7 +2845,9 @@ var WebSerial$1 = /*#__PURE__*/function () {
 
   }, {
     key: "handleDisconnectError",
-    value: function handleDisconnectError() {
+    value: function
+      /* e */
+    handleDisconnectError() {
       var _this11 = this;
 
       if (this.state !== 'open') return;
@@ -2844,7 +2864,9 @@ var WebSerial$1 = /*#__PURE__*/function () {
     }
   }, {
     key: "_handleRequestError",
-    value: function _handleRequestError() {
+    value: function
+      /* e */
+    _handleRequestError() {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
         message: "Scratch lost connection to",
@@ -2857,7 +2879,9 @@ var WebSerial$1 = /*#__PURE__*/function () {
 
   }, {
     key: "onDisconnected",
-    value: function onDisconnected() {
+    value: function
+      /* event */
+    onDisconnected() {
       this.handleDisconnectError(new Error('device disconnected'));
     }
   }]);
@@ -6650,6 +6674,6 @@ var extensionTranslations = {
     'mbitMore.digitalValueMenu.High': 'ligado'
   }
 };
-var blockClass = _microbitMore.blockClass = MbitMoreBlocks;
+var blockClass = MbitMoreBlocks;
 
-export { _microbitMore as __moduleExports, blockClass, entry };
+export { blockClass, entry };
