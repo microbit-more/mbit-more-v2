@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "xcratch-build": "^0.3.0",
-    "xcratch-register": "^0.4.0"
+    "xcratch-build": "^0.5.0",
+    "xcratch-register": "^0.4.2"
   }
 }
