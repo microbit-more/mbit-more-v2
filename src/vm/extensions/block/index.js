@@ -1,10 +1,10 @@
-const ArgumentType = require('../../extension-support/argument-type');
-const BlockType = require('../../extension-support/block-type');
-const log = require('../../util/log');
-const cast = require('../../util/cast');
-const BLE = require('./ble');
+import ArgumentType from '../../extension-support/argument-type';
+import BlockType from '../../extension-support/block-type';
+import Cast from '../../util/cast';
+import log from '../../util/log';
 
-const WebSerial = require('./serial-web');
+import BLE from './ble';
+import WebSerial from './serial-web';
 
 const uint8ArrayToBase64 = array => window.btoa(String.fromCharCode(...array));
 const base64ToUint8Array = base64 => {
@@ -2931,7 +2931,7 @@ class MbitMoreBlocks {
      * @return {?Promise} - a Promise that resolves after a tick or undefinde if yield.
      */
     displayMatrix (args, util) {
-        const matrixString = cast.toString(args.MATRIX)
+        const matrixString = Cast.toString(args.MATRIX)
             .replace(/！-～/g, ws => String.fromCharCode(ws.charCodeAt(0) - 0xFEE0)); // zenkaku to hankaku
         let matrixData;
         if (matrixString.includes(',')) {
@@ -3612,4 +3612,7 @@ const extensionTranslations = {
     }
 };
 
-module.exports = MbitMoreBlocks;
+export {
+    MbitMoreBlocks as default,
+    MbitMoreBlocks as blockClass
+};
