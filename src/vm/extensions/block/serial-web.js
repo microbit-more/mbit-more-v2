@@ -200,25 +200,20 @@ class WebSerial {
      * Then emit the connection state by the runtime.
      * @return {Promise} - a Promise which will resolve when the serial-port was disconnected.
      */
-    disconnect () {
-        if (this.state !== 'open') return Promise.resolve();
+    async disconnect () {
+        if (this.state !== 'open') return;
         this.state = 'closing';
         this.stopReceiving();
-        return this.reader.cancel()
-            .then(() => this.readableStreamClosed.catch(() => { /* Ignore the error */ }))
-            .then(() => {
-                this.writer.close();
-                this.writer.releaseLock();
-                return this.write.closed;
-            })
-            .then(() => {
-                this.port.close();
-                this.state = 'close';
-                this.reader = null;
-                this.writer = null;
-                this.port = null;
-                this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
-            });
+        await this.reader.cancel();
+        await this.readableStreamClosed.catch(() => { /* Ignore the error */ });
+        this.writer.close();
+        await this.writer.closed;
+        await this.port.close();
+        this.state = 'close';
+        this.reader = null;
+        this.writer = null;
+        this.port = null;
+        this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
     }
 
     /**
