@@ -165,7 +165,7 @@ class WebSerial {
                     controller.enqueue({ch: ch, data: {type: type, value: value}});
                 } else {
                     // Error occurred
-                    log.debug(this.chunks); // debug
+                    // log.debug(this.chunks); // debug
                     this.chunks.shift(); // Remove current SFD
                     return;
                 }
@@ -334,7 +334,7 @@ class WebSerial {
                             check(count);
                         }, checkInterval);
                     };
-                    check(20);
+                    check(50);
                 });
         });
     }
@@ -455,7 +455,7 @@ class WebSerial {
      */
     // eslint-disable-next-line no-unused-vars
     write (serviceId, characteristicId, message, encoding = null, withResponse = null) {
-        withResponse = true; // "response" is always required for noise tolerance on serial-port.
+        withResponse = false; // true for noise tolerance on serial-port.
         const value = (encoding === 'base64') ? base64ToUint8Array(message) : message;
         const ch = SERIAL_CH_ID[characteristicId];
         if (this.chValues[ch]) {
