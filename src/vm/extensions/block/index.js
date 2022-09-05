@@ -2714,9 +2714,8 @@ class MbitMoreBlocks {
                     opcode: 'whenDataReceived',
                     text: formatMessage({
                         id: 'mbitMore.whenDataReceived',
-                        default: 'when data with loabel [LABEL] received from micro:bit',
+                        default: 'when data with label [LABEL] received from micro:bit',
                         description: 'when the data which has the label received'
-
                     }),
                     blockType: BlockType.HAT,
                     arguments: {
