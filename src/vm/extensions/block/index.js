@@ -2952,7 +2952,7 @@ class MbitMoreBlocks {
      */
     displayMatrix (args, util) {
         const matrixString = Cast.toString(args.MATRIX)
-            .replace(/[Ａ-Ｚａ-ｚ０-９ ！-～]/g, ws => String.fromCharCode(ws.charCodeAt(0) - 0xFEE0)); // zenkaku to hankaku
+            .replace(/[０-９，]/g, ws => String.fromCharCode(ws.charCodeAt(0) - 0xFEE0)); // zenkaku to hankaku
         let matrixData;
         if (matrixString.includes(',')) {
             // comma separated values
