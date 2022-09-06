@@ -2995,10 +2995,16 @@ class MbitMoreBlocks {
      * 1px before the string, and 5px after the string.
      */
     displayText (args, util) {
-        const text = String(args.TEXT)
-            .replace(/！-～/g, zenkaku =>
-                String.fromCharCode(zenkaku.charCodeAt(0) - 0xFEE0)) // zenkaku to hankaku
-            .replace(/[^ -~]/g, '?');
+        // zenkaku to hankaku
+        const text = Cast.toString(args.TEXT)
+            .replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, ws => String.fromCharCode(ws.charCodeAt(0) - 0xFEE0))
+            .replace(/”/g, "\"")
+            .replace(/’/g, "'")
+            .replace(/‘/g, "`")
+            .replace(/￥/g, "\\")
+            // eslint-disable-next-line no-irregular-whitespace
+            .replace(/　/g, " ")
+            .replace(/〜/g, "~");
         let delay = parseInt(args.DELAY, 10);
         delay = isNaN(delay) ? 120 : delay; // Use default delay if NaN.
         const resultPromise = this._peripheral.displayText(text, delay, util);
