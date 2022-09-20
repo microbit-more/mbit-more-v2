@@ -1084,100 +1084,6 @@ class MbitMore {
     }
 
     /**
-     * Open dialog to selector communication route [BLE | USB Serial]
-     */
-    selectCommunicationRoute () {
-        const selectDialog = document.createElement('dialog');
-        selectDialog.style.padding = '0px';
-        const dialogFace = document.createElement('div');
-        dialogFace.style.padding = '16px';
-        selectDialog.appendChild(dialogFace);
-        const label = document.createTextNode(formatMessage({
-            id: 'mbitMore.selectCommunicationRoute.connectWith',
-            default: 'Connect with',
-            description: 'label of select communication route dialog for microbit more extension'
-        }));
-        dialogFace.appendChild(label);
-        // Dialog form
-        const selectForm = document.createElement('form');
-        selectForm.setAttribute('method', 'dialog');
-        selectForm.style.margin = '8px';
-        dialogFace.appendChild(selectForm);
-        // API select
-        const apiSelect = document.createElement('select');
-        apiSelect.setAttribute('id', 'api');
-        selectForm.appendChild(apiSelect);
-        // BLE option
-        const bleOption = document.createElement('option');
-        bleOption.setAttribute('value', 'ble');
-        bleOption.textContent = formatMessage({
-            id: 'mbitMore.selectCommunicationRoute.bluetooth',
-            default: 'Bluetooth',
-            description: 'bluetooth button on select communication route dialog for microbit more extension'
-        });
-        apiSelect.appendChild(bleOption);
-        // USB option
-        const usbOption = document.createElement('option');
-        usbOption.setAttribute('value', 'usb');
-        usbOption.textContent = formatMessage({
-            id: 'mbitMore.selectCommunicationRoute.usb',
-            default: 'USB',
-            description: 'usb button on select communication route dialog for microbit more extension'
-        });
-        apiSelect.appendChild(usbOption);
-        // Cancel button
-        const cancelButton = document.createElement('button');
-        cancelButton.textContent = formatMessage({
-            id: 'mbitMore.selectCommunicationRoute.cancel',
-            default: 'cancel',
-            description: 'cancel button on select communication route dialog for microbit more extension'
-        });
-        cancelButton.style.margin = '8px';
-        dialogFace.appendChild(cancelButton);
-        // OK button
-        const confirmButton = document.createElement('button');
-        confirmButton.textContent = formatMessage({
-            id: 'mbitMore.selectCommunicationRoute.connect',
-            default: 'connect',
-            description: 'connect button on select communication route dialog for microbit more extension'
-        });
-        confirmButton.style.margin = '8px';
-        dialogFace.appendChild(confirmButton);
-        // Add onClick action
-        const selectProcess = () => {
-            if (apiSelect.value === 'ble') {
-                this.scanBLE();
-            }
-            if (apiSelect.value === 'usb') {
-                this.scanSerial();
-            }
-            document.body.removeChild(selectDialog);
-        };
-        cancelButton.onclick = () => {
-            document.body.removeChild(selectDialog);
-            this.runtime.emit(this.runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
-                message: `Scan was canceled by user`,
-                extensionId: this._extensionId
-            });
-        };
-        confirmButton.onclick = selectProcess;
-        selectDialog.addEventListener('keydown', e => {
-            if (e.code === 'Enter') {
-                selectProcess();
-            }
-        });
-        // Close when click outside of the dialog
-        // selectDialog.onclick = e => {
-        //     if (!e.target.closest('div')) {
-        //         e.target.close();
-        //         selectProcess();
-        //     }
-        // };
-        document.body.appendChild(selectDialog);
-        selectDialog.showModal();
-    }
-
-    /**
      * Whether the key is pressed at this moment.
      * @param {string} key - key in keyboard event
      * @returns {boolean} - return true when the key is pressed
@@ -1195,10 +1101,12 @@ class MbitMore {
         }
         this.bleBusy = true;
         if (('serial' in navigator) && this.isKeyPressing('Shift')) {
-            this.selectCommunicationRoute();
+            this.scanSerial();
         } else {
             this.scanBLE();
         }
+        // The key state is cleared because the keyup event will be dropped by the browser dialog.
+        this.keyState = {};
     }
 
     /**
