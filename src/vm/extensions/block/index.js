@@ -842,7 +842,7 @@ class MbitMore {
     }
 
     /**
-     * Configurate microphone.
+     * Configure microphone.
      * @param {boolean} use - true to use microphone.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves state of the microphone or undefined if the process was yield.
@@ -2460,7 +2460,7 @@ class MbitMoreBlocks {
                     text: formatMessage({
                         id: 'mbitMore.setDigitalOut',
                         default: 'set [PIN] Digital [LEVEL]',
-                        description: 'set pin to Digtal Output mode and the level(true = High)'
+                        description: 'set pin to Digital Output mode and the level(High = true)'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
@@ -2906,13 +2906,13 @@ class MbitMoreBlocks {
         // zenkaku to hankaku
         const text = Cast.toString(args.TEXT)
             .replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, ws => String.fromCharCode(ws.charCodeAt(0) - 0xFEE0))
-            .replace(/”/g, "\"")
+            .replace(/”/g, '"')
             .replace(/’/g, "'")
-            .replace(/‘/g, "`")
-            .replace(/￥/g, "\\")
+            .replace(/‘/g, '`')
+            .replace(/￥/g, '\\')
             // eslint-disable-next-line no-irregular-whitespace
-            .replace(/　/g, " ")
-            .replace(/〜/g, "~");
+            .replace(/　/g, ' ')
+            .replace(/〜/g, '~');
         let delay = parseInt(args.DELAY, 10);
         delay = isNaN(delay) ? 120 : delay; // Use default delay if NaN.
         const resultPromise = this._peripheral.displayText(text, delay, util);
