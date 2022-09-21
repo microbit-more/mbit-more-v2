@@ -2439,6 +2439,27 @@ class MbitMoreBlocks {
                     }
                 },
                 {
+                    opcode: 'whenDigitalLevelChanged',
+                    text: formatMessage({
+                        id: 'mbitMore.whenDigitalLevelChanged',
+                        default: 'when [PIN] changed to [LEVEL]',
+                        description: 'when digital level of the pin was changed to the level(High = true)'
+                    }),
+                    blockType: BlockType.HAT,
+                    arguments: {
+                        PIN: {
+                            type: ArgumentType.STRING,
+                            menu: 'gpio',
+                            defaultValue: '0'
+                        },
+                        LEVEL: {
+                            type: ArgumentType.STRING,
+                            menu: 'digitalValueMenu',
+                            defaultValue: 'false'
+                        }
+                    }
+                },
+                {
                     opcode: 'isPinHigh',
                     text: formatMessage({
                         id: 'mbitMore.isPinHigh',
@@ -2940,6 +2961,26 @@ class MbitMoreBlocks {
             [0, 0, 0, 0, 0]
         ];
         return this._peripheral.displayPixels(matrix, util);
+    }
+
+    /**
+     * Whether the digital level of the pin was changed.
+     *
+     * @param {object} args - the block's arguments.
+     * @param {number} args.PIN - pin ID.
+     * @param {boolean | string | number} args.LEVEL - value to be set.
+     * @return {boolean} true if the pin is high.
+     */
+    whenDigitalLevelChanged (args) {
+        let level = (args.LEVEL === true);
+        level = level || (args.LEVEL === 'true');
+        if (!level) {
+            const num = Number(args.LEVEL);
+            if (!isNaN(num)) {
+                level = (num > 0);
+            }
+        }
+        return this._peripheral.isPinHigh(parseInt(args.PIN, 10)) === level;
     }
 
     /**
