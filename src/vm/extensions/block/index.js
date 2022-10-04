@@ -1299,15 +1299,17 @@ class MbitMore {
             };
         } else if (dataFormat === MbitMoreDataFormat.DATA_NUMBER) {
             const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
-            this.receivedData[label] =
+            this.receivedDataLast = this.receivedData[label] =
             {
+                label: label,
                 content: dataView.getFloat32(8, true),
                 timestamp: Date.now()
             };
         } else if (dataFormat === MbitMoreDataFormat.DATA_TEXT) {
             const label = new TextDecoder().decode(data.slice(0, 8).filter(char => (char !== 0)));
-            this.receivedData[label] =
+            this.receivedDataLast = this.receivedData[label] =
             {
+                label: label,
                 content: new TextDecoder().decode(data.slice(8, 20).filter(char => (char !== 0))),
                 timestamp: Date.now()
             };
@@ -1524,10 +1526,15 @@ class MbitMore {
 
     /**
      * Return the last data with the label or undefined if no data received with the label.
+     * When the label is empty, return the content of the last received data.
      * @param {string} label - label to get.
      * @return {?(number | string)} data of the label or null.
      */
     getDataLabeled (label) {
+        if (label === '') {
+            if (!this.receivedDataLast) return null;
+            return this.receivedDataLast.content;
+        }
         if (this.receivedData[label]) {
             return this.receivedData[label].content;
         }
@@ -1536,14 +1543,30 @@ class MbitMore {
 
     /**
      * Return the last timestamp of the data or undefined if the data is not received.
+     * When the label is empty, return the timestamp of the last received data.
      * @param {string} label - label of the data.
      * @return {?number} Timestamp of the last data or null.
      */
     getDataTimestamp (label) {
+        if (label === '') {
+            if (!this.receivedDataLast) return null;
+            return this.receivedDataLast.timestamp;
+        }
         if (this.receivedData[label]) {
             return this.receivedData[label].timestamp;
         }
         return null;
+    }
+
+    /**
+     * Return the label of the last received data or null if no data received.
+     * When the label is empty, return the content of the last received data.
+     * @param {string} label - label to get.
+     * @return {?(number | string)} data of the label or null.
+     */
+    getLastDataLabel () {
+        if (!this.receivedDataLast) return null;
+        return this.receivedDataLast.label;
     }
 }
 
@@ -2649,6 +2672,17 @@ class MbitMoreBlocks {
                     }
                 },
                 {
+                    opcode: 'getLastDataLabel',
+                    text: formatMessage({
+                        id: 'mbitMore.getLastDataLabel',
+                        default: 'last label',
+                        description: 'the label of the last received data'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                    }
+                },
+                {
                     opcode: 'sendData',
                     text: formatMessage({
                         id: 'mbitMore.sendData',
@@ -3265,11 +3299,18 @@ class MbitMoreBlocks {
      * @return {?(string | number)} - content of the data or empty string when the data was null
      */
     getDataLabeled (args) {
-        const data = this._peripheral.getDataLabeled(args.LABEL);
-        if (data === null) {
-            return '';
-        }
-        return data;
+        const label = Cast.toString(args.LABEL).trim();
+        const data = this._peripheral.getDataLabeled(label);
+        return ((data === null) ? '' : data);
+    }
+
+    /**
+     * Rerutn the label of the last received data or null if no data received.
+     * @return {?(string | null)} - label of the last data.
+     */
+    getLastDataLabel () {
+        const data = this._peripheral.getLastDataLabel();
+        return ((data === null) ? '' : data);
     }
 
     /**
@@ -3283,14 +3324,20 @@ class MbitMoreBlocks {
                 this.prevReceivedData[label][key] = value;
             });
         });
+        this.prevReceivedDataLast = this._peripheral.receivedDataLast;
     }
 
     /**
      * Return the previous timestamp of the data or undefined if the data was not received.
+     * When the label is empty string, return the previous timestamp of the last received data.
      * @param {string} label - label of the data.
      * @return {?number} Timestamp of the previous data or null.
      */
     getPrevReceivedDataTimestamp (label) {
+        if (label === '') {
+            if (!this.prevReceivedDataLast) return null;
+            return this.prevReceivedDataLast.timestamp;
+        }
         if (this.prevReceivedData[label]) {
             return this.prevReceivedData[label].timestamp;
         }
@@ -3310,7 +3357,7 @@ class MbitMoreBlocks {
                 this.updateLastDataTimer = null;
             }, this.runtime.currentStepTime);
         }
-        const label = args.LABEL;
+        const label = Cast.toString(args.LABEL).trim();
         const lastTimestamp =
             this._peripheral.getDataTimestamp(label);
         if (lastTimestamp === null) return false;
