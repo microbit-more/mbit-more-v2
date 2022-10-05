@@ -7,50 +7,24 @@
 
 LF=$(printf '\\\012_')
 LF=${LF%_}
+EXTENSION_REP=microbitMore
+EXTENSION_ID=microbitMore
 
-mkdir -p node_modules/scratch-vm/src/extensions/microbitMore
-sed -e "s/let formatMessage = .*;/let formatMessage \= require('format-message');/" microbitMore/src/vm/extensions/block/index.js > node_modules/scratch-vm/src/extensions/microbitMore/index.js
-cp microbitMore/src/vm/extensions/block/ble-web.js node_modules/scratch-vm/src/extensions/microbitMore/
-cp microbitMore/src/vm/extensions/block/ble-llk.js node_modules/scratch-vm/src/extensions/microbitMore/ble.js
-cp microbitMore/src/vm/extensions/block/serial-web.js node_modules/scratch-vm/src/extensions/microbitMore/
+### register it as a builtin extenstion
+mkdir -p node_modules/scratch-vm/src/extensions/${EXTENSION_ID}
+cp ${EXTENSION_REP}/dist/${EXTENSION_ID}.mjs node_modules/scratch-vm/src/extensions/${EXTENSION_ID}/
 mv node_modules/scratch-vm/src/extension-support/extension-manager.js node_modules/scratch-vm/src/extension-support/extension-manager.js_orig
-sed -e "s|class ExtensionManager {$|builtinExtensions['microbitMore'] = () => require('../extensions/microbitMore');${LF}${LF}class ExtensionManager {|g" node_modules/scratch-vm/src/extension-support/extension-manager.js_orig > node_modules/scratch-vm/src/extension-support/extension-manager.js
+sed -e "s|class ExtensionManager {|builtinExtensions['${EXTENSION_ID}'] = () => {${LF}    const formatMessage = require('format-message');${LF}    const ext = require('../extensions/${EXTENSION_ID}/${EXTENSION_ID}.mjs');${LF}    const blockClass = ext.blockClass;${LF}    blockClass.formatMessage = formatMessage;${LF}    return blockClass;${LF}};${LF}${LF}class ExtensionManager {|g" node_modules/scratch-vm/src/extension-support/extension-manager.js_orig > node_modules/scratch-vm/src/extension-support/extension-manager.js
 
-mkdir -p src/lib/libraries/extensions/microbitMore
-cp microbitMore/src/gui/lib/libraries/extensions/entry/entry-icon.png src/lib/libraries/extensions/microbitMore/
-cp microbitMore/src/gui/lib/libraries/extensions/entry/inset-icon.svg src/lib/libraries/extensions/microbitMore/
-cp microbitMore/src/gui/lib/libraries/extensions/entry/connection-icon.svg src/lib/libraries/extensions/microbitMore/
-cp microbitMore/src/gui/lib/libraries/extensions/entry/connection-small-icon.svg src/lib/libraries/extensions/microbitMore/
+
+### copy entry files
+mkdir -p src/lib/libraries/extensions/${EXTENSION_ID}
+cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/index-stretch3.jsx src/lib/libraries/extensions/${EXTENSION_ID}/index.jsx
+cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/entry-icon.png src/lib/libraries/extensions/${EXTENSION_ID}/
+cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/inset-icon.svg src/lib/libraries/extensions/${EXTENSION_ID}/
+cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/connection-icon.svg src/lib/libraries/extensions/${EXTENSION_ID}/
+cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/connection-small-icon.svg src/lib/libraries/extensions/${EXTENSION_ID}/
+
+### insert it to the library
 mv src/lib/libraries/extensions/index.jsx src/lib/libraries/extensions/index.jsx_orig
-MICROBIT_MORE="\
-    {${LF}\
-        name: 'Microbit More',${LF}\
-        extensionId: 'microbitMore',${LF}\
-        collaborator: 'Yengawa Lab',${LF}\
-        iconURL: microbitMoreIconURL,${LF}\
-        insetIconURL: microbitMoreInsetIconURL,${LF}\
-        description: (${LF}\
-            <FormattedMessage${LF}\
-                defaultMessage='Play with all functions of micro:bit. (v2-0.2.4)'${LF}\
-                description='Description for the Microbit More extension'${LF}\
-                id='gui.extension.microbitmore.description'${LF}\
-            />${LF}\
-        ),${LF}\
-        featured: true,${LF}\
-        disabled: false,${LF}\
-        bluetoothRequired: true,${LF}\
-        internetConnectionRequired: false,${LF}\
-        launchPeripheralConnectionFlow: true,${LF}\
-        useAutoScan: false,${LF}\
-        connectionIconURL: microbitMoreConnectionIconURL,${LF}\
-        connectionSmallIconURL: microbitMoreConnectionSmallIconURL,${LF}\
-        connectingMessage: (${LF}\
-           <FormattedMessage${LF}\
-               defaultMessage='Connecting'${LF}\
-               description='Message to help people connect to their micro:bit.'${LF}\
-               id='gui.extension.microbit.connectingMessage'${LF}\
-           />${LF}\
-        ),${LF}\
-        helpLink: 'https://microbit-more.github.io/'${LF}\
-    },"
-sed -e "s|^export default \[$|import microbitMoreIconURL from './microbitMore/entry-icon.png';${LF}import microbitMoreInsetIconURL from './microbitMore/inset-icon.svg';${LF}import microbitMoreConnectionIconURL from './microbitMore/connection-icon.svg';${LF}import microbitMoreConnectionSmallIconURL from './microbitMore/connection-small-icon.svg';${LF}${LF}export default [${LF}${MICROBIT_MORE}|g" src/lib/libraries/extensions/index.jsx_orig > src/lib/libraries/extensions/index.jsx
+sed -e "s|^export default \[$|import ${EXTENSION_ID}Entry from './${EXTENSION_ID}/index.jsx';${LF}${LF}export default [${LF}    ${EXTENSION_ID}Entry,|g" src/lib/libraries/extensions/index.jsx_orig > src/lib/libraries/extensions/index.jsx
