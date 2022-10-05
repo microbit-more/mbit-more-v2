@@ -10,7 +10,7 @@ import insetIconURL from './inset-icon.svg';
 import connectionIconURL from './connection-icon.svg';
 import connectionSmallIconURL from './connection-small-icon.svg';
 
-const version = 'v2-0.2.4';
+const version = 'v2-0.2.5';
 const translations =
 {
     'en': {

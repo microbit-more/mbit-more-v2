@@ -1,6 +1,6 @@
 <h1 align="center">MicroBit More v2</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.2.4-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.5-blue.svg?cacheSeconds=2592000" />
   <a href="https://microbit-more.github.io/mbit-more-v2" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
