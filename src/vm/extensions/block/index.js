@@ -2557,7 +2557,7 @@ class MbitMoreBlocks {
                     opcode: 'listenPinEventType',
                     text: formatMessage({
                         id: 'mbitMore.listenPinEventType',
-                        default: 'catch event [EVENT_TYPE] on [PIN]',
+                        default: 'listen [EVENT_TYPE] event on [PIN]',
                         description: 'listen the event on the pin'
                     }),
                     blockType: BlockType.COMMAND,
