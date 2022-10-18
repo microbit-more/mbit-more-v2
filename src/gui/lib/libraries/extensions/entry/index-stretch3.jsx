@@ -1,70 +1,54 @@
-import React from 'react';
-import {FormattedMessage} from 'react-intl';
+import formatMessage from 'format-message';
 
 /**
  * MicroBit More extension
  */
 
-import iconURL from './entry-icon.png';
-import insetIconURL from './inset-icon.svg';
-import connectionIconURL from './connection-icon.svg';
-import connectionSmallIconURL from './connection-small-icon.svg';
+import microbitMoreIconURL from './entry-icon.png';
+import microbitMoreInsetIconURL from './inset-icon.svg';
+import microbitMoreConnectionIconURL from './connection-icon.svg';
+import microbitMoreConnectionSmallIconURL from './connection-small-icon.svg';
+import translations from './translations.json';
 
 const version = 'v2-0.2.5';
-const translations =
-{
-    'en': {
-        'mbitMore.entry.name': 'MicroBit More',
-        'mbitMore.entry.description': `Play with all functions of micro:bit. (${version})`
-    },
-    'ja': {
-        'mbitMore.entry.name': 'MicroBit More',
-        'mbitMore.entry.description': `micro:bitのすべての機能で遊ぶ。 (${version})`
-    },
-    'ja-Hira': {
-        'mbitMore.entry.name': 'MicroBit More',
-        'mbitMore.entry.description': `マイクロビットのすべてのきのうであそぶ。 (${version})`
-    }
-};
 
 const entry = {
-    name: (
-        <FormattedMessage
-            defaultMessage="MicroBit More"
-            description="Name for this extension"
-            id="mbitMore.entry.name"
-        />
-    ),
+    get name () {
+        return `${formatMessage({
+            defaultMessage: 'MicroBit More',
+            description: 'Name of this extension',
+            id: 'mbitMore.entry.name'
+        })} (${version})`;
+    },
     extensionId: 'microbitMore',
     extensionURL: null,
     collaborator: 'Yengawa Lab',
-    iconURL: iconURL,
-    insetIconURL: insetIconURL,
-    description: (
-        <FormattedMessage
-            defaultMessage="Play with all functions of micro:bit."
-            description="Description for the 'MicroBit More' extension"
-            id="mbitMore.entry.description"
-        />
-    ),
+    iconURL: microbitMoreIconURL,
+    insetIconURL: microbitMoreInsetIconURL,
+    get description () {
+        return formatMessage({
+            defaultMessage: 'Play with all functions of micro:bit.',
+            description: "Description for the 'Microbit More' extension",
+            id: 'mbitMore.entry.description'
+        });
+    },
     featured: true,
     disabled: false,
     bluetoothRequired: true,
     internetConnectionRequired: false,
     launchPeripheralConnectionFlow: true,
     useAutoScan: false,
-    connectionIconURL: connectionIconURL,
-    connectionSmallIconURL: connectionSmallIconURL,
-    connectingMessage: (
-        <FormattedMessage
-            defaultMessage="Connecting"
-            description="Message to help people connect to their micro:bit."
-            id="gui.extension.microbitMore.description"
-        />
-    ),
+    connectionIconURL: microbitMoreConnectionIconURL,
+    connectionSmallIconURL: microbitMoreConnectionSmallIconURL,
+    get connectingMessage () {
+        return formatMessage({
+            defaultMessage: 'Connecting',
+            description: 'Message to help people connect to their micro:bit.',
+            id: 'gui.extension.microbit.connectingMessage'
+        });
+    },
     helpLink: 'https://microbit-more.github.io/',
     translationMap: translations
 };
 
-export {entry}; // loadable-extension needs this line.
 export default entry;
