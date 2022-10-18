@@ -1,0 +1,14 @@
+{
+  "en": {
+    "mbitMore.entry.name": "MicroBit More",
+    "mbitMore.entry.description": "Play with all functions of micro:bit."
+  },
+  "ja": {
+    "mbitMore.entry.name": "MicroBit More",
+    "mbitMore.entry.description": "micro:bitのすべての機能で遊ぶ。"
+  },
+  "ja-Hira": {
+    "mbitMore.entry.name": "マイクロビット モア",
+    "mbitMore.entry.description": "マイクロビットのすべてのきのうであそぶ。"
+  }
+}

@@ -1,26 +1,25 @@
 let formatMessage = messageData => messageData.defaultMessage;
 
+/**
+ * MicroBit More extension
+ */
+
 import microbitMoreIconURL from './entry-icon.png';
 import microbitMoreInsetIconURL from './inset-icon.svg';
 import microbitMoreConnectionIconURL from './connection-icon.svg';
 import microbitMoreConnectionSmallIconURL from './connection-small-icon.svg';
+import translations from './translations.json';
 
 const version = 'v2-0.2.5';
 
-const translationMap = {
-    'en': {
-        'gui.extension.microbitMore.description': `Play with all functions of micro:bit. (${version})`
-    },
-    'ja': {
-        'gui.extension.microbitMore.description': `micro:bitのすべての機能で遊ぶ。 (${version})`
-    },
-    'ja-Hira': {
-        'gui.extension.microbitMore.description': `マイクロビットのすべてのきのうであそぶ。 (${version})`
-    }
-};
-
 const entry = {
-    name: 'Microbit More',
+    get name () {
+        return `${formatMessage({
+            defaultMessage: 'MicroBit More',
+            description: 'Name of this extension',
+            id: 'mbitMore.entry.name'
+        })} (${version})`;
+    },
     extensionId: 'microbitMore',
     extensionURL: 'https://microbit-more.github.io/dist/microbitMore.mjs',
     collaborator: 'Yengawa Lab',
@@ -30,7 +29,7 @@ const entry = {
         return formatMessage({
             defaultMessage: 'Play with all functions of micro:bit.',
             description: "Description for the 'Microbit More' extension",
-            id: 'gui.extension.microbitMore.description'
+            id: 'mbitMore.entry.description'
         });
     },
     featured: true,
@@ -52,7 +51,7 @@ const entry = {
     setFormatMessage: formatter => {
         formatMessage = formatter;
     },
-    translationMap: translationMap
+    translationMap: translations
 };
 
 export {entry}; // loadable-extension needs this line.

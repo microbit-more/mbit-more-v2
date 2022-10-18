@@ -24,6 +24,7 @@ cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/entry-icon.png src/li
 cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/inset-icon.svg src/lib/libraries/extensions/${EXTENSION_ID}/
 cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/connection-icon.svg src/lib/libraries/extensions/${EXTENSION_ID}/
 cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/connection-small-icon.svg src/lib/libraries/extensions/${EXTENSION_ID}/
+cp ${EXTENSION_REP}/src/gui/lib/libraries/extensions/entry/translations.json src/lib/libraries/extensions/${EXTENSION_ID}/
 
 ### insert it to the library
 mv src/lib/libraries/extensions/index.jsx src/lib/libraries/extensions/index.jsx_orig
