@@ -10,7 +10,7 @@
     "mbitMore.buttonEventMenu.click": "geklickt",
     "mbitMore.buttonEventMenu.longClick": "lange geklickt",
     "mbitMore.buttonEventMenu.doubleClick": "doppelt geklickt",
-    "mbitMore.isButtonPressed": "Taste [NAME] gedrückt?",
+    "mbitMore.isButtonPressed": "Taste [NAME] wird gedrückt",
     "mbitMore.whenTouchEvent": "Wenn Pin [NAME] [EVENT] wird",
     "mbitMore.isPinTouched": "Pin [NAME] wird berührt",
     "mbitMore.touchIDMenu.logo": "Logo",
