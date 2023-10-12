@@ -6,7 +6,7 @@ import log from '../../util/log';
 import blockIcon from './block-icon.png';
 import translations from './translations.json';
 
-import BLE from './ble';
+import BLE from './ble-llk';
 import WebSerial from './serial-web';
 
 const uint8ArrayToBase64 = array => window.btoa(String.fromCharCode(...array));
