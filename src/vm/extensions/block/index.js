@@ -436,7 +436,7 @@ class MbitMore {
 
         /**
          * The most recently received button events for each buttons.
-         * @type {Object} - Store of buttons which has events.
+         * @type {Object}
          * @private
          */
         this.buttonEvents = {};
@@ -446,7 +446,7 @@ class MbitMore {
 
         /**
          * The most recently received gesture events.
-         * @type {Object <number, number>} - Store of gesture ID and timestamp.
+         * @type {Object.<number, number>}
          * @private
          */
         this.gestureEvents = {};
@@ -454,14 +454,14 @@ class MbitMore {
 
         /**
          * The most recently received events for each pin.
-         * @type {Object} - Store of pins which has events.
+         * @type {Object}
          * @private
          */
         this._pinEvents = {};
 
         /**
          * The most recently received data from micro:bit.
-         * @type {Object} - Store of received data
+         * @type {Object}
          * @private
          */
         this.receivedData = {};
@@ -2126,25 +2126,25 @@ class MbitMoreBlocks {
 
         /**
          * The previous timestamps of button events.
-         * @type {Object.<number, Object.<number, number>>} button ID to object with event and timestamp.
+         * @type {Object.<number, Object.<number, number>>}
          */
         this.prevButtonEvents = {};
 
         /**
          * The previous timestamps of gesture events.
-         * @type {Object.<number, number>} key: event ID, value: timestamp.
+         * @type {Object.<number, number>}
          */
         this.prevGestureEvents = {};
 
         /**
          * The previous timestamps of pin events.
-         * @type {Object.<number, Object.<number, number>>} pin index to object with event and timestamp.
+         * @type {Object.<number, Object.<number, number>>}
          */
         this.prevPinEvents = {};
 
         /**
          * The previous timestamps of messages.
-         * @type {Object.<number, Object>} pin index to object with event and timestamp.
+         * @type {Object.<number, Object>}
          */
         this.prevReceivedData = {};
     }
