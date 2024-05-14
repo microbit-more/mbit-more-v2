@@ -6,6 +6,10 @@ var img$2 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8' standal
 
 var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8' standalone='no'%3f%3e%3csvg xmlns:serif='http://www.serif.com/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns%23' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' id='svg10630' style='fill-rule:evenodd%3bclip-rule:evenodd%3bstroke-linecap:round%3bstroke-linejoin:round%3b' xml:space='preserve' version='1.1' viewBox='0 0 40 40' height='40px' width='40px'%3e%3cmetadata id='metadata10634'%3e%3crdf:RDF%3e%3ccc:Work rdf:about=''%3e%3cdc:format%3eimage/svg%2bxml%3c/dc:format%3e%3cdc:type rdf:resource='http://purl.org/dc/dcmitype/StillImage' /%3e%3cdc:title%3e%3c/dc:title%3e%3c/cc:Work%3e%3c/rdf:RDF%3e%3c/metadata%3e%3cdefs id='defs10628'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAACIAAAAcCAYAAAAEN20fAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA1ElEQVRIie3XsU7DMBRG4c%2bmFaIDLOyt1Pd/JCTYkRADQahVzVAjRa6dgSHJ4CN5SG6u/xM7QxzguD9ssEM0LxcML2%2bv55AlnhFmlvgj4T26rsRSEnL2Lpp/O2rENUhgHauBLnJLFynpIiVdpKSLlHSRki5SslqR1HjuMlFL/6ilPGdVJOGj0pjwjXMj7CePGid8NWQ%2bx/c3RfGp0hDwoP2Dfd8Igm3OqPU%2bji/GIgF3jQmnvqXQCJqq3WRF7beZkxQxWFYmYQhw3B%2b2ljloJdcj5%2bkXPe8rjWdIHOUAAAAASUVORK5CYII=' height='28px' width='34px' id='_Image1' /%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAK0lEQVQImWNUllfQYWBgEGZABW%2bZsAgyMDAwCDNhEWRgYGBgIE/iLRbxtwD55QOaOR9NWAAAAABJRU5ErkJggg==' height='6px' width='6px' id='_Image2' /%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAJ0lEQVQImS3GsQkAIBAEsPiWP4SC%2b493pWBjqoyzdqOR%2bpnoQnCRBzu7BHNrioXgAAAAAElFTkSuQmCC' height='3px' width='3px' id='_Image3' /%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACb0lEQVRIiY2Wa27aQBSFP4N5uUlTpVXVNXYHWUF20EVWLYFAMMZm3B8%2bB18bkGppNPbMuffMfY4zwvPr9TXTa8b1095Yu4v7%2bfLSDkBB%2bURrnjMJtUAK79l/4JLJ8nCCCTAFco1pED6HYZJpGBHXaGCiTFaYYA4sNeZab4EaqDQnrc%2bAheZM6yfgqHESabIlmcBL4BH4DBRaSyI4SPisAy2FWYi0FuY9xCYht9j0mYS%2bAN80LwUugT3wIZJc2AdgJR1HYCPC6LZkksmI5LvGo/ZLYCeiRiQP2l/pIDu5uBG%2blAeySJIHd30FfgDPWq%2bCJSb5JKwVr2XBDngTZmISx8SBLxSTZ1mzDKc7BJJCVuRyFSIopMdZd4lJtMYJ4JMWUuDMceAXGkjmQ3KzaMXYkpjKHrlO5b0JfQrPpbDVAaJcLFJiMY5biour1ndNn/tT%2bgqHvkhv6RmQ%2bHF%2bN3JPkpKS6zpZ6f0kvFvK4Ikksfc0EjzQB3zH7ewq6F0WiS5k%2bQ2CswRKOt82wJYuRbdy2wx4osvAJ%2bkpCa0kEuU3CCq5xYV3BP4Cv%2bkquqIL%2bl6EjVznnlWNiaIl0YJ3nXYuV/0RyVqYOX1CJLrY1JKLFg0scRzcPt60lotkLWs2gSTRZdBZcbFbd9JziU8kqbW5VSxKusw5am0jBY6J75WarigTXWJsJVuPSVwPB/ouupcSZ9lewsY6lkdZ5ve98LVdFmNS099wJ/rLyOlcaXbF%2b3BlcLsvN19wLQzv%2bHj9uj34AA33r1/3PwLG%2bDS%2b41OYJwzby60fCad8PcIOfiQImwSLrtZtNnR/HwF3Fxt/if4BFBM38JLMEaoAAAAASUVORK5CYII=' height='24px' width='25px' id='_Image4' /%3e%3cradialGradient id='_Radial2' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(1217.72%2c-59.7505%2c12.9632%2c284.312%2c552.955%2c1154.68)'%3e%3cstop offset='0' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop2206' /%3e%3cstop offset='1' style='stop-color:rgb(211%2c177%2c44)%3bstop-opacity:1' id='stop2208' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial3' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(1217.72%2c-59.7505%2c12.9632%2c284.312%2c552.955%2c1154.68)'%3e%3cstop offset='0' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop2211' /%3e%3cstop offset='1' style='stop-color:rgb(211%2c177%2c44)%3bstop-opacity:1' id='stop2213' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial4' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(466.809%2c-22.0906%2c4.9694%2c105.114%2c-471.791%2c488.167)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c204%2c0)%3bstop-opacity:1' id='stop2216' /%3e%3cstop offset='1' style='stop-color:rgb(200%2c171%2c55)%3bstop-opacity:0' id='stop2218' /%3e%3c/radialGradient%3e%3clinearGradient id='_Linear5' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0.968404%2c-222.261%2c222.261%2c0.968404%2c275.27%2c1681.54)'%3e%3cstop offset='0' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop2221' /%3e%3cstop offset='1' style='stop-color:rgb(211%2c177%2c44)%3bstop-opacity:1' id='stop2223' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear6' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-43.5934%2c39.4616%2c-39.4616%2c-43.5934%2c1032.84%2c-2481.1)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop2226' /%3e%3cstop offset='1' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop2228' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear13' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0.968404%2c-222.261%2c222.261%2c0.968404%2c-130.62%2c1681.54)'%3e%3cstop offset='0' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop2261' /%3e%3cstop offset='1' style='stop-color:rgb(211%2c177%2c44)%3bstop-opacity:1' id='stop2263' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear14' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-43.5934%2c39.4616%2c-39.4616%2c-43.5934%2c626.948%2c-2481.1)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop2266' /%3e%3cstop offset='1' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop2268' /%3e%3c/linearGradient%3e%3cclipPath id='_clip15'%3e%3cpath id='path23949' d='m 101.275%2c1080.28 v 0 c 0%2c7.91 6.416%2c14.97 16.079%2c14.97 9.664%2c0 16.08%2c-6.77 16.08%2c-14.97 v 0 -13.32 0 c 0%2c-7.91 -6.416%2c-14.96 -16.08%2c-14.96 -9.956%2c0 -16.079%2c6.76 -16.079%2c14.96 l 0.489%2c0.51 c 0%2c0 -0.489%2c-0.51 -0.489%2c-0.51 z m 0.978%2c0 v -13.32 0 c 0%2c-7.67 5.782%2c-13.95 15.101%2c-13.95 9.046%2c0 15.102%2c6.55 15.102%2c13.95 l 0.489%2c0.51 c 0%2c0 -0.489%2c-0.51 -0.489%2c-0.51 l 0.002%2c13.38 -0.002%2c-0.05 c -10e-4%2c7.67 -6.057%2c13.94 -15.102%2c13.94 -9.045%2c0 -15.101%2c-6.55 -15.101%2c-13.95 z m 8.376%2c0 v 0 c 0%2c3.68 2.462%2c7.03 6.442%2c7.03 3.973%2c0 6.725%2c-3.36 6.725%2c-7.03 v 0 -13.32 0 c 0%2c-1.98 -0.619%2c-3.73 -1.763%2c-4.99 -1.146%2c-1.26 -2.823%2c-2.04 -4.962%2c-2.04 -3.98%2c0 -6.442%2c3.36 -6.442%2c7.03 l 0.489%2c0.51 c 0%2c0 -0.489%2c-0.51 -0.489%2c-0.51 z m 12.189%2c0 v 0 c 0%2c3.14 -2.35%2c6.02 -5.747%2c6.02 -3.391%2c0 -5.464%2c-2.89 -5.464%2c-6.02 v 0 -13.32 0 c 0%2c-3.13 2.073%2c-6.01 5.464%2c-6.01 1.829%2c0 3.27%2c0.64 4.25%2c1.72 0.983%2c1.08 1.497%2c2.59 1.497%2c4.29 l 0.489%2c0.51 -0.489%2c-0.51 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip17'%3e%3cpath id='path23955' d='m 386.929%2c1059.93 h -0.278 c -0.634%2c0 -0.005%2c1.02 -0.005%2c1.02 l -0.49%2c-0.51 v 6.52 c 0%2c0 0.49%2c0.51 0.49%2c0.51 h 8.014 c 0%2c0 0%2c26.93 0%2c26.93 h 10.617 v -41.05 l -0.49%2c0.51 c 0%2c0 0.625%2c-1.01 -0.021%2c-1.01 h -8.198 c -0.651%2c0 -10e-4%2c1.01 -10e-4%2c1.01 h -0.489 v -0.51 c 0%2c1.8 -0.229%2c3.22 -1.006%2c4.27 -0.571%2c0.77 -1.438%2c1.33 -2.697%2c1.71 -1.347%2c0.41 -3.123%2c0.6 -5.446%2c0.6 z m 17.369%2c33.45 h -8.659 v -26.42 l -0.489%2c0.51 c 0%2c0 0.648%2c-1.02 -0.002%2c-1.02 h -8.013 v -5.5 c 4.857%2c-0.03 7.42%2c-0.96 8.714%2c-2.71 0.817%2c-1.11 1.151%2c-2.56 1.2%2c-4.38 0%2c0 7.249%2c0 7.249%2c0 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip19'%3e%3cpath id='path23961' d='m 722.835%2c1094.4 c 0%2c0 0.489%2c-0.03 0.489%2c-0.51 v -7.65 c 0%2c-0.32 -0.222%2c0.02 -0.367%2c0.27 0.143%2c-0.3 0.306%2c-0.78 -0.143%2c-0.78 h -16.766 c 0.092%2c-1.45 0.615%2c-2.51 1.963%2c-3.75 1.072%2c-0.98 2.635%2c-2.08 4.864%2c-3.53 2.16%2c-1.15 4.886%2c-2.81 7.078%2c-5.03 2.253%2c-2.29 3.938%2c-5.18 3.938%2c-8.73 0%2c-8.82 -6.73%2c-12.69 -14.379%2c-12.69 -4.824%2c0 -8.547%2c1.47 -11.068%2c3.89 -2.544%2c2.43 -3.878%2c5.82 -3.878%2c9.65 v 0.51 h 10.333 v -0.51 c 0%2c-1.95 0.498%2c-3.33 1.345%2c-4.21 0.832%2c-0.86 1.988%2c-1.23 3.268%2c-1.23 1.146%2c0 2.169%2c0.3 2.901%2c0.97 0.723%2c0.66 1.145%2c1.67 1.145%2c3.06 0%2c1.82 -0.868%2c3.19 -2.273%2c4.43 -1.504%2c1.33 -3.605%2c2.51 -5.983%2c3.91 l -0.007%2c0.01 c -3.19%2c2.03 -5.931%2c3.99 -7.921%2c7.14 -1.986%2c3.14 -3.23%2c7.47 -3.375%2c14.26 l -0.011%2c0.52 z m -0.49%2c-7.66 v 6.64 h -27.353 c 0.187%2c-6.23 1.341%2c-10.27 3.201%2c-13.21 1.907%2c-3.02 4.549%2c-4.88 7.6%2c-6.82 v 0 c 2.437%2c-1.43 4.585%2c-2.66 6.127%2c-4.02 1.642%2c-1.45 2.617%2c-3.06 2.617%2c-5.2 0%2c-1.74 -0.57%2c-2.99 -1.477%2c-3.82 -0.898%2c-0.82 -2.143%2c-1.23 -3.548%2c-1.23 -1.555%2c0 -2.95%2c0.48 -3.961%2c1.53 -0.92%2c0.96 -1.533%2c2.4 -1.62%2c4.43 h -8.378 c 0.111%2c-3.33 1.321%2c-6.27 3.554%2c-8.41 2.368%2c-2.26 5.875%2c-3.62 10.405%2c-3.62 7.091%2c0 13.4%2c3.5 13.4%2c11.68 0%2c3.26 -1.575%2c5.9 -3.644%2c8 -2.124%2c2.16 -4.773%2c3.76 -6.862%2c4.88 l -0.036%2c0.02 c -5.916%2c3.84 -7.316%2c5.39 -7.316%2c8.65 v 0.5 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip21'%3e%3cpath id='path23965' d='m 999.985%2c1065.77 h -10.333 v -0.51 c 0%2c-3.54 1.114%2c-6.92 3.546%2c-9.43 2.413%2c-2.49 6.136%2c-4.12 11.402%2c-4.12 7.65%2c0 14.66%2c3.9 14.66%2c11.85 0%2c4.24 -2.36%2c7.53 -5.18%2c9.06 v 0.02 c 3.32%2c1.65 5.75%2c4.81 5.75%2c9.91 0%2c7.93 -7%2c12.7 -15.23%2c12.7 -5.108%2c0 -9.114%2c-1.55 -11.85%2c-4.18 -2.647%2c-2.54 -4.115%2c-6.09 -4.225%2c-10.28 h 0.483 c 0%2c0 -0.648%2c-1.01 0.003%2c-1.01 h 9.066 c 0.65%2c0 0.002%2c1.01 0.002%2c1.01 l 0.489%2c-0.51 c 0%2c2.12 0.578%2c3.78 1.602%2c4.9 1.01%2c1.11 2.45%2c1.68 4.15%2c1.68 3.08%2c0 4.89%2c-2.3 4.89%2c-4.88 0%2c-1.55 -0.37%2c-2.84 -1.24%2c-3.75 -0.88%2c-0.91 -2.26%2c-1.41 -4.22%2c-1.41 h -3.69 c 0%2c0 -0.486%2c-0.03 -0.486%2c-0.51 v -7.36 l 0.486%2c0.5 c 0%2c0 -0.641%2c-1.01 0.01%2c-1.01 h 3.61 c 0.07%2c0 0.12%2c0.01 0.16%2c0.03 l -0.01%2c-0.03 c 1.9%2c-0.02 3.12%2c-0.43 3.85%2c-1.23 0.74%2c-0.8 0.96%2c-1.96 0.96%2c-3.37 0%2c-1.38 -0.42%2c-2.39 -1.14%2c-3.05 -0.73%2c-0.67 -1.76%2c-0.98 -2.9%2c-0.98 -1.45%2c0 -2.48%2c0.31 -3.2%2c0.92 -1.09%2c0.93 -1.415%2c2.5 -1.415%2c4.53 z m 3.765%2c10.04 c -0.01%2c0 -0.03%2c0 -0.04%2c0 h -3.16 v -6.36 h 3.2 c 2.31%2c0 3.75%2c-0.57 4.64%2c-1.54 0.89%2c-0.97 1.23%2c-2.36 1.23%2c-4.07 0%2c-1.73 -0.57%2c-2.99 -1.47%2c-3.81 -0.9%2c-0.83 -2.15%2c-1.23 -3.55%2c-1.23 -1.73%2c0 -2.96%2c0.42 -3.82%2c1.15 -1.192%2c1.01 -1.699%2c2.66 -1.765%2c4.8 h -8.376 c 0.1%2c-3.08 1.121%2c-6.01 3.249%2c-8.2 2.264%2c-2.33 5.77%2c-3.82 10.712%2c-3.82 7.09%2c0 13.68%2c3.47 13.68%2c10.83 0%2c4.29 -2.67%2c7.52 -5.62%2c8.59 l -1.28%2c0.47 1.27%2c0.49 c 3.51%2c1.34 6.2%2c4.31 6.2%2c9.44 0%2c7.38 -6.6%2c11.68 -14.25%2c11.68 -4.817%2c0 -8.605%2c-1.42 -11.185%2c-3.9 -2.455%2c-2.36 -3.803%2c-5.66 -3.911%2c-9.54 h 8.096 c 0.091%2c2.18 0.77%2c3.89 1.859%2c5.09 1.191%2c1.3 2.871%2c2 4.861%2c2 3.71%2c0 5.87%2c-2.8 5.87%2c-5.9 0%2c-1.85 -0.48%2c-3.38 -1.52%2c-4.46 -1.04%2c-1.07 -2.63%2c-1.71 -4.92%2c-1.71 z m -15.225%2c4.98 c -0.004%2c-0.17 -0.006%2c-0.34 -0.006%2c-0.51 v 0.51 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip23'%3e%3cpath id='path23967' d='m 1020.98%2c1053.86 14.46%2c40.54 h 9.47 l 14.57%2c-40.87 -0.46%2c0.33 c 0%2c0 0.62%2c-1.01 -0.02%2c-1.01 h -10.18 c -0.65%2c0 0%2c1.01 0%2c1.01 h -0.67 l 0.2%2c-0.66 -8.32%2c27.11 c 0%2c0 -8.32%2c-27.11 -8.32%2c-27.11 l -0.47%2c0.66 c 0%2c0 0.62%2c-1.01 -0.02%2c-1.01 h -9.9 c -0.65%2c0 0%2c1.01 0%2c1.01 z m 15.14%2c39.52 -14.1%2c-39.52 c 0%2c0 8.87%2c0 8.87%2c0 0%2c0 9.14%2c29.8 9.14%2c29.8 l 9.15%2c-29.8 c 0%2c0 9.14%2c0 9.14%2c0 l -14.09%2c39.52 z m -15.14%2c-39.52 -0.12%2c-0.33 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip25'%3e%3cpath id='path23973' d='m 1264.7%2c1067.18 h 10.85 l -0.04%2c-0.54 c -0.58%2c-7.87 -8.12%2c-14.64 -19.19%2c-14.64 -13.64%2c0 -21.75%2c10.45 -21.75%2c21.76 0%2c11.61 7.82%2c21.77 21.75%2c21.77 11.74%2c0 18.66%2c-6.23 20.52%2c-15.6 0%2c0.01 0.97%2c0.01 1.93%2c0.01 h 1.92 0.02 c 0.1%2c-0.01 0.47%2c-0.09 0.47%2c-0.51 v -7.08 c 0%2c-0.48 -0.49%2c0.5 -0.49%2c0.5 v -1.01 h -20.97 v 1.01 c 0%2c0 -0.49%2c-0.5 -0.49%2c-0.5 v 7.08 c 0%2c0.48 0.49%2c0.51 0.49%2c0.51 h 6.5 c -0.76%2c3.75 -3.94%2c6.64 -9.06%2c6.64 -3.27%2c0 -5.84%2c-0.95 -7.75%2c-2.54 -2.87%2c-2.38 -4.23%2c-6.18 -4.23%2c-10.28 0%2c-6.53 3.79%2c-12.81 11.14%2c-12.81 4.53%2c0 7.77%2c2.89 8.3%2c5.82 z m 9.78%2c-1.01 h -8.99 c -0.81%2c-3.16 -4.29%2c-6.24 -9.17%2c-6.24 -7.96%2c0 -12.12%2c6.76 -12.12%2c13.83 0%2c4.42 1.5%2c8.5 4.6%2c11.07 2.06%2c1.72 4.83%2c2.76 8.36%2c2.76 5.97%2c0 9.53%2c-3.61 10.13%2c-8.09 l -0.49%2c0.44 c 0%2c0 0.63%2c-1.01 -0.02%2c-1.01 h -6.57 v -6.08 h 19.99 v 6.08 h -3.7 c -0.64%2c0 -0.06%2c1.01 -0.06%2c1.01 h -0.59 l 0.11%2c-0.6 c -1.66%2c9.12 -8.31%2c15.18 -19.64%2c15.18 -13.29%2c0 -20.78%2c-9.68 -20.78%2c-20.76 0%2c-10.79 7.76%2c-20.75 20.78%2c-20.75 10.2%2c0 17.31%2c5.97 18.16%2c13.16 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip27'%3e%3cpath id='path23979' d='m 1307.42%2c1053.86 v 23.97 l -13.83%2c-24.73 -0.36%2c0.64 c 0.14%2c-0.27 0.42%2c-0.89 -0.09%2c-0.89 h -9.89 c -0.65%2c0 -0.01%2c1.01 -0.01%2c1.01 h -0.48 v 40.54 h 10.33 v -24.72 c 0%2c0 13.97%2c24.72 13.97%2c24.72 h 10.69 v -41.05 l -0.49%2c0.51 c 0%2c0 0.62%2c-1.01 -0.02%2c-1.01 h -9.33 c -0.65%2c0 0%2c1.01 0%2c1.01 z m -23.69%2c39.52 v -39.52 c 0%2c0 9.15%2c0 9.15%2c0 0%2c0 14.6%2c26.11 14.6%2c26.11 l 0.91%2c1.63 v -27.74 c 0%2c0 8.38%2c0 8.38%2c0 0%2c0 0%2c33.25 0%2c39.52 h -9.15 l -15.51%2c-27.44 v 27.44 z m -0.97%2c-39.52 c 0%2c0 0%2c-0.51 0%2c-0.51 z m 24.66%2c0 v -0.51 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip29'%3e%3cpath id='path23981' d='m 1324.42%2c1094.68 h 15.52 0.16 c 13.83%2c-0.08 21.59%2c-10.22 21.59%2c-20.92 0%2c-10.73 -7.82%2c-20.91 -21.75%2c-20.91 v 0.28 c -0.02%2c0 -0.03%2c0 -0.04%2c0 h -14.98 c -0.65%2c0 -0.01%2c1.01 -0.01%2c1.01 h -0.49 v -0.5 z m 15.95%2c-40.81 c 13.01%2c0.21 20.34%2c9.77 20.34%2c19.89 0%2c10.24 -7.49%2c19.91 -20.77%2c19.91 v 0 c -0.02%2c0 -0.03%2c0 -0.04%2c0 h -14.5 v -39.53 c 0%2c0 14.54%2c0 14.54%2c0 0%2c0 0.31%2c-0.02 0.43%2c-0.27 z m -6.31%2c7.93 v 24.38 h 5.59 l 0.19%2c-0.01 c 7.85%2c-0.09 12.21%2c-6.25 12.21%2c-12.69 0%2c-6.49 -4.72%2c-12.7 -12.4%2c-12.7 v 0 h -5.03 c -0.63%2c0 -0.07%2c1.02 -0.07%2c1.02 z m 5.59%2c23.36 h -4.61 v -23.36 h 4.61 c 7.07%2c0 11.42%2c5.7 11.42%2c11.68 0%2c5.98 -4.08%2c11.68 -11.42%2c11.68 z' /%3e%3c/clipPath%3e%3cclipPath id='_clip31'%3e%3cpath id='path24303' d='M 41.797%2c1012.94 H -0.979 v 55.44 c 0%2c30.98 17.776%2c57.96 41.302%2c72.31 l 1.474%2c0.9 z m -40.818%2c2.03 H 39.84 c 0%2c0 0%2c123.04 0%2c123.04 C 17.615%2c1123.8 0.979%2c1097.97 0.979%2c1068.38 Z' /%3e%3c/clipPath%3e%3cclipPath id='_clip33'%3e%3cpath id='path24305' d='m 1369.86%2c1012.94 v 128.36 l 1.47%2c-0.9 c 23.53%2c-14.34 41.3%2c-41.32 41.3%2c-72.02 0%2c0 0%2c-55.44 0%2c-55.44 z m 1.95%2c124.79 v -122.76 c 0%2c0 38.86%2c0 38.86%2c0 0%2c0 0%2c53.41 0%2c53.41 0%2c29.32 -16.63%2c55.14 -38.86%2c69.36 z' /%3e%3c/clipPath%3e%3clinearGradient id='_Linear35' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-0.630291%2c37.1875%2c-37.1875%2c-0.630291%2c-419.105%2c418.619)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c255%2c0)%3bstop-opacity:0' id='stop2281' /%3e%3cstop offset='0.55' style='stop-color:rgb(255%2c221%2c85)%3bstop-opacity:1' id='stop2283' /%3e%3cstop offset='1' style='stop-color:rgb(255%2c221%2c85)%3bstop-opacity:0' id='stop2285' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear36' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c419.105)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c255%2c0)%3bstop-opacity:0' id='stop2288' /%3e%3cstop offset='0.55' style='stop-color:rgb(255%2c221%2c85)%3bstop-opacity:1' id='stop2290' /%3e%3cstop offset='1' style='stop-color:rgb(255%2c221%2c85)%3bstop-opacity:0' id='stop2292' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear42' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)'%3e%3cstop offset='0' style='stop-color:rgb(128%2c128%2c128)%3bstop-opacity:1' id='stop2330' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2332' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear44' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)'%3e%3cstop offset='0' style='stop-color:rgb(128%2c128%2c128)%3bstop-opacity:1' id='stop2336' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2338' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear45' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)'%3e%3cstop offset='0' style='stop-color:rgb(128%2c128%2c128)%3bstop-opacity:1' id='stop2341' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2343' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear46' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)'%3e%3cstop offset='0' style='stop-color:rgb(128%2c128%2c128)%3bstop-opacity:1' id='stop2346' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2348' /%3e%3c/linearGradient%3e%3cradialGradient id='_Radial47' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2351' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2353' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial48' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2356' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2358' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2360' /%3e%3c/radialGradient%3e%3clinearGradient id='_Linear50' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)'%3e%3cstop offset='0' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:1' id='stop2364' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2366' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear51' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)'%3e%3cstop offset='0' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:1' id='stop2369' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2371' /%3e%3c/linearGradient%3e%3cradialGradient id='_Radial57' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2395' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2397' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial58' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2400' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2402' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2404' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial65' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2437' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2439' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial66' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2442' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2444' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2446' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial73' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2479' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2481' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial74' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2484' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2486' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2488' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial81' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2521' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2523' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial82' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2526' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2528' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2530' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial89' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2563' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2565' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial90' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2568' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2570' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2572' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial97' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2605' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2607' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial98' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2610' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2612' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2614' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial105' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2647' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2649' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial106' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2652' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2654' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2656' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial113' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2689' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2691' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial114' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2694' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2696' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2698' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial121' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2731' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2733' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial122' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2736' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2738' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2740' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial129' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2773' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2775' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial130' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2778' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2780' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2782' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial137' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2815' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2817' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial138' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2820' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2822' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2824' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial145' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2857' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2859' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial146' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2862' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2864' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2866' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial153' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2899' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2901' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial154' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2904' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2906' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2908' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial161' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2941' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2943' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial162' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2946' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2948' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2950' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial169' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop2983' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop2985' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial170' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop2988' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop2990' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop2992' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial177' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3025' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3027' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial178' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3030' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3032' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3034' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial185' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3067' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3069' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial186' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3072' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3074' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3076' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial193' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3109' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3111' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial194' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3114' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3116' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3118' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial201' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3151' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3153' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial202' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3156' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3158' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3160' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial209' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3193' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3195' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial210' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3198' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3200' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3202' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial217' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3235' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3237' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial218' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3240' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3242' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3244' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial225' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3277' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3279' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial226' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3282' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3284' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3286' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial233' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3319' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3321' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial234' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3324' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3326' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3328' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial241' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-13.7525%2c-13.3081%2c12.5963%2c-13.205%2c-800.638%2c-1853.57)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3361' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3363' /%3e%3c/radialGradient%3e%3cradialGradient id='_Radial242' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-31.4592%2c4.35394e-6%2c-3.02828e-6%2c-26.6266%2c688.739%2c-1858.25)'%3e%3cstop offset='0' style='stop-color:white%3bstop-opacity:0.7' id='stop3366' /%3e%3cstop offset='0.69' style='stop-color:rgb(173%2c173%2c173)%3bstop-opacity:0.42' id='stop3368' /%3e%3cstop offset='1' style='stop-color:rgb(51%2c51%2c51)%3bstop-opacity:0' id='stop3370' /%3e%3c/radialGradient%3e%3clinearGradient id='_Linear245' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)'%3e%3cstop offset='0' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop3383' /%3e%3cstop offset='1' style='stop-color:rgb(211%2c177%2c44)%3bstop-opacity:1' id='stop3385' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear246' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop3388' /%3e%3cstop offset='1' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop3390' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear283' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c526.308)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c255%2c0)%3bstop-opacity:0' id='stop3573' /%3e%3cstop offset='0.55' style='stop-color:rgb(255%2c221%2c85)%3bstop-opacity:1' id='stop3575' /%3e%3cstop offset='1' style='stop-color:rgb(255%2c221%2c85)%3bstop-opacity:0' id='stop3577' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear284' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-4.57863%2c-113.553%2c113.553%2c-4.57863%2c69.9172%2c120.356)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop3580' /%3e%3cstop offset='1' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop3582' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear285' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(18.0628%2c19.1844%2c-19.1844%2c18.0628%2c81.7664%2c33.3235)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop3585' /%3e%3cstop offset='1' style='stop-color:rgb(254%2c211%2c42)%3bstop-opacity:1' id='stop3587' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear287' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(15.4065%2c25.6776%2c-25.6776%2c15.4065%2c29.9975%2c31.8478)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop3595' /%3e%3cstop offset='1' style='stop-color:rgb(254%2c211%2c42)%3bstop-opacity:1' id='stop3597' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear288' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-9.0058%2c-103.813%2c103.813%2c-9.0058%2c69.9172%2c120.356)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop3600' /%3e%3cstop offset='1' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop3602' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear289' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(102.194%2c27.7436%2c-27.7436%2c102.194%2c14.6841%2c38.9312)'%3e%3cstop offset='0' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop3605' /%3e%3cstop offset='1' style='stop-color:rgb(211%2c177%2c44)%3bstop-opacity:1' id='stop3607' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear290' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-2.64645%2c-65.6335%2c65.6335%2c-2.64645%2c361.17%2c163.798)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop3610' /%3e%3cstop offset='1' style='stop-color:rgb(212%2c170%2c0)%3bstop-opacity:1' id='stop3612' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear291' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(10.4403%2c11.0886%2c-11.0886%2c10.4403%2c368.019%2c113.493)'%3e%3cstop offset='0' style='stop-color:rgb(255%2c230%2c128)%3bstop-opacity:1' id='stop3615' /%3e%3cstop offset='1' style='stop-color:rgb(254%2c211%2c42)%3bstop-opacity:1' id='stop3617' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear292' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-0.0351496%2c-1.47321%2c1.47321%2c-0.0351496%2c627.388%2c244.72)'%3e%3cstop offset='0' style='stop-color:rgb(153%2c153%2c153)%3bstop-opacity:1' id='stop3620' /%3e%3cstop offset='1' style='stop-color:rgb(102%2c102%2c102)%3bstop-opacity:1' id='stop3622' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear293' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3625' /%3e%3cstop offset='1' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:0' id='stop3627' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear297' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0%2c-1.6071%2c1.6071%2c0%2c278.781%2c-654.943)'%3e%3cstop offset='0' style='stop-color:rgb(204%2c204%2c204)%3bstop-opacity:1' id='stop3645' /%3e%3cstop offset='1' style='stop-color:rgb(153%2c153%2c153)%3bstop-opacity:1' id='stop3647' /%3e%3c/linearGradient%3e%3clinearGradient id='_Linear298' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(52.7025%2c39.7776%2c-39.7776%2c52.7025%2c248.074%2c612.028)'%3e%3cstop offset='0' style='stop-color:rgb(128%2c128%2c128)%3bstop-opacity:1' id='stop3650' /%3e%3cstop offset='1' style='stop-color:rgb(140%2c140%2c140)%3bstop-opacity:1' id='stop3652' /%3e%3c/linearGradient%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0.968404%2c-222.261%2c222.261%2c0.968404%2c275.27%2c1681.54)' gradientUnits='userSpaceOnUse' id='linearGradient25256' xlink:href='%23_Linear5' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-43.5934%2c39.4616%2c-39.4616%2c-43.5934%2c1032.84%2c-2481.1)' gradientUnits='userSpaceOnUse' id='linearGradient25258' xlink:href='%23_Linear6' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0.968404%2c-222.261%2c222.261%2c0.968404%2c275.27%2c1681.54)' gradientUnits='userSpaceOnUse' id='linearGradient25260' xlink:href='%23_Linear5' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-43.5934%2c39.4616%2c-39.4616%2c-43.5934%2c1032.84%2c-2481.1)' gradientUnits='userSpaceOnUse' id='linearGradient25262' xlink:href='%23_Linear6' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0.968404%2c-222.261%2c222.261%2c0.968404%2c275.27%2c1681.54)' gradientUnits='userSpaceOnUse' id='linearGradient25264' xlink:href='%23_Linear5' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-43.5934%2c39.4616%2c-39.4616%2c-43.5934%2c1032.84%2c-2481.1)' gradientUnits='userSpaceOnUse' id='linearGradient25266' xlink:href='%23_Linear6' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0.968404%2c-222.261%2c222.261%2c0.968404%2c275.27%2c1681.54)' gradientUnits='userSpaceOnUse' id='linearGradient25268' xlink:href='%23_Linear5' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-43.5934%2c39.4616%2c-39.4616%2c-43.5934%2c1032.84%2c-2481.1)' gradientUnits='userSpaceOnUse' id='linearGradient25270' xlink:href='%23_Linear6' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c419.105)' gradientUnits='userSpaceOnUse' id='linearGradient25272' xlink:href='%23_Linear36' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c419.105)' gradientUnits='userSpaceOnUse' id='linearGradient25274' xlink:href='%23_Linear36' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c419.105)' gradientUnits='userSpaceOnUse' id='linearGradient25276' xlink:href='%23_Linear36' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c419.105)' gradientUnits='userSpaceOnUse' id='linearGradient25278' xlink:href='%23_Linear36' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c419.105)' gradientUnits='userSpaceOnUse' id='linearGradient25280' xlink:href='%23_Linear36' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(37.1875%2c0.630291%2c-0.630291%2c37.1875%2c418.619%2c419.105)' gradientUnits='userSpaceOnUse' id='linearGradient25282' xlink:href='%23_Linear36' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25284' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25286' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25288' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25290' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25292' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25294' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25296' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25298' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25300' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25302' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25304' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25306' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25308' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25310' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25312' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25314' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25316' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25318' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25320' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25322' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25324' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25326' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25328' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25330' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25332' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25334' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25336' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25338' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25340' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25342' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25344' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25346' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25348' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25350' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25352' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25354' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25356' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25358' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25360' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25362' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25364' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25366' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25368' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25370' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25372' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25374' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25376' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25378' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25380' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25382' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25384' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25386' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25388' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25390' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25392' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25394' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25396' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25398' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25400' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25402' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25404' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25406' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25408' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25410' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25412' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25414' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25416' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25418' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25420' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25422' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25424' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25426' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25428' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25430' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25432' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25434' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25436' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25438' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25440' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25442' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25444' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25446' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25448' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25450' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25452' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25454' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25456' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25458' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25460' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25462' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25464' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25466' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25468' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25470' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25472' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25474' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25476' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25478' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25480' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25482' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25484' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25486' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25488' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25490' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25492' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25494' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25496' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25498' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25500' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25502' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25504' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25506' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25508' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25510' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25512' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25514' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25516' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25518' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25520' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25522' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25524' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25526' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25528' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25530' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25532' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25534' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25536' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25538' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25540' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25542' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25544' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25546' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25548' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25550' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25552' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25554' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25556' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25558' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25560' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25562' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25564' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25566' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25568' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25570' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(127.547%2c33.716%2c-33.716%2c127.547%2c679.481%2c1846.4)' gradientUnits='userSpaceOnUse' id='linearGradient25572' xlink:href='%23_Linear42' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-25.8869%2c0%2c0%2c-25.8869%2c701.405%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25574' xlink:href='%23_Linear44' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.6377%2c0%2c0%2c-28.6377%2c701.334%2c1863.49)' gradientUnits='userSpaceOnUse' id='linearGradient25576' xlink:href='%23_Linear45' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-28.867%2c0%2c0%2c-28.867%2c-787.593%2c-1850.9)' gradientUnits='userSpaceOnUse' id='linearGradient25578' xlink:href='%23_Linear46' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c698.248%2c1857.21)' gradientUnits='userSpaceOnUse' id='linearGradient25580' xlink:href='%23_Linear50' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-15.2653%2c0%2c0%2c-15.2653%2c-791.141%2c-1857.01)' gradientUnits='userSpaceOnUse' id='linearGradient25582' xlink:href='%23_Linear51' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25584' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25586' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25588' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25590' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25592' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25594' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25596' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25598' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25600' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25602' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25604' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25606' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25608' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25610' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25612' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25614' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25616' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25618' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25620' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25622' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25624' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25626' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25628' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25630' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25632' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25634' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25636' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25638' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25640' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25642' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25644' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25646' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25648' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25650' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25652' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25654' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-51.6668%2c51.6668%2c0%2c-606.286%2c486.755)' gradientUnits='userSpaceOnUse' id='linearGradient25656' xlink:href='%23_Linear245' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(10.4409%2c11.5341%2c-11.5341%2c10.4409%2c-614.713%2c432.795)' gradientUnits='userSpaceOnUse' id='linearGradient25658' xlink:href='%23_Linear246' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-4.57863%2c-113.553%2c113.553%2c-4.57863%2c69.9172%2c120.356)' gradientUnits='userSpaceOnUse' id='linearGradient25660' xlink:href='%23_Linear284' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-4.57863%2c-113.553%2c113.553%2c-4.57863%2c69.9172%2c120.356)' gradientUnits='userSpaceOnUse' id='linearGradient25662' xlink:href='%23_Linear284' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-0.0351496%2c-1.47321%2c1.47321%2c-0.0351496%2c627.388%2c244.72)' gradientUnits='userSpaceOnUse' id='linearGradient25664' xlink:href='%23_Linear292' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25666' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25668' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25670' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25672' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-1.6071%2c1.6071%2c0%2c278.781%2c-654.943)' gradientUnits='userSpaceOnUse' id='linearGradient25674' xlink:href='%23_Linear297' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(52.7025%2c39.7776%2c-39.7776%2c52.7025%2c248.074%2c612.028)' gradientUnits='userSpaceOnUse' id='linearGradient25676' xlink:href='%23_Linear298' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(-0.0351496%2c-1.47321%2c1.47321%2c-0.0351496%2c627.388%2c244.72)' gradientUnits='userSpaceOnUse' id='linearGradient25678' xlink:href='%23_Linear292' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25680' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25682' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25684' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c4.12243%2c-4.12243%2c0%2c1386.36%2c717.021)' gradientUnits='userSpaceOnUse' id='linearGradient25686' xlink:href='%23_Linear293' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(0%2c-1.6071%2c1.6071%2c0%2c278.781%2c-654.943)' gradientUnits='userSpaceOnUse' id='linearGradient25688' xlink:href='%23_Linear297' /%3e%3clinearGradient y2='0' x2='1' y1='0' x1='0' gradientTransform='matrix(52.7025%2c39.7776%2c-39.7776%2c52.7025%2c248.074%2c612.028)' gradientUnits='userSpaceOnUse' id='linearGradient25690' xlink:href='%23_Linear298' /%3e%3c/defs%3e%3cg id='g26688'%3e%3cg transform='translate(32.09044%2c-0.45238915)' id='g27657'%3e%3cg style='clip-rule:evenodd%3bfill-rule:evenodd' transform='matrix(0.152098%2c0%2c0%2c0.152098%2c-51.419792%2c-5.0184928)' id='g2198'%3e%3cg id='path21916-2' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c132.547%2c66.888)'%3e%3cpath d='m 57.183%2c19.519 c -19.125%2c0 -34.664%2c14.987 -34.664%2c33.432 v 358.628 c 0%2c15.17 10.515%2c27.993 24.888%2c32.071 0.147%2c-0.225 0.278%2c-0.46 0.375%2c-0.713 1.37%2c-3.899 5.065%2c-6.685 9.444%2c-6.685 h 17.676 c 4.378%2c0 8.161%2c2.786 9.532%2c6.685 0.342%2c0.899 1.011%2c1.636 1.858%2c2.074 h 67.016 c 0.859%2c-0.438 1.542%2c-1.175 1.885%2c-2.074 1.37%2c-3.899 5.065%2c-6.685 9.444%2c-6.685 h 17.675 c 4.378%2c0 8.162%2c2.786 9.533%2c6.685 0.342%2c0.898 1.008%2c1.635 1.854%2c2.074 h 78.361 c 1.058%2c-0.392 1.915%2c-1.212 2.313%2c-2.256 1.37%2c-3.899 5.065%2c-6.684 9.443%2c-6.684 h 17.675 c 4.378%2c0 8.163%2c2.786 9.533%2c6.684 0.398%2c1.044 1.235%2c1.864 2.281%2c2.256 h 79.667 c 0.859%2c-0.438 1.541%2c-1.175 1.884%2c-2.074 1.37%2c-3.899 5.065%2c-6.685 9.444%2c-6.685 h 17.675 c 4.378%2c0 8.162%2c2.786 9.533%2c6.685 0.342%2c0.898 1.008%2c1.635 1.854%2c2.074 h 66.623 c 0.859%2c-0.438 1.542%2c-1.175 1.885%2c-2.074 1.37%2c-3.899 5.065%2c-6.685 9.444%2c-6.685 h 17.675 c 4.378%2c0 8.162%2c2.786 9.533%2c6.685 0.093%2c0.243 0.217%2c0.47 0.354%2c0.688 14.326%2c-4.106 24.796%2c-16.908 24.796%2c-32.046 V 52.951 c 0%2c-18.445 -15.431%2c-33.432 -34.556%2c-33.432 z M 38.166%2c226.081 c 2.934%2c0 5.217%2c2.305 5.217%2c5.03 0%2c2.83 -2.283%2c5.032 -5.217%2c5.032 -2.933%2c0 -5.214%2c-2.307 -5.214%2c-5.032 0%2c-2.829 2.389%2c-5.03 5.214%2c-5.03 z m 512.684%2c0 c 2.934%2c0 5.216%2c2.305 5.216%2c5.03 0.109%2c2.83 -2.282%2c5.032 -5.216%2c5.032 -2.934%2c0 -5.216%2c-2.307 -5.216%2c-5.032 0%2c-2.829 2.391%2c-5.03 5.216%2c-5.03 z M 66.416%2c355.141 c 4.121%2c0.063 8.212%2c1.346 11.622%2c3.668 11.618%2c7.315 12.309%2c25.875 1.273%2c34.039 -10.421%2c8.929 -28.363%2c4.112 -32.892%2c-8.848 -5.475%2c-12.609 4.489%2c-28.362 18.232%2c-28.811 0.588%2c-0.041 1.176%2c-0.057 1.765%2c-0.048 z m 107.685%2c0.694 c 4.121%2c0.068 8.201%2c1.343 11.615%2c3.667 11.612%2c7.314 12.316%2c25.88 1.273%2c34.037 -10.421%2c8.944 -28.365%2c4.111 -32.898%2c-8.846 -5.459%2c-12.616 4.498%2c-28.354 18.242%2c-28.812 0.589%2c-0.04 1.179%2c-0.055 1.768%2c-0.046 z m 119.464%2c0 c 4.121%2c0.068 8.2%2c1.343 11.615%2c3.667 11.613%2c7.315 12.314%2c25.878 1.273%2c34.037 -10.421%2c8.943 -28.365%2c4.112 -32.896%2c-8.846 -5.465%2c-12.618 4.497%2c-28.355 18.241%2c-28.812 0.589%2c-0.04 1.178%2c-0.055 1.767%2c-0.046 z m 120.268%2c0 c 4.121%2c0.068 8.2%2c1.343 11.615%2c3.667 11.613%2c7.315 12.314%2c25.878 1.273%2c34.037 -10.421%2c8.944 -28.365%2c4.111 -32.898%2c-8.846 -5.461%2c-12.618 4.499%2c-28.353 18.243%2c-28.812 0.589%2c-0.04 1.178%2c-0.055 1.767%2c-0.046 z m 106.066%2c0.806 c 4.121%2c0.063 8.211%2c1.348 11.621%2c3.67 11.617%2c7.314 12.309%2c25.873 1.273%2c34.037 -10.421%2c8.929 -28.363%2c4.114 -32.892%2c-8.847 -5.476%2c-12.608 4.489%2c-28.363 18.232%2c-28.812 0.588%2c-0.041 1.178%2c-0.057 1.766%2c-0.048 z' style='fill:%231a1a1a%3bfill-rule:nonzero' id='path864' /%3e%3c/g%3e%3cg transform='matrix(0%2c0.436995%2c-0.436995%2c0%2c441.095%2c48.646)' id='g1994'%3e%3cg id='g15278'%3e%3cg id='g15018'%3e%3cg id='path21916' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 216.125%2c73.773 c -72.284%2c0 -131.014%2c56.644 -131.014%2c126.357 v 1355.44 c 0%2c57.34 39.743%2c105.8 94.064%2c121.22 0.556%2c-0.85 1.052%2c-1.74 1.417%2c-2.7 5.179%2c-14.73 19.144%2c-25.26 35.694%2c-25.26 h 66.808 c 16.547%2c0 30.845%2c10.53 36.025%2c25.26 1.296%2c3.4 3.823%2c6.18 7.026%2c7.84 H 579.43 c 3.247%2c-1.65 5.83%2c-4.44 7.126%2c-7.84 5.178%2c-14.73 19.143%2c-25.26 35.693%2c-25.26 h 66.802 c 16.548%2c0 30.851%2c10.53 36.031%2c25.26 1.295%2c3.4 3.812%2c6.18 7.01%2c7.84 h 296.168 c 4%2c-1.48 7.24%2c-4.58 8.74%2c-8.53 5.18%2c-14.73 19.14%2c-25.26 35.69%2c-25.26 h 66.8 c 16.55%2c0 30.86%2c10.53 36.04%2c25.26 1.5%2c3.95 4.66%2c7.05 8.62%2c8.53 h 301.1 c 3.25%2c-1.66 5.82%2c-4.44 7.12%2c-7.84 5.18%2c-14.73 19.14%2c-25.26 35.69%2c-25.26 h 66.81 c 16.54%2c0 30.85%2c10.53 36.03%2c25.26 1.29%2c3.4 3.81%2c6.18 7%2c7.84 h 251.81 c 3.24%2c-1.65 5.83%2c-4.44 7.12%2c-7.84 5.18%2c-14.73 19.15%2c-25.26 35.7%2c-25.26 h 66.8 c 16.55%2c0 30.85%2c10.53 36.03%2c25.26 0.35%2c0.92 0.82%2c1.78 1.34%2c2.6 54.14%2c-15.52 93.71%2c-63.9 93.71%2c-121.12 V 200.13 c 0%2c-69.713 -58.32%2c-126.357 -130.6%2c-126.357 z M 144.251%2c854.48 c 11.089%2c0 19.716%2c8.713 19.716%2c19.012 0%2c10.694 -8.627%2c19.017 -19.716%2c19.017 -11.089%2c0 -19.709%2c-8.719 -19.709%2c-19.017 0%2c-10.695 9.031%2c-19.012 19.709%2c-19.012 z m 1937.699%2c0 c 11.09%2c0 19.72%2c8.713 19.72%2c19.012 0.41%2c10.694 -8.63%2c19.017 -19.72%2c19.017 -11.09%2c0 -19.71%2c-8.719 -19.71%2c-19.017 0%2c-10.695 9.04%2c-19.012 19.71%2c-19.012 z M 251.021%2c1342.27 c 15.575%2c0.23 31.037%2c5.08 43.926%2c13.86 43.912%2c27.64 46.523%2c97.79 4.811%2c128.65 -39.388%2c33.75 -107.2%2c15.54 -124.314%2c-33.44 -20.694%2c-47.66 16.964%2c-107.2 68.906%2c-108.89 2.222%2c-0.16 4.446%2c-0.22 6.671%2c-0.18 z m 406.999%2c2.62 c 15.576%2c0.25 30.994%2c5.07 43.898%2c13.86 43.89%2c27.64 46.55%2c97.81 4.811%2c128.64 -39.386%2c33.81 -107.205%2c15.54 -124.337%2c-33.43 -20.632%2c-47.68 16.999%2c-107.17 68.945%2c-108.9 2.225%2c-0.15 4.458%2c-0.21 6.683%2c-0.17 z m 451.52%2c0 c 15.57%2c0.25 30.99%2c5.07 43.89%2c13.86 43.9%2c27.65 46.55%2c97.8 4.82%2c128.64 -39.39%2c33.8 -107.21%2c15.54 -124.34%2c-33.43 -20.65%2c-47.69 17%2c-107.17 68.95%2c-108.9 2.23%2c-0.15 4.45%2c-0.21 6.68%2c-0.17 z m 454.55%2c0 c 15.58%2c0.25 31%2c5.07 43.9%2c13.86 43.9%2c27.65 46.55%2c97.8 4.81%2c128.64 -39.38%2c33.81 -107.2%2c15.54 -124.33%2c-33.43 -20.65%2c-47.69 17%2c-107.16 68.95%2c-108.9 2.22%2c-0.15 4.45%2c-0.21 6.67%2c-0.17 z m 400.88%2c3.04 c 15.58%2c0.24 31.04%2c5.1 43.92%2c13.87 43.91%2c27.65 46.53%2c97.79 4.82%2c128.65 -39.39%2c33.75 -107.2%2c15.55 -124.32%2c-33.44 -20.7%2c-47.65 16.97%2c-107.2 68.91%2c-108.89 2.22%2c-0.16 4.45%2c-0.22 6.67%2c-0.19 z' style='fill:%231a1a1a%3bfill-rule:nonzero' id='path867' /%3e%3c/g%3e%3cg id='circle9997' transform='rotate(-90)'%3e%3ccircle cx='-639.56403' cy='418.59601' r='20.357' style='fill:none%3bstroke:black%3bstroke-width:0.85px' id='circle870' /%3e%3c/g%3e%3cg id='circle9999' transform='rotate(-90)'%3e%3ccircle cx='-531.88599' cy='419.293' r='20.357' style='fill:none%3bstroke:black%3bstroke-width:0.85px' id='circle873' /%3e%3c/g%3e%3cg id='circle10001' transform='rotate(-90)'%3e%3ccircle cx='-412.42099' cy='419.293' r='20.357' style='fill:none%3bstroke:black%3bstroke-width:0.85px' id='circle876' /%3e%3c/g%3e%3cg id='circle10003' transform='rotate(-90)'%3e%3ccircle cx='-292.15302' cy='419.293' r='20.357' style='fill:none%3bstroke:black%3bstroke-width:0.85px' id='circle879' /%3e%3c/g%3e%3cg id='circle10005' transform='rotate(-90)'%3e%3ccircle cx='-186.082' cy='420.09601' r='20.357' style='fill:none%3bstroke:black%3bstroke-width:0.85px' id='circle882' /%3e%3c/g%3e%3cpath id='path21922' d='m 436.136%2c683.764 h 20.122 c 11.318%2c0 21.17%2c-6.737 26.41%2c-15.647 h -46.532 z' style='fill:%23c8ab37%3bfill-rule:nonzero' /%3e%3cpath id='path21924' d='m 482.563%2c158.259 c -5.24%2c-8.91 -15.091%2c-15.648 -26.305%2c-15.648 h -20.122 v 15.648 z' style='fill:%23c8ab37%3bfill-rule:nonzero' /%3e%3cg id='rect21926' transform='rotate(-90)'%3e%3crect x='-611.28497' y='435.08801' width='9.9969997' height='51.667' style='fill:%23c8ab37' id='rect887' /%3e%3c/g%3e%3cg id='path21962' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 655.584%2c1330.6 c -52.57%2c0 -90.771%2c40.79 -94.878%2c91.49 v 259.84 h 18.724 c 3.247%2c-1.65 5.83%2c-4.44 7.126%2c-7.84 5.178%2c-14.73 19.143%2c-25.26 35.693%2c-25.26 h 66.802 c 16.548%2c0 30.851%2c10.53 36.031%2c25.26 1.295%2c3.4 3.812%2c6.18 7.01%2c7.84 h 18.364 v -259.84 c 0%2c-50.3 -42.302%2c-91.49 -94.872%2c-91.49 z m 0.819%2c16.63 c 43.946%2c0 79.265%2c34.46 79.265%2c76.44 0%2c42.39 -35.319%2c76.45 -79.265%2c76.45 -43.945%2c0 -79.265%2c-34.06 -79.265%2c-76.45 0%2c-42.38 35.32%2c-76.44 79.265%2c-76.44 z' style='fill:%23c8ab37%3bfill-rule:nonzero' id='path890' /%3e%3c/g%3e%3cg id='path21964' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 1106.95%2c1330.6 c -52.57%2c0 -90.77%2c40.79 -94.88%2c91.49 v 259.84 h 18.05 c 3.25%2c-1.65 5.83%2c-4.44 7.13%2c-7.84 5.18%2c-14.73 19.14%2c-25.26 35.69%2c-25.26 h 66.8 c 16.55%2c0 30.85%2c10.53 36.03%2c25.26 1.3%2c3.4 3.82%2c6.18 7.01%2c7.84 h 19.04 v -259.84 c 0%2c-50.3 -42.3%2c-91.49 -94.87%2c-91.49 z m 1.64%2c16.63 c 43.94%2c0 79.27%2c34.46 79.27%2c76.44 0%2c42.39 -35.33%2c76.45 -79.27%2c76.45 -43.95%2c0 -79.27%2c-34.06 -79.27%2c-76.45 0%2c-42.38 35.32%2c-76.44 79.27%2c-76.44 z' style='fill:%23c8ab37%3bfill-rule:nonzero' id='path893' /%3e%3c/g%3e%3cg id='path21966' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 1562.42%2c1330.6 c -52.57%2c0 -90.77%2c40.79 -94.88%2c91.49 v 259.84 h 17.7 c 3.25%2c-1.65 5.83%2c-4.44 7.13%2c-7.84 5.18%2c-14.73 19.14%2c-25.26 35.69%2c-25.26 h 66.81 c 16.54%2c0 30.85%2c10.53 36.03%2c25.26 1.29%2c3.4 3.81%2c6.18 7%2c7.84 h 19.39 v -259.84 c 0%2c-50.3 -42.3%2c-91.49 -94.87%2c-91.49 z m 0.41%2c16.63 c 43.94%2c0 79.26%2c34.46 79.26%2c76.44 0%2c42.39 -35.32%2c76.45 -79.26%2c76.45 -43.95%2c0 -79.27%2c-34.06 -79.27%2c-76.45 0%2c-42.38 35.32%2c-76.44 79.27%2c-76.44 z' style='fill:%23c8ab37%3bfill-rule:nonzero' id='path896' /%3e%3c/g%3e%3cg id='path21968' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 1965.31%2c1331.78 c -53.39%2c0 -96.92%2c41.99 -96.92%2c93.48 v 256.67 h 21.32 c 3.24%2c-1.65 5.83%2c-4.44 7.12%2c-7.84 5.18%2c-14.73 19.15%2c-25.26 35.7%2c-25.26 h 66.8 c 16.55%2c0 30.85%2c10.53 36.03%2c25.26 0.66%2c1.73 1.66%2c3.27 2.87%2c4.61 8%2c-1.81 15.96%2c-4.32 24.01%2c-7.46 v -245.59 c 0%2c-52.28 -43.54%2c-93.87 -96.93%2c-93.87 z m -0.82%2c18.62 c 43.95%2c0 79.27%2c34.46 79.27%2c76.45 0%2c41.98 -35.73%2c76.44 -79.27%2c76.44 -43.94%2c0 -79.26%2c-34.06 -79.26%2c-76.44 0%2c-42.39 35.32%2c-76.45 79.26%2c-76.45 z' style='fill:%23c8ab37%3bfill-rule:nonzero' id='path899' /%3e%3c/g%3e%3cg id='g23709' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cpath id='path23711' d='m 0%2c1013.95 v 54.43 c 0%2c30.61 17.575%2c57.26 40.819%2c71.43 v -125.86 z' style='fill:url(%23_Radial2)%3bfill-rule:nonzero%3bstroke:%23d4aa00%3bstroke-width:1.99px' /%3e%3cpath id='path23713' d='m 1370.84%2c1139.53 c 23.24%2c-14.18 40.81%2c-40.82 40.81%2c-71.15 v -54.43 h -40.81 z' style='fill:url(%23_Radial3)%3bfill-rule:nonzero%3bstroke:%23d4aa00%3bstroke-width:1.99px' /%3e%3c/g%3e%3cg id='rect23715' transform='rotate(-90)'%3e%3crect x='-611.28497' y='435.08801' width='9.9969997' height='51.667' style='fill:url(%23_Radial4)%3bstroke:%23d4aa00%3bstroke-width:0.75px' id='rect905' /%3e%3c/g%3e%3cg id='path23751' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 655.584%2c1330.6 c -52.57%2c0 -90.771%2c40.79 -94.878%2c91.49 v 259.84 h 18.724 c 3.247%2c-1.65 5.83%2c-4.44 7.126%2c-7.84 5.178%2c-14.73 19.143%2c-25.26 35.693%2c-25.26 h 66.802 c 16.548%2c0 30.851%2c10.53 36.031%2c25.26 1.296%2c3.4 3.818%2c6.18 7.021%2c7.84 h 18.353 v -259.84 c 0%2c-50.3 -42.302%2c-91.49 -94.872%2c-91.49 z m 0.819%2c16.63 c 43.946%2c0 79.265%2c34.46 79.265%2c76.44 0%2c42.39 -35.319%2c76.45 -79.265%2c76.45 -43.945%2c0 -79.265%2c-34.06 -79.265%2c-76.45 0%2c-42.38 35.32%2c-76.44 79.265%2c-76.44 z' style='fill:url(%23linearGradient25256)%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25258)%3bstroke-width:3.21px' id='path908' /%3e%3c/g%3e%3cg id='path23753' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 1106.95%2c1330.6 c -52.57%2c0 -90.77%2c40.79 -94.88%2c91.49 v 259.84 h 18.05 c 3.25%2c-1.66 5.83%2c-4.44 7.13%2c-7.84 5.18%2c-14.73 19.14%2c-25.26 35.69%2c-25.26 h 66.8 c 16.55%2c0 30.85%2c10.53 36.03%2c25.26 1.3%2c3.4 3.82%2c6.18 7.03%2c7.84 h 19.02 v -259.84 c 0%2c-50.3 -42.3%2c-91.49 -94.87%2c-91.49 z m 1.64%2c16.63 c 43.94%2c0 79.27%2c34.46 79.27%2c76.44 0%2c42.39 -35.33%2c76.45 -79.27%2c76.45 -43.95%2c0 -79.27%2c-34.06 -79.27%2c-76.45 0%2c-42.38 35.32%2c-76.44 79.27%2c-76.44 z' style='fill:url(%23linearGradient25260)%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25262)%3bstroke-width:3.21px' id='path911' /%3e%3c/g%3e%3cg id='path23755' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 1562.42%2c1330.6 c -52.57%2c0 -90.77%2c40.79 -94.88%2c91.49 v 259.84 h 17.7 c 0.04%2c-0.02 0.07%2c-0.05 0.11%2c-0.07 0.71%2c-0.37 1.39%2c-0.79 2.03%2c-1.27 0.15%2c-0.11 0.3%2c-0.24 0.45%2c-0.36 0.5%2c-0.4 0.98%2c-0.84 1.42%2c-1.31 0.17%2c-0.17 0.34%2c-0.35 0.5%2c-0.53 0.4%2c-0.46 0.76%2c-0.95 1.1%2c-1.45 0.14%2c-0.21 0.28%2c-0.4 0.41%2c-0.61 0.43%2c-0.71 0.81%2c-1.45 1.11%2c-2.24 5.18%2c-14.73 19.14%2c-25.26 35.69%2c-25.26 h 66.81 c 14.47%2c0 27.23%2c8.06 33.67%2c19.95 0.92%2c1.69 1.71%2c3.47 2.36%2c5.31 0.3%2c0.8 0.69%2c1.56 1.12%2c2.28 0.1%2c0.16 0.21%2c0.31 0.32%2c0.47 0.35%2c0.55 0.73%2c1.07 1.16%2c1.56 0.15%2c0.18 0.31%2c0.35 0.47%2c0.52 0.45%2c0.48 0.93%2c0.93 1.44%2c1.34 0.13%2c0.1 0.25%2c0.21 0.39%2c0.31 0.67%2c0.51 1.37%2c0.97 2.12%2c1.36 h 19.37 v -259.84 c 0%2c-50.3 -42.3%2c-91.49 -94.87%2c-91.49 z m 0.41%2c16.63 c 43.94%2c0 79.26%2c34.46 79.26%2c76.44 0%2c42.39 -35.32%2c76.45 -79.26%2c76.45 -43.95%2c0 -79.27%2c-34.06 -79.27%2c-76.45 0%2c-42.38 35.32%2c-76.44 79.27%2c-76.44 z' style='fill:url(%23linearGradient25264)%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25266)%3bstroke-width:3.21px' id='path914' /%3e%3c/g%3e%3cg id='path23757' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 1965.31%2c1331.78 c -53.39%2c0 -96.92%2c41.99 -96.92%2c93.48 v 256.67 h 21.32 c 3.24%2c-1.65 5.83%2c-4.44 7.12%2c-7.84 5.18%2c-14.73 19.15%2c-25.26 35.7%2c-25.26 h 66.8 c 16.55%2c0 30.85%2c10.53 36.03%2c25.26 0.66%2c1.73 1.66%2c3.27 2.87%2c4.61 8%2c-1.81 15.96%2c-4.32 24.01%2c-7.46 v -245.59 c 0%2c-52.28 -43.54%2c-93.87 -96.93%2c-93.87 z m -0.82%2c18.62 c 43.95%2c0 79.27%2c34.46 79.27%2c76.45 0%2c41.98 -35.73%2c76.44 -79.27%2c76.44 -43.94%2c0 -79.26%2c-34.06 -79.26%2c-76.44 0%2c-42.39 35.32%2c-76.45 79.26%2c-76.45 z' style='fill:url(%23linearGradient25268)%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25270)%3bstroke-width:3.21px' id='path917' /%3e%3c/g%3e%3cg id='path10804' transform='matrix(0%2c-0.264583%2c0.264583%2c0%2c41.7441%2c706.067)'%3e%3cpath d='m 249.687%2c1330.59 c -52.57%2c0 -90.765%2c40.8 -94.872%2c91.5 v 245.13 c 7.697%2c3.94 15.869%2c7.12 24.377%2c9.54 0.548%2c-0.84 1.039%2c-1.72 1.4%2c-2.67 5.179%2c-14.73 19.144%2c-25.26 35.694%2c-25.26 h 66.808 c 16.547%2c0 30.845%2c10.53 36.025%2c25.26 1.296%2c3.4 3.823%2c6.18 7.026%2c7.84 h 18.414 v -259.84 c 0%2c-50.3 -42.302%2c-91.5 -94.872%2c-91.5 z m 1.334%2c11.68 c 15.575%2c0.23 31.037%2c5.08 43.926%2c13.86 19.82%2c12.48 31.197%2c33.62 33.911%2c55.89 0.605%2c3.81 0.919%2c7.7 0.919%2c11.65 0%2c9.7 -1.867%2c18.95 -5.243%2c27.46 -4.781%2c13.12 -13.013%2c24.95 -24.776%2c33.65 -39.388%2c33.75 -107.2%2c15.54 -124.314%2c-33.44 -20.694%2c-47.66 16.964%2c-107.2 68.906%2c-108.89 2.222%2c-0.16 4.446%2c-0.22 6.671%2c-0.18 z' style='fill:url(%23_Linear13)%3bfill-rule:nonzero%3bstroke:url(%23_Linear14)%3bstroke-width:3.21px' id='path920' /%3e%3c/g%3e%3cg id='g21980' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g21982'%3e%3cpath id='path21984' d='m 101.764%2c1066.96 c 0%2c-7.94 5.953%2c-14.46 15.59%2c-14.46 9.355%2c0 15.591%2c6.81 15.591%2c14.46 v 13.32 c 0%2c7.94 -6.236%2c14.46 -15.591%2c14.46 -9.354%2c0 -15.59%2c-6.8 -15.59%2c-14.46 z m 21.543%2c0 c 0%2c-3.68 -2.268%2c-6.52 -6.236%2c-6.52 -3.685%2c0 -5.953%2c3.12 -5.953%2c6.52 v 13.32 c 0%2c3.4 2.268%2c6.52 5.953%2c6.52 3.685%2c0 6.236%2c-3.12 6.236%2c-6.52 z' style='fill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g21986' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g21988'%3e%3cpath id='path21990' d='m 386.929%2c1060.44 c 7.937%2c0 9.638%2c-2.27 9.638%2c-7.09 h 8.22 v 40.54 h -9.637 v -26.93 h -8.504 v -6.52 z' style='fill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g21992' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g21994'%3e%3cpath id='path21996' d='m 705.543%2c1072.91 c 4.819%2c-2.83 8.504%2c-4.82 8.504%2c-8.78 0%2c-3.12 -1.984%2c-4.54 -4.535%2c-4.54 -2.835%2c0 -5.103%2c1.7 -5.103%2c5.95 h -9.354 c 0%2c-7.37 5.102%2c-13.04 14.457%2c-13.04 7.37%2c0 13.89%2c3.69 13.89%2c12.19 0%2c6.81 -6.52%2c11.06 -10.772%2c13.33 -5.669%2c3.68 -7.087%2c5.1 -7.087%2c8.22 h 17.292 v 7.65 h -28.347 c 0.284%2c-13.32 4.819%2c-17.01 11.055%2c-20.98 z' style='fill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g22134' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cpath id='path22136' d='m 998.079%2c1080.28 c 0%2c4.54 2.551%2c7.09 6.241%2c7.09 3.4%2c0 5.38%2c-2.55 5.38%2c-5.39 0%2c-3.4 -1.7%2c-5.66 -5.95%2c-5.66 h -3.69 v -7.38 h 3.69 c 4.25%2c0 5.38%2c-1.98 5.38%2c-5.1 0%2c-3.12 -1.98%2c-4.53 -4.53%2c-4.53 -3.97%2c0 -5.104%2c2.27 -5.104%2c5.95 h -9.354 c 0%2c-6.8 4.252%2c-13.04 14.458%2c-13.04 7.37%2c0 14.17%2c3.69 14.17%2c11.34 0%2c4.53 -2.83%2c7.94 -5.95%2c9.07 3.68%2c1.42 6.52%2c4.53 6.52%2c9.92 0%2c7.65 -6.81%2c12.19 -14.74%2c12.19 -9.923%2c0 -15.592%2c-5.95 -15.592%2c-14.46 z' style='fill-rule:nonzero' /%3e%3cpath id='path22138' d='m 1044.57%2c1093.89 h -8.79 l -14.46%2c-40.54 h 9.92 l 8.79%2c28.63 8.79%2c-28.63 h 10.2 z' style='fill-rule:nonzero' /%3e%3c/g%3e%3cg id='g22140' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g22142'%3e%3cpath id='path22144' d='m 1259.72%2c1072.35 h 20.97 v 7.08 h -4.25 c -1.7%2c9.36 -8.5%2c15.59 -20.12%2c15.59 -13.61%2c0 -21.26%2c-9.92 -21.26%2c-21.26 0%2c-11.05 7.93%2c-21.26 21.26%2c-21.26 10.77%2c0 18.14%2c6.52 18.7%2c14.18 h -9.92 c -0.56%2c-3.12 -3.97%2c-6.24 -8.78%2c-6.24 -7.66%2c0 -11.63%2c6.52 -11.63%2c13.32 0%2c7.09 3.97%2c13.33 12.47%2c13.33 5.68%2c0 9.08%2c-3.41 9.64%2c-7.66 h -7.08 z' style='fill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g22146' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g22148'%3e%3cpath id='path22150' d='m 1307.91%2c1079.72 v -26.37 h 9.35 v 40.54 h -9.92 l -14.74%2c-26.08 v 26.08 h -9.36 v -40.54 h 9.92 z' style='fill-rule:nonzero' /%3e%3cpath id='path22152' d='m 1339.94%2c1053.35 c 13.6%2c0 21.26%2c9.93 21.26%2c20.41 0%2c10.49 -7.66%2c20.41 -21.26%2c20.41 h -15.03 v -40.53 h 15.03 z m -5.39%2c7.94 v 24.38 h 5.1 c 7.66%2c0 11.91%2c-5.95 11.91%2c-12.19 0%2c-6.24 -4.54%2c-12.19 -11.91%2c-12.19 z' style='fill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g23793' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g23795'%3e%3cpath id='path23797' d='m 101.764%2c1066.96 c 0%2c-7.94 5.953%2c-14.46 15.59%2c-14.46 9.355%2c0 15.591%2c6.81 15.591%2c14.46 v 13.32 c 0%2c7.94 -6.236%2c14.46 -15.591%2c14.46 -9.354%2c0 -15.59%2c-6.8 -15.59%2c-14.46 z m 21.543%2c0 c 0%2c-3.68 -2.268%2c-6.52 -6.236%2c-6.52 -3.685%2c0 -5.953%2c3.12 -5.953%2c6.52 v 13.32 c 0%2c3.4 2.268%2c6.52 5.953%2c6.52 3.685%2c0 6.236%2c-3.12 6.236%2c-6.52 z' style='fill:none%3bfill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g23799' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g23801'%3e%3cpath id='path23803' d='m 386.929%2c1060.44 c 7.937%2c0 9.638%2c-2.27 9.638%2c-7.09 h 8.22 v 40.54 h -9.637 v -26.93 h -8.504 v -6.52 z' style='fill:none%3bfill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g23805' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g23807'%3e%3cpath id='path23809' d='m 705.543%2c1072.91 c 4.819%2c-2.83 8.504%2c-4.82 8.504%2c-8.78 0%2c-3.12 -1.984%2c-4.54 -4.535%2c-4.54 -2.835%2c0 -5.103%2c1.7 -5.103%2c5.95 h -9.354 c 0%2c-7.37 5.102%2c-13.04 14.457%2c-13.04 7.37%2c0 13.89%2c3.69 13.89%2c12.19 0%2c6.81 -6.52%2c11.06 -10.772%2c13.33 -5.669%2c3.68 -7.087%2c5.1 -7.087%2c8.22 h 17.292 v 7.65 h -28.347 c 0.284%2c-13.32 4.819%2c-17.01 11.055%2c-20.98 z' style='fill:none%3bfill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g23811' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cpath id='path23813' d='m 998.079%2c1080.28 c 0%2c4.54 2.551%2c7.09 6.241%2c7.09 3.4%2c0 5.38%2c-2.55 5.38%2c-5.39 0%2c-3.4 -1.7%2c-5.66 -5.95%2c-5.66 h -3.69 v -7.38 h 3.69 c 4.25%2c0 5.38%2c-1.98 5.38%2c-5.1 0%2c-3.12 -1.98%2c-4.53 -4.53%2c-4.53 -3.97%2c0 -5.104%2c2.27 -5.104%2c5.95 h -9.354 c 0%2c-6.8 4.252%2c-13.04 14.458%2c-13.04 7.37%2c0 14.17%2c3.69 14.17%2c11.34 0%2c4.53 -2.83%2c7.94 -5.95%2c9.07 3.68%2c1.42 6.52%2c4.53 6.52%2c9.92 0%2c7.65 -6.81%2c12.19 -14.74%2c12.19 -9.923%2c0 -15.592%2c-5.95 -15.592%2c-14.46 z' style='fill:none%3bfill-rule:nonzero' /%3e%3cpath id='path23815' d='m 1044.57%2c1093.89 h -8.79 l -14.46%2c-40.54 h 9.92 l 8.79%2c28.63 8.79%2c-28.63 h 10.2 z' style='fill:none%3bfill-rule:nonzero' /%3e%3c/g%3e%3cg id='g23817' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g23819'%3e%3cpath id='path23821' d='m 1259.72%2c1072.35 h 20.97 v 7.08 h -4.25 c -1.7%2c9.36 -8.5%2c15.59 -20.12%2c15.59 -13.61%2c0 -21.26%2c-9.92 -21.26%2c-21.26 0%2c-11.05 7.93%2c-21.26 21.26%2c-21.26 10.77%2c0 18.14%2c6.52 18.7%2c14.18 h -9.92 c -0.56%2c-3.12 -3.97%2c-6.24 -8.78%2c-6.24 -7.66%2c0 -11.63%2c6.52 -11.63%2c13.32 0%2c7.09 3.97%2c13.33 12.47%2c13.33 5.68%2c0 9.08%2c-3.41 9.64%2c-7.66 h -7.08 z' style='fill:none%3bfill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g23823' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.2635%2c683.764)'%3e%3cg id='g23825'%3e%3cpath id='path23827' d='m 1307.91%2c1079.72 v -26.37 h 9.35 v 40.54 h -9.92 l -14.74%2c-26.08 v 26.08 h -9.36 v -40.54 h 9.92 z' style='fill:none%3bfill-rule:nonzero' /%3e%3cpath id='path23829' d='m 1339.94%2c1053.35 c 13.6%2c0 21.26%2c9.93 21.26%2c20.41 0%2c10.49 -7.66%2c20.41 -21.26%2c20.41 h -15.03 v -40.53 h 15.03 z m -5.39%2c7.94 v 24.38 h 5.1 c 7.66%2c0 11.91%2c-5.95 11.91%2c-12.19 0%2c-6.24 -4.54%2c-12.19 -11.91%2c-12.19 z' style='fill:none%3bfill-rule:nonzero' /%3e%3c/g%3e%3c/g%3e%3cg id='g23945' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.3097%2c683.718)'%3e%3cclipPath id='clipPath12211'%3e%3cpath id='path12209' d='m 101.275%2c1080.28 v 0 c 0%2c7.91 6.416%2c14.97 16.079%2c14.97 9.664%2c0 16.08%2c-6.77 16.08%2c-14.97 v 0 -13.32 0 c 0%2c-7.91 -6.416%2c-14.96 -16.08%2c-14.96 -9.956%2c0 -16.079%2c6.76 -16.079%2c14.96 l 0.489%2c0.51 c 0%2c0 -0.489%2c-0.51 -0.489%2c-0.51 z m 0.978%2c0 v -13.32 0 c 0%2c-7.67 5.782%2c-13.95 15.101%2c-13.95 9.046%2c0 15.102%2c6.55 15.102%2c13.95 l 0.489%2c0.51 c 0%2c0 -0.489%2c-0.51 -0.489%2c-0.51 l 0.002%2c13.38 -0.002%2c-0.05 c -10e-4%2c7.67 -6.057%2c13.94 -15.102%2c13.94 -9.045%2c0 -15.101%2c-6.55 -15.101%2c-13.95 z m 8.376%2c0 v 0 c 0%2c3.68 2.462%2c7.03 6.442%2c7.03 3.973%2c0 6.725%2c-3.36 6.725%2c-7.03 v 0 -13.32 0 c 0%2c-1.98 -0.619%2c-3.73 -1.763%2c-4.99 -1.146%2c-1.26 -2.823%2c-2.04 -4.962%2c-2.04 -3.98%2c0 -6.442%2c3.36 -6.442%2c7.03 l 0.489%2c0.51 c 0%2c0 -0.489%2c-0.51 -0.489%2c-0.51 z m 12.189%2c0 v 0 c 0%2c3.14 -2.35%2c6.02 -5.747%2c6.02 -3.391%2c0 -5.464%2c-2.89 -5.464%2c-6.02 v 0 -13.32 0 c 0%2c-3.13 2.073%2c-6.01 5.464%2c-6.01 1.829%2c0 3.27%2c0.64 4.25%2c1.72 0.983%2c1.08 1.497%2c2.59 1.497%2c4.29 l 0.489%2c0.51 -0.489%2c-0.51 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip15)' id='g967'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.2957%2c-258.836)' id='g965'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWP4fzf0ERMDA4MmABe7Az/lVEqYAAAAAElFTkSuQmCC' height='1.062822' width='0.81941301' id='use963' style='clip-rule:evenodd%3bfill-rule:evenodd' x='4.6010036' y='32.211479' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='g23951' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.3375%2c683.607)'%3e%3cclipPath id='clipPath12219'%3e%3cpath id='path12217' d='m 386.929%2c1059.93 h -0.278 c -0.634%2c0 -0.005%2c1.02 -0.005%2c1.02 l -0.49%2c-0.51 v 6.52 c 0%2c0 0.49%2c0.51 0.49%2c0.51 h 8.014 c 0%2c0 0%2c26.93 0%2c26.93 h 10.617 v -41.05 l -0.49%2c0.51 c 0%2c0 0.625%2c-1.01 -0.021%2c-1.01 h -8.198 c -0.651%2c0 -10e-4%2c1.01 -10e-4%2c1.01 h -0.489 v -0.51 c 0%2c1.8 -0.229%2c3.22 -1.006%2c4.27 -0.571%2c0.77 -1.438%2c1.33 -2.697%2c1.71 -1.347%2c0.41 -3.123%2c0.6 -5.446%2c0.6 z m 17.369%2c33.45 h -8.659 v -26.42 l -0.489%2c0.51 c 0%2c0 0.648%2c-1.02 -0.002%2c-1.02 h -8.013 v -5.5 c 4.857%2c-0.03 7.42%2c-0.96 8.714%2c-2.71 0.817%2c-1.11 1.151%2c-2.56 1.2%2c-4.38 0%2c0 7.249%2c0 7.249%2c0 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip17)' id='g976'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.5865%2c-258.911)' id='g974'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWP4fzf0BwAIOgMqEtez4AAAAABJRU5ErkJggg==' height='0.51051301' width='0.487176' id='use972' style='clip-rule:evenodd%3bfill-rule:evenodd' x='11.86712' y='32.234303' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='g23957' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.4211%2c683.607)'%3e%3cclipPath id='clipPath12227'%3e%3cpath id='path12225' d='m 722.835%2c1094.4 c 0%2c0 0.489%2c-0.03 0.489%2c-0.51 v -7.65 c 0%2c-0.32 -0.222%2c0.02 -0.367%2c0.27 0.143%2c-0.3 0.306%2c-0.78 -0.143%2c-0.78 h -16.766 c 0.092%2c-1.45 0.615%2c-2.51 1.963%2c-3.75 1.072%2c-0.98 2.635%2c-2.08 4.864%2c-3.53 2.16%2c-1.15 4.886%2c-2.81 7.078%2c-5.03 2.253%2c-2.29 3.938%2c-5.18 3.938%2c-8.73 0%2c-8.82 -6.73%2c-12.69 -14.379%2c-12.69 -4.824%2c0 -8.547%2c1.47 -11.068%2c3.89 -2.544%2c2.43 -3.878%2c5.82 -3.878%2c9.65 v 0.51 h 10.333 v -0.51 c 0%2c-1.95 0.498%2c-3.33 1.345%2c-4.21 0.832%2c-0.86 1.988%2c-1.23 3.268%2c-1.23 1.146%2c0 2.169%2c0.3 2.901%2c0.97 0.723%2c0.66 1.145%2c1.67 1.145%2c3.06 0%2c1.82 -0.868%2c3.19 -2.273%2c4.43 -1.504%2c1.33 -3.605%2c2.51 -5.983%2c3.91 l -0.007%2c0.01 c -3.19%2c2.03 -5.931%2c3.99 -7.921%2c7.14 -1.986%2c3.14 -3.23%2c7.47 -3.375%2c14.26 l -0.011%2c0.52 z m -0.49%2c-7.66 v 6.64 h -27.353 c 0.187%2c-6.23 1.341%2c-10.27 3.201%2c-13.21 1.907%2c-3.02 4.549%2c-4.88 7.6%2c-6.82 v 0 c 2.437%2c-1.43 4.585%2c-2.66 6.127%2c-4.02 1.642%2c-1.45 2.617%2c-3.06 2.617%2c-5.2 0%2c-1.74 -0.57%2c-2.99 -1.477%2c-3.82 -0.898%2c-0.82 -2.143%2c-1.23 -3.548%2c-1.23 -1.555%2c0 -2.95%2c0.48 -3.961%2c1.53 -0.92%2c0.96 -1.533%2c2.4 -1.62%2c4.43 h -8.378 c 0.111%2c-3.33 1.321%2c-6.27 3.554%2c-8.41 2.368%2c-2.26 5.875%2c-3.62 10.405%2c-3.62 7.091%2c0 13.4%2c3.5 13.4%2c11.68 0%2c3.26 -1.575%2c5.9 -3.644%2c8 -2.124%2c2.16 -4.773%2c3.76 -6.862%2c4.88 l -0.036%2c0.02 c -5.916%2c3.84 -7.316%2c5.39 -7.316%2c8.65 v 0.5 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip19)' id='g985'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.5865%2c-259.137)' id='g983'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWP4/8DvFQAIJwMYdsKk%2bwAAAABJRU5ErkJggg==' height='0.520962' width='0.76191002' id='use981' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.710613' y='32.218895' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='g23963' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.3884%2c683.718)'%3e%3cclipPath id='clipPath12235'%3e%3cpath id='path12233' d='m 999.985%2c1065.77 h -10.333 v -0.51 c 0%2c-3.54 1.114%2c-6.92 3.546%2c-9.43 2.413%2c-2.49 6.136%2c-4.12 11.402%2c-4.12 7.65%2c0 14.66%2c3.9 14.66%2c11.85 0%2c4.24 -2.36%2c7.53 -5.18%2c9.06 v 0.02 c 3.32%2c1.65 5.75%2c4.81 5.75%2c9.91 0%2c7.93 -7%2c12.7 -15.23%2c12.7 -5.108%2c0 -9.114%2c-1.55 -11.85%2c-4.18 -2.647%2c-2.54 -4.115%2c-6.09 -4.225%2c-10.28 h 0.483 c 0%2c0 -0.648%2c-1.01 0.003%2c-1.01 h 9.066 c 0.65%2c0 0.002%2c1.01 0.002%2c1.01 l 0.489%2c-0.51 c 0%2c2.12 0.578%2c3.78 1.602%2c4.9 1.01%2c1.11 2.45%2c1.68 4.15%2c1.68 3.08%2c0 4.89%2c-2.3 4.89%2c-4.88 0%2c-1.55 -0.37%2c-2.84 -1.24%2c-3.75 -0.88%2c-0.91 -2.26%2c-1.41 -4.22%2c-1.41 h -3.69 c 0%2c0 -0.486%2c-0.03 -0.486%2c-0.51 v -7.36 l 0.486%2c0.5 c 0%2c0 -0.641%2c-1.01 0.01%2c-1.01 h 3.61 c 0.07%2c0 0.12%2c0.01 0.16%2c0.03 l -0.01%2c-0.03 c 1.9%2c-0.02 3.12%2c-0.43 3.85%2c-1.23 0.74%2c-0.8 0.96%2c-1.96 0.96%2c-3.37 0%2c-1.38 -0.42%2c-2.39 -1.14%2c-3.05 -0.73%2c-0.67 -1.76%2c-0.98 -2.9%2c-0.98 -1.45%2c0 -2.48%2c0.31 -3.2%2c0.92 -1.09%2c0.93 -1.415%2c2.5 -1.415%2c4.53 z m 3.765%2c10.04 c -0.01%2c0 -0.03%2c0 -0.04%2c0 h -3.16 v -6.36 h 3.2 c 2.31%2c0 3.75%2c-0.57 4.64%2c-1.54 0.89%2c-0.97 1.23%2c-2.36 1.23%2c-4.07 0%2c-1.73 -0.57%2c-2.99 -1.47%2c-3.81 -0.9%2c-0.83 -2.15%2c-1.23 -3.55%2c-1.23 -1.73%2c0 -2.96%2c0.42 -3.82%2c1.15 -1.192%2c1.01 -1.699%2c2.66 -1.765%2c4.8 h -8.376 c 0.1%2c-3.08 1.121%2c-6.01 3.249%2c-8.2 2.264%2c-2.33 5.77%2c-3.82 10.712%2c-3.82 7.09%2c0 13.68%2c3.47 13.68%2c10.83 0%2c4.29 -2.67%2c7.52 -5.62%2c8.59 l -1.28%2c0.47 1.27%2c0.49 c 3.51%2c1.34 6.2%2c4.31 6.2%2c9.44 0%2c7.38 -6.6%2c11.68 -14.25%2c11.68 -4.817%2c0 -8.605%2c-1.42 -11.185%2c-3.9 -2.455%2c-2.36 -3.803%2c-5.66 -3.911%2c-9.54 h 8.096 c 0.091%2c2.18 0.77%2c3.89 1.859%2c5.09 1.191%2c1.3 2.871%2c2 4.861%2c2 3.71%2c0 5.87%2c-2.8 5.87%2c-5.9 0%2c-1.85 -0.48%2c-3.38 -1.52%2c-4.46 -1.04%2c-1.07 -2.63%2c-1.71 -4.92%2c-1.71 z m -15.225%2c4.98 c -0.004%2c-0.17 -0.006%2c-0.34 -0.006%2c-0.51 v 0.51 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip21)' id='g994'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.2957%2c-259.049)' id='g992'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWP4/8jzFhPDb55AABqQBF8lzPRmAAAAAElFTkSuQmCC' height='1.069786' width='0.79774499' id='use990' style='clip-rule:evenodd%3bfill-rule:evenodd' x='27.207092' y='32.209652' /%3e%3c/g%3e%3c/g%3e%3cclipPath id='clipPath12242'%3e%3cpath id='path12240' d='m 1020.98%2c1053.86 14.46%2c40.54 h 9.47 l 14.57%2c-40.87 -0.46%2c0.33 c 0%2c0 0.62%2c-1.01 -0.02%2c-1.01 h -10.18 c -0.65%2c0 0%2c1.01 0%2c1.01 h -0.67 l 0.2%2c-0.66 -8.32%2c27.11 c 0%2c0 -8.32%2c-27.11 -8.32%2c-27.11 l -0.47%2c0.66 c 0%2c0 0.62%2c-1.01 -0.02%2c-1.01 h -9.9 c -0.65%2c0 0%2c1.01 0%2c1.01 z m 15.14%2c39.52 -14.1%2c-39.52 c 0%2c0 8.87%2c0 8.87%2c0 0%2c0 9.14%2c29.8 9.14%2c29.8 l 9.15%2c-29.8 c 0%2c0 9.14%2c0 9.14%2c0 l -14.09%2c39.52 z m -15.14%2c-39.52 -0.12%2c-0.33 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip23)' id='g1002'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.2957%2c-259.049)' id='g1000'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWP4fzd0MwAH9QLl1Xoz4gAAAABJRU5ErkJggg==' height='0.51051301' width='0.98398298' id='use998' style='clip-rule:evenodd%3bfill-rule:evenodd' x='28.031708' y='32.237873' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='g23969' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.3097%2c683.718)'%3e%3cclipPath id='clipPath12250'%3e%3cpath id='path12248' d='m 1264.7%2c1067.18 h 10.85 l -0.04%2c-0.54 c -0.58%2c-7.87 -8.12%2c-14.64 -19.19%2c-14.64 -13.64%2c0 -21.75%2c10.45 -21.75%2c21.76 0%2c11.61 7.82%2c21.77 21.75%2c21.77 11.74%2c0 18.66%2c-6.23 20.52%2c-15.6 0%2c0.01 0.97%2c0.01 1.93%2c0.01 h 1.92 0.02 c 0.1%2c-0.01 0.47%2c-0.09 0.47%2c-0.51 v -7.08 c 0%2c-0.48 -0.49%2c0.5 -0.49%2c0.5 v -1.01 h -20.97 v 1.01 c 0%2c0 -0.49%2c-0.5 -0.49%2c-0.5 v 7.08 c 0%2c0.48 0.49%2c0.51 0.49%2c0.51 h 6.5 c -0.76%2c3.75 -3.94%2c6.64 -9.06%2c6.64 -3.27%2c0 -5.84%2c-0.95 -7.75%2c-2.54 -2.87%2c-2.38 -4.23%2c-6.18 -4.23%2c-10.28 0%2c-6.53 3.79%2c-12.81 11.14%2c-12.81 4.53%2c0 7.77%2c2.89 8.3%2c5.82 z m 9.78%2c-1.01 h -8.99 c -0.81%2c-3.16 -4.29%2c-6.24 -9.17%2c-6.24 -7.96%2c0 -12.12%2c6.76 -12.12%2c13.83 0%2c4.42 1.5%2c8.5 4.6%2c11.07 2.06%2c1.72 4.83%2c2.76 8.36%2c2.76 5.97%2c0 9.53%2c-3.61 10.13%2c-8.09 l -0.49%2c0.44 c 0%2c0 0.63%2c-1.01 -0.02%2c-1.01 h -6.57 v -6.08 h 19.99 v 6.08 h -3.7 c -0.64%2c0 -0.06%2c1.01 -0.06%2c1.01 h -0.59 l 0.11%2c-0.6 c -1.66%2c9.12 -8.31%2c15.18 -19.64%2c15.18 -13.29%2c0 -20.78%2c-9.68 -20.78%2c-20.76 0%2c-10.79 7.76%2c-20.75 20.78%2c-20.75 10.2%2c0 17.31%2c5.97 18.16%2c13.16 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip25)' id='g1011'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.2957%2c-258.836)' id='g1009'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAGklEQVQImWP8fzf0MQMDw0YWBgaGfAYGho0AOjIE613%2bb3MAAAAASUVORK5CYII=' height='1.069786' width='1.187762' id='use1007' style='clip-rule:evenodd%3bfill-rule:evenodd' x='33.476479' y='32.211792' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='g23975' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.3097%2c683.718)'%3e%3cg id='g23977'%3e%3cclipPath id='clipPath12258'%3e%3cpath id='path12256' d='m 1307.42%2c1053.86 v 23.97 l -13.83%2c-24.73 -0.36%2c0.64 c 0.14%2c-0.27 0.42%2c-0.89 -0.09%2c-0.89 h -9.89 c -0.65%2c0 -0.01%2c1.01 -0.01%2c1.01 h -0.48 v 40.54 h 10.33 v -24.72 c 0%2c0 13.97%2c24.72 13.97%2c24.72 h 10.69 v -41.05 l -0.49%2c0.51 c 0%2c0 0.62%2c-1.01 -0.02%2c-1.01 h -9.33 c -0.65%2c0 0%2c1.01 0%2c1.01 z m -23.69%2c39.52 v -39.52 c 0%2c0 9.15%2c0 9.15%2c0 0%2c0 14.6%2c26.11 14.6%2c26.11 l 0.91%2c1.63 v -27.74 c 0%2c0 8.38%2c0 8.38%2c0 0%2c0 0%2c33.25 0%2c39.52 h -9.15 l -15.51%2c-27.44 v 27.44 z m -0.97%2c-39.52 c 0%2c0 0%2c-0.51 0%2c-0.51 z m 24.66%2c0 v -0.51 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip27)' id='g1020'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.2957%2c-258.836)' id='g1018'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWP4fzd0HxMDA4MbABcAAzg4bp5fAAAAAElFTkSuQmCC' height='1.021026' width='0.89163798' id='use1016' style='clip-rule:evenodd%3bfill-rule:evenodd' x='34.704334' y='32.232262' /%3e%3c/g%3e%3c/g%3e%3cclipPath id='clipPath12265'%3e%3cpath id='path12263' d='m 1324.42%2c1094.68 h 15.52 0.16 c 13.83%2c-0.08 21.59%2c-10.22 21.59%2c-20.92 0%2c-10.73 -7.82%2c-20.91 -21.75%2c-20.91 v 0.28 c -0.02%2c0 -0.03%2c0 -0.04%2c0 h -14.98 c -0.65%2c0 -0.01%2c1.01 -0.01%2c1.01 h -0.49 v -0.5 z m 15.95%2c-40.81 c 13.01%2c0.21 20.34%2c9.77 20.34%2c19.89 0%2c10.24 -7.49%2c19.91 -20.77%2c19.91 v 0 c -0.02%2c0 -0.03%2c0 -0.04%2c0 h -14.5 v -39.53 c 0%2c0 14.54%2c0 14.54%2c0 0%2c0 0.31%2c-0.02 0.43%2c-0.27 z m -6.31%2c7.93 v 24.38 h 5.59 l 0.19%2c-0.01 c 7.85%2c-0.09 12.21%2c-6.25 12.21%2c-12.69 0%2c-6.49 -4.72%2c-12.7 -12.4%2c-12.7 v 0 h -5.03 c -0.63%2c0 -0.07%2c1.02 -0.07%2c1.02 z m 5.59%2c23.36 h -4.61 v -23.36 h 4.61 c 7.07%2c0 11.42%2c5.7 11.42%2c11.68 0%2c5.98 -4.08%2c11.68 -11.42%2c11.68 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip29)' id='g1028'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-79.2957%2c-258.836)' id='g1026'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWP4fzd0EgAH1ALEbGzZ%2bAAAAABJRU5ErkJggg==' height='0.51399601' width='0.94941801' id='use1024' style='clip-rule:evenodd%3bfill-rule:evenodd' x='35.766476' y='32.232689' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='g24301' transform='matrix(0%2c-0.383347%2c0.369714%2c0%2c61.4481%2c684.025)'%3e%3cclipPath id='clipPath12274'%3e%3cpath id='path12272' d='M 41.797%2c1012.94 H -0.979 v 55.44 c 0%2c30.98 17.776%2c57.96 41.302%2c72.31 l 1.474%2c0.9 z m -40.818%2c2.03 H 39.84 c 0%2c0 0%2c123.04 0%2c123.04 C 17.615%2c1123.8 0.979%2c1097.97 0.979%2c1068.38 Z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip31)' id='g1038'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-78.4944%2c-259.211)' id='g1036'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In%2bKAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEUlEQVQImWP8fzd0OgMDAxMAEwgCzMND/w0AAAAASUVORK5CYII=' height='0.79032201' width='1.0899121' id='use1034' style='clip-rule:evenodd%3bfill-rule:evenodd' x='1.9749206' y='31.261187' /%3e%3c/g%3e%3c/g%3e%3cclipPath id='clipPath12281'%3e%3cpath id='path12279' d='m 1369.86%2c1012.94 v 128.36 l 1.47%2c-0.9 c 23.53%2c-14.34 41.3%2c-41.32 41.3%2c-72.02 0%2c0 0%2c-55.44 0%2c-55.44 z m 1.95%2c124.79 v -122.76 c 0%2c0 38.86%2c0 38.86%2c0 0%2c0 0%2c53.41 0%2c53.41 0%2c29.32 -16.63%2c55.14 -38.86%2c69.36 z' /%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip33)' id='g1046'%3e%3cg transform='matrix(39.2472%2c0%2c0%2c40.6944%2c-78.4944%2c-259.211)' id='g1044'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAGklEQVQImWP8/8D/DQPD//8sDH/ZShgYGJgATwAGl0b3dTYAAAAASUVORK5CYII=' height='1.57716' width='1.0899121' id='use1042' style='clip-rule:evenodd%3bfill-rule:evenodd' x='36.903332' y='31.260887' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='rect24307' transform='rotate(-90)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:none%3bstroke:url(%23_Linear35)%3bstroke-width:0.75px' id='rect1049' /%3e%3c/g%3e%3cpath id='path24343' d='m 393.981%2c532.872 c 0%2c13.909 10.795%2c24.015 24.209%2c25.102 h 68.75 V 507.77 h -68.75 c -13.309%2c0 -24.209%2c11.193 -24.209%2c25.102 z m 44.855%2c-0.217 c 0%2c11.627 -9.013%2c20.972 -20.227%2c20.972 -11.213%2c0 -20.226%2c-9.345 -20.226%2c-20.972 0%2c-11.628 9.118%2c-20.973 20.226%2c-20.973 11.214%2c0 20.227%2c9.345 20.227%2c20.973 z' style='fill:none%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25272)%3bstroke-width:0.75px' /%3e%3cpath id='path24345' d='m 393.981%2c413.449 c 0%2c13.909 10.795%2c24.015 24.209%2c25.102 h 68.75 v -50.204 h -68.75 c -13.309%2c0 -24.209%2c11.193 -24.209%2c25.102 z m 44.855%2c-0.435 c 0%2c11.627 -9.013%2c20.973 -20.227%2c20.973 -11.213%2c0 -20.226%2c-9.346 -20.226%2c-20.973 0%2c-11.627 9.118%2c-20.972 20.226%2c-20.972 11.214%2c0 20.227%2c9.345 20.227%2c20.972 z' style='fill:none%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25274)%3bstroke-width:0.75px' /%3e%3cpath id='path24347' d='m 393.981%2c292.939 c 0%2c13.909 10.795%2c24.015 24.209%2c25.102 h 68.75 v -50.204 h -68.75 c -13.309%2c0 -24.209%2c11.193 -24.209%2c25.102 z m 44.855%2c-0.108 c 0%2c11.627 -9.013%2c20.972 -20.227%2c20.972 -11.213%2c0 -20.226%2c-9.345 -20.226%2c-20.972 0%2c-11.628 9.118%2c-20.973 20.226%2c-20.973 11.214%2c0 20.227%2c9.345 20.227%2c20.973 z' style='fill:none%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25276)%3bstroke-width:0.75px' /%3e%3cpath id='path24349' d='m 394.296%2c186.338 c 0%2c14.127 11.109%2c25.645 24.733%2c25.645 h 67.911 v -37.598 c 0%2c-4.672 -1.048%2c-9.128 -2.83%2c-13.692 h -64.976 c -13.834%2c0 -24.838%2c11.519 -24.838%2c25.645 z m 45.378%2c0.218 c 0%2c11.627 -9.012%2c20.972 -20.226%2c20.972 -11.214%2c0 -20.227%2c-9.345 -20.227%2c-20.972 0%2c-11.627 9.118%2c-20.973 20.227%2c-20.973 11.109%2c0 20.226%2c9.454 20.226%2c20.973 z' style='fill:none%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25278)%3bstroke-width:0.75px' /%3e%3cpath id='path10768' d='m 393.981%2c532.872 c 0%2c13.909 10.795%2c24.015 24.209%2c25.102 h 68.75 V 507.77 h -68.75 c -13.309%2c0 -24.209%2c11.193 -24.209%2c25.102 z m 44.855%2c-0.217 c 0%2c11.627 -9.013%2c20.972 -20.227%2c20.972 -11.213%2c0 -20.226%2c-9.345 -20.226%2c-20.972 0%2c-11.628 9.118%2c-20.973 20.226%2c-20.973 11.214%2c0 20.227%2c9.345 20.227%2c20.973 z' style='fill:none%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25280)%3bstroke-width:0.75px' /%3e%3cpath id='path10772' d='m 393.981%2c532.872 c 0%2c13.909 10.795%2c24.015 24.209%2c25.102 h 68.75 V 507.77 h -68.75 c -13.309%2c0 -24.209%2c11.193 -24.209%2c25.102 z m 44.855%2c-0.217 c 0%2c11.627 -9.013%2c20.972 -20.227%2c20.972 -11.213%2c0 -20.226%2c-9.345 -20.226%2c-20.972 0%2c-11.628 9.118%2c-20.973 20.226%2c-20.973 11.214%2c0 20.227%2c9.345 20.227%2c20.973 z' style='fill:none%3bfill-rule:nonzero%3bstroke:url(%23linearGradient25282)%3bstroke-width:0.75px' /%3e%3cg id='UnlitLEDs' transform='matrix(1%2c0%2c0%2c-1%2c0%2c824.355)'%3e%3cg id='use8780' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c93.6113%2c57.7841)'%3e%3cg id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1058' /%3e%3c/g%3e%3cg id='g7931'%3e%3crect id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25284)' /%3e%3cg id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-881.178%2c361.12)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1062' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.112083' y='15.211102' /%3e%3c/g%3e%3crect id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25286)' /%3e%3crect id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25288)' /%3e%3cg id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25290)' id='rect1067' /%3e%3c/g%3e%3crect id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial47)' id='rect1071' /%3e%3c/g%3e%3cg id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial48)' id='rect1074' /%3e%3c/g%3e%3cg id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c361.12)' id='g1079'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1077' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3crect id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25292)' /%3e%3cg id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25294)' id='rect1083' /%3e%3c/g%3e%3cg id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c361.12)' id='g1088'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1086' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8782' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c93.6113%2c100.11)'%3e%3cg id='rect79291' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1093' /%3e%3c/g%3e%3cg id='g79311' serif:id='g7931'%3e%3crect id='rect84821' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25296)' /%3e%3cg id='rect84841' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-881.178%2c69.7306)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1097' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.925478' y='15.211102' /%3e%3c/g%3e%3crect id='rect84861' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25298)' /%3e%3crect id='rect84881' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25300)' /%3e%3cg id='rect84901' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25302)' id='rect1102' /%3e%3c/g%3e%3crect id='rect84921' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84941' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial57)' id='rect1106' /%3e%3c/g%3e%3cg id='rect84961' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial58)' id='rect1109' /%3e%3c/g%3e%3cg id='rect84981' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c69.7306)' id='g1114'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1112' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85001' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25304)' /%3e%3cg id='rect85021' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25306)' id='rect1118' /%3e%3c/g%3e%3cg id='rect85041' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c69.7306)' id='g1123'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1121' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8784' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c93.6112%2c142.437)'%3e%3cg id='rect79292' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1128' /%3e%3c/g%3e%3cg id='g79312' serif:id='g7931'%3e%3crect id='rect84822' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25308)' /%3e%3cg id='rect84842' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-881.178%2c-221.659)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1132' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.738871' y='15.211102' /%3e%3c/g%3e%3crect id='rect84862' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25310)' /%3e%3crect id='rect84882' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25312)' /%3e%3cg id='rect84902' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25314)' id='rect1137' /%3e%3c/g%3e%3crect id='rect84922' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84942' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial65)' id='rect1141' /%3e%3c/g%3e%3cg id='rect84962' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial66)' id='rect1144' /%3e%3c/g%3e%3cg id='rect84982' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c-221.659)' id='g1149'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1147' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85002' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25316)' /%3e%3cg id='rect85022' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25318)' id='rect1153' /%3e%3c/g%3e%3cg id='rect85042' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c-221.659)' id='g1158'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1156' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8786' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c93.6112%2c184.763)'%3e%3cg id='rect79293' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1163' /%3e%3c/g%3e%3cg id='g79313' serif:id='g7931'%3e%3crect id='rect84823' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25320)' /%3e%3cg id='rect84843' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-881.178%2c-513.049)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1167' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.552265' y='15.211102' /%3e%3c/g%3e%3crect id='rect84863' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25322)' /%3e%3crect id='rect84883' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25324)' /%3e%3cg id='rect84903' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25326)' id='rect1172' /%3e%3c/g%3e%3crect id='rect84923' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84943' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial73)' id='rect1176' /%3e%3c/g%3e%3cg id='rect84963' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial74)' id='rect1179' /%3e%3c/g%3e%3cg id='rect84983' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c-513.049)' id='g1184'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1182' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85003' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25328)' /%3e%3cg id='rect85023' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25330)' id='rect1188' /%3e%3c/g%3e%3cg id='rect85043' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c-513.049)' id='g1193'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1191' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8788' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c93.6112%2c227.089)'%3e%3cg id='rect79294' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1198' /%3e%3c/g%3e%3cg id='g79314' serif:id='g7931'%3e%3crect id='rect84824' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25332)' /%3e%3cg id='rect84844' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-881.178%2c-804.439)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1202' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.365662' y='15.211102' /%3e%3c/g%3e%3crect id='rect84864' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25334)' /%3e%3crect id='rect84884' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25336)' /%3e%3cg id='rect84904' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25338)' id='rect1207' /%3e%3c/g%3e%3crect id='rect84924' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84944' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial81)' id='rect1211' /%3e%3c/g%3e%3cg id='rect84964' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial82)' id='rect1214' /%3e%3c/g%3e%3cg id='rect84984' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c-804.439)' id='g1219'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1217' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85004' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25340)' /%3e%3cg id='rect85024' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25342)' id='rect1223' /%3e%3c/g%3e%3cg id='rect85044' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c881.178%2c-804.439)' id='g1228'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1226' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='15.164053' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8790' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c134.233%2c57.7841)'%3e%3cg id='rect79295' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1233' /%3e%3c/g%3e%3cg id='g79315' serif:id='g7931'%3e%3crect id='rect84825' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25344)' /%3e%3cg id='rect84845' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1160.83%2c361.12)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1237' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.112083' y='17.910547' /%3e%3c/g%3e%3crect id='rect84865' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25346)' /%3e%3crect id='rect84885' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25348)' /%3e%3cg id='rect84905' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25350)' id='rect1242' /%3e%3c/g%3e%3crect id='rect84925' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84945' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial89)' id='rect1246' /%3e%3c/g%3e%3cg id='rect84965' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial90)' id='rect1249' /%3e%3c/g%3e%3cg id='rect84985' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c361.12)' id='g1254'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1252' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85005' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25352)' /%3e%3cg id='rect85025' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25354)' id='rect1258' /%3e%3c/g%3e%3cg id='rect85045' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c361.12)' id='g1263'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1261' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8792' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c134.233%2c100.11)'%3e%3cg id='rect79296' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1268' /%3e%3c/g%3e%3cg id='g79316' serif:id='g7931'%3e%3crect id='rect84826' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25356)' /%3e%3cg id='rect84846' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1160.83%2c69.7306)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1272' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.925478' y='17.910547' /%3e%3c/g%3e%3crect id='rect84866' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25358)' /%3e%3crect id='rect84886' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25360)' /%3e%3cg id='rect84906' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25362)' id='rect1277' /%3e%3c/g%3e%3crect id='rect84926' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84946' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial97)' id='rect1281' /%3e%3c/g%3e%3cg id='rect84966' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial98)' id='rect1284' /%3e%3c/g%3e%3cg id='rect84986' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c69.7306)' id='g1289'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1287' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85006' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25364)' /%3e%3cg id='rect85026' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25366)' id='rect1293' /%3e%3c/g%3e%3cg id='rect85046' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c69.7306)' id='g1298'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1296' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8794' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c134.233%2c142.437)'%3e%3cg id='rect79297' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1303' /%3e%3c/g%3e%3cg id='g79317' serif:id='g7931'%3e%3crect id='rect84827' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25368)' /%3e%3cg id='rect84847' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1160.83%2c-221.659)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1307' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.738871' y='17.910547' /%3e%3c/g%3e%3crect id='rect84867' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25370)' /%3e%3crect id='rect84887' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25372)' /%3e%3cg id='rect84907' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25374)' id='rect1312' /%3e%3c/g%3e%3crect id='rect84927' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84947' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial105)' id='rect1316' /%3e%3c/g%3e%3cg id='rect84967' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial106)' id='rect1319' /%3e%3c/g%3e%3cg id='rect84987' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c-221.659)' id='g1324'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1322' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85007' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25376)' /%3e%3cg id='rect85027' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25378)' id='rect1328' /%3e%3c/g%3e%3cg id='rect85047' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c-221.659)' id='g1333'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1331' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8796' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c134.233%2c184.763)'%3e%3cg id='rect79298' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1338' /%3e%3c/g%3e%3cg id='g79318' serif:id='g7931'%3e%3crect id='rect84828' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25380)' /%3e%3cg id='rect84848' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1160.83%2c-513.049)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1342' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.552265' y='17.910547' /%3e%3c/g%3e%3crect id='rect84868' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25382)' /%3e%3crect id='rect84888' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25384)' /%3e%3cg id='rect84908' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25386)' id='rect1347' /%3e%3c/g%3e%3crect id='rect84928' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84948' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial113)' id='rect1351' /%3e%3c/g%3e%3cg id='rect84968' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial114)' id='rect1354' /%3e%3c/g%3e%3cg id='rect84988' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c-513.049)' id='g1359'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1357' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85008' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25388)' /%3e%3cg id='rect85028' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25390)' id='rect1363' /%3e%3c/g%3e%3cg id='rect85048' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c-513.049)' id='g1368'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1366' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8798' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c134.233%2c227.089)'%3e%3cg id='rect79299' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1373' /%3e%3c/g%3e%3cg id='g79319' serif:id='g7931'%3e%3crect id='rect84829' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25392)' /%3e%3cg id='rect84849' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1160.83%2c-804.439)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1377' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.365662' y='17.910547' /%3e%3c/g%3e%3crect id='rect84869' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25394)' /%3e%3crect id='rect84889' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25396)' /%3e%3cg id='rect84909' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25398)' id='rect1382' /%3e%3c/g%3e%3crect id='rect84929' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect84949' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial121)' id='rect1386' /%3e%3c/g%3e%3cg id='rect84969' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial122)' id='rect1389' /%3e%3c/g%3e%3cg id='rect84989' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c-804.439)' id='g1394'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1392' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3crect id='rect85009' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25400)' /%3e%3cg id='rect85029' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25402)' id='rect1398' /%3e%3c/g%3e%3cg id='rect85049' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1160.83%2c-804.439)' id='g1403'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1401' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='17.864134' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8800' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c174.855%2c57.7841)'%3e%3cg id='rect792910' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1408' /%3e%3c/g%3e%3cg id='g793110' serif:id='g7931'%3e%3crect id='rect848210' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25404)' /%3e%3cg id='rect848410' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1440.49%2c361.12)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1412' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.112083' y='20.610931' /%3e%3c/g%3e%3crect id='rect848610' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25406)' /%3e%3crect id='rect848810' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25408)' /%3e%3cg id='rect849010' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25410)' id='rect1417' /%3e%3c/g%3e%3crect id='rect849210' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849410' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial129)' id='rect1421' /%3e%3c/g%3e%3cg id='rect849610' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial130)' id='rect1424' /%3e%3c/g%3e%3cg id='rect849810' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c361.12)' id='g1429'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1427' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850010' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25412)' /%3e%3cg id='rect850210' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25414)' id='rect1433' /%3e%3c/g%3e%3cg id='rect850410' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c361.12)' id='g1438'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1436' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8802' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c174.855%2c100.11)'%3e%3cg id='rect792911' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1443' /%3e%3c/g%3e%3cg id='g793111' serif:id='g7931'%3e%3crect id='rect848211' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25416)' /%3e%3cg id='rect848411' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1440.49%2c69.7306)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1447' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.925478' y='20.610931' /%3e%3c/g%3e%3crect id='rect848611' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25418)' /%3e%3crect id='rect848811' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25420)' /%3e%3cg id='rect849011' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25422)' id='rect1452' /%3e%3c/g%3e%3crect id='rect849211' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849411' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial137)' id='rect1456' /%3e%3c/g%3e%3cg id='rect849611' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial138)' id='rect1459' /%3e%3c/g%3e%3cg id='rect849811' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c69.7306)' id='g1464'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1462' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850011' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25424)' /%3e%3cg id='rect850211' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25426)' id='rect1468' /%3e%3c/g%3e%3cg id='rect850411' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c69.7306)' id='g1473'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1471' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8804' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c174.855%2c142.437)'%3e%3cg id='rect792912' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1478' /%3e%3c/g%3e%3cg id='g793112' serif:id='g7931'%3e%3crect id='rect848212' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25428)' /%3e%3cg id='rect848412' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1440.49%2c-221.659)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1482' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.738871' y='20.610931' /%3e%3c/g%3e%3crect id='rect848612' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25430)' /%3e%3crect id='rect848812' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25432)' /%3e%3cg id='rect849012' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25434)' id='rect1487' /%3e%3c/g%3e%3crect id='rect849212' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849412' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial145)' id='rect1491' /%3e%3c/g%3e%3cg id='rect849612' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial146)' id='rect1494' /%3e%3c/g%3e%3cg id='rect849812' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c-221.659)' id='g1499'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1497' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850012' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25436)' /%3e%3cg id='rect850212' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25438)' id='rect1503' /%3e%3c/g%3e%3cg id='rect850412' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c-221.659)' id='g1508'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1506' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8806' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c174.855%2c184.763)'%3e%3cg id='rect792913' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1513' /%3e%3c/g%3e%3cg id='g793113' serif:id='g7931'%3e%3crect id='rect848213' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25440)' /%3e%3cg id='rect848413' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1440.49%2c-513.049)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1517' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.552265' y='20.610931' /%3e%3c/g%3e%3crect id='rect848613' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25442)' /%3e%3crect id='rect848813' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25444)' /%3e%3cg id='rect849013' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25446)' id='rect1522' /%3e%3c/g%3e%3crect id='rect849213' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849413' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial153)' id='rect1526' /%3e%3c/g%3e%3cg id='rect849613' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial154)' id='rect1529' /%3e%3c/g%3e%3cg id='rect849813' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c-513.049)' id='g1534'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1532' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850013' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25448)' /%3e%3cg id='rect850213' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25450)' id='rect1538' /%3e%3c/g%3e%3cg id='rect850413' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c-513.049)' id='g1543'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1541' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8808' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c174.855%2c227.089)'%3e%3cg id='rect792914' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1548' /%3e%3c/g%3e%3cg id='g793114' serif:id='g7931'%3e%3crect id='rect848214' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25452)' /%3e%3cg id='rect848414' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1440.49%2c-804.439)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1552' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.365662' y='20.610931' /%3e%3c/g%3e%3crect id='rect848614' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25454)' /%3e%3crect id='rect848814' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25456)' /%3e%3cg id='rect849014' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25458)' id='rect1557' /%3e%3c/g%3e%3crect id='rect849214' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849414' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial161)' id='rect1561' /%3e%3c/g%3e%3cg id='rect849614' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial162)' id='rect1564' /%3e%3c/g%3e%3cg id='rect849814' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c-804.439)' id='g1569'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1567' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850014' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25460)' /%3e%3cg id='rect850214' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25462)' id='rect1573' /%3e%3c/g%3e%3cg id='rect850414' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1440.49%2c-804.439)' id='g1578'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1576' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='20.564217' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8810' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c215.477%2c57.7841)'%3e%3cg id='rect792915' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1583' /%3e%3c/g%3e%3cg id='g793115' serif:id='g7931'%3e%3crect id='rect848215' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25464)' /%3e%3cg id='rect848415' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1720.15%2c361.12)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1587' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.112083' y='23.311316' /%3e%3c/g%3e%3crect id='rect848615' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25466)' /%3e%3crect id='rect848815' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25468)' /%3e%3cg id='rect849015' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25470)' id='rect1592' /%3e%3c/g%3e%3crect id='rect849215' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849415' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial169)' id='rect1596' /%3e%3c/g%3e%3cg id='rect849615' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial170)' id='rect1599' /%3e%3c/g%3e%3cg id='rect849815' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c361.12)' id='g1604'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1602' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850015' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25472)' /%3e%3cg id='rect850215' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25474)' id='rect1608' /%3e%3c/g%3e%3cg id='rect850415' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c361.12)' id='g1613'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1611' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8812' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c215.477%2c100.11)'%3e%3cg id='rect792916' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1618' /%3e%3c/g%3e%3cg id='g793116' serif:id='g7931'%3e%3crect id='rect848216' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25476)' /%3e%3cg id='rect848416' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1720.15%2c69.7306)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1622' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.925478' y='23.311316' /%3e%3c/g%3e%3crect id='rect848616' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25478)' /%3e%3crect id='rect848816' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25480)' /%3e%3cg id='rect849016' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25482)' id='rect1627' /%3e%3c/g%3e%3crect id='rect849216' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849416' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial177)' id='rect1631' /%3e%3c/g%3e%3cg id='rect849616' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial178)' id='rect1634' /%3e%3c/g%3e%3cg id='rect849816' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c69.7306)' id='g1639'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1637' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850016' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25484)' /%3e%3cg id='rect850216' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25486)' id='rect1643' /%3e%3c/g%3e%3cg id='rect850416' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c69.7306)' id='g1648'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1646' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8814' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c215.477%2c142.437)'%3e%3cg id='rect792917' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1653' /%3e%3c/g%3e%3cg id='g793117' serif:id='g7931'%3e%3crect id='rect848217' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25488)' /%3e%3cg id='rect848417' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1720.15%2c-221.659)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1657' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.738871' y='23.311316' /%3e%3c/g%3e%3crect id='rect848617' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25490)' /%3e%3crect id='rect848817' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25492)' /%3e%3cg id='rect849017' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25494)' id='rect1662' /%3e%3c/g%3e%3crect id='rect849217' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849417' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial185)' id='rect1666' /%3e%3c/g%3e%3cg id='rect849617' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial186)' id='rect1669' /%3e%3c/g%3e%3cg id='rect849817' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c-221.659)' id='g1674'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1672' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850017' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25496)' /%3e%3cg id='rect850217' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25498)' id='rect1678' /%3e%3c/g%3e%3cg id='rect850417' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c-221.659)' id='g1683'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1681' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8816' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c215.477%2c184.763)'%3e%3cg id='rect792918' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1688' /%3e%3c/g%3e%3cg id='g793118' serif:id='g7931'%3e%3crect id='rect848218' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25500)' /%3e%3cg id='rect848418' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1720.15%2c-513.049)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1692' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.552265' y='23.311316' /%3e%3c/g%3e%3crect id='rect848618' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25502)' /%3e%3crect id='rect848818' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25504)' /%3e%3cg id='rect849018' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25506)' id='rect1697' /%3e%3c/g%3e%3crect id='rect849218' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849418' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial193)' id='rect1701' /%3e%3c/g%3e%3cg id='rect849618' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial194)' id='rect1704' /%3e%3c/g%3e%3cg id='rect849818' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c-513.049)' id='g1709'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1707' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850018' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25508)' /%3e%3cg id='rect850218' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25510)' id='rect1713' /%3e%3c/g%3e%3cg id='rect850418' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c-513.049)' id='g1718'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1716' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8818' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c215.477%2c227.089)'%3e%3cg id='rect792919' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1723' /%3e%3c/g%3e%3cg id='g793119' serif:id='g7931'%3e%3crect id='rect848219' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25512)' /%3e%3cg id='rect848419' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1720.15%2c-804.439)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1727' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.365662' y='23.311316' /%3e%3c/g%3e%3crect id='rect848619' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25514)' /%3e%3crect id='rect848819' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25516)' /%3e%3cg id='rect849019' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25518)' id='rect1732' /%3e%3c/g%3e%3crect id='rect849219' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849419' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial201)' id='rect1736' /%3e%3c/g%3e%3cg id='rect849619' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial202)' id='rect1739' /%3e%3c/g%3e%3cg id='rect849819' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c-804.439)' id='g1744'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1742' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850019' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25520)' /%3e%3cg id='rect850219' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25522)' id='rect1748' /%3e%3c/g%3e%3cg id='rect850419' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1720.15%2c-804.439)' id='g1753'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1751' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='23.264301' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8820' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c256.099%2c57.7841)'%3e%3cg id='rect792920' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1758' /%3e%3c/g%3e%3cg id='g793120' serif:id='g7931'%3e%3crect id='rect848220' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25524)' /%3e%3cg id='rect848420' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1999.8%2c361.12)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1762' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.112083' y='26.010761' /%3e%3c/g%3e%3crect id='rect848620' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25526)' /%3e%3crect id='rect848820' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25528)' /%3e%3cg id='rect849020' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25530)' id='rect1767' /%3e%3c/g%3e%3crect id='rect849220' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849420' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial209)' id='rect1771' /%3e%3c/g%3e%3cg id='rect849620' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial210)' id='rect1774' /%3e%3c/g%3e%3cg id='rect849820' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c361.12)' id='g1779'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1777' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850020' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25532)' /%3e%3cg id='rect850220' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25534)' id='rect1783' /%3e%3c/g%3e%3cg id='rect850420' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c361.12)' id='g1788'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1786' style='clip-rule:evenodd%3bfill-rule:evenodd' x='14.072208' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8822' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c256.099%2c100.11)'%3e%3cg id='rect792921' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1793' /%3e%3c/g%3e%3cg id='g793121' serif:id='g7931'%3e%3crect id='rect848221' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25536)' /%3e%3cg id='rect848421' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1999.8%2c69.7305)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1797' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.925478' y='26.010761' /%3e%3c/g%3e%3crect id='rect848621' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25538)' /%3e%3crect id='rect848821' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25540)' /%3e%3cg id='rect849021' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25542)' id='rect1802' /%3e%3c/g%3e%3crect id='rect849221' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849421' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial217)' id='rect1806' /%3e%3c/g%3e%3cg id='rect849621' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial218)' id='rect1809' /%3e%3c/g%3e%3cg id='rect849821' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c69.7305)' id='g1814'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1812' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850021' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25544)' /%3e%3cg id='rect850221' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25546)' id='rect1818' /%3e%3c/g%3e%3cg id='rect850421' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c69.7305)' id='g1823'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1821' style='clip-rule:evenodd%3bfill-rule:evenodd' x='16.885616' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8824' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c256.099%2c142.437)'%3e%3cg id='rect792922' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1828' /%3e%3c/g%3e%3cg id='g793122' serif:id='g7931'%3e%3crect id='rect848222' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25548)' /%3e%3cg id='rect848422' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1999.8%2c-221.659)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1832' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.738871' y='26.010761' /%3e%3c/g%3e%3crect id='rect848622' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25550)' /%3e%3crect id='rect848822' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25552)' /%3e%3cg id='rect849022' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25554)' id='rect1837' /%3e%3c/g%3e%3crect id='rect849222' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849422' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial225)' id='rect1841' /%3e%3c/g%3e%3cg id='rect849622' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial226)' id='rect1844' /%3e%3c/g%3e%3cg id='rect849822' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c-221.659)' id='g1849'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1847' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850022' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25556)' /%3e%3cg id='rect850222' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25558)' id='rect1853' /%3e%3c/g%3e%3cg id='rect850422' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c-221.659)' id='g1858'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1856' style='clip-rule:evenodd%3bfill-rule:evenodd' x='19.699022' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8826' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c256.099%2c184.763)'%3e%3cg id='rect792923' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1863' /%3e%3c/g%3e%3cg id='g793123' serif:id='g7931'%3e%3crect id='rect848223' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25560)' /%3e%3cg id='rect848423' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1999.8%2c-513.049)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1867' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.552265' y='26.010761' /%3e%3c/g%3e%3crect id='rect848623' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25562)' /%3e%3crect id='rect848823' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25564)' /%3e%3cg id='rect849023' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25566)' id='rect1872' /%3e%3c/g%3e%3crect id='rect849223' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849423' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial233)' id='rect1876' /%3e%3c/g%3e%3cg id='rect849623' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial234)' id='rect1879' /%3e%3c/g%3e%3cg id='rect849823' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c-513.049)' id='g1884'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1882' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850023' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25568)' /%3e%3cg id='rect850223' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25570)' id='rect1888' /%3e%3c/g%3e%3cg id='rect850423' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c-513.049)' id='g1893'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1891' style='clip-rule:evenodd%3bfill-rule:evenodd' x='22.511688' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8828' transform='matrix(0.145257%2c0%2c0%2c0.145257%2c256.099%2c227.089)'%3e%3cg id='rect792924' serif:id='rect7929' transform='rotate(-90)'%3e%3crect x='-1992.48' y='610.61401' width='270.97198' height='268.11899' style='fill:none' id='rect1898' /%3e%3c/g%3e%3cg id='g793124' serif:id='g7931'%3e%3crect id='rect848224' serif:id='rect8482' x='671.44202' y='1831.95' width='144.14999' height='50.487' style='fill:url(%23linearGradient25572)' /%3e%3cg id='rect848424' serif:id='rect8484' transform='matrix(0%2c103.577%2c103.577%2c0%2c-1999.8%2c-804.439)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQImWN4/vx5EgAIhgMYHHm7YgAAAABJRU5ErkJggg==' height='0.94221401' width='0.66338003' id='use1902' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.365662' y='26.010761' /%3e%3c/g%3e%3crect id='rect848624' serif:id='rect8486' x='671.44202' y='1831.95' width='30.625' height='50.487' style='fill:url(%23linearGradient25574)' /%3e%3crect id='rect848824' serif:id='rect8488' x='668.18799' y='1831.95' width='33.880001' height='50.487' style='fill:url(%23linearGradient25576)' /%3e%3cg id='rect849024' serif:id='rect8490' transform='scale(-1)'%3e%3crect x='-821.005' y='-1882.4301' width='34.151001' height='50.487' style='fill:url(%23linearGradient25578)' id='rect1907' /%3e%3c/g%3e%3crect id='rect849224' serif:id='rect8492' x='693.854' y='1823.8' width='101.239' height='67.091003' style='fill:%23cccccc%3bfill-opacity:0.5' /%3e%3cg id='rect849424' serif:id='rect8494' transform='scale(-1)'%3e%3crect x='-817.47998' y='-1875.3' width='22.535999' height='36.624001' style='fill:url(%23_Radial241)' id='rect1911' /%3e%3c/g%3e%3cg id='rect849624' serif:id='rect8496' transform='scale(1%2c-1)'%3e%3crect x='671.44202' y='-1879.72' width='23.027' height='45.117001' style='fill:url(%23_Radial242)' id='rect1914' /%3e%3c/g%3e%3cg id='rect849824' serif:id='rect8498' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c-804.439)' id='g1919'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWM4duxYMtO3b98YAR2dBZs6X3%2b/AAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1917' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3crect id='rect850024' serif:id='rect8500' x='681.98798' y='1831.79' width='12.629' height='50.644001' style='fill:url(%23linearGradient25580)' /%3e%3cg id='rect850224' serif:id='rect8502' transform='scale(-1)'%3e%3crect x='-807.401' y='-1882.4301' width='12.629' height='50.644001' style='fill:url(%23linearGradient25582)' id='rect1923' /%3e%3c/g%3e%3cg id='rect850424' serif:id='rect8504' transform='scale(-1%2c1)'%3e%3cg transform='matrix(0%2c103.577%2c-103.577%2c0%2c1999.8%2c-804.439)' id='g1928'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAEklEQVQImWN4d%2bZMEAMDAwM7ABZPAuBKZqceAAAAAElFTkSuQmCC' height='1.065752' width='0.73978603' id='use1926' style='clip-rule:evenodd%3bfill-rule:evenodd' x='25.325096' y='25.96385' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='rect8158' transform='rotate(-90)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25584)%3bstroke:url(%23linearGradient25586)%3bstroke-width:0.85px' id='rect1934' /%3e%3c/g%3e%3cg id='use8522' transform='rotate(-90)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25588)%3bstroke:url(%23linearGradient25590)%3bstroke-width:0.85px' id='rect1937' /%3e%3c/g%3e%3cg id='use8524' transform='rotate(-90%2c-6.67125%2c-6.67125)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25592)%3bstroke:url(%23linearGradient25594)%3bstroke-width:0.85px' id='rect1940' /%3e%3c/g%3e%3cg id='use8526' transform='rotate(-90%2c-13.34255%2c-13.34255)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25596)%3bstroke:url(%23linearGradient25598)%3bstroke-width:0.85px' id='rect1943' /%3e%3c/g%3e%3cg id='use8528' transform='rotate(-90%2c-20.0138%2c-20.0138)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25600)%3bstroke:url(%23linearGradient25602)%3bstroke-width:0.85px' id='rect1946' /%3e%3c/g%3e%3cg id='use8538' transform='rotate(-90%2c-53.37%2c-53.37)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25604)%3bstroke:url(%23linearGradient25606)%3bstroke-width:0.85px' id='rect1949' /%3e%3c/g%3e%3cg id='use8540' transform='rotate(-90%2c-60.0415%2c-60.0415)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25608)%3bstroke:url(%23linearGradient25610)%3bstroke-width:0.85px' id='rect1952' /%3e%3c/g%3e%3cg id='use8542' transform='rotate(-90%2c-66.7125%2c-66.7125)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25612)%3bstroke:url(%23linearGradient25614)%3bstroke-width:0.85px' id='rect1955' /%3e%3c/g%3e%3cg id='use8544' transform='rotate(-90%2c-73.384%2c-73.384)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25616)%3bstroke:url(%23linearGradient25618)%3bstroke-width:0.85px' id='rect1958' /%3e%3c/g%3e%3cg id='use8546' transform='rotate(-90%2c-80.0555%2c-80.0555)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25620)%3bstroke:url(%23linearGradient25622)%3bstroke-width:0.85px' id='rect1961' /%3e%3c/g%3e%3cg id='use8556' transform='rotate(-90%2c-113.4115%2c-113.4115)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25624)%3bstroke:url(%23linearGradient25626)%3bstroke-width:0.85px' id='rect1964' /%3e%3c/g%3e%3cg id='use8558' transform='rotate(-90%2c-120.083%2c-120.083)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25628)%3bstroke:url(%23linearGradient25630)%3bstroke-width:0.85px' id='rect1967' /%3e%3c/g%3e%3cg id='use8560' transform='rotate(-90%2c-126.754%2c-126.754)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25632)%3bstroke:url(%23linearGradient25634)%3bstroke-width:0.85px' id='rect1970' /%3e%3c/g%3e%3cg id='use8562' transform='rotate(-90%2c-133.4255%2c-133.4255)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25636)%3bstroke:url(%23linearGradient25638)%3bstroke-width:0.85px' id='rect1973' /%3e%3c/g%3e%3cg id='use8564' transform='rotate(-90%2c-140.0965%2c-140.0965)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25640)%3bstroke:url(%23linearGradient25642)%3bstroke-width:0.85px' id='rect1976' /%3e%3c/g%3e%3cg id='use8574' transform='rotate(-90%2c-173.453%2c-173.453)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25644)%3bstroke:url(%23linearGradient25646)%3bstroke-width:0.85px' id='rect1979' /%3e%3c/g%3e%3cg id='use8576' transform='rotate(-90%2c-180.1245%2c-180.1245)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25648)%3bstroke:url(%23linearGradient25650)%3bstroke-width:0.85px' id='rect1982' /%3e%3c/g%3e%3cg id='use8578' transform='rotate(-90%2c-186.7955%2c-186.7955)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25652)%3bstroke:url(%23linearGradient25654)%3bstroke-width:0.85px' id='rect1985' /%3e%3c/g%3e%3cg id='use8580' transform='rotate(-90%2c-193.467%2c-193.467)'%3e%3crect x='-611.54602' y='435.27301' width='9.9969997' height='51.667' style='fill:url(%23linearGradient25656)%3bstroke:url(%23linearGradient25658)%3bstroke-width:0.85px' id='rect1988' /%3e%3c/g%3e%3cpath id='path10810' d='m 393.981%2c640.074 c 0%2c13.91 10.795%2c24.015 24.209%2c25.102 h 68.75 v -50.203 h -68.75 c -13.309%2c0 -24.209%2c11.192 -24.209%2c25.101 z m 44.855%2c-0.217 c 0%2c11.627 -9.013%2c20.972 -20.227%2c20.972 -11.213%2c0 -20.226%2c-9.345 -20.226%2c-20.972 0%2c-11.627 9.118%2c-20.972 20.226%2c-20.972 11.214%2c0 20.227%2c9.345 20.227%2c20.972 z' style='fill:none%3bfill-rule:nonzero%3bstroke:url(%23_Linear283)%3bstroke-width:0.75px' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg transform='matrix(0.306725%2c0%2c0%2c0.306725%2c241.12%2c96.1271)' id='g2002'%3e%3cg id='g8120'%3e%3cg id='g8134'%3e%3cg id='g8136'%3e%3cpath id='path8144' d='m 92.126%2c51.024 c 4.252%2c0 7.37%2c-3.402 7.37%2c-7.37 0%2c-3.969 -3.402%2c-7.371 -7.37%2c-7.371 -4.252%2c0 -7.37%2c3.402 -7.37%2c7.371 0%2c3.968 3.401%2c7.37 7.37%2c7.37' style='fill:url(%23linearGradient25660)%3bfill-rule:nonzero%3bstroke:url(%23_Linear285)%3bstroke-width:0.67px' /%3e%3cpath id='path8152' d='m 37.701%2c36.283 c -4.252%2c0 -7.37%2c3.402 -7.37%2c7.371 0%2c3.968 3.401%2c7.37 7.37%2c7.37 3.968%2c0 7.37%2c-3.402 7.37%2c-7.37 0%2c-3.969 -3.402%2c-7.371 -7.37%2c-7.371' style='fill:url(%23linearGradient25662)%3bfill-rule:nonzero%3bstroke:url(%23_Linear287)%3bstroke-width:0.67px' /%3e%3cpath id='path8160' d='m 37.701%2c21.543 c -12.189%2c0 -22.11%2c9.922 -22.11%2c22.111 0%2c12.189 9.921%2c22.11 22.11%2c22.11 h 55.275 c 12.189%2c0 22.111%2c-9.921 22.111%2c-22.11 0%2c-12.189 -9.922%2c-22.111 -22.111%2c-22.111 H 37.701 M 92.976%2c80.504 H 37.701 C 17.291%2c80.504 0.85%2c64.063 0.85%2c43.654 0.85%2c23.244 17.291%2c6.803 37.701%2c6.803 h 55.275 c 20.41%2c0 36.851%2c16.441 36.851%2c36.851 0%2c20.409 -16.725%2c36.85 -36.851%2c36.85' style='fill:url(%23_Linear288)%3bfill-rule:nonzero%3bstroke:url(%23_Linear289)%3bstroke-width:0.67px' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='path8144-0' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c132.547%2c66.888)'%3e%3cpath d='m 374.007%2c115.204 c -2.458%2c0 -4.26%2c1.966 -4.26%2c4.26 0%2c2.294 1.966%2c4.26 4.26%2c4.26 2.457%2c0 4.26%2c-1.966 4.26%2c-4.26 0%2c-2.294 -1.966%2c-4.26 -4.26%2c-4.26 z m 0%2c0.494 c 2.066%2c0 3.766%2c1.7 3.766%2c3.766 0%2c2.066 -1.7%2c3.766 -3.766%2c3.766 -2.066%2c0 -3.766%2c-1.7 -3.766%2c-3.766 0%2c-2.066 1.7%2c-3.766 3.766%2c-3.766 z' style='fill:url(%23_Linear290)%3bfill-rule:nonzero%3bstroke:url(%23_Linear291)%3bstroke-width:0.39px' id='path2004' /%3e%3c/g%3e%3cg id='ButtonGroup' transform='matrix(0%2c0.436995%2c-0.436995%2c0%2c441.095%2c48.646)'%3e%3cg id='g8124'%3e%3cg id='rect22675' transform='scale(1%2c-1)'%3e%3crect x='244.752' y='-594.97803' width='59.563' height='2.2060001' style='fill:%23b3b3b3%3bfill-rule:nonzero' id='rect2007' /%3e%3c/g%3e%3cg id='rect22681' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='594.97803' y='304.315' width='59.563' height='3.01' style='fill:%23666666%3bfill-rule:nonzero' id='rect2010' /%3e%3c/g%3e%3cg id='rect22683' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='594.97699' y='242.54601' width='59.563' height='2.2060001' style='fill:url(%23linearGradient25664)' id='rect2013' /%3e%3c/g%3e%3cg id='g22713' transform='matrix(-0.352778%2c0%2c0%2c-0.352778%2c494.471%2c1134.63)'%3e%3cg id='rect22685' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1380.1' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25666)' id='rect2016' /%3e%3c/g%3e%3cg id='rect22687' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1499.36' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25668)' id='rect2019' /%3e%3c/g%3e%3c/g%3e%3cg id='g22717' transform='matrix(0.352778%2c0%2c0%2c0.352778%2c54.5172%2c114.411)'%3e%3cg id='rect22719' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1380.1' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25670)' id='rect2023' /%3e%3c/g%3e%3cg id='rect22721' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1499.36' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25672)' id='rect2026' /%3e%3c/g%3e%3c/g%3e%3cg id='rect22677' transform='scale(1%2c-1)'%3e%3crect x='244.752' y='-656.74701' width='59.563' height='2.2060001' style='fill:url(%23linearGradient25674)' id='rect2030' /%3e%3c/g%3e%3crect id='rect22851' x='244.752' y='594.97803' width='59.563' height='59.563' style='fill:url(%23linearGradient25676)' /%3e%3cg id='rect23001' transform='matrix(0%2c-15.0453%2c15.0453%2c0%2c-34.3857%2c714.116)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAiklEQVQYlY2QMQ7CQAwEZ537CLyAdPwgz84HkEIbJP4BOvtMcxdRppjGO7LWFsA8zwL%2bycG2bakuGFA6Q/JOG8OyLMu91np1d5PUzOy1rusDqIfk7peIuEXEZGYRER/gCfiQlJmWmVOHzJxGVkbBUkoAAdA3xZGNkq21XdJXkklqwLsXP3edzvzpBwatWNv7MzmlAAAAAElFTkSuQmCC' height='8.5113544' width='8.5113544' id='use2034' style='clip-rule:evenodd%3bfill-rule:evenodd' x='1.7041622' y='16.308701' /%3e%3c/g%3e%3ccircle id='path23011' cx='274.53299' cy='624.75897' r='16.266001' style='stroke:black%3bstroke-width:0.38px' /%3e%3cg id='circle23167' transform='matrix(0%2c-15.0453%2c15.0453%2c0%2c-34.3857%2c714.116)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5%2bAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAPElEQVQImS3HywnAMBBDwWfQaSuIcRvpv5pASliEyOfiuc2oqilpJaG7L0lats8kH/AoCbZftgEcwNy/f7B/F0jfw4LIAAAAAElFTkSuQmCC' height='3.51142' width='3.512284' id='use2038' style='clip-rule:evenodd%3bfill-rule:evenodd' x='4.1831303' y='18.777317' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='use8162' transform='matrix(0%2c0.436995%2c-0.436995%2c0%2c628.331%2c48.646)'%3e%3cg id='g81241' serif:id='g8124'%3e%3cg id='rect226751' serif:id='rect22675' transform='scale(1%2c-1)'%3e%3crect x='244.752' y='-594.97803' width='59.563' height='2.2060001' style='fill:%23b3b3b3%3bfill-rule:nonzero' id='rect2043' /%3e%3c/g%3e%3cg id='rect226811' serif:id='rect22681' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='594.97803' y='304.315' width='59.563' height='3.01' style='fill:%23666666%3bfill-rule:nonzero' id='rect2046' /%3e%3c/g%3e%3cg id='rect226831' serif:id='rect22683' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='594.97699' y='242.54601' width='59.563' height='2.2060001' style='fill:url(%23linearGradient25678)' id='rect2049' /%3e%3c/g%3e%3cg id='g227131' serif:id='g22713' transform='matrix(-0.352778%2c0%2c0%2c-0.352778%2c494.471%2c1134.63)'%3e%3cg id='rect226851' serif:id='rect22685' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1380.1' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25680)' id='rect2052' /%3e%3c/g%3e%3cg id='rect226871' serif:id='rect22687' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1499.36' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25682)' id='rect2055' /%3e%3c/g%3e%3c/g%3e%3cg id='g227171' serif:id='g22717' transform='matrix(0.352778%2c0%2c0%2c0.352778%2c54.5172%2c114.411)'%3e%3cg id='rect227191' serif:id='rect22719' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1380.1' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25684)' id='rect2059' /%3e%3c/g%3e%3cg id='rect227211' serif:id='rect22721' transform='matrix(0%2c1%2c1%2c0%2c0%2c0)'%3e%3crect x='1499.36' y='713.89502' width='12.507' height='6.2529998' style='fill:url(%23linearGradient25686)' id='rect2062' /%3e%3c/g%3e%3c/g%3e%3cg id='rect226771' serif:id='rect22677' transform='scale(1%2c-1)'%3e%3crect x='244.752' y='-656.74701' width='59.563' height='2.2060001' style='fill:url(%23linearGradient25688)' id='rect2066' /%3e%3c/g%3e%3crect id='rect228511' serif:id='rect22851' x='244.752' y='594.97803' width='59.563' height='59.563' style='fill:url(%23linearGradient25690)' /%3e%3cg id='rect230011' serif:id='rect23001' transform='matrix(0%2c-15.0453%2c15.0453%2c0%2c-34.3857%2c1142.58)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAiklEQVQYlY2QMQ7CQAwEZ537CLyAdPwgz84HkEIbJP4BOvtMcxdRppjGO7LWFsA8zwL%2bycG2bakuGFA6Q/JOG8OyLMu91np1d5PUzOy1rusDqIfk7peIuEXEZGYRER/gCfiQlJmWmVOHzJxGVkbBUkoAAdA3xZGNkq21XdJXkklqwLsXP3edzvzpBwatWNv7MzmlAAAAAElFTkSuQmCC' height='8.5113544' width='8.5113544' id='use2070' style='clip-rule:evenodd%3bfill-rule:evenodd' x='30.182207' y='16.308701' /%3e%3c/g%3e%3ccircle id='path230111' serif:id='path23011' cx='274.53299' cy='624.75897' r='16.266001' style='stroke:black%3bstroke-width:0.38px' /%3e%3cg id='circle231671' serif:id='circle23167' transform='matrix(0%2c-15.0453%2c15.0453%2c0%2c-34.3857%2c1142.58)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5%2bAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAPElEQVQImS3HywnAMBBDwWfQaSuIcRvpv5pASliEyOfiuc2oqilpJaG7L0lats8kH/AoCbZftgEcwNy/f7B/F0jfw4LIAAAAAElFTkSuQmCC' height='3.51142' width='3.512284' id='use2074' style='clip-rule:evenodd%3bfill-rule:evenodd' x='32.660728' y='18.777317' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg id='path9572' transform='matrix(0.115622%2c0%2c0%2c0.115622%2c132.547%2c66.888)'%3e%3cpath d='m 1482.03%2c388.551 c -6.22%2c0 -11.26%2c5.054 -11.26%2c11.272 v 21.349 c 0%2c6.226 5.04%2c11.266 11.26%2c11.266 6.22%2c0 11.27%2c-5.04 11.27%2c-11.266 v -21.349 c 0%2c-6.218 -5.05%2c-11.272 -11.27%2c-11.272 z m -24.73%2c36.369 c 0%2c11.58 8.54%2c20.577 19.26%2c22.987 v 5.819 h -12.36 v 9.047 h 36.11 v -9.047 h -12.39 v -5.819 c 10.73%2c-2.406 19.3%2c-11.405 19.3%2c-22.987 h -8.16 c 0%2c8.882 -7.65%2c15.508 -16.81%2c15.508 -9.17%2c0 -16.8%2c-6.628 -16.8%2c-15.508 z' style='fill:%234d4d4d' id='path2079' /%3e%3c/g%3e%3cg id='g13238' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c140.743%2c-12.1436)'%3e%3cg id='g13240' transform='matrix(0.383347%2c0%2c0%2c0.369714%2c3.54692%2c200.372)'%3e%3cpath id='polygon13242' d='M 491.244%2c0 H 326.551 v 160.724 z' style='fill:%23ffcc00%3bfill-rule:nonzero' /%3e%3cpath id='path13244' d='M 324.283%2c0 H 73.984 C 34.866%2c5.953 0.567%2c37.701 0.567%2c78.52 v 237.826 z' style='fill:%23ffcc00%3bfill-rule:nonzero' /%3e%3cpath id='polygon13246' d='M 574.583%2c0 H 490.961 V 79.087 Z' style='fill:%23ffcc00%3bfill-rule:nonzero' /%3e%3c/g%3e%3cg id='path13248' transform='matrix(0.264583%2c0%2c0%2c0.264583%2c2.90403%2c200.372)'%3e%3cpath d='m 225.853%2c960.142 c 0%2c0 -121.57%2c116.848 -130.195%2c125.558 h 130.195 z m -43.948%2c56.248 h 12.733 l 21.36%2c56.64 H 201.21 l -2.464%2c-6.73 h -20.944 l -2.464%2c6.73 H 160.96 Z m 6.571%2c16.23 -7.391%2c23.37 h 14.373 z' style='fill:%23ffcc00%3bfill-rule:nonzero' id='path2086' /%3e%3c/g%3e%3cg id='path13250' transform='matrix(0.264583%2c0%2c0%2c0.264583%2c2.90403%2c200.372)'%3e%3cpath d='M 1836.22%2c526.021 V 651.98 l 130.19%2c-125.959 z m 11.91%2c11.881 h 24.23 c 16.02%2c0 19.31%2c9.505 19.31%2c15.446 0%2c7.13 -5.76%2c11.485 -10.27%2c12.673 3.69%2c0 10.68%2c4.358 10.68%2c13.072 0%2c5.941 -3.29%2c15.845 -19.31%2c15.845 h -24.64 z m 13.55%2c9.899 v 13.47 h 8.22 c 6.57%2c0 8.21%2c-3.96 8.21%2c-6.732 0%2c-2.377 -1.23%2c-6.738 -8.21%2c-6.738 z m 0%2c22.577 v 14.262 h 8.63 c 6.57%2c0 8.21%2c-3.962 8.21%2c-7.131 0%2c-2.772 -1.64%2c-7.131 -8.21%2c-7.131 z' style='fill:%23ffcc00%3bfill-rule:nonzero' id='path2089' /%3e%3c/g%3e%3cg id='g13252' /%3e%3c/g%3e%3cg id='use14815' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c75.4179)'%3e%3cg id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-95.6492)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2094' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='10.411164' /%3e%3c/g%3e%3c/g%3e%3cg id='use14817' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c93.244)'%3e%3cg id='rect106591' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2098' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use14819' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c111.07)'%3e%3cg id='rect106592' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-177.234)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2102' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='15.832946' /%3e%3c/g%3e%3c/g%3e%3cg id='use14821' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c128.896)'%3e%3cg id='rect106593' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-218.026)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2106' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='18.544315' /%3e%3c/g%3e%3c/g%3e%3cg id='use14823' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c146.722)'%3e%3cg id='rect106594' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-258.819)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2110' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='21.255688' /%3e%3c/g%3e%3c/g%3e%3cg id='use14827' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c160.535%2c93.244)'%3e%3cg id='rect106595' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-72.0963%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2114' style='clip-rule:evenodd%3bfill-rule:evenodd' x='12.295686' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use14839' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c179.058%2c111.07)'%3e%3cg id='rect106596' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-114.484%2c-177.234)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2118' style='clip-rule:evenodd%3bfill-rule:evenodd' x='15.11231' y='15.832946' /%3e%3c/g%3e%3c/g%3e%3cg id='use14847' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c197.582%2c93.244)'%3e%3cg id='rect106597' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-156.871%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2122' style='clip-rule:evenodd%3bfill-rule:evenodd' x='17.929928' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use14855' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c75.4179)'%3e%3cg id='rect106598' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-95.6492)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2126' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='10.411164' /%3e%3c/g%3e%3c/g%3e%3cg id='use14857' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c93.244)'%3e%3cg id='rect106599' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2130' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use14859' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c111.07)'%3e%3cg id='rect1065910' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-177.234)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2134' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='15.832946' /%3e%3c/g%3e%3c/g%3e%3cg id='use14861' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c128.896)'%3e%3cg id='rect1065911' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-218.026)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2138' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='18.544315' /%3e%3c/g%3e%3c/g%3e%3cg id='use14863' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c146.722)'%3e%3cg id='rect1065912' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-258.819)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2142' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='21.255688' /%3e%3c/g%3e%3c/g%3e%3cg id='use148151' serif:id='use14815' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c75.4179)'%3e%3cg id='rect1065913' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-95.6492)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2146' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='10.411164' /%3e%3c/g%3e%3c/g%3e%3cg id='use148171' serif:id='use14817' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c93.244)'%3e%3cg id='rect1065914' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2150' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use148191' serif:id='use14819' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c111.07)'%3e%3cg id='rect1065915' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-177.234)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2154' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='15.832946' /%3e%3c/g%3e%3c/g%3e%3cg id='use148211' serif:id='use14821' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c128.896)'%3e%3cg id='rect1065916' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-218.026)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2158' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='18.544315' /%3e%3c/g%3e%3c/g%3e%3cg id='use148231' serif:id='use14823' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c142.012%2c146.722)'%3e%3cg id='rect1065917' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-29.7087%2c-258.819)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2162' style='clip-rule:evenodd%3bfill-rule:evenodd' x='9.4780693' y='21.255688' /%3e%3c/g%3e%3c/g%3e%3cg id='use148271' serif:id='use14827' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c160.535%2c93.244)'%3e%3cg id='rect1065918' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-72.0963%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2166' style='clip-rule:evenodd%3bfill-rule:evenodd' x='12.295686' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use148391' serif:id='use14839' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c179.058%2c111.07)'%3e%3cg id='rect1065919' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-114.484%2c-177.234)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2170' style='clip-rule:evenodd%3bfill-rule:evenodd' x='15.11231' y='15.832946' /%3e%3c/g%3e%3c/g%3e%3cg id='use148471' serif:id='use14847' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c197.582%2c93.244)'%3e%3cg id='rect1065920' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-156.871%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2174' style='clip-rule:evenodd%3bfill-rule:evenodd' x='17.929928' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use148551' serif:id='use14855' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c75.4179)'%3e%3cg id='rect1065921' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-95.6492)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2178' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='10.411164' /%3e%3c/g%3e%3c/g%3e%3cg id='use148571' serif:id='use14857' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c93.244)'%3e%3cg id='rect1065922' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-136.442)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2182' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='13.121575' /%3e%3c/g%3e%3c/g%3e%3cg id='use148591' serif:id='use14859' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c111.07)'%3e%3cg id='rect1065923' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-177.234)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2186' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='15.832946' /%3e%3c/g%3e%3c/g%3e%3cg id='use148611' serif:id='use14861' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c128.896)'%3e%3cg id='rect1065924' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-218.026)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2190' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='18.544315' /%3e%3c/g%3e%3c/g%3e%3cg id='use148631' serif:id='use14863' transform='matrix(0.436995%2c0%2c0%2c0.436995%2c216.105%2c146.722)'%3e%3cg id='rect1065925' serif:id='rect10659' transform='matrix(15.0453%2c0%2c0%2c15.0453%2c-199.259%2c-258.819)'%3e%3cimage xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAn0lEQVQYlY2RSw7CMAxEn1OnoRKI%2bx8TgVSapDYLnIoFEngzkj3%2bzFiIcBC%2bhIAHHqQUtYE2UMD1g5QApZQJgG3bgR6DTBnEZcmInMh5BmCaKu5P1rUBrse6lGZUz6heInendwN2YB8TIWehlAJc35fZRs5DoCihitYc9w3VWxArvfswZaw2zCqtPYAajRX3OtTLH6otLPrPx%2bMbvz7zAm0BSQhMosjCAAAAAElFTkSuQmCC' height='10.546349' width='9.9246798' id='use2194' style='clip-rule:evenodd%3bfill-rule:evenodd' x='20.747543' y='21.255688' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg style='clip-rule:evenodd%3bfill-rule:evenodd' transform='matrix(1.09495%2c0%2c0%2c1.11645%2c-33.850523%2c-1.7099932)' id='g2202'%3e%3cpath d='m 15.11%2c25.5 v -10 l 5.11%2c5 5.11%2c-5 v 10' style='fill:none%3bstroke:red%3bstroke-width:2.06px%3bstroke-linecap:round%3bstroke-linejoin:round%3bstroke-miterlimit:1.5%3bstroke-opacity:0.67' id='path2200' /%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e";
 
+var de$1 = {
+	"mbitMore.entry.name": "MicroBit More",
+	"mbitMore.entry.description": "Nutze alle Funktionen des micro:bit."
+};
 var en = {
 	"mbitMore.entry.name": "MicroBit More",
 	"mbitMore.entry.description": "Play with all functions of micro:bit."
@@ -15,6 +19,7 @@ var ja$1 = {
 	"mbitMore.entry.description": "micro:bitのすべての機能で遊ぶ。"
 };
 var translations$1 = {
+	de: de$1,
 	en: en,
 	ja: ja$1,
 	"ja-Hira": {
@@ -35,13 +40,11 @@ var entry = {
       id: 'mbitMore.entry.name'
     }), " (").concat(version, ")");
   },
-
   extensionId: 'microbitMore',
   extensionURL: 'https://microbit-more.github.io/dist/microbitMore.mjs',
   collaborator: 'Yengawa Lab',
   iconURL: img$4,
   insetIconURL: img$3,
-
   get description() {
     return formatMessage$1({
       defaultMessage: 'Play with all functions of micro:bit.',
@@ -49,7 +52,6 @@ var entry = {
       id: 'mbitMore.entry.description'
     });
   },
-
   featured: true,
   disabled: false,
   bluetoothRequired: true,
@@ -58,7 +60,6 @@ var entry = {
   useAutoScan: false,
   connectionIconURL: img$2,
   connectionSmallIconURL: img$1,
-
   get connectingMessage() {
     return formatMessage$1({
       defaultMessage: 'Connecting',
@@ -66,7 +67,6 @@ var entry = {
       id: 'gui.extension.microbit.connectingMessage'
     });
   },
-
   helpLink: 'https://microbit-more.github.io/',
   setFormatMessage: function setFormatMessage(formatter) {
     formatMessage$1 = formatter;
@@ -80,18 +80,14 @@ function _arrayWithHoles(arr) {
 
 function _iterableToArrayLimit(arr, i) {
   var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-
   if (_i == null) return;
   var _arr = [];
   var _n = true;
   var _d = false;
-
   var _s, _e;
-
   try {
     for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
       _arr.push(_s.value);
-
       if (i && _arr.length === i) break;
     }
   } catch (err) {
@@ -104,27 +100,24 @@ function _iterableToArrayLimit(arr, i) {
       if (_d) throw _e;
     }
   }
-
   return _arr;
 }
 
-function _arrayLikeToArray(arr, len) {
+function _arrayLikeToArray$1(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-
   for (var i = 0, arr2 = new Array(len); i < len; i++) {
     arr2[i] = arr[i];
   }
-
   return arr2;
 }
 
-function _unsupportedIterableToArray(o, minLen) {
+function _unsupportedIterableToArray$1(o, minLen) {
   if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  if (typeof o === "string") return _arrayLikeToArray$1(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
   if (n === "Object" && o.constructor) n = o.constructor.name;
   if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen);
 }
 
 function _nonIterableRest() {
@@ -132,8 +125,121 @@ function _nonIterableRest() {
 }
 
 function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray$1(arr, i) || _nonIterableRest();
 }
+
+function _classCallCheck$1(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties$1(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+function _createClass$1(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$1(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+/**
+ * Block argument types
+ * @enum {string}
+ */
+var ArgumentType = {
+  /**
+   * Numeric value with angle picker
+   */
+  ANGLE: 'angle',
+  /**
+   * Boolean value with hexagonal placeholder
+   */
+  BOOLEAN: 'Boolean',
+  /**
+   * Numeric value with color picker
+   */
+  COLOR: 'color',
+  /**
+   * Numeric value with text field
+   */
+  NUMBER: 'number',
+  /**
+   * String value with text field
+   */
+  STRING: 'string',
+  /**
+   * String value with matrix field
+   */
+  MATRIX: 'matrix',
+  /**
+   * MIDI note number with note picker (piano) field
+   */
+  NOTE: 'note',
+  /**
+   * Inline image on block (as part of the label)
+   */
+  IMAGE: 'image'
+};
+var argumentType = ArgumentType;
+var ArgumentType$1 = /*@__PURE__*/getDefaultExportFromCjs(argumentType);
+
+/**
+ * Types of block
+ * @enum {string}
+ */
+var BlockType = {
+  /**
+   * Boolean reporter with hexagonal shape
+   */
+  BOOLEAN: 'Boolean',
+  /**
+   * A button (not an actual block) for some special action, like making a variable
+   */
+  BUTTON: 'button',
+  /**
+   * Command block
+   */
+  COMMAND: 'command',
+  /**
+   * Specialized command block which may or may not run a child branch
+   * The thread continues with the next block whether or not a child branch ran.
+   */
+  CONDITIONAL: 'conditional',
+  /**
+   * Specialized hat block with no implementation function
+   * This stack only runs if the corresponding event is emitted by other code.
+   */
+  EVENT: 'event',
+  /**
+   * Hat block which conditionally starts a block stack
+   */
+  HAT: 'hat',
+  /**
+   * Specialized command block which may or may not run a child branch
+   * If a child branch runs, the thread evaluates the loop block again.
+   */
+  LOOP: 'loop',
+  /**
+   * General reporter with numeric or string value
+   */
+  REPORTER: 'reporter'
+};
+var blockType = BlockType;
+var BlockType$1 = /*@__PURE__*/getDefaultExportFromCjs(blockType);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -150,134 +256,16 @@ function _defineProperties(target, props) {
     Object.defineProperty(target, descriptor.key, descriptor);
   }
 }
-
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
   return Constructor;
 }
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-/**
- * Block argument types
- * @enum {string}
- */
-var ArgumentType = {
-  /**
-   * Numeric value with angle picker
-   */
-  ANGLE: 'angle',
-
-  /**
-   * Boolean value with hexagonal placeholder
-   */
-  BOOLEAN: 'Boolean',
-
-  /**
-   * Numeric value with color picker
-   */
-  COLOR: 'color',
-
-  /**
-   * Numeric value with text field
-   */
-  NUMBER: 'number',
-
-  /**
-   * String value with text field
-   */
-  STRING: 'string',
-
-  /**
-   * String value with matrix field
-   */
-  MATRIX: 'matrix',
-
-  /**
-   * MIDI note number with note picker (piano) field
-   */
-  NOTE: 'note',
-
-  /**
-   * Inline image on block (as part of the label)
-   */
-  IMAGE: 'image'
-};
-var argumentType = ArgumentType;
-
-/**
- * Types of block
- * @enum {string}
- */
-var BlockType = {
-  /**
-   * Boolean reporter with hexagonal shape
-   */
-  BOOLEAN: 'Boolean',
-
-  /**
-   * A button (not an actual block) for some special action, like making a variable
-   */
-  BUTTON: 'button',
-
-  /**
-   * Command block
-   */
-  COMMAND: 'command',
-
-  /**
-   * Specialized command block which may or may not run a child branch
-   * The thread continues with the next block whether or not a child branch ran.
-   */
-  CONDITIONAL: 'conditional',
-
-  /**
-   * Specialized hat block with no implementation function
-   * This stack only runs if the corresponding event is emitted by other code.
-   */
-  EVENT: 'event',
-
-  /**
-   * Hat block which conditionally starts a block stack
-   */
-  HAT: 'hat',
-
-  /**
-   * Specialized command block which may or may not run a child branch
-   * If a child branch runs, the thread evaluates the loop block again.
-   */
-  LOOP: 'loop',
-
-  /**
-   * General reporter with numeric or string value
-   */
-  REPORTER: 'reporter'
-};
-var blockType = BlockType;
 
 var Color$1 = /*#__PURE__*/function () {
   function Color() {
     _classCallCheck(this, Color);
   }
-
   _createClass(Color, null, [{
     key: "RGB_BLACK",
     get:
@@ -303,8 +291,8 @@ var Color$1 = /*#__PURE__*/function () {
         b: 0
       };
     }
-    /** @type {RGBObject} */
 
+    /** @type {RGBObject} */
   }, {
     key: "RGB_WHITE",
     get: function get() {
@@ -314,29 +302,28 @@ var Color$1 = /*#__PURE__*/function () {
         b: 255
       };
     }
+
     /**
      * Convert a Scratch decimal color to a hex string, #RRGGBB.
      * @param {number} decimal RGB color as a decimal.
      * @return {string} RGB color as #RRGGBB hex string.
      */
-
   }, {
     key: "decimalToHex",
     value: function decimalToHex(decimal) {
       if (decimal < 0) {
         decimal += 0xFFFFFF + 1;
       }
-
       var hex = Number(decimal).toString(16);
       hex = "#".concat('000000'.substr(0, 6 - hex.length)).concat(hex);
       return hex;
     }
+
     /**
      * Convert a Scratch decimal color to an RGB color object.
      * @param {number} decimal RGB color as decimal.
      * @return {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
      */
-
   }, {
     key: "decimalToRgb",
     value: function decimalToRgb(decimal) {
@@ -351,6 +338,7 @@ var Color$1 = /*#__PURE__*/function () {
         a: a > 0 ? a : 255
       };
     }
+
     /**
      * Convert a hex color (e.g., F00, #03F, #0033FF) to an RGB color object.
      * CC-BY-SA Tim Down:
@@ -358,7 +346,6 @@ var Color$1 = /*#__PURE__*/function () {
      * @param {!string} hex Hex representation of the color.
      * @return {RGBObject} null on failure, or rgb: {r: red [0,255], g: green [0,255], b: blue [0,255]}.
      */
-
   }, {
     key: "hexToRgb",
     value: function hexToRgb(hex) {
@@ -373,45 +360,45 @@ var Color$1 = /*#__PURE__*/function () {
         b: parseInt(result[3], 16)
       } : null;
     }
+
     /**
      * Convert an RGB color object to a hex color.
      * @param {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
      * @return {!string} Hex representation of the color.
      */
-
   }, {
     key: "rgbToHex",
     value: function rgbToHex(rgb) {
       return Color.decimalToHex(Color.rgbToDecimal(rgb));
     }
+
     /**
      * Convert an RGB color object to a Scratch decimal color.
      * @param {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
      * @return {!number} Number representing the color.
      */
-
   }, {
     key: "rgbToDecimal",
     value: function rgbToDecimal(rgb) {
       return (rgb.r << 16) + (rgb.g << 8) + rgb.b;
     }
+
     /**
     * Convert a hex color (e.g., F00, #03F, #0033FF) to a decimal color number.
     * @param {!string} hex Hex representation of the color.
     * @return {!number} Number representing the color.
     */
-
   }, {
     key: "hexToDecimal",
     value: function hexToDecimal(hex) {
       return Color.rgbToDecimal(Color.hexToRgb(hex));
     }
+
     /**
      * Convert an HSV color to RGB format.
      * @param {HSVObject} hsv - {h: hue [0,360), s: saturation [0,1], v: value [0,1]}
      * @return {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
      */
-
   }, {
     key: "hsvToRgb",
     value: function hsvToRgb(hsv) {
@@ -427,7 +414,6 @@ var Color$1 = /*#__PURE__*/function () {
       var r;
       var g;
       var b;
-
       switch (i) {
         default:
         case 0:
@@ -435,50 +421,44 @@ var Color$1 = /*#__PURE__*/function () {
           g = t;
           b = p;
           break;
-
         case 1:
           r = q;
           g = v;
           b = p;
           break;
-
         case 2:
           r = p;
           g = v;
           b = t;
           break;
-
         case 3:
           r = p;
           g = q;
           b = v;
           break;
-
         case 4:
           r = t;
           g = p;
           b = v;
           break;
-
         case 5:
           r = v;
           g = p;
           b = q;
           break;
       }
-
       return {
         r: Math.floor(r * 255),
         g: Math.floor(g * 255),
         b: Math.floor(b * 255)
       };
     }
+
     /**
      * Convert an RGB color to HSV format.
      * @param {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
      * @return {HSVObject} hsv - {h: hue [0,360), s: saturation [0,1], v: value [0,1]}
      */
-
   }, {
     key: "rgbToHsv",
     value: function rgbToHsv(rgb) {
@@ -486,24 +466,24 @@ var Color$1 = /*#__PURE__*/function () {
       var g = rgb.g / 255;
       var b = rgb.b / 255;
       var x = Math.min(Math.min(r, g), b);
-      var v = Math.max(Math.max(r, g), b); // For grays, hue will be arbitrarily reported as zero. Otherwise, calculate
+      var v = Math.max(Math.max(r, g), b);
 
+      // For grays, hue will be arbitrarily reported as zero. Otherwise, calculate
       var h = 0;
       var s = 0;
-
       if (x !== v) {
         var f = r === x ? g - b : g === x ? b - r : r - g;
         var i = r === x ? 3 : g === x ? 5 : 1;
         h = (i - f / (v - x)) * 60 % 360;
         s = (v - x) / v;
       }
-
       return {
         h: h,
         s: s,
         v: v
       };
     }
+
     /**
      * Linear interpolation between rgb0 and rgb1.
      * @param {RGBObject} rgb0 - the color corresponding to fraction1 <= 0.
@@ -511,7 +491,6 @@ var Color$1 = /*#__PURE__*/function () {
      * @param {number} fraction1 - the interpolation parameter. If this is 0.5, for example, mix the two colors equally.
      * @return {RGBObject} the interpolated color.
      */
-
   }, {
     key: "mixRgb",
     value: function mixRgb(rgb0, rgb1, fraction1) {
@@ -525,13 +504,12 @@ var Color$1 = /*#__PURE__*/function () {
       };
     }
   }]);
-
   return Color;
 }();
-
 var color$3 = Color$1;
 
 var Color = color$3;
+
 /**
  * @fileoverview
  * Utilities for casting and comparing Scratch data-types.
@@ -542,12 +520,10 @@ var Color = color$3;
  * In JavaScript, 1 + Number("hello" + "world") would give you NaN.
  * Use when coercing a value before computation.
  */
-
 var Cast = /*#__PURE__*/function () {
   function Cast() {
     _classCallCheck(this, Cast);
   }
-
   _createClass(Cast, null, [{
     key: "toNumber",
     value:
@@ -567,20 +543,17 @@ var Cast = /*#__PURE__*/function () {
         if (Number.isNaN(value)) {
           return 0;
         }
-
         return value;
       }
-
       var n = Number(value);
-
       if (Number.isNaN(n)) {
         // Scratch treats NaN as 0, when needed as a number.
         // E.g., 0 + NaN -> 0.
         return 0;
       }
-
       return n;
     }
+
     /**
      * Scratch cast to boolean.
      * In Scratch 2.0, this is captured by `interp.boolArg.`
@@ -588,7 +561,6 @@ var Cast = /*#__PURE__*/function () {
      * @param {*} value Value to cast to boolean.
      * @return {boolean} The Scratch-casted boolean value.
      */
-
   }, {
     key: "toBoolean",
     value: function toBoolean(value) {
@@ -596,57 +568,54 @@ var Cast = /*#__PURE__*/function () {
       if (typeof value === 'boolean') {
         return value;
       }
-
       if (typeof value === 'string') {
         // These specific strings are treated as false in Scratch.
         if (value === '' || value === '0' || value.toLowerCase() === 'false') {
           return false;
-        } // All other strings treated as true.
-
-
+        }
+        // All other strings treated as true.
         return true;
-      } // Coerce other values and numbers.
-
-
+      }
+      // Coerce other values and numbers.
       return Boolean(value);
     }
+
     /**
      * Scratch cast to string.
      * @param {*} value Value to cast to string.
      * @return {string} The Scratch-casted string value.
      */
-
   }, {
     key: "toString",
     value: function toString(value) {
       return String(value);
     }
+
     /**
      * Cast any Scratch argument to an RGB color array to be used for the renderer.
      * @param {*} value Value to convert to RGB color array.
      * @return {Array.<number>} [r,g,b], values between 0-255.
      */
-
   }, {
     key: "toRgbColorList",
     value: function toRgbColorList(value) {
       var color = Cast.toRgbColorObject(value);
       return [color.r, color.g, color.b];
     }
+
     /**
      * Cast any Scratch argument to an RGB color object to be used for the renderer.
      * @param {*} value Value to convert to RGB color object.
      * @return {RGBOject} [r,g,b], values between 0-255.
      */
-
   }, {
     key: "toRgbColorObject",
     value: function toRgbColorObject(value) {
       var color;
-
       if (typeof value === 'string' && value.substring(0, 1) === '#') {
-        color = Color.hexToRgb(value); // If the color wasn't *actually* a hex color, cast to black
+        color = Color.hexToRgb(value);
 
+        // If the color wasn't *actually* a hex color, cast to black
         if (!color) color = {
           r: 0,
           g: 0,
@@ -656,20 +625,20 @@ var Cast = /*#__PURE__*/function () {
       } else {
         color = Color.decimalToRgb(Cast.toNumber(value));
       }
-
       return color;
     }
+
     /**
      * Determine if a Scratch argument is a white space string (or null / empty).
      * @param {*} val value to check.
      * @return {boolean} True if the argument is all white spaces or null / empty.
      */
-
   }, {
     key: "isWhiteSpace",
     value: function isWhiteSpace(val) {
       return val === null || typeof val === 'string' && val.trim().length === 0;
     }
+
     /**
      * Compare two values, using Scratch cast, case-insensitive string compare, etc.
      * In Scratch 2.0, this is captured by `interp.compare.`
@@ -677,48 +646,41 @@ var Cast = /*#__PURE__*/function () {
      * @param {*} v2 Second value to compare.
      * @returns {number} Negative number if v1 < v2; 0 if equal; positive otherwise.
      */
-
   }, {
     key: "compare",
     value: function compare(v1, v2) {
       var n1 = Number(v1);
       var n2 = Number(v2);
-
       if (n1 === 0 && Cast.isWhiteSpace(v1)) {
         n1 = NaN;
       } else if (n2 === 0 && Cast.isWhiteSpace(v2)) {
         n2 = NaN;
       }
-
       if (isNaN(n1) || isNaN(n2)) {
         // At least one argument can't be converted to a number.
         // Scratch compares strings as case insensitive.
         var s1 = String(v1).toLowerCase();
         var s2 = String(v2).toLowerCase();
-
         if (s1 < s2) {
           return -1;
         } else if (s1 > s2) {
           return 1;
         }
-
         return 0;
-      } // Handle the special case of Infinity
-
-
+      }
+      // Handle the special case of Infinity
       if (n1 === Infinity && n2 === Infinity || n1 === -Infinity && n2 === -Infinity) {
         return 0;
-      } // Compare as numbers.
-
-
+      }
+      // Compare as numbers.
       return n1 - n2;
     }
+
     /**
      * Determine if a Scratch argument number represents a round integer.
      * @param {*} val Value to check.
      * @return {boolean} True if number looks like an integer.
      */
-
   }, {
     key: "isInt",
     value: function isInt(val) {
@@ -727,9 +689,8 @@ var Cast = /*#__PURE__*/function () {
         if (isNaN(val)) {
           // NaN is considered an integer.
           return true;
-        } // True if it's "round" (e.g., 2.0 and 2).
-
-
+        }
+        // True if it's "round" (e.g., 2.0 and 2).
         return val === parseInt(val, 10);
       } else if (typeof val === 'boolean') {
         // `True` and `false` always represent integer after Scratch cast.
@@ -738,7 +699,6 @@ var Cast = /*#__PURE__*/function () {
         // If it contains a decimal point, don't consider it an int.
         return val.indexOf('.') < 0;
       }
-
       return false;
     }
   }, {
@@ -751,6 +711,7 @@ var Cast = /*#__PURE__*/function () {
     get: function get() {
       return 'ALL';
     }
+
     /**
      * Compute a 1-based index into a list, based on a Scratch argument.
      * Two special cases may be returned:
@@ -761,7 +722,6 @@ var Cast = /*#__PURE__*/function () {
      * @param {boolean} acceptAll Whether it should accept "all" or not.
      * @return {(number|string)} 1-based index for list, LIST_ALL, or LIST_INVALID.
      */
-
   }, {
     key: "toListIndex",
     value: function toListIndex(index, length, acceptAll) {
@@ -769,619 +729,120 @@ var Cast = /*#__PURE__*/function () {
         if (index === 'all') {
           return acceptAll ? Cast.LIST_ALL : Cast.LIST_INVALID;
         }
-
         if (index === 'last') {
           if (length > 0) {
             return length;
           }
-
           return Cast.LIST_INVALID;
         } else if (index === 'random' || index === 'any') {
           if (length > 0) {
             return 1 + Math.floor(Math.random() * length);
           }
-
           return Cast.LIST_INVALID;
         }
       }
-
       index = Math.floor(Cast.toNumber(index));
-
       if (index < 1 || index > length) {
         return Cast.LIST_INVALID;
       }
-
       return index;
     }
   }]);
-
   return Cast;
 }();
-
 var cast = Cast;
-
-var web = {exports: {}};
-
-var minilog$2 = {exports: {}};
-
-function M() {
-  this._events = {};
-}
-
-M.prototype = {
-  on: function on(ev, cb) {
-    this._events || (this._events = {});
-    var e = this._events;
-    (e[ev] || (e[ev] = [])).push(cb);
-    return this;
-  },
-  removeListener: function removeListener(ev, cb) {
-    var e = this._events[ev] || [],
-        i;
-
-    for (i = e.length - 1; i >= 0 && e[i]; i--) {
-      if (e[i] === cb || e[i].cb === cb) {
-        e.splice(i, 1);
-      }
-    }
-  },
-  removeAllListeners: function removeAllListeners(ev) {
-    if (!ev) {
-      this._events = {};
-    } else {
-      this._events[ev] && (this._events[ev] = []);
-    }
-  },
-  listeners: function listeners(ev) {
-    return this._events ? this._events[ev] || [] : [];
-  },
-  emit: function emit(ev) {
-    this._events || (this._events = {});
-    var args = Array.prototype.slice.call(arguments, 1),
-        i,
-        e = this._events[ev] || [];
-
-    for (i = e.length - 1; i >= 0 && e[i]; i--) {
-      e[i].apply(this, args);
-    }
-
-    return this;
-  },
-  when: function when(ev, cb) {
-    return this.once(ev, cb, true);
-  },
-  once: function once(ev, cb, when) {
-    if (!cb) return this;
-
-    function c() {
-      if (!when) this.removeListener(ev, c);
-      if (cb.apply(this, arguments) && when) this.removeListener(ev, c);
-    }
-
-    c.cb = cb;
-    this.on(ev, c);
-    return this;
-  }
-};
-
-M.mixin = function (dest) {
-  var o = M.prototype,
-      k;
-
-  for (k in o) {
-    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
-  }
-};
-
-var microee$1 = M;
-
-var microee = microee$1; // Implements a subset of Node's stream.Transform - in a cross-platform manner.
-
-function Transform$7() {}
-
-microee.mixin(Transform$7); // The write() signature is different from Node's
-// --> makes it much easier to work with objects in logs.
-// One of the lessons from v1 was that it's better to target
-// a good browser rather than the lowest common denominator
-// internally.
-// If you want to use external streams, pipe() to ./stringify.js first.
-
-Transform$7.prototype.write = function (name, level, args) {
-  this.emit('item', name, level, args);
-};
-
-Transform$7.prototype.end = function () {
-  this.emit('end');
-  this.removeAllListeners();
-};
-
-Transform$7.prototype.pipe = function (dest) {
-  var s = this; // prevent double piping
-
-  s.emit('unpipe', dest); // tell the dest that it's being piped to
-
-  dest.emit('pipe', s);
-
-  function onItem() {
-    dest.write.apply(dest, Array.prototype.slice.call(arguments));
-  }
-
-  function onEnd() {
-    !dest._isStdio && dest.end();
-  }
-
-  s.on('item', onItem);
-  s.on('end', onEnd);
-  s.when('unpipe', function (from) {
-    var match = from === dest || typeof from == 'undefined';
-
-    if (match) {
-      s.removeListener('item', onItem);
-      s.removeListener('end', onEnd);
-      dest.emit('unpipe');
-    }
-
-    return match;
-  });
-  return dest;
-};
-
-Transform$7.prototype.unpipe = function (from) {
-  this.emit('unpipe', from);
-  return this;
-};
-
-Transform$7.prototype.format = function (dest) {
-  throw new Error(['Warning: .format() is deprecated in Minilog v2! Use .pipe() instead. For example:', 'var Minilog = require(\'minilog\');', 'Minilog', '  .pipe(Minilog.backends.console.formatClean)', '  .pipe(Minilog.backends.console);'].join('\n'));
-};
-
-Transform$7.mixin = function (dest) {
-  var o = Transform$7.prototype,
-      k;
-
-  for (k in o) {
-    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
-  }
-};
-
-var transform = Transform$7;
-
-var Transform$6 = transform;
-var levelMap = {
-  debug: 1,
-  info: 2,
-  warn: 3,
-  error: 4
-};
-
-function Filter() {
-  this.enabled = true;
-  this.defaultResult = true;
-  this.clear();
-}
-
-Transform$6.mixin(Filter); // allow all matching, with level >= given level
-
-Filter.prototype.allow = function (name, level) {
-  this._white.push({
-    n: name,
-    l: levelMap[level]
-  });
-
-  return this;
-}; // deny all matching, with level <= given level
-
-
-Filter.prototype.deny = function (name, level) {
-  this._black.push({
-    n: name,
-    l: levelMap[level]
-  });
-
-  return this;
-};
-
-Filter.prototype.clear = function () {
-  this._white = [];
-  this._black = [];
-  return this;
-};
-
-function test(rule, name) {
-  // use .test for RegExps
-  return rule.n.test ? rule.n.test(name) : rule.n == name;
-}
-
-Filter.prototype.test = function (name, level) {
-  var i,
-      len = Math.max(this._white.length, this._black.length);
-
-  for (i = 0; i < len; i++) {
-    if (this._white[i] && test(this._white[i], name) && levelMap[level] >= this._white[i].l) {
-      return true;
-    }
-
-    if (this._black[i] && test(this._black[i], name) && levelMap[level] <= this._black[i].l) {
-      return false;
-    }
-  }
-
-  return this.defaultResult;
-};
-
-Filter.prototype.write = function (name, level, args) {
-  if (!this.enabled || this.test(name, level)) {
-    return this.emit('item', name, level, args);
-  }
-};
-
-var filter = Filter;
-
-(function (module, exports) {
-  var Transform = transform,
-      Filter = filter;
-  var log = new Transform(),
-      slice = Array.prototype.slice;
-
-  exports = module.exports = function create(name) {
-    var o = function o() {
-      log.write(name, undefined, slice.call(arguments));
-      return o;
-    };
-
-    o.debug = function () {
-      log.write(name, 'debug', slice.call(arguments));
-      return o;
-    };
-
-    o.info = function () {
-      log.write(name, 'info', slice.call(arguments));
-      return o;
-    };
-
-    o.warn = function () {
-      log.write(name, 'warn', slice.call(arguments));
-      return o;
-    };
-
-    o.error = function () {
-      log.write(name, 'error', slice.call(arguments));
-      return o;
-    };
-
-    o.log = o.debug; // for interface compliance with Node and browser consoles
-
-    o.suggest = exports.suggest;
-    o.format = log.format;
-    return o;
-  }; // filled in separately
-
-
-  exports.defaultBackend = exports.defaultFormatter = null;
-
-  exports.pipe = function (dest) {
-    return log.pipe(dest);
-  };
-
-  exports.end = exports.unpipe = exports.disable = function (from) {
-    return log.unpipe(from);
-  };
-
-  exports.Transform = Transform;
-  exports.Filter = Filter; // this is the default filter that's applied when .enable() is called normally
-  // you can bypass it completely and set up your own pipes
-
-  exports.suggest = new Filter();
-
-  exports.enable = function () {
-    if (exports.defaultFormatter) {
-      return log.pipe(exports.suggest) // filter
-      .pipe(exports.defaultFormatter) // formatter
-      .pipe(exports.defaultBackend); // backend
-    }
-
-    return log.pipe(exports.suggest) // filter
-    .pipe(exports.defaultBackend); // formatter
-  };
-})(minilog$2, minilog$2.exports);
-
-var hex = {
-  black: '#000',
-  red: '#c23621',
-  green: '#25bc26',
-  yellow: '#bbbb00',
-  blue: '#492ee1',
-  magenta: '#d338d3',
-  cyan: '#33bbc8',
-  gray: '#808080',
-  purple: '#708'
-};
-
-function color$2(fg, isInverse) {
-  if (isInverse) {
-    return 'color: #fff; background: ' + hex[fg] + ';';
-  } else {
-    return 'color: ' + hex[fg] + ';';
-  }
-}
-
-var util = color$2;
-
-var Transform$5 = transform,
-    color$1 = util;
-var colors$1 = {
-  debug: ['cyan'],
-  info: ['purple'],
-  warn: ['yellow', true],
-  error: ['red', true]
-},
-    logger$4 = new Transform$5();
-
-logger$4.write = function (name, level, args) {
-  var fn = console.log;
-
-  if (console[level] && console[level].apply) {
-    fn = console[level];
-    fn.apply(console, ['%c' + name + ' %c' + level, color$1('gray'), color$1.apply(color$1, colors$1[level])].concat(args));
-  }
-}; // NOP, because piping the formatted logs can only cause trouble.
-
-
-logger$4.pipe = function () {};
-
-var color_1 = logger$4;
-
-var Transform$4 = transform,
-    color = util,
-    colors = {
-  debug: ['gray'],
-  info: ['purple'],
-  warn: ['yellow', true],
-  error: ['red', true]
-},
-    logger$3 = new Transform$4();
-
-logger$3.write = function (name, level, args) {
-  var fn = console.log;
-
-  if (level != 'debug' && console[level]) {
-    fn = console[level];
-  }
-
-  var i = 0;
-
-  if (level != 'info') {
-    for (; i < args.length; i++) {
-      if (typeof args[i] != 'string') break;
-    }
-
-    fn.apply(console, ['%c' + name + ' ' + args.slice(0, i).join(' '), color.apply(color, colors[level])].concat(args.slice(i)));
-  } else {
-    fn.apply(console, ['%c' + name, color.apply(color, colors[level])].concat(args));
-  }
-}; // NOP, because piping the formatted logs can only cause trouble.
-
-
-logger$3.pipe = function () {};
-
-var minilog$1 = logger$3;
-
-var Transform$3 = transform;
-var newlines = /\n+$/,
-    logger$2 = new Transform$3();
-
-logger$2.write = function (name, level, args) {
-  var i = args.length - 1;
-
-  if (typeof console === 'undefined' || !console.log) {
-    return;
-  }
-
-  if (console.log.apply) {
-    return console.log.apply(console, [name, level].concat(args));
-  } else if (JSON && JSON.stringify) {
-    // console.log.apply is undefined in IE8 and IE9
-    // for IE8/9: make console.log at least a bit less awful
-    if (args[i] && typeof args[i] == 'string') {
-      args[i] = args[i].replace(newlines, '');
-    }
-
-    try {
-      for (i = 0; i < args.length; i++) {
-        args[i] = JSON.stringify(args[i]);
-      }
-    } catch (e) {}
-
-    console.log(args.join(' '));
-  }
-};
-
-logger$2.formatters = ['color', 'minilog'];
-logger$2.color = color_1;
-logger$2.minilog = minilog$1;
-var console_1 = logger$2;
-
-var Transform$2 = transform,
-    cache$1 = [];
-var logger$1 = new Transform$2();
-
-logger$1.write = function (name, level, args) {
-  cache$1.push([name, level, args]);
-}; // utility functions
-
-
-logger$1.get = function () {
-  return cache$1;
-};
-
-logger$1.empty = function () {
-  cache$1 = [];
-};
-
-var array = logger$1;
-
-var Transform$1 = transform,
-    cache = false;
-var logger = new Transform$1();
-
-logger.write = function (name, level, args) {
-  if (typeof window == 'undefined' || typeof JSON == 'undefined' || !JSON.stringify || !JSON.parse) return;
-
-  try {
-    if (!cache) {
-      cache = window.localStorage.minilog ? JSON.parse(window.localStorage.minilog) : [];
-    }
-
-    cache.push([new Date().toString(), name, level, args]);
-    window.localStorage.minilog = JSON.stringify(cache);
-  } catch (e) {}
-};
-
-var localstorage = logger;
-
-var Transform = transform;
-var cid = new Date().valueOf().toString(36);
-
-function AjaxLogger(options) {
-  this.url = options.url || '';
-  this.cache = [];
-  this.timer = null;
-  this.interval = options.interval || 30 * 1000;
-  this.enabled = true;
-  this.jQuery = window.jQuery;
-  this.extras = {};
-}
-
-Transform.mixin(AjaxLogger);
-
-AjaxLogger.prototype.write = function (name, level, args) {
-  if (!this.timer) {
-    this.init();
-  }
-
-  this.cache.push([name, level].concat(args));
-};
-
-AjaxLogger.prototype.init = function () {
-  if (!this.enabled || !this.jQuery) return;
-  var self = this;
-  this.timer = setTimeout(function () {
-    var i,
-        logs = [],
-        ajaxData,
-        url = self.url;
-    if (self.cache.length == 0) return self.init(); // Test each log line and only log the ones that are valid (e.g. don't have circular references).
-    // Slight performance hit but benefit is we log all valid lines.
-
-    for (i = 0; i < self.cache.length; i++) {
-      try {
-        JSON.stringify(self.cache[i]);
-        logs.push(self.cache[i]);
-      } catch (e) {}
-    }
-
-    if (self.jQuery.isEmptyObject(self.extras)) {
-      ajaxData = JSON.stringify({
-        logs: logs
-      });
-      url = self.url + '?client_id=' + cid;
-    } else {
-      ajaxData = JSON.stringify(self.jQuery.extend({
-        logs: logs
-      }, self.extras));
-    }
-
-    self.jQuery.ajax(url, {
-      type: 'POST',
-      cache: false,
-      processData: false,
-      data: ajaxData,
-      contentType: 'application/json',
-      timeout: 10000
-    }).success(function (data, status, jqxhr) {
-      if (data.interval) {
-        self.interval = Math.max(1000, data.interval);
-      }
-    }).error(function () {
-      self.interval = 30000;
-    }).always(function () {
-      self.init();
-    });
-    self.cache = [];
-  }, this.interval);
-};
-
-AjaxLogger.prototype.end = function () {}; // wait until jQuery is defined. Useful if you don't control the load order.
-
-
-AjaxLogger.jQueryWait = function (onDone) {
-  if (typeof window !== 'undefined' && (window.jQuery || window.$)) {
-    return onDone(window.jQuery || window.$);
-  } else if (typeof window !== 'undefined') {
-    setTimeout(function () {
-      AjaxLogger.jQueryWait(onDone);
-    }, 200);
-  }
-};
-
-var jquery_simple = AjaxLogger;
-
-(function (module, exports) {
-  var Minilog = minilog$2.exports;
-  var oldEnable = Minilog.enable,
-      oldDisable = Minilog.disable,
-      isChrome = typeof navigator != 'undefined' && /chrome/i.test(navigator.userAgent),
-      console = console_1; // Use a more capable logging backend if on Chrome
-
-  Minilog.defaultBackend = isChrome ? console.minilog : console; // apply enable inputs from localStorage and from the URL
-
-  if (typeof window != 'undefined') {
-    try {
-      Minilog.enable(JSON.parse(window.localStorage['minilogSettings']));
-    } catch (e) {}
-
-    if (window.location && window.location.search) {
-      var match = RegExp('[?&]minilog=([^&]*)').exec(window.location.search);
-      match && Minilog.enable(decodeURIComponent(match[1]));
-    }
-  } // Make enable also add to localStorage
-
-
-  Minilog.enable = function () {
-    oldEnable.call(Minilog, true);
-
-    try {
-      window.localStorage['minilogSettings'] = JSON.stringify(true);
-    } catch (e) {}
-
-    return this;
-  };
-
-  Minilog.disable = function () {
-    oldDisable.call(Minilog);
-
-    try {
-      delete window.localStorage.minilogSettings;
-    } catch (e) {}
-
-    return this;
-  };
-
-  exports = module.exports = Minilog;
-  exports.backends = {
-    array: array,
-    browser: Minilog.defaultBackend,
-    localStorage: localstorage,
-    jQuery: jquery_simple
-  };
-})(web, web.exports);
-
-var minilog = web.exports;
-minilog.enable();
-var log$2 = minilog('vm');
+var Cast$1 = /*@__PURE__*/getDefaultExportFromCjs(cast);
 
 var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAGgFJREFUeJztm3mUZEWd7z8R997MrMysrLW7uqqXsneWBpqlERVpUXBDFGFQ8amMojgucziKojhvpPWcAcczjjojokfHNziO4qCow6jo8z0EHBWaHXqngV6rurq6qmvJ5S4Rv/fHvTcrq7qqt2mG5zn1OydOVd4b8Yv4feMXvyUiLszSLM3SLM3SLM3SLM3SLM3SLP13k3qxB5DS7bffvsLznEsdR2VBa2utCsPQum4Gx5EsgLXYyPfHDfong4ODI5/4xCcGX+xxuy/2AABuu+22z7e3t1xTLpd7du3ahVIKEQHivyIWrR2UUrS3d1Iq5a8bH8/9CPjYiz32w2rgl28ovXt0XL3CWpyjZdg35Ix3t5viTO+rAZHroDxnguf651aVlq44403DIwfDoBZ6AIIAygOrFAqBUKHEdd2ora3FfeqpjT965plnNhztuI6TrLV2fX9//30zVZgWwG+vK370NWdVv/qSHqOPpbdfP5TjZ/c1cesnh6d9X/UV77+lnW/cMERzXhCBL9/RzJd+0Hws3bwYNGatvaq/v//nU18cAtC315Xe8Z7Xl//xWMH72QNNfOCWNkIzvVKPVTRXfbaD3z6aBcBYuOHW1j8F8ACatdZ39/T0nD/1xSE2cPWy6rc8V46J+7/ck+cz32jF2unfHxzX/I+b2nl8WwaAIFR8/B/a+MXvc8fUz4tMCvgusKTx4SEALu6Z2X5NR7fdVeRvbi8hM2A+MOxw1Wc72Lxjoqt3fa6DJ5/xjqWb/1+od+qDQwB0j9pdwK0/LnLz7aUZ3+/c5/COv+5gR//kbv5EwYNpTN5xhTEi8Ll/KvGtf59ZWbfudLnqpg76DxzDjPwJ0jEDaCzc8LVW7vhNfsY6T2zzeNfnOhgaPSY/BEDvvIilC0LctGndJyn2Dbls2uERBMdmo19IOsRljtynpVSY3huEkeIjf9fKz3/fNCPDJT0RA8MO49VjS3IcDR++YoRLXl5GT22qFAoFSvHsnhw3f7fEjr4XJ4nau3fvpI6PGsCqr/jAF9q595HsMXV4tDp46QVVPnJlhW//pMC9j2Wo1tQk7XM0LF0gXP/OkINlzV/+7dEtnhkCg+OmqQAelXxjFc07b+r4L4Onp5RGeuVqh4e3lPjRb5v4s4uL5JtcxisqKXDFxU3sP+jynf/IsnpFnvldeka+jbyP3YgcGx2R/8FxzVWfbeehjZljZtxY3BlK+j6fayIMcniOorfHo9g0eWhLFmRpKSpqoYubaSaf0dPy95Qi47qHnawTSYflPTDscMWNHTy29fjBcwFXBNfaQ4oWqQv+xBaXV5/XyrmnKD79lRGe3RNO4vk///Eg+wYt77usjT37c+zYHU3LuzmbZdG8efFzDq/1J4JmNCS79jm8fZoY7kh0yIBFJgmTGhAhFj4SIVKK7/+ixpmnFPiHG1/CwEhAYJK6ygEUSim62rOMliNu/OJuENDW1idgycIco6MBgdHoKCILhNaCnoDtRNtDmMGJ7BvSvOOzxx7DHWKLrCUDeEAm+d2oBZHWREAIBACu5oI1RZYszZPPp3DHRQT27PG5/8GDDA2FZETqvB0RlnR7jIxHlH0Pr6mJwdHROt9IKaxSWKiX46UjeuHffScrf/HFtuOK4RqXbQpeFsg0AJnWSYELlcJXCh8IZhA0HYmbDNizllzC27UWL+GdRodBwjvQOuZLPFk26fcFBXDJS7ptLVDHFWTVbY4IGRGyQN5aclqTEyEvwgKJd/r2KEVVKWpKEQAVEsG1JrV+jYJqwGECvBTAHNBkLe1Aq7XsVYpRpfC1pmIttQTEygnSwqkAHmLgasF/PUBNtTAHZLWmaC1FrbmsXGalMSDCZtfl58UiYyJURCgWCgyWy7GQSqEAx/NwXZdqtRr/BnLW0tbUhBOGZIyhqBSrw5CLqlVcrRkV4fvFIvusRbTGimCUiu1tAuCJpBPumDSxc3CS/zPEQPaGISeFIQvmzqW7s5OTw5C3jI7SbAxLurq47r3vZWVvLzlrKViLK8L73/1uPn3ddbgiseYl2vex976XK177WooinF2t8vpKhc5Cgd6uLjq15qW1GrlkaWuRF8cLHw81DlIl/3vWUgA6Ek/sASrxzMujiMvLZR52HOa1ttKWzZIntl+OCK2FAm2treRE8IgnwgU6m5sZ0ZpzgoCLqtXYBorgJZpWEomXtjFUGsaS/j2cFr51bZXmvOXic306WwwPbsjw+f/VMuNe5wtzqKQUWgQnCTNSj4wINd/HRFHdpi0xBve559i3bRtju3bRnNitSCme2bSJyvAw+WSgWWvJW8uubdvIPPYYr6lUcAClFEEQ4Ps+xhiU1mQAV6l4sqxF6aPTv5aiZWhUc2BEk3GFL/5raUbwYBon0tPTY6d7rqb4FZlmBzWXgOWJ0GwMJaAVaBHhFGN4fbmMI4Ii9phWqbqNet5x+Pd8nnHHoawUgbV17XGVIqcUTUDeGM6q1bjQ9w8JlCUpW7JZfpXNclApBpWiDIxqXXdQUVKmk/GaS8cpNgmOA7f+qHCITziuXDgFrLHMRI0MJW4ISsU2MbFH6VJyRHCUwhNhSRRxWaVCC7HnLmpNAWgCiiIURSgAa8KQ1/g+GWINTm1tWhSxiUAppOEZifc/koy5jHDWyoCv3XkoeEeSFxr3Pxo0Tik1bZlaNw0PNCDJM5WAp4xBAe2trbQUCnWBHRE8x2FhdzdLRXjz+DglYvv1upe9jKsvv5ysteREOKdW48Jqlflz51IqFHAT3g6Q9Ty6OjtxlIonxlqcBMTGcTSGMNPJeP/jOa65uZ0g0tPKyJTVOaMNVEqRy+Voa2vDcQ7NSEQE3/cZHR3F931gYjacRAOsCIjEOW8SmuSyWazWVMplxrUmby0ZzyPjOBSyWRZVq1xaLnN3UxMre3vpnjuXXwOrg4C11Sou0OR5qGwWv1wmVCoOmTIZMq6L6zjxsk/6FsAmzyyTNWY6GYd9mNc9WcaRkRGCIJgWp2kBFBGUUqxcuZJVq1YRRRFRFGGMqXfsui5RFPHggw+yd+9eRASbMGxcOmkhmUE/CBBjEGBjNsuiMKTbGCq1GlGipb1RxCWVCkN79hCUy6wKAtb6fl34qu8TRRG+Ujycy3Fu0rbm+/GkJQ7DEUEnE5dqYqp9qYynnnoqJ510EmEYYoyZJKPjOBhjeOCBB9i/f38d95TFjACm6ux5HlprjDHUajXK5TKu65LNZut1XNetX8VIQwSrFBiDlwBnReop1Fi5jFiLJU611udynOn7LCyXqfl+3Xa9xBj23nsvQ6USr/H9SaMeHR+nbAx/yOepuC62VqPq+xggMgbrOESOg02iAZUE1TBhK61SaK1xHGdGGVM5G2WcSpNs4Lp161S61lOAgiCgWq1y//33c8cdd/CDH/yAp59+uh4yaK3rjJVSdW+YMpaGjICEXxRFCBCIUFGKB7JZtoRhvNyYcDI95TKr+vomeW4jwrDv8xvPY1BromQyRISq78e2VwRJJsJJNNAmvxvtt0pA9H2farXKvffeW5dx06ZN+L6PtRatJ+zhlVdeeWQvrJTq01r/GsAYQ19fH1u3bkVECMOQRx99lCAIJgGXUgqATQRWWqOSQQBkcjlcz4tDjiRPHVeKHatW8bzrThh9YsdQyOUmaV9Fax5ZvpzRlhZqIvhJ6odSNDXFZzVWqbhPwCTt0klopHT8xhh27drF9u3bsdYShiGPPPIIQRBgrUUpVVNK3TYdVtMCKCIdxpiz0t/GmNjGWYuITLITjZQaaSfRgDB55gDKWpQIbaUSraX4LDmKInwR2ru6OHPNGjYuX84O160D2NnWxpz2dnTST0UpftLUxBmvfjVnrFlDDbBJgF7I52kpFvEcJ961SZ7bZCyqYYxT42KlVF22tBhjJqILazMi8sajBhDIKKU6AVzXZcGCBSxYsKDe2WmnnUYmk6l7rnQmUxsoxGGMaB1f6mPCkaiG0MIwsYy9zk4qjsMv83l2el7d6aQOoaIUP83nGXAcdLFIoHW8GdvQp3acSfFemPwvDX1O9cKpjIsWLaK7u7v+/PTTT8fzPBzHQSmlmeZWAkxxIuvWrZOenp46KCJCNpvFGMMb3vAG9u3bh+d5tLe3TyyXWMXjWUvyXZukUE6SQplEE6xI7G2jCEO8dWWUon9wkOf7+tjR308I/DSf582VCvlqFc8YRrTmrmKRwWRcW3bu5PkdO+p7iVYpqrUamVyOKLW5iX0TEXTyTBPb0BTMRhmLxSKXXHIJAwMDeJ5HR0cHuVxuUj2AO++8c5InmTGMSUsmk6l7okKhAIDjODiOUw9t0ro6cSI2RjZeuol2GMcBpRgeHY37SISvuS7VKOKHd92FDyjHwRfhrkKBJ4OAfKXC1mTzIEwm6e577on3BLUmm/QXWsvg0FDcl1JYrSHJdNLla5jwwiYxSdZaMplMXROLxSIiUte+1OmluBxWA1NKNWrz5s0EQUA2m6VWq00CuFAoMDg4yMDAQD2mggabB5OygDRPVckgRCnQGrGWSGtqIgTEXts6DoEI6z2vvuQi4q35NB2E+ATONIxpkgxM2YWZ4kRSGVNv63lePSFolHH//v2MjIw0ypiKMjOAEC/NSqXChg0b6m68d15UP2RKZ69xMGkgnYYNUbJcFOAagxJhbmcnkTEcGB6ODb3rUiqV+Iv3vY+vfe979A8NgbUEwGVvfSvd3d3c9vWvYxJProGPfvjDPLNpE0/ddx9YiwLyuRxtra30Dwyg0tjPcYjSiZuSbqYylMtlnn766UmhSiMGU2WcSlOdyKQa1lqiKCIMQ07uLfONT+4jCIK6Whtj6t4rZZaetpGEFiYRRimFVvGZbSZJrZQIkbXk2toozplD69y5+EBVaypa0zp/Pp0LF1LVmprW1AAfmDNvHu0dHURpqgh4rhubFq3j7EMkBlckXs5Mv6naKGMq2+FknIrREfcDlVK8bFXAW9dWaS3a+iw1Ltv6YJicyumkU0viCUWoBQEm8cypBx0aHeWxLVvYs39/vIyT59v6+xkKAsoJfw3klOKpbdsY3L+/nvUYIIgiqrVazDsxGbZhfCnP6bb2GgPrRppOxql0RAAvWO3z5esO8pEvtTGvwxy2bmMqJ0leq5PMID1aPDA8XA8tbJJujR48yI/uuIOhMMQ4Dn6iQT/86U/rAbjSOvbw1nLnnXeSiSJKStXPOaq+Ty0IYm+f2FeSvlXD+bBuGOeJoMMC+LJVPl/92EH2Djp84M3jDB7U09qBRkqXcUrWWozWmMST2SnvxPNiexuGcS6baJRW8Wkd1uLqiWsckbXUgqCu6TZ1Skw4Ekt8jClJGJXWO5r9wGOlwwL4h6eznHl111EzS5eIEIcMBrCJIKnram5uJooiypUKljicMK7L29/+dr79wx/WNSgCVq1ezfyeHn71i1/UjwCsUlz42teye/NmxnfsqMd12nFoaWlhKAllrLXY5OA+1XjFzMv4eOkFuXeTGu6ACRDTpdhWKtHW0lLPSiywbMUKzjvnHM5YvXoSnyve9Cbe/pa31H+n5uGSiy7ilWvXxg4q4dtcKFAqFPBctw6UIZ6gKLWJL4CsJ/RQqfHQWoiB80WoiVBLnoUi8ZYTUEvKgUqFgUqF4fHxumOJgIGxMbyRESIm4jkH6CuXOVAu4yftQ6UIrY15i+A33EgI1Ym71jEdnfBTOUtyFyVZWkbFB0TPOQ7DWtM0NkYURRzQmh2eRwDs3LOHB9evZ9v27ZOE/NWvfkWaWjby/7/338+OzZsJHIeqCBs9j1KlApkMNWPYkM1SVSpOFZP49IXQPjiGU7mjocarHTkRmohP6gpAwVrminBmECDAI9ksA8TbU+XkKLNKvMmanpilf6feucknfPNAXoSiUpzt+3Qaw3bPY7PnURNhXCmqQJVYU9P7MS/o1Y7pqK3ZUqkp/PDIuFpiDxqJ4GaEQhOURxRRspz3ZuNbrqGK78X4CXjpcWMjlYpxf+PjE96VhLdPvGWVOorfeR54HhbqF5W8PBgljJTVpJjwSKQVZDJCzT9ym8MCuHIRvP7lUq0FarPrSMmKWnzHr9HDo9PXT/cDO1oV665toslVvvKJtDVNP74n0I89ZScS+8ReRQl4AdRt1bJeh0/9eVYcl5oxYCPJfeUHNbVle7KrnYYbyW5LmNjYlHrmCh+8Kicqo2viKqwm95V/C9UT281hta+jVfH5D+VoL2HidSTud34a8JsHpztFToYw04vWZrh0LWO3/lPf/Ju+1nfWX321f9nuvtol771UHVb7LbDuQ1k2bgr/7sKPPtv+quuf7dnzf4bOv+LSrCl1OYxpzZjWjCfpWplkeSXG3vHgr67JyB8fG/vgRdc8k3/dtc/kn3yi+rqPvytrm/KJM9A61l7ifcJKwnNMa8qu5oNXZ2Xj49WPrr3+uXmvuu7ZzsefrF12/bsztpg7fJz3heua6Nsf3rn26u3e2qu3eX94vHz5tVdk5eTFMwcrM755xRma3X3mn3eOUP/08pt3Dt0TGt03r2P6gVhgcQ8EVlU+8c3dN5Jsolx1z9hTG58Lfn7RBRl8mFSiBJBU+y4812XfkBq46Rv7vpXy/dQ39/7vZ/fIhle/1JnQIKUIlKrnx2lZs1qzb0Tv+/APB76bsv/4t/bes32v3XLxKzMzat+yhYBQ/fDnd76NJBe48ct9P3no6eC+d75x5m/6ZgRw/jwFbrBl6vMgtOOLumfkx7lnK0TZMhO2OgICr0W2L5gPtcT2BSq2i1MN+7Jehwg7MJWvb2TPovnepLo24REkGllTikVLMwTa2UtyrzKtWgvZu6h75k/MTlvuUq6qoanPh0dqv5vXeRwamPE08+cVJ30R/rEraTplWXZJNjPz1d+2UoZlS7Odd9zAvEZZV6wovSdbaqrf/0uzDTuleJ5ieW/m5CuvnPyR96rl3tqMe2j9+qZEwtPLapYucU7/5bJJiYc9eYX7cvcwn+hlMrBovjPv2rOZVOv0lcU/dw6TbkxyM7IO/f3CokhEq7GK4qWrPB56Ohw4OB58z0Q09fZ4V5+xIpPfdSBPd1vI7XcHZBxDU5PHwAHDkoWKrk6XM5cbnEzRDA5zX6nAzig0b81n/JaBkTwPPT3G87sVvfNhzz7IuBGlZo++A4bFPZo57YZzTnIZrahwZNz8S9Zj1HP0NW0tND+6xWHfYMj2PbCoCwaHFNZGdM3JsKff0jtfaCsazlvlMVKxwcERvt+UtyOO67y/o1kVntyu2bMv4rm90NUmjFU1lUrI4gVZcrmAC8/yGBqztapvb+qaE23Y2+/9/aIuvWJwVNg7EKGVwln4rPu2t9X3cScDeO+9uHNGF4VihfUbFWtOmV7TRqs5SvmA/3zc0tpsKBU9tu40XLTG45HNEWetbKjcYHQGxgrMLfn88o8hF5yheHyrIp+LmD8nw5PbDRe91OXJbQGnL5t+yjc873HqYuHXfwhYc5Jm++4YwBW9Hus3Wy4+1+WJLQFnrGj4HqCB1dY9HisWWH7zYMSqpTAwrDg4FnLOKVm27gxZvXxC3sYN1LGaS3MuxHUUtvZs9tS3Ub/ncUgYIyYCFGFoQGKGD28MwQrnrEo+mPYDyKnkeFMjdmLTcbwcX+EFKFeExzaHnH9W3K5aNdCisDZAlJMctoNQwxoLYjEmqm/nbH3e0H/AcMHZcewY+RGIxloftItFQIOoZOdYWUIxoAzbd0U8tzeitRDb2HNXZQj9CETF7XGxNt7iEFsjiuDeBysIgqsV7a2aA6OW/QcM559TojknWDk0LpwE4KtehXnqLkEpwZoIJbGmbnjGRyysOTXZTLUCEu+1kTJNzmHDSFASq53nCBu2B7zyzLhOEJpka8SAxBOVbtOIxABaKxPnJtYwMBShkj5Co5MkO9nrqQskiJF4AiIAS6HJ8sQWn+5OTWTg3FVg0vYSgdiJ0w0RjHF4dndIc0Gxe19E36Bl/hxYuybH7x8d5/KLChgrnLZxcrw/CUClkP/8no5K+ciNOcd1z1huic/SU83VKLEoceLzByEpAar+EQNkM/DSVbahnYcSk9QVlOj4f2zyLA3F4/blWkRXe3qqAohXn1QlApJstkqcfSoJQByURNSqhtUrhJMXQy0QlIRJ+yhpY+L+k/bKCksXGqwVTupVCJqqD9t3VjlvdREQxipOpNZNjoQOWcJDI/qWUpP563iGY8HPTG1a8lvhxFqEl8xkIowYkGy9Xr1t+lscEB/ETTQw2RaV5CxPIrA5kPhDh7NPSvtNP3xw4/a4Sf+JgWtsLzmQgMXzYfF86pMR10/6t04ybp1ocQR4XHh2/e7WBCCnKQZG4v3Mnf3ypal4HQLgpR/Z9dm7b10wv1Ybu+rZ3ZJZv9H9UiZj9wIYoy9448v9y2MbFyUaYBMB3AQoF7GWP25qfiAy8lsAEdW75uTae+I2AfHSDRvMQCpkAHiERnh8W/Ffm5tlPcDIKOefs2L8z+IJCpJ2AYg3AbBkkvYZwkh4aEvxx9bYjQCi9GmvOGX8son+s8RX2d2EVwjiIGJ4eHPz47VQ7gawVs87c0Xt/SJGtu1Ut191/fOfnorXYbPlm2+k4zO3cKDx2WeuLXxyYZe6+JRec/K//SbzC8exbi6DMzSmqz0dUcvgSGZ85WJn+LpbBj/V2O6Ln55zZXXEXBEZ3/QdcEfnzzGlfcPOWEbj5Jts9sC4Ls9rjUqh5KKFHc6DH/nCwNcb23/lM10f29Mfrc65Nbf/oDva1WKaD447FYDWosn3jzhj3a1Rqezngt556qnr/nbw7ye37/zkwIBZ7eiAgYPuaFvRFipV/MBq09Vmmsd9N3xJt1v9y5sHP9TY7me3lpZ1tbgD571raIYdgFmapVmapVmapVmapVmapVmapf9u+n9+v755zusUGAAAAABJRU5ErkJggg==";
 
+var de = {
+	"mbitMore.name": "MicroBit More",
+	"mbitMore.whenButtonEvent": "Wenn Taste [NAME] [EVENT] ist",
+	"mbitMore.buttonIDMenu.a": "A",
+	"mbitMore.buttonIDMenu.b": "B",
+	"mbitMore.buttonEventMenu.down": "unten",
+	"mbitMore.buttonEventMenu.hold": "gehalten",
+	"mbitMore.buttonEventMenu.up": "oben",
+	"mbitMore.buttonEventMenu.click": "geklickt",
+	"mbitMore.buttonEventMenu.longClick": "lange geklickt",
+	"mbitMore.buttonEventMenu.doubleClick": "doppelt geklickt",
+	"mbitMore.isButtonPressed": "Taste [NAME] wird gedrückt",
+	"mbitMore.whenTouchEvent": "Wenn Pin [NAME] [EVENT] wird",
+	"mbitMore.isPinTouched": "Pin [NAME] wird berührt",
+	"mbitMore.touchIDMenu.logo": "Logo",
+	"mbitMore.touchEventMenu.touched": "berührt",
+	"mbitMore.touchEventMenu.hold": "gehalten",
+	"mbitMore.touchEventMenu.released": "losgelassen",
+	"mbitMore.touchEventMenu.tapped": "getippt",
+	"mbitMore.touchEventMenu.longTapped": "lange getippt",
+	"mbitMore.touchEventMenu.doubleTapped": "doppelt getippt",
+	"mbitMore.whenGesture": "Wenn [GESTURE]",
+	"mbitMore.gesturesMenu.tiltUp": "Logo nach oben",
+	"mbitMore.gesturesMenu.tiltDown": "Logo nach unten",
+	"mbitMore.gesturesMenu.tiltLeft": "nach links gedreht",
+	"mbitMore.gesturesMenu.tiltRight": "nach rechts gedreht",
+	"mbitMore.gesturesMenu.faceUp": "Display nach oben",
+	"mbitMore.gesturesMenu.faceDown": "Display nach unten",
+	"mbitMore.gesturesMenu.freefall": "freier Fall",
+	"mbitMore.gesturesMenu.g3": "3g beschleunigt",
+	"mbitMore.gesturesMenu.g6": "6g beschleunigt",
+	"mbitMore.gesturesMenu.g8": "8g beschleunigt",
+	"mbitMore.gesturesMenu.shake": "geschüttelt",
+	"mbitMore.displayMatrix": "zeige Bild [MATRIX]",
+	"mbitMore.displayText": "zeige Text [TEXT] mit [DELAY] ms Verzögerung",
+	"mbitMore.clearDisplay": "lösche Display",
+	"mbitMore.isPinHigh": "ist Pin [PIN] hoch?",
+	"mbitMore.lightLevel": "Lichtstärke",
+	"mbitMore.temperature": "Temperatur °C ",
+	"mbitMore.compassHeading": "Kompassrichtung ° ",
+	"mbitMore.magneticForce": "Magnetkraft µT [AXIS]",
+	"mbitMore.acceleration": "Beschleunigung mg [AXIS]",
+	"mbitMore.pitch": "Pitch",
+	"mbitMore.roll": "Roll",
+	"mbitMore.soundLevel": "Lautstärke",
+	"mbitMore.analogValue": "analoger Wert von Pin [PIN]",
+	"mbitMore.setPullMode": "setze Eingang [PIN] auf [MODE]",
+	"mbitMore.setDigitalOut": "setze digitalen Ausgang [PIN] auf [LEVEL]",
+	"mbitMore.setAnalogOut": "setze analogen Ausgang [PIN] auf [LEVEL] %",
+	"mbitMore.playTone": "spiele Ton [FREQ] Hz mit Lautstärke [VOL] %",
+	"mbitMore.stopTone": "stoppe Ton",
+	"mbitMore.setServo": "setze Servo an [PIN] auf Winkel [ANGLE] °",
+	"mbitMore.digitalValueMenu.Low": "0",
+	"mbitMore.digitalValueMenu.High": "1",
+	"mbitMore.axisMenu.x": "x",
+	"mbitMore.axisMenu.y": "y",
+	"mbitMore.axisMenu.z": "z",
+	"mbitMore.axisMenu.absolute": "absolute",
+	"mbitMore.pinModeMenu.pullNone": "nichts",
+	"mbitMore.pinModeMenu.pullUp": "Pullup",
+	"mbitMore.pinModeMenu.pullDown": "Pulldown",
+	"mbitMore.listenPinEventType": "warte auf [EVENT_TYPE] an Pin [PIN]",
+	"mbitMore.pinEventTypeMenu.none": "nichts",
+	"mbitMore.pinEventTypeMenu.edge": "Flanke",
+	"mbitMore.pinEventTypeMenu.pulse": "Impuls",
+	"mbitMore.pinEventTypeMenu.touch": "Berührung",
+	"mbitMore.whenPinEvent": "Wenn ein [EVENT] an Pin [PIN] erkannt wird",
+	"mbitMore.pinEventMenu.rise": "Ansteigen",
+	"mbitMore.pinEventMenu.fall": "Abfallen",
+	"mbitMore.pinEventMenu.pulseHigh": "Impuls hoch",
+	"mbitMore.pinEventMenu.pulseLow": "Impuls tief",
+	"mbitMore.getPinEventValue": "Wert von [EVENT] an Pin [PIN]",
+	"mbitMore.pinEventTimestampMenu.rise": "Ansteigen",
+	"mbitMore.pinEventTimestampMenu.fall": "Abfallen",
+	"mbitMore.pinEventTimestampMenu.pulseHigh": "Impuls hoch",
+	"mbitMore.pinEventTimestampMenu.pulseLow": "Impuls tief",
+	"mbitMore.whenDataReceived": "Wenn Daten mit dem Label [LABEL] vom micro:bit empfangen werden",
+	"mbitMore.getDataLabeled": "Daten mit dem Label [LABEL]",
+	"mbitMore.sendData": "sende Daten [DATA] mit dem Label [LABEL] zum micro:bit",
+	"mbitMore.connectionStateMenu.connected": "verbunden",
+	"mbitMore.connectionStateMenu.disconnected": "getrennt",
+	"mbitMore.whenConnectionChanged": "Wenn micro:bit [STATE] ist",
+	"mbitMore.selectCommunicationRoute.connectWith": "verbinden mit",
+	"mbitMore.selectCommunicationRoute.bluetooth": "Bluetooth",
+	"mbitMore.selectCommunicationRoute.usb": "USB",
+	"mbitMore.selectCommunicationRoute.connect": "verbinden",
+	"mbitMore.selectCommunicationRoute.cancel": "abbrechen"
+};
 var ja = {
 	"mbitMore.name": "MicroBit More",
 	"mbitMore.whenButtonEvent": "ボタン [NAME] が [EVENT] とき",
@@ -1484,6 +945,7 @@ var pt = {
 	"mbitMore.digitalValueMenu.High": "ligado"
 };
 var translations = {
+	de: de,
 	ja: ja,
 	"ja-Hira": {
 	"mbitMore.name": "MicroBit More",
@@ -1589,11 +1051,26 @@ var translations = {
 	pt: pt
 };
 
+function _arrayWithoutHoles$1(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray$1(arr);
+}
+
+function _iterableToArray$1(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+
+function _nonIterableSpread$1() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _toConsumableArray$1(arr) {
+  return _arrayWithoutHoles$1(arr) || _iterableToArray$1(arr) || _unsupportedIterableToArray$1(arr) || _nonIterableSpread$1();
+}
+
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
-
   return self;
 }
 
@@ -1602,7 +1079,6 @@ function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
-
   return _setPrototypeOf(o, p);
 }
 
@@ -1610,7 +1086,6 @@ function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
   }
-
   subClass.prototype = Object.create(superClass && superClass.prototype, {
     constructor: {
       value: subClass,
@@ -1618,29 +1093,28 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
-  Object.defineProperty(subClass, "prototype", {
-    writable: false
-  });
   if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
-function _typeof(obj) {
+function _typeof$1(obj) {
   "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof$1 = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof$1 = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+  return _typeof$1(obj);
 }
 
 function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+  if (call && (_typeof$1(call) === "object" || typeof call === "function")) {
     return call;
-  } else if (call !== void 0) {
-    throw new TypeError("Derived constructors may only return object or undefined");
   }
-
   return _assertThisInitialized(self);
 }
 
@@ -1654,23 +1128,20 @@ function _getPrototypeOf(o) {
 var JSONRPC$1 = /*#__PURE__*/function () {
   function JSONRPC() {
     _classCallCheck(this, JSONRPC);
-
     this._requestID = 0;
     this._openRequests = {};
   }
+
   /**
    * Make an RPC request and retrieve the result.
    * @param {string} method - the remote method to call.
    * @param {object} params - the parameters to pass to the remote method.
    * @returns {Promise} - a promise for the result of the call.
    */
-
-
   _createClass(JSONRPC, [{
     key: "sendRemoteRequest",
     value: function sendRemoteRequest(method, params) {
       var _this = this;
-
       var requestID = this._requestID++;
       var promise = new Promise(function (resolve, reject) {
         _this._openRequests[requestID] = {
@@ -1678,40 +1149,36 @@ var JSONRPC$1 = /*#__PURE__*/function () {
           reject: reject
         };
       });
-
       this._sendRequest(method, params, requestID);
-
       return promise;
     }
+
     /**
      * Make an RPC notification with no expectation of a result or callback.
      * @param {string} method - the remote method to call.
      * @param {object} params - the parameters to pass to the remote method.
      */
-
   }, {
     key: "sendRemoteNotification",
     value: function sendRemoteNotification(method, params) {
       this._sendRequest(method, params);
     }
+
     /**
      * Handle an RPC request from remote, should return a result or Promise for result, if appropriate.
      * @param {string} method - the method requested by the remote caller.
      * @param {object} params - the parameters sent with the remote caller's request.
      */
-
   }, {
     key: "didReceiveCall",
-    value: function
-      /* method , params */
-    didReceiveCall() {
+    value: function didReceiveCall( /* method , params */
+    ) {
       throw new Error('Must override didReceiveCall');
     }
   }, {
     key: "_sendMessage",
-    value: function
-      /* jsonMessageObject */
-    _sendMessage() {
+    value: function _sendMessage( /* jsonMessageObject */
+    ) {
       throw new Error('Must override _sendMessage');
     }
   }, {
@@ -1722,11 +1189,9 @@ var JSONRPC$1 = /*#__PURE__*/function () {
         method: method,
         params: params
       };
-
       if (id !== null) {
         request.id = id;
       }
-
       this._sendMessage(request);
     }
   }, {
@@ -1735,7 +1200,6 @@ var JSONRPC$1 = /*#__PURE__*/function () {
       if (json.jsonrpc !== '2.0') {
         throw new Error("Bad or missing JSON-RPC version in message: ".concat(json));
       }
-
       if (json.hasOwnProperty('method')) {
         this._handleRequest(json);
       } else {
@@ -1749,24 +1213,21 @@ var JSONRPC$1 = /*#__PURE__*/function () {
         jsonrpc: '2.0',
         id: id
       };
-
       if (error) {
         response.error = error;
       } else {
         response.result = result || null;
       }
-
       this._sendMessage(response);
     }
   }, {
     key: "_handleResponse",
     value: function _handleResponse(json) {
       var result = json.result,
-          error = json.error,
-          id = json.id;
+        error = json.error,
+        id = json.id;
       var openRequest = this._openRequests[id];
       delete this._openRequests[id];
-
       if (openRequest) {
         if (error) {
           openRequest.reject(error);
@@ -1779,12 +1240,10 @@ var JSONRPC$1 = /*#__PURE__*/function () {
     key: "_handleRequest",
     value: function _handleRequest(json) {
       var _this2 = this;
-
       var method = json.method,
-          params = json.params,
-          id = json.id;
+        params = json.params,
+        id = json.id;
       var rawResult = this.didReceiveCall(method, params);
-
       if (id) {
         Promise.resolve(rawResult).then(function (result) {
           _this2._sendResponse(id, result);
@@ -1794,25 +1253,576 @@ var JSONRPC$1 = /*#__PURE__*/function () {
       }
     }
   }]);
-
   return JSONRPC;
 }();
-
 var jsonrpc = JSONRPC$1;
 
-var log$1 = log$2;
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
 
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+var web = {exports: {}};
+
+var minilog$2 = {exports: {}};
+
+function M() {
+  this._events = {};
+}
+M.prototype = {
+  on: function on(ev, cb) {
+    this._events || (this._events = {});
+    var e = this._events;
+    (e[ev] || (e[ev] = [])).push(cb);
+    return this;
+  },
+  removeListener: function removeListener(ev, cb) {
+    var e = this._events[ev] || [],
+      i;
+    for (i = e.length - 1; i >= 0 && e[i]; i--) {
+      if (e[i] === cb || e[i].cb === cb) {
+        e.splice(i, 1);
+      }
+    }
+  },
+  removeAllListeners: function removeAllListeners(ev) {
+    if (!ev) {
+      this._events = {};
+    } else {
+      this._events[ev] && (this._events[ev] = []);
+    }
+  },
+  listeners: function listeners(ev) {
+    return this._events ? this._events[ev] || [] : [];
+  },
+  emit: function emit(ev) {
+    this._events || (this._events = {});
+    var args = Array.prototype.slice.call(arguments, 1),
+      i,
+      e = this._events[ev] || [];
+    for (i = e.length - 1; i >= 0 && e[i]; i--) {
+      e[i].apply(this, args);
+    }
+    return this;
+  },
+  when: function when(ev, cb) {
+    return this.once(ev, cb, true);
+  },
+  once: function once(ev, cb, when) {
+    if (!cb) return this;
+    function c() {
+      if (!when) this.removeListener(ev, c);
+      if (cb.apply(this, arguments) && when) this.removeListener(ev, c);
+    }
+    c.cb = cb;
+    this.on(ev, c);
+    return this;
+  }
+};
+M.mixin = function (dest) {
+  var o = M.prototype,
+    k;
+  for (k in o) {
+    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
+  }
+};
+var microee$1 = M;
+
+var microee = microee$1;
+
+// Implements a subset of Node's stream.Transform - in a cross-platform manner.
+function Transform$4() {}
+microee.mixin(Transform$4);
+
+// The write() signature is different from Node's
+// --> makes it much easier to work with objects in logs.
+// One of the lessons from v1 was that it's better to target
+// a good browser rather than the lowest common denominator
+// internally.
+// If you want to use external streams, pipe() to ./stringify.js first.
+Transform$4.prototype.write = function (name, level, args) {
+  this.emit('item', name, level, args);
+};
+Transform$4.prototype.end = function () {
+  this.emit('end');
+  this.removeAllListeners();
+};
+Transform$4.prototype.pipe = function (dest) {
+  var s = this;
+  // prevent double piping
+  s.emit('unpipe', dest);
+  // tell the dest that it's being piped to
+  dest.emit('pipe', s);
+  function onItem() {
+    dest.write.apply(dest, Array.prototype.slice.call(arguments));
+  }
+  function onEnd() {
+    !dest._isStdio && dest.end();
+  }
+  s.on('item', onItem);
+  s.on('end', onEnd);
+  s.when('unpipe', function (from) {
+    var match = from === dest || typeof from == 'undefined';
+    if (match) {
+      s.removeListener('item', onItem);
+      s.removeListener('end', onEnd);
+      dest.emit('unpipe');
+    }
+    return match;
+  });
+  return dest;
+};
+Transform$4.prototype.unpipe = function (from) {
+  this.emit('unpipe', from);
+  return this;
+};
+Transform$4.prototype.format = function (dest) {
+  throw new Error(['Warning: .format() is deprecated in Minilog v2! Use .pipe() instead. For example:', 'var Minilog = require(\'minilog\');', 'Minilog', '  .pipe(Minilog.backends.console.formatClean)', '  .pipe(Minilog.backends.console);'].join('\n'));
+};
+Transform$4.mixin = function (dest) {
+  var o = Transform$4.prototype,
+    k;
+  for (k in o) {
+    o.hasOwnProperty(k) && (dest.prototype[k] = o[k]);
+  }
+};
+var transform = Transform$4;
+
+// default filter
+var Transform$3 = transform;
+var levelMap = {
+  debug: 1,
+  info: 2,
+  warn: 3,
+  error: 4
+};
+function Filter() {
+  this.enabled = true;
+  this.defaultResult = true;
+  this.clear();
+}
+Transform$3.mixin(Filter);
+
+// allow all matching, with level >= given level
+Filter.prototype.allow = function (name, level) {
+  this._white.push({
+    n: name,
+    l: levelMap[level]
+  });
+  return this;
+};
+
+// deny all matching, with level <= given level
+Filter.prototype.deny = function (name, level) {
+  this._black.push({
+    n: name,
+    l: levelMap[level]
+  });
+  return this;
+};
+Filter.prototype.clear = function () {
+  this._white = [];
+  this._black = [];
+  return this;
+};
+function test(rule, name) {
+  // use .test for RegExps
+  return rule.n.test ? rule.n.test(name) : rule.n == name;
+}
+Filter.prototype.test = function (name, level) {
+  var i,
+    len = Math.max(this._white.length, this._black.length);
+  for (i = 0; i < len; i++) {
+    if (this._white[i] && test(this._white[i], name) && levelMap[level] >= this._white[i].l) {
+      return true;
+    }
+    if (this._black[i] && test(this._black[i], name) && levelMap[level] <= this._black[i].l) {
+      return false;
+    }
+  }
+  return this.defaultResult;
+};
+Filter.prototype.write = function (name, level, args) {
+  if (!this.enabled || this.test(name, level)) {
+    return this.emit('item', name, level, args);
+  }
+};
+var filter = Filter;
+
+(function (module, exports) {
+  var Transform = transform,
+    Filter = filter;
+  var log = new Transform(),
+    slice = Array.prototype.slice;
+  exports = module.exports = function create(name) {
+    var o = function o() {
+      log.write(name, undefined, slice.call(arguments));
+      return o;
+    };
+    o.debug = function () {
+      log.write(name, 'debug', slice.call(arguments));
+      return o;
+    };
+    o.info = function () {
+      log.write(name, 'info', slice.call(arguments));
+      return o;
+    };
+    o.warn = function () {
+      log.write(name, 'warn', slice.call(arguments));
+      return o;
+    };
+    o.error = function () {
+      log.write(name, 'error', slice.call(arguments));
+      return o;
+    };
+    o.log = o.debug; // for interface compliance with Node and browser consoles
+    o.suggest = exports.suggest;
+    o.format = log.format;
+    return o;
+  };
+
+  // filled in separately
+  exports.defaultBackend = exports.defaultFormatter = null;
+  exports.pipe = function (dest) {
+    return log.pipe(dest);
+  };
+  exports.end = exports.unpipe = exports.disable = function (from) {
+    return log.unpipe(from);
+  };
+  exports.Transform = Transform;
+  exports.Filter = Filter;
+  // this is the default filter that's applied when .enable() is called normally
+  // you can bypass it completely and set up your own pipes
+  exports.suggest = new Filter();
+  exports.enable = function () {
+    if (exports.defaultFormatter) {
+      return log.pipe(exports.suggest) // filter
+      .pipe(exports.defaultFormatter) // formatter
+      .pipe(exports.defaultBackend); // backend
+    }
+    return log.pipe(exports.suggest) // filter
+    .pipe(exports.defaultBackend); // formatter
+  };
+})(minilog$2, minilog$2.exports);
+var minilogExports = minilog$2.exports;
+
+var hex = {
+  black: '#000',
+  red: '#c23621',
+  green: '#25bc26',
+  yellow: '#bbbb00',
+  blue: '#492ee1',
+  magenta: '#d338d3',
+  cyan: '#33bbc8',
+  gray: '#808080',
+  purple: '#708'
+};
+function color$2(fg, isInverse) {
+  if (isInverse) {
+    return 'color: #fff; background: ' + hex[fg] + ';';
+  } else {
+    return 'color: ' + hex[fg] + ';';
+  }
+}
+var util = color$2;
+
+var Transform$2 = transform,
+  color$1 = util;
+var colors$1 = {
+    debug: ['cyan'],
+    info: ['purple'],
+    warn: ['yellow', true],
+    error: ['red', true]
+  },
+  logger$2 = new Transform$2();
+logger$2.write = function (name, level, args) {
+  var fn = console.log;
+  if (console[level] && console[level].apply) {
+    fn = console[level];
+    fn.apply(console, ['%c' + name + ' %c' + level, color$1('gray'), color$1.apply(color$1, colors$1[level])].concat(args));
+  }
+};
+
+// NOP, because piping the formatted logs can only cause trouble.
+logger$2.pipe = function () {};
+var color_1 = logger$2;
+
+var Transform$1 = transform,
+  color = util,
+  colors = {
+    debug: ['gray'],
+    info: ['purple'],
+    warn: ['yellow', true],
+    error: ['red', true]
+  },
+  logger$1 = new Transform$1();
+logger$1.write = function (name, level, args) {
+  var fn = console.log;
+  if (level != 'debug' && console[level]) {
+    fn = console[level];
+  }
+  var i = 0;
+  if (level != 'info') {
+    for (; i < args.length; i++) {
+      if (typeof args[i] != 'string') break;
+    }
+    fn.apply(console, ['%c' + name + ' ' + args.slice(0, i).join(' '), color.apply(color, colors[level])].concat(args.slice(i)));
+  } else {
+    fn.apply(console, ['%c' + name, color.apply(color, colors[level])].concat(args));
+  }
+};
+
+// NOP, because piping the formatted logs can only cause trouble.
+logger$1.pipe = function () {};
+var minilog$1 = logger$1;
+
+var Transform = transform;
+var newlines = /\n+$/,
+  logger = new Transform();
+logger.write = function (name, level, args) {
+  var i = args.length - 1;
+  if (typeof console === 'undefined' || !console.log) {
+    return;
+  }
+  if (console.log.apply) {
+    return console.log.apply(console, [name, level].concat(args));
+  } else if (JSON && JSON.stringify) {
+    // console.log.apply is undefined in IE8 and IE9
+    // for IE8/9: make console.log at least a bit less awful
+    if (args[i] && typeof args[i] == 'string') {
+      args[i] = args[i].replace(newlines, '');
+    }
+    try {
+      for (i = 0; i < args.length; i++) {
+        args[i] = JSON.stringify(args[i]);
+      }
+    } catch (e) {}
+    console.log(args.join(' '));
+  }
+};
+logger.formatters = ['color', 'minilog'];
+logger.color = color_1;
+logger.minilog = minilog$1;
+var console_1 = logger;
+
+var array;
+var hasRequiredArray;
+function requireArray() {
+  if (hasRequiredArray) return array;
+  hasRequiredArray = 1;
+  var Transform = transform,
+    cache = [];
+  var logger = new Transform();
+  logger.write = function (name, level, args) {
+    cache.push([name, level, args]);
+  };
+
+  // utility functions
+  logger.get = function () {
+    return cache;
+  };
+  logger.empty = function () {
+    cache = [];
+  };
+  array = logger;
+  return array;
+}
+
+var localstorage;
+var hasRequiredLocalstorage;
+function requireLocalstorage() {
+  if (hasRequiredLocalstorage) return localstorage;
+  hasRequiredLocalstorage = 1;
+  var Transform = transform,
+    cache = false;
+  var logger = new Transform();
+  logger.write = function (name, level, args) {
+    if (typeof window == 'undefined' || typeof JSON == 'undefined' || !JSON.stringify || !JSON.parse) return;
+    try {
+      if (!cache) {
+        cache = window.localStorage.minilog ? JSON.parse(window.localStorage.minilog) : [];
+      }
+      cache.push([new Date().toString(), name, level, args]);
+      window.localStorage.minilog = JSON.stringify(cache);
+    } catch (e) {}
+  };
+  localstorage = logger;
+  return localstorage;
+}
+
+var jquery_simple;
+var hasRequiredJquery_simple;
+function requireJquery_simple() {
+  if (hasRequiredJquery_simple) return jquery_simple;
+  hasRequiredJquery_simple = 1;
+  var Transform = transform;
+  var cid = new Date().valueOf().toString(36);
+  function AjaxLogger(options) {
+    this.url = options.url || '';
+    this.cache = [];
+    this.timer = null;
+    this.interval = options.interval || 30 * 1000;
+    this.enabled = true;
+    this.jQuery = window.jQuery;
+    this.extras = {};
+  }
+  Transform.mixin(AjaxLogger);
+  AjaxLogger.prototype.write = function (name, level, args) {
+    if (!this.timer) {
+      this.init();
+    }
+    this.cache.push([name, level].concat(args));
+  };
+  AjaxLogger.prototype.init = function () {
+    if (!this.enabled || !this.jQuery) return;
+    var self = this;
+    this.timer = setTimeout(function () {
+      var i,
+        logs = [],
+        ajaxData,
+        url = self.url;
+      if (self.cache.length == 0) return self.init();
+      // Test each log line and only log the ones that are valid (e.g. don't have circular references).
+      // Slight performance hit but benefit is we log all valid lines.
+      for (i = 0; i < self.cache.length; i++) {
+        try {
+          JSON.stringify(self.cache[i]);
+          logs.push(self.cache[i]);
+        } catch (e) {}
+      }
+      if (self.jQuery.isEmptyObject(self.extras)) {
+        ajaxData = JSON.stringify({
+          logs: logs
+        });
+        url = self.url + '?client_id=' + cid;
+      } else {
+        ajaxData = JSON.stringify(self.jQuery.extend({
+          logs: logs
+        }, self.extras));
+      }
+      self.jQuery.ajax(url, {
+        type: 'POST',
+        cache: false,
+        processData: false,
+        data: ajaxData,
+        contentType: 'application/json',
+        timeout: 10000
+      }).success(function (data, status, jqxhr) {
+        if (data.interval) {
+          self.interval = Math.max(1000, data.interval);
+        }
+      }).error(function () {
+        self.interval = 30000;
+      }).always(function () {
+        self.init();
+      });
+      self.cache = [];
+    }, this.interval);
+  };
+  AjaxLogger.prototype.end = function () {};
+
+  // wait until jQuery is defined. Useful if you don't control the load order.
+  AjaxLogger.jQueryWait = function (onDone) {
+    if (typeof window !== 'undefined' && (window.jQuery || window.$)) {
+      return onDone(window.jQuery || window.$);
+    } else if (typeof window !== 'undefined') {
+      setTimeout(function () {
+        AjaxLogger.jQueryWait(onDone);
+      }, 200);
+    }
+  };
+  jquery_simple = AjaxLogger;
+  return jquery_simple;
+}
+
+(function (module, exports) {
+  var Minilog = minilogExports;
+  var oldEnable = Minilog.enable,
+    oldDisable = Minilog.disable,
+    isChrome = typeof navigator != 'undefined' && /chrome/i.test(navigator.userAgent),
+    console = console_1;
+
+  // Use a more capable logging backend if on Chrome
+  Minilog.defaultBackend = isChrome ? console.minilog : console;
+
+  // apply enable inputs from localStorage and from the URL
+  if (typeof window != 'undefined') {
+    try {
+      Minilog.enable(JSON.parse(window.localStorage['minilogSettings']));
+    } catch (e) {}
+    if (window.location && window.location.search) {
+      var match = RegExp('[?&]minilog=([^&]*)').exec(window.location.search);
+      match && Minilog.enable(decodeURIComponent(match[1]));
+    }
+  }
+
+  // Make enable also add to localStorage
+  Minilog.enable = function () {
+    oldEnable.call(Minilog, true);
+    try {
+      window.localStorage['minilogSettings'] = JSON.stringify(true);
+    } catch (e) {}
+    return this;
+  };
+  Minilog.disable = function () {
+    oldDisable.call(Minilog);
+    try {
+      delete window.localStorage.minilogSettings;
+    } catch (e) {}
+    return this;
+  };
+  exports = module.exports = Minilog;
+  exports.backends = {
+    array: requireArray(),
+    browser: Minilog.defaultBackend,
+    localStorage: requireLocalstorage(),
+    jQuery: requireJquery_simple()
+  };
+})(web, web.exports);
+var webExports = web.exports;
+
+var minilog = webExports;
+minilog.enable();
+var log$2 = minilog('vm');
+
+var log$1 = log$2;
 var uint8ArrayToBase64$2 = function uint8ArrayToBase64(array) {
   return window.btoa(String.fromCharCode.apply(String, _toConsumableArray(array)));
 };
-
 var base64ToUint8Array$2 = function base64ToUint8Array(base64) {
   var raw = window.atob(base64);
   return Uint8Array.from(Array.prototype.map.call(raw, function (x) {
     return x.charCodeAt(0);
   }));
 };
-
 var WebBLE$1 = /*#__PURE__*/function () {
   /**
    * A BLE peripheral object.  It handles connecting, over Web Bluetooth API, to
@@ -1825,19 +1835,17 @@ var WebBLE$1 = /*#__PURE__*/function () {
    */
   function WebBLE(runtime, extensionId, peripheralOptions, connectCallback) {
     var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-
     _classCallCheck(this, WebBLE);
-
     /**
      * Remote device which have been connected.
      * @type {BluetoothDevice}
      */
     this._device = null;
+
     /**
      * Remote GATT server
      * @type {BluetoothRemoteGATTServer}
      */
-
     this._server = null;
     this._connectCallback = connectCallback;
     this._disconnected = true;
@@ -1848,89 +1856,76 @@ var WebBLE$1 = /*#__PURE__*/function () {
     this._runtime = runtime;
     this.requestPeripheral();
   }
+
   /**
    * Request connection to the peripheral.
    * Request user to choose a device, and then connect it automatically.
    */
-
-
   _createClass(WebBLE, [{
     key: "requestPeripheral",
     value: function requestPeripheral() {
       var _this = this;
-
       if (this._server) {
         this.disconnect();
       }
-
       navigator.bluetooth.requestDevice(this._peripheralOptions).then(function (device) {
         _this._device = device;
         log$1.debug("device=".concat(_this._device.name));
-
         _this._runtime.connectPeripheral(_this._extensionId, _this._device.id);
       }).catch(function (e) {
         _this._handleRequestError(e);
       });
     }
+
     /**
      * Try connecting to the GATT server of the device, and then call the connect
      * callback when connection is successful.
      */
-
   }, {
     key: "connectPeripheral",
-    value: function
-      /* id */
-    connectPeripheral() {
+    value: function connectPeripheral( /* id */
+    ) {
       var _this2 = this;
-
       if (!this._device) {
         throw new Error('device is not chosen');
       }
-
       this._device.gatt.connect().then(function (gattServer) {
         log$1.debug("GATTServer is connected");
         _this2._server = gattServer;
-
         _this2._runtime.emit(_this2._runtime.constructor.PERIPHERAL_CONNECTED);
-
         _this2._disconnected = false;
-
         _this2._connectCallback();
-
         _this2._device.addEventListener('gattserverdisconnected', function (event) {
           _this2.onDisconnected(event);
         });
       });
     }
+
     /**
      * Disconnect from the device and clean up.
      * Then emit the connection state by the runtime.
      */
-
   }, {
     key: "disconnect",
     value: function disconnect() {
       if (!this._server) return;
-
       this._server.disconnect();
-
       this._disconnected = true;
       this._server = null;
       this._device = null;
-
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
     }
+
     /**
      * @return {bool} whether the peripheral is connected.
      */
-
   }, {
     key: "isConnected",
     value: function isConnected() {
       if (!this._server) return false;
       return this._server.connected;
     }
+
     /**
      * Start receiving notifications from the specified ble service.
      * @param {number} serviceId - the ble service to read.
@@ -1939,7 +1934,6 @@ var WebBLE$1 = /*#__PURE__*/function () {
      *  like function(base64message).
      * @return {Promise} - a promise from the remote startNotifications request.
      */
-
   }, {
     key: "startNotifications",
     value: function startNotifications(serviceId, characteristicId) {
@@ -1954,6 +1948,7 @@ var WebBLE$1 = /*#__PURE__*/function () {
         characteristic.startNotifications();
       });
     }
+
     /**
      * Read from the specified ble service.
      * @param {number} serviceId - the ble service to read.
@@ -1963,12 +1958,10 @@ var WebBLE$1 = /*#__PURE__*/function () {
      *  like function(base64message).
      * @return {Promise} - a promise from the remote read request which resolve {message: base64string}.
      */
-
   }, {
     key: "read",
     value: function read(serviceId, characteristicId) {
       var _this3 = this;
-
       var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
       return this._server.getPrimaryService(serviceId).then(function (service) {
@@ -1977,7 +1970,6 @@ var WebBLE$1 = /*#__PURE__*/function () {
         if (optStartNotifications) {
           _this3.startNotifications(serviceId, characteristicId, onCharacteristicChanged);
         }
-
         return characteristic.readValue();
       }).then(function (dataView) {
         return {
@@ -1985,6 +1977,7 @@ var WebBLE$1 = /*#__PURE__*/function () {
         };
       });
     }
+
     /**
      * Write data to the specified ble service.
      * @param {number} serviceId - the ble service to write.
@@ -1995,7 +1988,6 @@ var WebBLE$1 = /*#__PURE__*/function () {
      * @return {Promise} - a promise from the remote send request.
      */
     // eslint-disable-next-line no-unused-vars
-
   }, {
     key: "write",
     value: function write(serviceId, characteristicId, message) {
@@ -2008,14 +2000,13 @@ var WebBLE$1 = /*#__PURE__*/function () {
         if (withResponse && characteristic.writeValueWithResponse) {
           return characteristic.writeValueWithResponse(value);
         }
-
         if (characteristic.writeValueWithoutResponse) {
           return characteristic.writeValueWithoutResponse(value);
         }
-
         return characteristic.writeValue(value);
       });
     }
+
     /**
      * Handle an error resulting from losing connection to a peripheral.
      *
@@ -2027,20 +2018,17 @@ var WebBLE$1 = /*#__PURE__*/function () {
      * Disconnect the device, and if the extension using this object has a
      * reset callback, call it. Finally, emit an error to the runtime.
      */
-
   }, {
     key: "handleDisconnectError",
-    value: function
-      /* e */
-    handleDisconnectError() {
+    value: function handleDisconnectError( /* e */
+    ) {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
+
       if (this._disconnected) return;
       this.disconnect();
-
       if (this._resetCallback) {
         this._resetCallback();
       }
-
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
         message: "Scratch lost connection to",
         extensionId: this._extensionId
@@ -2048,44 +2036,37 @@ var WebBLE$1 = /*#__PURE__*/function () {
     }
   }, {
     key: "_handleRequestError",
-    value: function
-      /* e */
-    _handleRequestError() {
+    value: function _handleRequestError( /* e */
+    ) {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
+
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
         message: "Scratch lost connection to",
         extensionId: this._extensionId
       });
     }
+
     /**
      * Called when disconnected by the device.
      */
-
   }, {
     key: "onDisconnected",
-    value: function
-      /* event */
-    onDisconnected() {
+    value: function onDisconnected( /* event */
+    ) {
       this.handleDisconnectError(new Error('device disconnected'));
     }
   }]);
-
   return WebBLE;
 }();
-
 var bleWeb = WebBLE$1;
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 var JSONRPC = jsonrpc;
 var WebBLE = bleWeb;
-
-var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
+var BLE$2 = /*#__PURE__*/function (_JSONRPC) {
   _inherits(BLE, _JSONRPC);
-
   var _super = _createSuper(BLE);
-
   /**
    * A BLE peripheral socket object.  It handles connecting, over web sockets, to
    * BLE peripherals, and reading and writing data to them.
@@ -2097,22 +2078,14 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
    */
   function BLE(runtime, extensionId, peripheralOptions, connectCallback) {
     var _this;
-
     var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-
     _classCallCheck(this, BLE);
-
     _this = _super.call(this);
     _this._socket = runtime.getScratchLinkSocket('BLE');
-
     _this._socket.setOnOpen(_this.requestPeripheral.bind(_assertThisInitialized(_this)));
-
     _this._socket.setOnClose(_this.handleDisconnectError.bind(_assertThisInitialized(_this)));
-
     _this._socket.setOnError(_this._handleRequestError.bind(_assertThisInitialized(_this)));
-
     _this._socket.setHandleMessage(_this._handleMessage.bind(_assertThisInitialized(_this)));
-
     _this._sendMessage = _this._socket.sendMessage.bind(_this._socket);
     _this._availablePeripherals = {};
     _this._connectCallback = connectCallback;
@@ -2123,87 +2096,77 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
     _this._extensionId = extensionId;
     _this._peripheralOptions = peripheralOptions;
     _this._runtime = runtime;
-
     _this._socket.open();
-
     return _this;
   }
+
   /**
    * Request connection to the peripheral.
    * If the web socket is not yet open, request when the socket promise resolves.
    */
-
-
   _createClass(BLE, [{
     key: "requestPeripheral",
     value: function requestPeripheral() {
       var _this2 = this;
-
       this._availablePeripherals = {};
-
       if (this._discoverTimeoutID) {
         window.clearTimeout(this._discoverTimeoutID);
       }
-
       this._discoverTimeoutID = window.setTimeout(this._handleDiscoverTimeout.bind(this), 15000);
       this.sendRemoteRequest('discover', this._peripheralOptions).catch(function (e) {
         _this2._handleRequestError(e);
       });
     }
+
     /**
      * Try connecting to the input peripheral id, and then call the connect
      * callback if connection is successful.
      * @param {number} id - the id of the peripheral to connect to
      */
-
   }, {
     key: "connectPeripheral",
     value: function connectPeripheral(id) {
       var _this3 = this;
-
       this.sendRemoteRequest('connect', {
         peripheralId: id
       }).then(function () {
         _this3._connected = true;
-
         _this3._runtime.emit(_this3._runtime.constructor.PERIPHERAL_CONNECTED);
-
         _this3._connectCallback();
       }).catch(function (e) {
         _this3._handleRequestError(e);
       });
     }
+
     /**
      * Close the websocket.
      */
-
   }, {
     key: "disconnect",
     value: function disconnect() {
       if (this._connected) {
         this._connected = false;
       }
-
       if (this._socket.isOpen()) {
         this._socket.close();
       }
-
       if (this._discoverTimeoutID) {
         window.clearTimeout(this._discoverTimeoutID);
-      } // Sets connection status icon to orange
+      }
 
-
+      // Sets connection status icon to orange
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
     }
+
     /**
      * @return {bool} whether the peripheral is connected.
      */
-
   }, {
     key: "isConnected",
     value: function isConnected() {
       return this._connected;
     }
+
     /**
      * Start receiving notifications from the specified ble service.
      * @param {number} serviceId - the ble service to read.
@@ -2211,12 +2174,10 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
      * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
      * @return {Promise} - a promise from the remote startNotifications request.
      */
-
   }, {
     key: "startNotifications",
     value: function startNotifications(serviceId, characteristicId) {
       var _this4 = this;
-
       var onCharacteristicChanged = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
       var params = {
         serviceId: serviceId,
@@ -2227,6 +2188,7 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
         _this4.handleDisconnectError(e);
       });
     }
+
     /**
      * Read from the specified ble service.
      * @param {number} serviceId - the ble service to read.
@@ -2235,31 +2197,27 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
      * @param {object} onCharacteristicChanged - callback for characteristic change notifications.
      * @return {Promise} - a promise from the remote read request.
      */
-
   }, {
     key: "read",
     value: function read(serviceId, characteristicId) {
       var _this5 = this;
-
       var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
       var params = {
         serviceId: serviceId,
         characteristicId: characteristicId
       };
-
       if (optStartNotifications) {
         params.startNotifications = true;
       }
-
       if (onCharacteristicChanged) {
         this._characteristicDidChangeCallback = onCharacteristicChanged;
       }
-
       return this.sendRemoteRequest('read', params).catch(function (e) {
         _this5.handleDisconnectError(e);
       });
     }
+
     /**
      * Write data to the specified ble service.
      * @param {number} serviceId - the ble service to write.
@@ -2269,12 +2227,10 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
      * @param {boolean} withResponse - if true, resolve after peripheral's response.
      * @return {Promise} - a promise from the remote send request.
      */
-
   }, {
     key: "write",
     value: function write(serviceId, characteristicId, message) {
       var _this6 = this;
-
       var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
       var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
       var params = {
@@ -2282,72 +2238,57 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
         characteristicId: characteristicId,
         message: message
       };
-
       if (encoding) {
         params.encoding = encoding;
       }
-
       if (withResponse !== null) {
         params.withResponse = withResponse;
       }
-
       return this.sendRemoteRequest('write', params).catch(function (e) {
         _this6.handleDisconnectError(e);
       });
     }
+
     /**
      * Handle a received call from the socket.
      * @param {string} method - a received method label.
      * @param {object} params - a received list of parameters.
      * @return {object} - optional return value.
      */
-
   }, {
     key: "didReceiveCall",
     value: function didReceiveCall(method, params) {
       switch (method) {
         case 'didDiscoverPeripheral':
           this._availablePeripherals[params.peripheralId] = params;
-
           this._runtime.emit(this._runtime.constructor.PERIPHERAL_LIST_UPDATE, this._availablePeripherals);
-
           if (this._discoverTimeoutID) {
             window.clearTimeout(this._discoverTimeoutID);
           }
-
           break;
-
         case 'userDidPickPeripheral':
           this._availablePeripherals[params.peripheralId] = params;
-
           this._runtime.emit(this._runtime.constructor.USER_PICKED_PERIPHERAL, this._availablePeripherals);
-
           if (this._discoverTimeoutID) {
             window.clearTimeout(this._discoverTimeoutID);
           }
-
           break;
-
         case 'userDidNotPickPeripheral':
           this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
-
           if (this._discoverTimeoutID) {
             window.clearTimeout(this._discoverTimeoutID);
           }
-
           break;
-
         case 'characteristicDidChange':
           if (this._characteristicDidChangeCallback) {
             this._characteristicDidChangeCallback(params.message);
           }
-
           break;
-
         case 'ping':
           return 42;
       }
     }
+
     /**
      * Handle an error resulting from losing connection to a peripheral.
      *
@@ -2359,20 +2300,17 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
      * Disconnect the socket, and if the extension using this socket has a
      * reset callback, call it. Finally, emit an error to the runtime.
      */
-
   }, {
     key: "handleDisconnectError",
-    value: function
-      /* e */
-    handleDisconnectError() {
+    value: function handleDisconnectError( /* e */
+    ) {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
+
       if (!this._connected) return;
       this.disconnect();
-
       if (this._resetCallback) {
         this._resetCallback();
       }
-
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
         message: "Scratch lost connection to",
         extensionId: this._extensionId
@@ -2380,10 +2318,10 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
     }
   }, {
     key: "_handleRequestError",
-    value: function
-      /* e */
-    _handleRequestError() {
+    value: function _handleRequestError( /* e */
+    ) {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
+
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
         message: "Scratch lost connection to",
         extensionId: this._extensionId
@@ -2395,18 +2333,16 @@ var BLE$1 = /*#__PURE__*/function (_JSONRPC) {
       if (this._discoverTimeoutID) {
         window.clearTimeout(this._discoverTimeoutID);
       }
-
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_SCAN_TIMEOUT);
     }
   }]);
-
   return BLE;
 }(JSONRPC);
-
-var ble$1 = navigator.bluetooth ? WebBLE : BLE$1;
+var ble$1 = navigator.bluetooth ? WebBLE : BLE$2;
 
 var BLE = ble$1;
 var ble = BLE;
+var BLE$1 = /*@__PURE__*/getDefaultExportFromCjs(ble);
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   try {
@@ -2416,32 +2352,37 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     reject(error);
     return;
   }
-
   if (info.done) {
     resolve(value);
   } else {
     Promise.resolve(value).then(_next, _throw);
   }
 }
-
 function _asyncToGenerator(fn) {
   return function () {
     var self = this,
-        args = arguments;
+      args = arguments;
     return new Promise(function (resolve, reject) {
       var gen = fn.apply(self, args);
-
       function _next(value) {
         asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
       }
-
       function _throw(err) {
         asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
       }
-
       _next(undefined);
     });
   };
+}
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
 }
 
 var runtime = {exports: {}};
@@ -2452,12 +2393,10 @@ var runtime = {exports: {}};
     var Op = Object.prototype;
     var hasOwn = Op.hasOwnProperty;
     var undefined$1; // More compressible than void 0.
-
     var $Symbol = typeof Symbol === "function" ? Symbol : {};
     var iteratorSymbol = $Symbol.iterator || "@@iterator";
     var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
     var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
     function define(obj, key, value) {
       Object.defineProperty(obj, key, {
         value: value,
@@ -2467,7 +2406,6 @@ var runtime = {exports: {}};
       });
       return obj[key];
     }
-
     try {
       // IE 8 has a broken Object.defineProperty that only works on DOM objects.
       define({}, "");
@@ -2476,19 +2414,20 @@ var runtime = {exports: {}};
         return obj[key] = value;
       };
     }
-
     function wrap(innerFn, outerFn, self, tryLocsList) {
       // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
       var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
       var generator = Object.create(protoGenerator.prototype);
-      var context = new Context(tryLocsList || []); // The ._invoke method unifies the implementations of the .next,
-      // .throw, and .return methods.
+      var context = new Context(tryLocsList || []);
 
+      // The ._invoke method unifies the implementations of the .next,
+      // .throw, and .return methods.
       generator._invoke = makeInvokeMethod(innerFn, self, context);
       return generator;
     }
+    exports.wrap = wrap;
 
-    exports.wrap = wrap; // Try/catch helper to minimize deoptimizations. Returns a completion
+    // Try/catch helper to minimize deoptimizations. Returns a completion
     // record like context.tryEntries[i].completion. This interface could
     // have been (and was previously) designed to take a closure to be
     // invoked without arguments, but in all the cases we care about we
@@ -2498,7 +2437,6 @@ var runtime = {exports: {}};
     // in every case, so we don't have to touch the arguments object. The
     // only additional allocation required is the completion record, which
     // has a stable shape and so hopefully should be cheap to allocate.
-
     function tryCatch(fn, obj, arg) {
       try {
         return {
@@ -2512,46 +2450,44 @@ var runtime = {exports: {}};
         };
       }
     }
-
     var GenStateSuspendedStart = "suspendedStart";
     var GenStateSuspendedYield = "suspendedYield";
     var GenStateExecuting = "executing";
-    var GenStateCompleted = "completed"; // Returning this object from the innerFn has the same effect as
-    // breaking out of the dispatch switch statement.
+    var GenStateCompleted = "completed";
 
-    var ContinueSentinel = {}; // Dummy constructor functions that we use as the .constructor and
+    // Returning this object from the innerFn has the same effect as
+    // breaking out of the dispatch switch statement.
+    var ContinueSentinel = {};
+
+    // Dummy constructor functions that we use as the .constructor and
     // .constructor.prototype properties for functions that return Generator
     // objects. For full spec compliance, you may wish to configure your
     // minifier not to mangle the names of these two functions.
-
     function Generator() {}
-
     function GeneratorFunction() {}
+    function GeneratorFunctionPrototype() {}
 
-    function GeneratorFunctionPrototype() {} // This is a polyfill for %IteratorPrototype% for environments that
+    // This is a polyfill for %IteratorPrototype% for environments that
     // don't natively support it.
-
-
     var IteratorPrototype = {};
     define(IteratorPrototype, iteratorSymbol, function () {
       return this;
     });
     var getProto = Object.getPrototypeOf;
     var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-
     if (NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
       // This environment has a native %IteratorPrototype%; use it instead
       // of the polyfill.
       IteratorPrototype = NativeIteratorPrototype;
     }
-
     var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype);
     GeneratorFunction.prototype = GeneratorFunctionPrototype;
     define(Gp, "constructor", GeneratorFunctionPrototype);
     define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
-    GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"); // Helper for defining the .next, .throw, and .return methods of the
-    // Iterator interface in terms of a single ._invoke method.
+    GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction");
 
+    // Helper for defining the .next, .throw, and .return methods of the
+    // Iterator interface in terms of a single ._invoke method.
     function defineIteratorMethods(prototype) {
       ["next", "throw", "return"].forEach(function (method) {
         define(prototype, method, function (arg) {
@@ -2559,14 +2495,13 @@ var runtime = {exports: {}};
         });
       });
     }
-
     exports.isGeneratorFunction = function (genFun) {
       var ctor = typeof genFun === "function" && genFun.constructor;
-      return ctor ? ctor === GeneratorFunction || // For the native GeneratorFunction constructor, the best we can
+      return ctor ? ctor === GeneratorFunction ||
+      // For the native GeneratorFunction constructor, the best we can
       // do is to check its .name property.
       (ctor.displayName || ctor.name) === "GeneratorFunction" : false;
     };
-
     exports.mark = function (genFun) {
       if (Object.setPrototypeOf) {
         Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
@@ -2574,31 +2509,27 @@ var runtime = {exports: {}};
         genFun.__proto__ = GeneratorFunctionPrototype;
         define(genFun, toStringTagSymbol, "GeneratorFunction");
       }
-
       genFun.prototype = Object.create(Gp);
       return genFun;
-    }; // Within the body of any async function, `await x` is transformed to
+    };
+
+    // Within the body of any async function, `await x` is transformed to
     // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
     // `hasOwn.call(value, "__await")` to determine if the yielded value is
     // meant to be awaited.
-
-
     exports.awrap = function (arg) {
       return {
         __await: arg
       };
     };
-
     function AsyncIterator(generator, PromiseImpl) {
       function invoke(method, arg, resolve, reject) {
         var record = tryCatch(generator[method], generator, arg);
-
         if (record.type === "throw") {
           reject(record.arg);
         } else {
           var result = record.arg;
           var value = result.value;
-
           if (value && _typeof(value) === "object" && hasOwn.call(value, "__await")) {
             return PromiseImpl.resolve(value.__await).then(function (value) {
               invoke("next", value, resolve, reject);
@@ -2606,7 +2537,6 @@ var runtime = {exports: {}};
               invoke("throw", err, resolve, reject);
             });
           }
-
           return PromiseImpl.resolve(value).then(function (unwrapped) {
             // When a yielded Promise is resolved, its final value becomes
             // the .value of the Promise<{value,done}> result for the
@@ -2620,17 +2550,15 @@ var runtime = {exports: {}};
           });
         }
       }
-
       var previousPromise;
-
       function enqueue(method, arg) {
         function callInvokeWithMethodAndArg() {
           return new PromiseImpl(function (resolve, reject) {
             invoke(method, arg, resolve, reject);
           });
         }
-
-        return previousPromise = // If enqueue has been called before, then we want to wait until
+        return previousPromise =
+        // If enqueue has been called before, then we want to wait until
         // all previous Promises have been resolved before calling invoke,
         // so that results are always delivered in the correct order. If
         // enqueue has not been called before, then it is important to
@@ -2642,24 +2570,25 @@ var runtime = {exports: {}};
         // execute code before the first await. Since we implement simple
         // async functions in terms of async generators, it is especially
         // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, // Avoid propagating failures to Promises returned by later
+        previousPromise ? previousPromise.then(callInvokeWithMethodAndArg,
+        // Avoid propagating failures to Promises returned by later
         // invocations of the iterator.
         callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
-      } // Define the unified helper method that is used to implement .next,
+      }
+
+      // Define the unified helper method that is used to implement .next,
       // .throw, and .return (see defineIteratorMethods).
-
-
       this._invoke = enqueue;
     }
-
     defineIteratorMethods(AsyncIterator.prototype);
     define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
       return this;
     });
-    exports.AsyncIterator = AsyncIterator; // Note that simple async functions are implemented on top of
+    exports.AsyncIterator = AsyncIterator;
+
+    // Note that simple async functions are implemented on top of
     // AsyncIterator objects; they just return a Promise for the value of
     // the final result produced by the iterator.
-
     exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
       if (PromiseImpl === void 0) PromiseImpl = Promise;
       var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl);
@@ -2668,39 +2597,32 @@ var runtime = {exports: {}};
         return result.done ? result.value : iter.next();
       });
     };
-
     function makeInvokeMethod(innerFn, self, context) {
       var state = GenStateSuspendedStart;
       return function invoke(method, arg) {
         if (state === GenStateExecuting) {
           throw new Error("Generator is already running");
         }
-
         if (state === GenStateCompleted) {
           if (method === "throw") {
             throw arg;
-          } // Be forgiving, per 25.3.3.3.3 of the spec:
+          }
+
+          // Be forgiving, per 25.3.3.3.3 of the spec:
           // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-
-
           return doneResult();
         }
-
         context.method = method;
         context.arg = arg;
-
         while (true) {
           var delegate = context.delegate;
-
           if (delegate) {
             var delegateResult = maybeInvokeDelegate(delegate, context);
-
             if (delegateResult) {
               if (delegateResult === ContinueSentinel) continue;
               return delegateResult;
             }
           }
-
           if (context.method === "next") {
             // Setting context._sent for legacy support of Babel's
             // function.sent implementation.
@@ -2710,51 +2632,44 @@ var runtime = {exports: {}};
               state = GenStateCompleted;
               throw context.arg;
             }
-
             context.dispatchException(context.arg);
           } else if (context.method === "return") {
             context.abrupt("return", context.arg);
           }
-
           state = GenStateExecuting;
           var record = tryCatch(innerFn, self, context);
-
           if (record.type === "normal") {
             // If an exception is thrown from innerFn, we leave state ===
             // GenStateExecuting and loop back for another invocation.
             state = context.done ? GenStateCompleted : GenStateSuspendedYield;
-
             if (record.arg === ContinueSentinel) {
               continue;
             }
-
             return {
               value: record.arg,
               done: context.done
             };
           } else if (record.type === "throw") {
-            state = GenStateCompleted; // Dispatch the exception by looping back around to the
+            state = GenStateCompleted;
+            // Dispatch the exception by looping back around to the
             // context.dispatchException(context.arg) call above.
-
             context.method = "throw";
             context.arg = record.arg;
           }
         }
       };
-    } // Call delegate.iterator[context.method](context.arg) and handle the
+    }
+
+    // Call delegate.iterator[context.method](context.arg) and handle the
     // result, either by returning a { value, done } result from the
     // delegate iterator, or by modifying context.method and context.arg,
     // setting context.delegate to null, and returning the ContinueSentinel.
-
-
     function maybeInvokeDelegate(delegate, context) {
       var method = delegate.iterator[context.method];
-
       if (method === undefined$1) {
         // A .throw or .return when the delegate iterator has no .throw
         // method always terminates the yield* loop.
         context.delegate = null;
-
         if (context.method === "throw") {
           // Note: ["return"] must be used for ES3 parsing compatibility.
           if (delegate.iterator["return"]) {
@@ -2763,51 +2678,45 @@ var runtime = {exports: {}};
             context.method = "return";
             context.arg = undefined$1;
             maybeInvokeDelegate(delegate, context);
-
             if (context.method === "throw") {
               // If maybeInvokeDelegate(context) changed context.method from
               // "return" to "throw", let that override the TypeError below.
               return ContinueSentinel;
             }
           }
-
           context.method = "throw";
           context.arg = new TypeError("The iterator does not provide a 'throw' method");
         }
-
         return ContinueSentinel;
       }
-
       var record = tryCatch(method, delegate.iterator, context.arg);
-
       if (record.type === "throw") {
         context.method = "throw";
         context.arg = record.arg;
         context.delegate = null;
         return ContinueSentinel;
       }
-
       var info = record.arg;
-
       if (!info) {
         context.method = "throw";
         context.arg = new TypeError("iterator result is not an object");
         context.delegate = null;
         return ContinueSentinel;
       }
-
       if (info.done) {
         // Assign the result of the finished delegate to the temporary
         // variable specified by delegate.resultName (see delegateYield).
-        context[delegate.resultName] = info.value; // Resume execution at the desired location (see delegateYield).
+        context[delegate.resultName] = info.value;
 
-        context.next = delegate.nextLoc; // If context.method was "throw" but the delegate handled the
+        // Resume execution at the desired location (see delegateYield).
+        context.next = delegate.nextLoc;
+
+        // If context.method was "throw" but the delegate handled the
         // exception, let the outer generator proceed normally. If
         // context.method was "next", forget context.arg since it has been
         // "consumed" by the delegate iterator. If context.method was
         // "return", allow the original .return call to continue in the
         // outer generator.
-
         if (context.method !== "return") {
           context.method = "next";
           context.arg = undefined$1;
@@ -2815,54 +2724,49 @@ var runtime = {exports: {}};
       } else {
         // Re-yield the result returned by the delegate method.
         return info;
-      } // The delegate iterator is finished, so forget it and continue with
+      }
+
+      // The delegate iterator is finished, so forget it and continue with
       // the outer generator.
-
-
       context.delegate = null;
       return ContinueSentinel;
-    } // Define Generator.prototype.{next,throw,return} in terms of the
+    }
+
+    // Define Generator.prototype.{next,throw,return} in terms of the
     // unified ._invoke helper method.
-
-
     defineIteratorMethods(Gp);
-    define(Gp, toStringTagSymbol, "Generator"); // A Generator should always return itself as the iterator object when the
+    define(Gp, toStringTagSymbol, "Generator");
+
+    // A Generator should always return itself as the iterator object when the
     // @@iterator function is called on it. Some browsers' implementations of the
     // iterator prototype chain incorrectly implement this, causing the Generator
     // object to not be returned from this call. This ensures that doesn't happen.
     // See https://github.com/facebook/regenerator/issues/274 for more details.
-
     define(Gp, iteratorSymbol, function () {
       return this;
     });
     define(Gp, "toString", function () {
       return "[object Generator]";
     });
-
     function pushTryEntry(locs) {
       var entry = {
         tryLoc: locs[0]
       };
-
       if (1 in locs) {
         entry.catchLoc = locs[1];
       }
-
       if (2 in locs) {
         entry.finallyLoc = locs[2];
         entry.afterLoc = locs[3];
       }
-
       this.tryEntries.push(entry);
     }
-
     function resetTryEntry(entry) {
       var record = entry.completion || {};
       record.type = "normal";
       delete record.arg;
       entry.completion = record;
     }
-
     function Context(tryLocsList) {
       // The root entry object (effectively a try statement without a catch
       // or a finally block) gives us a place to store values thrown from
@@ -2873,97 +2777,84 @@ var runtime = {exports: {}};
       tryLocsList.forEach(pushTryEntry, this);
       this.reset(true);
     }
-
     exports.keys = function (object) {
       var keys = [];
-
       for (var key in object) {
         keys.push(key);
       }
+      keys.reverse();
 
-      keys.reverse(); // Rather than returning an object with a next method, we keep
+      // Rather than returning an object with a next method, we keep
       // things simple and return the next function itself.
-
       return function next() {
         while (keys.length) {
           var key = keys.pop();
-
           if (key in object) {
             next.value = key;
             next.done = false;
             return next;
           }
-        } // To avoid creating an additional object, we just hang the .value
+        }
+
+        // To avoid creating an additional object, we just hang the .value
         // and .done properties off the next function object itself. This
         // also ensures that the minifier will not anonymize the function.
-
-
         next.done = true;
         return next;
       };
     };
-
     function values(iterable) {
       if (iterable) {
         var iteratorMethod = iterable[iteratorSymbol];
-
         if (iteratorMethod) {
           return iteratorMethod.call(iterable);
         }
-
         if (typeof iterable.next === "function") {
           return iterable;
         }
-
         if (!isNaN(iterable.length)) {
           var i = -1,
-              next = function next() {
-            while (++i < iterable.length) {
-              if (hasOwn.call(iterable, i)) {
-                next.value = iterable[i];
-                next.done = false;
-                return next;
+            next = function next() {
+              while (++i < iterable.length) {
+                if (hasOwn.call(iterable, i)) {
+                  next.value = iterable[i];
+                  next.done = false;
+                  return next;
+                }
               }
-            }
-
-            next.value = undefined$1;
-            next.done = true;
-            return next;
-          };
-
+              next.value = undefined$1;
+              next.done = true;
+              return next;
+            };
           return next.next = next;
         }
-      } // Return an iterator with no values.
+      }
 
-
+      // Return an iterator with no values.
       return {
         next: doneResult
       };
     }
-
     exports.values = values;
-
     function doneResult() {
       return {
         value: undefined$1,
         done: true
       };
     }
-
     Context.prototype = {
       constructor: Context,
       reset: function reset(skipTempReset) {
         this.prev = 0;
-        this.next = 0; // Resetting context._sent for legacy support of Babel's
+        this.next = 0;
+        // Resetting context._sent for legacy support of Babel's
         // function.sent implementation.
-
         this.sent = this._sent = undefined$1;
         this.done = false;
         this.delegate = null;
         this.method = "next";
         this.arg = undefined$1;
         this.tryEntries.forEach(resetTryEntry);
-
         if (!skipTempReset) {
           for (var name in this) {
             // Not sure about the optimal order of these conditions:
@@ -2977,50 +2868,40 @@ var runtime = {exports: {}};
         this.done = true;
         var rootEntry = this.tryEntries[0];
         var rootRecord = rootEntry.completion;
-
         if (rootRecord.type === "throw") {
           throw rootRecord.arg;
         }
-
         return this.rval;
       },
       dispatchException: function dispatchException(exception) {
         if (this.done) {
           throw exception;
         }
-
         var context = this;
-
         function handle(loc, caught) {
           record.type = "throw";
           record.arg = exception;
           context.next = loc;
-
           if (caught) {
             // If the dispatched exception was caught by a catch block,
             // then let that catch block handle the exception normally.
             context.method = "next";
             context.arg = undefined$1;
           }
-
           return !!caught;
         }
-
         for (var i = this.tryEntries.length - 1; i >= 0; --i) {
           var entry = this.tryEntries[i];
           var record = entry.completion;
-
           if (entry.tryLoc === "root") {
             // Exception thrown outside of any try block that could handle
             // it, so set the completion value of the entire function to
             // throw the exception.
             return handle("end");
           }
-
           if (entry.tryLoc <= this.prev) {
             var hasCatch = hasOwn.call(entry, "catchLoc");
             var hasFinally = hasOwn.call(entry, "finallyLoc");
-
             if (hasCatch && hasFinally) {
               if (this.prev < entry.catchLoc) {
                 return handle(entry.catchLoc, true);
@@ -3044,36 +2925,30 @@ var runtime = {exports: {}};
       abrupt: function abrupt(type, arg) {
         for (var i = this.tryEntries.length - 1; i >= 0; --i) {
           var entry = this.tryEntries[i];
-
           if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) {
             var finallyEntry = entry;
             break;
           }
         }
-
         if (finallyEntry && (type === "break" || type === "continue") && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc) {
           // Ignore the finally entry if control is not jumping to a
           // location outside the try/catch block.
           finallyEntry = null;
         }
-
         var record = finallyEntry ? finallyEntry.completion : {};
         record.type = type;
         record.arg = arg;
-
         if (finallyEntry) {
           this.method = "next";
           this.next = finallyEntry.finallyLoc;
           return ContinueSentinel;
         }
-
         return this.complete(record);
       },
       complete: function complete(record, afterLoc) {
         if (record.type === "throw") {
           throw record.arg;
         }
-
         if (record.type === "break" || record.type === "continue") {
           this.next = record.arg;
         } else if (record.type === "return") {
@@ -3083,13 +2958,11 @@ var runtime = {exports: {}};
         } else if (record.type === "normal" && afterLoc) {
           this.next = afterLoc;
         }
-
         return ContinueSentinel;
       },
       finish: function finish(finallyLoc) {
         for (var i = this.tryEntries.length - 1; i >= 0; --i) {
           var entry = this.tryEntries[i];
-
           if (entry.finallyLoc === finallyLoc) {
             this.complete(entry.completion, entry.afterLoc);
             resetTryEntry(entry);
@@ -3100,21 +2973,18 @@ var runtime = {exports: {}};
       "catch": function _catch(tryLoc) {
         for (var i = this.tryEntries.length - 1; i >= 0; --i) {
           var entry = this.tryEntries[i];
-
           if (entry.tryLoc === tryLoc) {
             var record = entry.completion;
-
             if (record.type === "throw") {
               var thrown = record.arg;
               resetTryEntry(entry);
             }
-
             return thrown;
           }
-        } // The context.catch method must only be called with a location
+        }
+
+        // The context.catch method must only be called with a location
         // argument that corresponds to a known catch block.
-
-
         throw new Error("illegal catch attempt");
       },
       delegateYield: function delegateYield(iterable, resultName, nextLoc) {
@@ -3123,27 +2993,26 @@ var runtime = {exports: {}};
           resultName: resultName,
           nextLoc: nextLoc
         };
-
         if (this.method === "next") {
           // Deliberately forget the last sent value so that we don't
           // accidentally pass it on to the delegate.
           this.arg = undefined$1;
         }
-
         return ContinueSentinel;
       }
-    }; // Regardless of whether this script is executing as a CommonJS module
+    };
+
+    // Regardless of whether this script is executing as a CommonJS module
     // or not, return the runtime object so that we can declare the variable
     // regeneratorRuntime in the outer scope, which allows this module to be
     // injected easily by `bin/regenerator --include-runtime script.js`.
-
     return exports;
-  }( // If this script is executing as a CommonJS module, use module.exports
+  }(
+  // If this script is executing as a CommonJS module, use module.exports
   // as the regeneratorRuntime namespace. Otherwise create a new empty
   // object. Either way, the resulting object will be used to initialize
   // the regeneratorRuntime variable at the top of this file.
   module.exports );
-
   try {
     regeneratorRuntime = runtime;
   } catch (accidentalStrictMode) {
@@ -3164,26 +3033,25 @@ var runtime = {exports: {}};
     }
   }
 })(runtime);
+var runtimeExports = runtime.exports;
 
-var regenerator = runtime.exports;
+var regenerator = runtimeExports;
+var _regeneratorRuntime = /*@__PURE__*/getDefaultExportFromCjs(regenerator);
 
 var log = log$2;
-
 var uint8ArrayToBase64$1 = function uint8ArrayToBase64(array) {
-  return window.btoa(String.fromCharCode.apply(String, _toConsumableArray(array)));
+  return window.btoa(String.fromCharCode.apply(String, _toConsumableArray$1(array)));
 };
-
 var base64ToUint8Array$1 = function base64ToUint8Array(base64) {
   var raw = window.atob(base64);
   return Uint8Array.from(Array.prototype.map.call(raw, function (x) {
     return x.charCodeAt(0);
   }));
 };
+
 /**
  * Characteristic ID on serial-port.
  */
-
-
 var SERIAL_CH_ID = {
   '0b500100-607f-4151-9091-7d008d6ffc5c': 0x0100,
   '0b500101-607f-4151-9091-7d008d6ffc5c': 0x0101,
@@ -3195,15 +3063,15 @@ var SERIAL_CH_ID = {
   '0b500122-607f-4151-9091-7d008d6ffc5c': 0x0122,
   '0b500130-607f-4151-9091-7d008d6ffc5c': 0x0130
 };
+
 /**
  * Start Frame Delimiter
  */
-
 var SFD = 0xFF;
+
 /**
  * Request type in data frame.
  */
-
 var ChRequest = {
   READ: 0x01,
   WRITE: 0x10,
@@ -3211,19 +3079,19 @@ var ChRequest = {
   NOTIFY_STOP: 0x20,
   NOTIFY_START: 0x21
 };
+
 /**
  * Response type in data frame.
  */
-
 var ChResponse = {
   READ: 0x01,
   WRITE_RESPONSE: 0x11,
   NOTIFY: 0x21
 };
+
 /**
  * Class to communicate with device via USB serial-port using Web Serial API.
  */
-
 var WebSerial = /*#__PURE__*/function () {
   /**
    * A BLE peripheral object.  It handles connecting, over Web Bluetooth API, to
@@ -3236,9 +3104,7 @@ var WebSerial = /*#__PURE__*/function () {
    */
   function WebSerial(runtime, extensionId, peripheralOptions, connectCallback) {
     var resetCallback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-
-    _classCallCheck(this, WebSerial);
-
+    _classCallCheck$1(this, WebSerial);
     /**
      * Remote device which have been connected.
      * @type {SerialPort}
@@ -3252,7 +3118,6 @@ var WebSerial = /*#__PURE__*/function () {
     this._serialOptions = {
       // baudRate: 57600
       baudRate: 115200 // Default for micro:bit
-
     };
     this._runtime = runtime;
     this.receivingInterval = 1;
@@ -3262,114 +3127,94 @@ var WebSerial = /*#__PURE__*/function () {
      * Store of received type and value for each characteristics.
      * @type {Object.<number, Object.<number, Uint8Array>>} - { ch: { type: value }}.
      */
-
     this.chValues = {};
+
     /**
      * Notification callbacks.
      * @type {Object.<number, function>} - { ch: callback }
      */
-
     this.notifyListeners = {};
     this.requestPeripheral();
   }
+
   /**
    * Request connection to the peripheral.
    * Request user to choose a device, and then connect it automatically.
    * @return {Promise} - a Promise which will resolved when a serial-port was selected.
    */
-
-
-  _createClass(WebSerial, [{
+  _createClass$1(WebSerial, [{
     key: "requestPeripheral",
     value: function requestPeripheral() {
       var _this = this;
-
       var promise = Promise.resolve();
-
       if (this.isConnected()) {
         promise = promise.then(function () {
           return _this.disconnect();
         });
       }
-
       return promise.then(function () {
         navigator.serial.requestPort(_this._peripheralOptions).then(function (selected) {
           _this.port = selected;
-
           _this._runtime.connectPeripheral(_this._extensionId, null);
         }).catch(function (e) {
           _this._handleRequestError(e);
         });
       });
     }
+
     /**
      * Try connecting to the serial-port of the device, and then call the connect
      * callback when connection is successful.
      */
-
   }, {
     key: "connectPeripheral",
-    value: function
-      /* id */
-    connectPeripheral() {
+    value: function connectPeripheral( /* id */
+    ) {
       var _this2 = this;
-
       if (!this.port) {
         throw new Error('device is not chosen');
       }
-
       var ChValueTransformer = /*#__PURE__*/function () {
         function ChValueTransformer() {
-          _classCallCheck(this, ChValueTransformer);
-
+          _classCallCheck$1(this, ChValueTransformer);
           // A container for holding stream data until a new frame.
           this.chunks = [];
         }
-
-        _createClass(ChValueTransformer, [{
+        _createClass$1(ChValueTransformer, [{
           key: "transform",
           value: function transform(chunk, controller) {
             // Append new chunks to existing chunks.
-            this.chunks = this.chunks.concat(Array.from(chunk)); // Split chunks into {ch: {type: value}.
+            this.chunks = this.chunks.concat(Array.from(chunk));
+            // Split chunks into {ch: {type: value}.
             // Skip until SFD occurred
-
             var frameStart = this.chunks.findIndex(function (element) {
               return element === SFD;
             });
-
             if (frameStart === -1) {
               this.chunks = [];
               return;
             }
-
-            this.chunks = this.chunks.slice(frameStart); // Read header
-
+            this.chunks = this.chunks.slice(frameStart);
+            // Read header
             if (this.chunks.length < 5) {
               return;
             }
-
             var type = this.chunks[1];
-
             if (type > ChResponse.NOTIFY) {
               this.chunks = []; // remove all until SFD + valid type
-
               return;
             }
-
             var ch = this.chunks[2] << 8 | this.chunks[3];
             var valueLength = this.chunks[4];
             var frameEnd = 5 + valueLength;
-
             if (this.chunks.length < frameEnd + 1) {
               return;
             }
-
-            var value = this.chunks.slice(5, frameEnd); // Checksum
-
+            var value = this.chunks.slice(5, frameEnd);
+            // Checksum
             var checksum = this.chunks.slice(0, frameEnd).reduce(function (acc, cur) {
               return acc + cur;
             }) % 0xFF;
-
             if (checksum === this.chunks[frameEnd]) {
               // Received successfully
               this.chunks.splice(0, frameEnd + 1);
@@ -3384,7 +3229,6 @@ var WebSerial = /*#__PURE__*/function () {
               // Error occurred
               // log.debug(this.chunks); // debug
               this.chunks.shift(); // Remove current SFD
-
               return;
             }
           }
@@ -3395,152 +3239,124 @@ var WebSerial = /*#__PURE__*/function () {
             controller.terminate();
           }
         }]);
-
         return ChValueTransformer;
       }();
-
       this.port.open(this._serialOptions).then(function () {
         log.log("SerialPort: open");
         _this2.state = 'open';
-        _this2.writer = _this2.port.writable.getWriter(); // eslint-disable-next-line no-undef
-
+        _this2.writer = _this2.port.writable.getWriter();
+        // eslint-disable-next-line no-undef
         var chValueTransformStream = new TransformStream(new ChValueTransformer());
         _this2.readableStreamClosed = _this2.port.readable.pipeTo(chValueTransformStream.writable);
         _this2.reader = chValueTransformStream.readable.getReader();
-
         _this2.port.addEventListener('disconnect', function (event) {
           _this2.onDisconnected(event);
         });
-
         _this2._runtime.emit(_this2._runtime.constructor.PERIPHERAL_CONNECTED);
-
         _this2._connectCallback();
-
         _this2.startReceiving();
       });
     }
+
     /**
      * Disconnect from the device and clean up.
      * Then emit the connection state by the runtime.
      * @return {Promise} - a Promise which will resolve when the serial-port was disconnected.
      */
-
   }, {
     key: "disconnect",
-    value: function () {
-      var _disconnect = _asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
-        return regenerator.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!(this.state !== 'open')) {
-                  _context.next = 2;
-                  break;
-                }
-
-                return _context.abrupt("return");
-
-              case 2:
-                this.state = 'closing';
-                this.stopReceiving();
-                _context.next = 6;
-                return this.reader.cancel();
-
-              case 6:
-                _context.next = 8;
-                return this.readableStreamClosed.catch(function () {
-                  /* Ignore the error */
-                });
-
-              case 8:
-                this.writer.close();
-                _context.next = 11;
-                return this.writer.closed;
-
-              case 11:
-                _context.next = 13;
-                return this.port.close();
-
-              case 13:
-                this.state = 'close';
-                this.reader = null;
-                this.writer = null;
-                this.port = null;
-
-                this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
-
-              case 18:
-              case "end":
-                return _context.stop();
-            }
+    value: (function () {
+      var _disconnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
+        return _regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              if (!(this.state !== 'open')) {
+                _context.next = 2;
+                break;
+              }
+              return _context.abrupt("return");
+            case 2:
+              this.state = 'closing';
+              this.stopReceiving();
+              _context.next = 6;
+              return this.reader.cancel();
+            case 6:
+              _context.next = 8;
+              return this.readableStreamClosed.catch(function () {/* Ignore the error */});
+            case 8:
+              this.writer.close();
+              _context.next = 11;
+              return this.writer.closed;
+            case 11:
+              _context.next = 13;
+              return this.port.close();
+            case 13:
+              this.state = 'close';
+              this.reader = null;
+              this.writer = null;
+              this.port = null;
+              this._runtime.emit(this._runtime.constructor.PERIPHERAL_DISCONNECTED);
+            case 18:
+            case "end":
+              return _context.stop();
           }
         }, _callee, this);
       }));
-
       function disconnect() {
         return _disconnect.apply(this, arguments);
       }
-
       return disconnect;
     }()
     /**
      * @return {bool} whether the peripheral is connected.
      */
-
+    )
   }, {
     key: "isConnected",
     value: function isConnected() {
       return this.state === 'open';
     }
+
     /**
      * Receive data and process it.
      * @returns {Promise} - a Promise which will resolve when read next data
      */
-
   }, {
     key: "receiveData",
     value: function receiveData() {
       var _this3 = this;
-
       return this.reader.read().then(function (result) {
         var value = result.value,
-            done = result.done;
-
+          done = result.done;
         if (done) {
           _this3.reader.releaseLock();
         }
-
         if (value) {
           var data = value.data;
           var ch = value.ch;
-
           if (!_this3.chValues[ch]) {
             _this3.chValues[ch] = {};
           }
-
           _this3.chValues[ch][data.type] = data.value;
-
           if (data.type === ChResponse.NOTIFY) {
             if (ch in _this3.notifyListeners) {
               _this3.notifyListeners[ch](uint8ArrayToBase64$1(data.value));
             }
-          } // log.debug({ch: ch, type: data.type, value: data.value});
-
+          }
+          // log.debug({ch: ch, type: data.type, value: data.value});
         }
       });
     }
+
     /**
      * Start data receiving process.
      */
-
   }, {
     key: "startReceiving",
     value: function startReceiving() {
       var _this4 = this;
-
       this.dataReceiving = window.setTimeout(function () {
         if (_this4.state !== 'open') return;
-
         _this4.receiveData().then(function () {
           // start again
           _this4.startReceiving();
@@ -3549,27 +3365,26 @@ var WebSerial = /*#__PURE__*/function () {
         });
       }, this.receivingInterval);
     }
+
     /**
      * Stop data receiving process.
      */
-
   }, {
     key: "stopReceiving",
     value: function stopReceiving() {
       clearTimeout(this.dataReceiving);
       this.dataReceiving = null;
     }
+
     /**
      * Send data to the device.
      * @param {Uint8Array} data - data to send
      * @returns {Promise} - a Promise which will resolve write process was done
      */
-
   }, {
     key: "sendData",
     value: function sendData(data) {
       var _this5 = this;
-
       return this.writer.ready.then(function () {
         return _this5.writer.write(data);
       }).then(function () {
@@ -3580,6 +3395,7 @@ var WebSerial = /*#__PURE__*/function () {
         });
       });
     }
+
     /**
      * Start receiving notifications from the device.
      * @param {number} _serviceId - the ble service to read. (ignore it for serial-port)
@@ -3588,7 +3404,6 @@ var WebSerial = /*#__PURE__*/function () {
      *  like function(base64message).
      * @return {Promise} - a Promise which will resolve when requested start notification.
      */
-
   }, {
     key: "startNotifications",
     value: function startNotifications(_serviceId, characteristicId) {
@@ -3601,49 +3416,40 @@ var WebSerial = /*#__PURE__*/function () {
     key: "readCh",
     value: function readCh(ch) {
       var _this6 = this;
-
       if (this.state !== 'open') {
         return Promise.reject(new Error('port is not opened'));
       }
-
       return new Promise(function (resolve) {
         var dataFrame = new Uint8Array(4);
         dataFrame[0] = SFD;
         dataFrame[1] = ChRequest.READ;
         dataFrame[2] = ch >> 8;
         dataFrame[3] = ch & 0xFF;
-
         if (_this6.chValues[ch]) {
           _this6.chValues[ch][ChResponse.READ] = null;
         }
-
         _this6.sendData(dataFrame).then(function () {
           var checkInterval = 10;
-
           var check = function check(count) {
             var received = _this6.chValues[ch];
-
             if (received && received[ChResponse.READ]) {
               return resolve({
                 message: uint8ArrayToBase64$1(received[ChResponse.READ])
               });
             }
-
             count--;
-
             if (count === 0) {
               return resolve(null);
             }
-
             setTimeout(function () {
               check(count);
             }, checkInterval);
           };
-
           check(50);
         });
       });
     }
+
     /**
      * Read from the specified ble service.
      * @param {number} serviceId - the ble service to read.
@@ -3653,32 +3459,24 @@ var WebSerial = /*#__PURE__*/function () {
      *  like function(base64message).
      * @return {Promise} - a Promise from the remote read request which resolve {message: base64string}.
      */
-
   }, {
     key: "read",
     value: function read(serviceId, characteristicId) {
       var _this7 = this;
-
       var optStartNotifications = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var onCharacteristicChanged = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
       var ch = SERIAL_CH_ID[characteristicId];
-      var constantUpdatingCh = [0x0101,
-      /* State */
-      0x0102
-      /* Motion */
-      ];
-
+      var constantUpdatingCh = [0x0101, /* State */
+      0x0102 /* Motion */];
       if (constantUpdatingCh.includes(ch)) {
         // Return already received values because rapid repeating requests will make the port freeze.
         if (!this.chValues[ch]) {
           return Promise.resolve(null);
         }
-
         return Promise.resolve({
           message: uint8ArrayToBase64$1(this.chValues[ch][ChResponse.READ])
         });
       }
-
       var readRetry = function readRetry(count) {
         return new Promise(function (resolve, reject) {
           if (count < 0) {
@@ -3686,21 +3484,17 @@ var WebSerial = /*#__PURE__*/function () {
             log.debug("read ch: ".concat(ch, " dose not response"));
             return;
           }
-
           _this7.readCh(ch).then(function (result) {
             if (result) {
               if (optStartNotifications) {
                 _this7.startNotifications(serviceId, characteristicId, onCharacteristicChanged).then(function () {
                   return resolve(result);
                 });
-
                 return;
               }
-
               resolve(result);
               return;
             }
-
             count--;
             resolve(readRetry(count));
             return;
@@ -3711,15 +3505,13 @@ var WebSerial = /*#__PURE__*/function () {
           });
         });
       };
-
       return readRetry(2).catch(function (err) {
         log.debug(err);
-
         _this7.handleDisconnectError(err);
-
         return;
       });
     }
+
     /**
      * Write value on the characteristic.
      * @param {number} ch - characteristic to write
@@ -3727,16 +3519,13 @@ var WebSerial = /*#__PURE__*/function () {
      * @param {boolean} withResponse - whether request response or not
      * @returns {Promise} - a Promise which will resolve true when success to write
      */
-
   }, {
     key: "writeCh",
     value: function writeCh(ch, value, withResponse) {
       var _this8 = this;
-
       if (this.state !== 'open') {
         return Promise.reject(new Error('port is not opened'));
       }
-
       return new Promise(function (resolve) {
         var header = new Uint8Array(5);
         header[0] = SFD;
@@ -3744,33 +3533,26 @@ var WebSerial = /*#__PURE__*/function () {
         header[2] = ch >> 8;
         header[3] = ch & 0xFF;
         header[4] = value.length;
-        var dataFrame = new Uint8Array([].concat(_toConsumableArray(header), _toConsumableArray(value), [0]));
+        var dataFrame = new Uint8Array([].concat(_toConsumableArray$1(header), _toConsumableArray$1(value), [0]));
         dataFrame[dataFrame.length - 1] = dataFrame.reduce(function (acc, cur) {
           return acc + cur;
         }) % 0xFF;
-
         if (withResponse) {
           _this8.sendData(dataFrame).then(function () {
             var checkInterval = 10;
-
             var check = function check(count) {
               var received = _this8.chValues[ch];
-
               if (received && received[ChResponse.WRITE_RESPONSE]) {
                 return resolve(received[ChResponse.WRITE_RESPONSE][0] === 1);
               }
-
               count--;
-
               if (count === 0) {
                 return resolve(false);
               }
-
               setTimeout(function () {
                 check(count);
               }, checkInterval);
             };
-
             check(20);
           });
         } else {
@@ -3780,6 +3562,7 @@ var WebSerial = /*#__PURE__*/function () {
         }
       });
     }
+
     /**
      * Write data to the specified ble service.
      * @param {number} serviceId - the ble service to write.
@@ -3790,23 +3573,18 @@ var WebSerial = /*#__PURE__*/function () {
      * @return {Promise} - a Promise which will resolve true when success to write or reject with 'no response'
      */
     // eslint-disable-next-line no-unused-vars
-
   }, {
     key: "write",
     value: function write(serviceId, characteristicId, message) {
       var _this9 = this;
-
       var encoding = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
       var withResponse = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
       withResponse = false; // true for noise tolerance on serial-port.
-
       var value = encoding === 'base64' ? base64ToUint8Array$1(message) : message;
       var ch = SERIAL_CH_ID[characteristicId];
-
       if (this.chValues[ch]) {
         this.chValues[ch][ChResponse.WRITE_RESPONSE] = null;
       }
-
       var writeRetry = function writeRetry(count) {
         return new Promise(function (resolve, reject) {
           if (count < 0) {
@@ -3814,13 +3592,11 @@ var WebSerial = /*#__PURE__*/function () {
             log.debug("write ch: ".concat(ch, " dose not response"));
             return;
           }
-
           _this9.writeCh(ch, value, withResponse).then(function (result) {
             if (result) {
               resolve(result);
               return;
             }
-
             count--;
             resolve(writeRetry(count));
             return;
@@ -3831,15 +3607,13 @@ var WebSerial = /*#__PURE__*/function () {
           });
         });
       };
-
       return writeRetry(2).catch(function (err) {
         log.debug(err);
-
         _this9.handleDisconnectError(err);
-
         return;
       });
     }
+
     /**
      * Handle an error resulting from losing connection to a peripheral.
      *
@@ -3851,20 +3625,16 @@ var WebSerial = /*#__PURE__*/function () {
      * Disconnect the device, and if the extension using this object has a
      * reset callback, call it. Finally, emit an error to the runtime.
      */
-
   }, {
     key: "handleDisconnectError",
-    value: function
-      /* e */
-    handleDisconnectError() {
+    value: function handleDisconnectError( /* e */
+    ) {
       var _this10 = this;
-
       if (this.state !== 'open') return;
       this.disconnect().then(function () {
         if (_this10._resetCallback) {
           _this10._resetCallback();
         }
-
         _this10._runtime.emit(_this10._runtime.constructor.PERIPHERAL_CONNECTION_LOST_ERROR, {
           message: "Scratch lost connection to",
           extensionId: _this10._extensionId
@@ -3873,37 +3643,34 @@ var WebSerial = /*#__PURE__*/function () {
     }
   }, {
     key: "_handleRequestError",
-    value: function
-      /* e */
-    _handleRequestError() {
+    value: function _handleRequestError( /* e */
+    ) {
       // log.error(`BLE error: ${JSON.stringify(e)}`);
+
       this._runtime.emit(this._runtime.constructor.PERIPHERAL_REQUEST_ERROR, {
         message: "Scratch lost connection to",
         extensionId: this._extensionId
       });
     }
+
     /**
      * Called when disconnected by the device.
      */
-
   }, {
     key: "onDisconnected",
-    value: function
-      /* event */
-    onDisconnected() {
+    value: function onDisconnected( /* event */
+    ) {
       this.handleDisconnectError(new Error('device disconnected'));
     }
   }]);
-
   return WebSerial;
 }();
-
 var serialWeb = WebSerial;
+var WebSerial$1 = /*@__PURE__*/getDefaultExportFromCjs(serialWeb);
 
 var uint8ArrayToBase64 = function uint8ArrayToBase64(array) {
-  return window.btoa(String.fromCharCode.apply(String, _toConsumableArray(array)));
+  return window.btoa(String.fromCharCode.apply(String, _toConsumableArray$1(array)));
 };
-
 var base64ToUint8Array = function base64ToUint8Array(base64) {
   var raw = window.atob(base64);
   return Uint8Array.from(Array.prototype.map.call(raw, function (x) {
@@ -3911,56 +3678,31 @@ var base64ToUint8Array = function base64ToUint8Array(base64) {
   }));
 };
 
-var formatMessage = function formatMessage(messageData) {
-  return messageData.defaultMessage;
-};
-/**
- * Setup format-message for this extension.
- */
-
-
-var setupTranslations = function setupTranslations() {
-  var localeSetup = formatMessage.setup();
-
-  if (localeSetup && localeSetup.translations[localeSetup.locale]) {
-    Object.assign(localeSetup.translations[localeSetup.locale], translations[localeSetup.locale]);
-  }
-};
-
-var EXTENSION_ID = 'microbitMore';
-/**
- * URL to get this extension as a module.
- * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
- * @type {string}
- */
-
-var extensionURL = 'https://microbit-more.github.io/dist/microbitMore.mjs';
 /**
  * Enum for version of the hardware.
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreHardwareVersion = {
   MICROBIT_V1: 1,
   MICROBIT_V2: 2
 };
+
 /**
  * Communication route between Scratch and micro:bit
  *
  */
-
 var CommunicationRoute = {
   BLE: 0,
   SERIAL: 1
 };
+
 /**
  * Enum for micro:bit BLE command protocol.
  * https://github.com/LLK/scratch-microbit-firmware/blob/master/protocol.md
  * @readonly
  * @enum {number}
  */
-
 var BLECommand = {
   CMD_CONFIG: 0x00,
   CMD_PIN: 0x01,
@@ -3968,12 +3710,12 @@ var BLECommand = {
   CMD_AUDIO: 0x03,
   CMD_DATA: 0x04
 };
+
 /**
  * Enum for command about gpio pins.
  * @readonly
  * @enum {number}
  */
-
 var MbitMorePinCommand = {
   SET_OUTPUT: 0x01,
   SET_PWM: 0x02,
@@ -3981,46 +3723,24 @@ var MbitMorePinCommand = {
   SET_PULL: 0x04,
   SET_EVENT: 0x05
 };
+
 /**
  * Enum for command about gpio pins.
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreDisplayCommand = {
   CLEAR: 0x00,
   TEXT: 0x01,
   PIXELS_0: 0x02,
   PIXELS_1: 0x03
 };
-/**
- * Enum for name of pull mode.
- * @readonly
- * @enum {number}
- */
 
-var MbitMorePullModeName = {
-  NONE: 'NONE',
-  DOWN: 'DOWN',
-  UP: 'UP'
-};
-/**
- * Enum for ID of pull mode.
- * @readonly
- * @enum {number}
- */
-
-var MbitMorePullModeID = {
-  NONE: 0,
-  DOWN: 1,
-  UP: 2
-};
 /**
  * Enum for data format.
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreDataFormat = {
   CONFIG: 0x10,
   // not used at this version
@@ -4029,22 +3749,22 @@ var MbitMoreDataFormat = {
   DATA_NUMBER: 0x13,
   DATA_TEXT: 0x14
 };
+
 /**
  * Enum for action event type.
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreActionEvent = {
   BUTTON: 0x01,
   GESTURE: 0x02
 };
+
 /**
  * Enum for ID of pin-mode
  * @readonly
  * @enum {string}
  */
-
 var MbitMorePinMode = {
   INPUT: 'INPUT',
   OUTPUT: 'OUTPUT',
@@ -4052,26 +3772,12 @@ var MbitMorePinMode = {
   SERVO: 'SERVO',
   TOUCH: 'TOUCH'
 };
-/**
- * Enum for ID of buttons
- * @readonly
- * @enum {string}
- */
 
-var MbitMoreButtonName = {
-  P0: 'P0',
-  P1: 'P1',
-  P2: 'P2',
-  A: 'A',
-  B: 'B',
-  LOGO: 'LOGO'
-};
 /**
  * Enum for componentID of buttons
  * @readonly
  * @enum {string}
  */
-
 var MbitMoreButtonID = {
   1: 'A',
   2: 'B',
@@ -4080,23 +3786,12 @@ var MbitMoreButtonID = {
   102: 'P2',
   121: 'LOGO'
 };
-/**
- * Enum for index of pin for buttons
- * @readonly
- * @enum {number}
- */
 
-var MbitMoreButtonPinIndex = {
-  P0: 0,
-  P1: 1,
-  P2: 2
-};
 /**
  * Enum for index in data of button state
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreButtonStateIndex = {
   P0: 0,
   P1: 1,
@@ -4105,26 +3800,12 @@ var MbitMoreButtonStateIndex = {
   B: 4,
   LOGO: 5
 };
-/**
- * Enum for name of event from button
- * @readonly
- * @enum {string}
- */
 
-var MbitMoreButtonEventName = {
-  DOWN: 'DOWN',
-  UP: 'UP',
-  CLICK: 'CLICK',
-  LONG_CLICK: 'LONG_CLICK',
-  HOLD: 'HOLD',
-  DOUBLE_CLICK: 'DOUBLE_CLICK'
-};
 /**
  * Enum for ID of event from button
  * @readonly
  * @enum {string}
  */
-
 var MbitMoreButtonEventID = {
   1: 'DOWN',
   2: 'UP',
@@ -4133,31 +3814,12 @@ var MbitMoreButtonEventID = {
   5: 'HOLD',
   6: 'DOUBLE_CLICK'
 };
-/**
- * Enum for name of gesture.
- * @readonly
- * @enum {string}
- */
 
-var MbitMoreGestureName = {
-  TILT_UP: 'TILT_UP',
-  TILT_DOWN: 'TILT_DOWN',
-  TILT_LEFT: 'TILT_LEFT',
-  TILT_RIGHT: 'TILT_RIGHT',
-  FACE_UP: 'FACE_UP',
-  FACE_DOWN: 'FACE_DOWN',
-  FREEFALL: 'FREEFALL',
-  G3: 'G3',
-  G6: 'G6',
-  G8: 'G8',
-  SHAKE: 'SHAKE'
-};
 /**
  * Enum for ID of gesture.
  * @readonly
  * @enum {string}
  */
-
 var MbitMoreGestureID = {
   1: 'TILT_UP',
   2: 'TILT_DOWN',
@@ -4171,71 +3833,47 @@ var MbitMoreGestureID = {
   10: 'G8',
   11: 'SHAKE'
 };
-/**
- * Enum for event type in the micro:bit runtime.
- * @readonly
- * @enum {number}
- */
 
-var MbitMorePinEventType = {
-  NONE: 0,
-  ON_EDGE: 1,
-  ON_PULSE: 2,
-  ON_TOUCH: 3
-};
-/**
- * Enum for event value in the micro:bit runtime.
- * @readonly
- * @enum {number}
- */
-
-var MbitMorePinEvent = {
-  RISE: 2,
-  FALL: 3,
-  PULSE_HIGH: 4,
-  PULSE_LOW: 5
-};
 /**
  * Enum for data type of data-sending.
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreSendingDataType = {
   NUMBER: 1,
   TEXT: 2
 };
+
 /**
  * Enum for sub-command about configurations.
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreConfig = {
   MIC: 0x01,
   TOUCH: 0x02
 };
+
 /**
  * Enum for sub-command about audio.
  * @readonly
  * @enum {number}
  */
-
 var MbitMoreAudioCommand = {
   STOP_TONE: 0x00,
   PLAY_TONE: 0x01
 };
+
 /**
  * A time interval to wait (in milliseconds) before reporting to the BLE socket
  * that data has stopped coming from the peripheral.
  */
-
 var BLETimeout = 4500;
+
 /**
  * A string to report to the BLE socket when the micro:bit has stopped receiving data.
  * @type {string}
  */
-
 var BLEDataStoppedError = 'micro:bit extension stopped receiving data';
 var MM_SERVICE = {
   ID: '0b50f3e4-607f-4151-9091-7d008d6ffc5c',
@@ -4247,57 +3885,55 @@ var MM_SERVICE = {
   ANALOG_IN_CH: ['0b500120-607f-4151-9091-7d008d6ffc5c', '0b500121-607f-4151-9091-7d008d6ffc5c', '0b500122-607f-4151-9091-7d008d6ffc5c'],
   MESSAGE_CH: '0b500130-607f-4151-9091-7d008d6ffc5c'
 };
+
 /**
  * Enum for axis menu options.
  * @readonly
  * @enum {string}
  */
-
-var AxisSymbol = {
+var AxisSymbol$1 = {
   X: 'x',
   Y: 'y',
   Z: 'z',
   Absolute: 'absolute'
 };
+
 /**
  * The unit-value of the gravitational acceleration from Micro:bit.
  * @type {number}
  */
-
 var G = 1024;
+
 /**
  * Manage communication with a MicroBit peripheral over a Scrath Link client socket.
  */
-
-var MbitMore = /*#__PURE__*/function () {
+var MicrobitMore = /*#__PURE__*/function () {
   /**
    * Construct a MicroBit communication object.
    * @param {Runtime} runtime - the Scratch 3.0 runtime
    * @param {string} extensionId - the id of the extension
    */
-  function MbitMore(runtime, extensionId) {
+  function MicrobitMore(runtime, extensionId) {
     var _this = this;
-
-    _classCallCheck(this, MbitMore);
-
+    _classCallCheck$1(this, MicrobitMore);
     /**
      * The Scratch 3.0 runtime used to trigger the green flag button.
      * @type {Runtime}
      * @private
      */
     this.runtime = runtime;
+
     /**
      * The BluetoothLowEnergy connection socket for reading/writing peripheral data.
      * @type {BLE}
      * @private
      */
-
     this._ble = null;
     this.runtime.registerPeripheralExtension(extensionId, this);
+
     /**
      * The id of the extension this peripheral belongs to.
      */
-
     this._extensionId = extensionId;
     this.digitalLevel = {};
     this.lightLevel = 0;
@@ -4317,36 +3953,36 @@ var MbitMore = /*#__PURE__*/function () {
       z: 0
     };
     this.buttonState = {};
+
     /**
      * The most recently received button events for each buttons.
      * @type {Object} - Store of buttons which has events.
      * @private
      */
-
     this.buttonEvents = {};
     Object.keys(MbitMoreButtonStateIndex).forEach(function (name) {
       _this.buttonEvents[name] = {};
     });
+
     /**
      * The most recently received gesture events.
      * @type {Object <number, number>} - Store of gesture ID and timestamp.
      * @private
      */
-
     this.gestureEvents = {};
+
     /**
      * The most recently received events for each pin.
      * @type {Object} - Store of pins which has events.
      * @private
      */
-
     this._pinEvents = {};
+
     /**
      * The most recently received data from micro:bit.
      * @type {Object} - Store of received data
      * @private
      */
-
     this.receivedData = {};
     this.analogIn = [0, 1, 2];
     this.analogValue = [];
@@ -4357,46 +3993,44 @@ var MbitMore = /*#__PURE__*/function () {
     this.gpio.forEach(function (pinIndex) {
       _this.digitalLevel[pinIndex] = 0;
     });
+
     /**
      * Interval ID for data reading timeout.
      * @type {number}
      * @private
      */
-
     this._timeoutID = null;
+
     /**
      * A flag that is true while we are busy sending data to the BLE socket.
      * @type {boolean}
      * @private
      */
-
     this.bleBusy = true;
+
     /**
      * ID for a timeout which is used to clear the busy flag if it has been
      * true for a long time.
      */
-
     this.bleBusyTimeoutID = null;
     this.onDisconnect = this.onDisconnect.bind(this);
     this._onConnect = this._onConnect.bind(this);
     this.onNotify = this.onNotify.bind(this);
     this.stopTone = this.stopTone.bind(this);
-
     if (this.runtime) {
       this.runtime.on('PROJECT_STOP_ALL', this.stopTone);
     }
-
     this.analogInUpdateInterval = 100; // milli-seconds
-
     this.analogInLastUpdated = [Date.now(), Date.now(), Date.now()];
+
     /**
      * A time interval to wait (in milliseconds) while a block that sends a BLE message is running.
      * @type {number}
      */
-
     this.sendCommandInterval = 30;
-    this.initConfig(); // keyboard state monitor
+    this.initConfig();
 
+    // keyboard state monitor
     this.keyState = {};
     document.body.addEventListener('keydown', function (e) {
       _this.keyState[e.code] = {
@@ -4412,38 +4046,34 @@ var MbitMore = /*#__PURE__*/function () {
       delete _this.keyState[e.code];
     });
   }
+
   /**
    * Initialize configuration of the micro:bit.
    */
-
-
-  _createClass(MbitMore, [{
+  _createClass$1(MicrobitMore, [{
     key: "initConfig",
     value: function initConfig() {
       this.config = {};
       this.config.mic = false;
       this.config.pinMode = {};
     }
+
     /**
      * Start updating process for micro:bit state and motion.
      */
-
   }, {
     key: "startUpdater",
     value: function startUpdater() {
       var _this2 = this;
-
       if (this.updater) {
         clearTimeout(this.updater);
       }
-
       if (this.bleAccessWaiting) {
         this.updater = setTimeout(function () {
           return _this2.startUpdater();
         }, 0);
         return;
       }
-
       this.updateState().then(function () {
         return _this2.updateMotion();
       }).finally(function () {
@@ -4452,56 +4082,55 @@ var MbitMore = /*#__PURE__*/function () {
         }, _this2.microbitUpdateInterval);
       });
     }
+
     /**
      * Stop updating process for micro:bit state and motion.
      */
-
   }, {
     key: "stopUpdater",
     value: function stopUpdater() {
       clearTimeout(this.updater);
     }
+
     /**
      * @param {string} text - the text to display.
      * @param {number} delay - The time to delay between characters, in milliseconds.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
-
   }, {
     key: "displayText",
     value: function displayText(text, delay, util) {
       var textLength = Math.min(18, text.length);
       var textData = new Uint8Array(textLength + 1);
-
       for (var i = 0; i < textLength; i++) {
         textData[i] = text.charCodeAt(i);
       }
-
       return this.sendCommandSet([{
         id: BLECommand.CMD_DISPLAY << 5 | MbitMoreDisplayCommand.TEXT,
-        message: new Uint8Array([Math.min(255, Math.max(0, delay) / 10)].concat(_toConsumableArray(textData)))
+        message: new Uint8Array([Math.min(255, Math.max(0, delay) / 10)].concat(_toConsumableArray$1(textData)))
       }], util);
     }
+
     /**
      * Send display pixcels command to micro:bit.
      * @param {Array.<Array.<number>>} matrix - pattern to display.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
-
   }, {
     key: "displayPixels",
     value: function displayPixels(matrix, util) {
       var cmdSet = [{
         id: BLECommand.CMD_DISPLAY << 5 | MbitMoreDisplayCommand.PIXELS_0,
-        message: new Uint8Array([].concat(_toConsumableArray(matrix[0]), _toConsumableArray(matrix[1]), _toConsumableArray(matrix[2])))
+        message: new Uint8Array([].concat(_toConsumableArray$1(matrix[0]), _toConsumableArray$1(matrix[1]), _toConsumableArray$1(matrix[2])))
       }, {
         id: BLECommand.CMD_DISPLAY << 5 | MbitMoreDisplayCommand.PIXELS_1,
-        message: new Uint8Array([].concat(_toConsumableArray(matrix[3]), _toConsumableArray(matrix[4])))
+        message: new Uint8Array([].concat(_toConsumableArray$1(matrix[3]), _toConsumableArray$1(matrix[4])))
       }];
       return this.sendCommandSet(cmdSet, util);
     }
+
     /**
      * Set pull mode to the pin.
      * @param {number} pinIndex - index of the pin
@@ -4509,7 +4138,6 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {BlockUtility} util - utility object provided from the runtime
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
-
   }, {
     key: "setPullMode",
     value: function setPullMode(pinIndex, pullMode, util) {
@@ -4519,6 +4147,7 @@ var MbitMore = /*#__PURE__*/function () {
         message: new Uint8Array([pinIndex, pullMode])
       }], util);
     }
+
     /**
      * Set pin to digital output mode on the level.
      * @param {number} pinIndex - Index of pin.
@@ -4526,7 +4155,6 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
-
   }, {
     key: "setPinOutput",
     value: function setPinOutput(pinIndex, level, util) {
@@ -4536,6 +4164,7 @@ var MbitMore = /*#__PURE__*/function () {
         message: new Uint8Array([pinIndex, level ? 1 : 0])
       }], util);
     }
+
     /**
      * Set the pin to PWM mode on the level.
      * @param {number} pinIndex - index of the pin
@@ -4543,7 +4172,6 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
-
   }, {
     key: "setPinPWM",
     value: function setPinPWM(pinIndex, level, util) {
@@ -4555,6 +4183,7 @@ var MbitMore = /*#__PURE__*/function () {
         message: new Uint8Array([pinIndex, dataView.getUint8(0), dataView.getUint8(1)])
       }], util);
     }
+
     /**
      * Set the pin to Servo mode on the angle in the range and center.
      * @param {number} pinIndex - index of the pin.
@@ -4565,7 +4194,6 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
-
   }, {
     key: "setPinServo",
     value: function setPinServo(pinIndex, angle, range, center, util) {
@@ -4581,48 +4209,42 @@ var MbitMore = /*#__PURE__*/function () {
         message: new Uint8Array([pinIndex, dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3), dataView.getUint8(4), dataView.getUint8(5)])
       }], util);
     }
+
     /**
      * Read light level from the light sensor.
      * @param {object} util - utility object provided by the runtime.
      * @return {number} - value of the light level [0..255].
      */
-
   }, {
     key: "readLightLevel",
     value: function readLightLevel() {
       if (!this.isConnected()) {
         return 0;
       }
-
       return this.lightLevel;
     }
+
     /**
      * Update data of the analog input.
      * @param {number} pinIndex - index of the pin to get value.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves value of analog input or undefined if this process was yield.
      */
-
   }, {
     key: "readAnalogIn",
     value: function readAnalogIn(pinIndex, util) {
       var _this3 = this;
-
       if (!this.isConnected()) {
         return Promise.resolve(0);
       }
-
       if (Date.now() - this.analogInLastUpdated[pinIndex] < this.analogInUpdateInterval) {
         return Promise.resolve(this.analogValue[pinIndex]);
       }
-
       if (this.bleBusy) {
         this.bleAccessWaiting = true;
         if (util) util.yield(); // re-try this call after a while.
-
         return; // Do not return Promise.resolve() to re-try.
       }
-
       this.bleBusy = true;
       this.bleBusyTimeoutID = window.setTimeout(function () {
         _this3.bleBusy = false;
@@ -4633,11 +4255,9 @@ var MbitMore = /*#__PURE__*/function () {
           window.clearTimeout(_this3.bleBusyTimeoutID);
           _this3.bleBusy = false;
           _this3.bleAccessWaiting = false;
-
           if (!result) {
             return resolve(_this3.analogValue[pinIndex]);
           }
-
           var data = base64ToUint8Array(result.message);
           var dataView = new DataView(data.buffer, 0);
           _this3.analogValue[pinIndex] = dataView.getUint16(0, true);
@@ -4646,22 +4266,19 @@ var MbitMore = /*#__PURE__*/function () {
         });
       });
     }
+
     /**
      * Update data of digital level, light level, temperature, sound level.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-
   }, {
     key: "updateState",
     value: function updateState() {
       var _this4 = this;
-
       if (!this.isConnected()) return Promise.resolve(this);
-
       if (this.bleBusy) {
         return Promise.resolve(this);
       }
-
       this.bleBusy = true;
       this.bleBusyTimeoutID = window.setTimeout(function () {
         _this4.bleBusy = false;
@@ -4672,78 +4289,67 @@ var MbitMore = /*#__PURE__*/function () {
           _this4.bleBusy = false;
           if (!result) return resolve(_this4);
           var data = base64ToUint8Array(result.message);
-          var dataView = new DataView(data.buffer, 0); // Digital Input
-
+          var dataView = new DataView(data.buffer, 0);
+          // Digital Input
           var gpioData = dataView.getUint32(0, true);
-
           for (var i = 0; i < _this4.gpio.length; i++) {
             _this4.digitalLevel[_this4.gpio[i]] = gpioData >> _this4.gpio[i] & 1;
           }
-
           Object.keys(MbitMoreButtonStateIndex).forEach(function (name) {
             _this4.buttonState[name] = gpioData >> 24 + MbitMoreButtonStateIndex[name] & 1;
           });
           _this4.lightLevel = dataView.getUint8(4);
           _this4.temperature = dataView.getUint8(5) - 128;
           _this4.soundLevel = dataView.getUint8(6);
-
           _this4.resetConnectionTimeout();
-
           resolve(_this4);
         });
       });
     }
+
     /**
      * Read temperature (integer in celsius) from the micro:bit cpu.
      * @return {number} - degrees of temperature [centigrade].
      */
-
   }, {
     key: "readTemperature",
     value: function readTemperature() {
       if (!this.isConnected()) {
         return 0;
       }
-
       return this.temperature;
     }
+
     /**
      * Configure microphone.
      * @param {boolean} use - true to use microphone.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves state of the microphone or undefined if the process was yield.
      */
-
   }, {
     key: "configMic",
     value: function configMic(use, util) {
       var _this5 = this;
-
       use = use === true;
-
       if (!this.isConnected()) {
         return Promise.resolve(false);
       }
-
       if (this.config.mic === use) {
         return Promise.resolve(this.config.mic);
       }
-
       var sendPromise = this.sendCommandSet([{
         id: BLECommand.CMD_CONFIG << 5 | MbitMoreConfig.MIC,
         message: new Uint8Array([use ? 1 : 0]) // use microphone
-
       }], util);
-
       if (sendPromise) {
         return sendPromise.then(function () {
           _this5.config.mic = use;
           return _this5.config.mic;
         });
       }
-
       return;
     }
+
     /**
      * Play tone on the speaker.
      * @param {number} frequency - wave frequency to play [Hz]
@@ -4751,14 +4357,12 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
      */
-
   }, {
     key: "playTone",
     value: function playTone(frequency, volume, util) {
       if (!this.isConnected()) {
         return Promise.resolve();
       }
-
       var frequencyData = new DataView(new ArrayBuffer(4));
       frequencyData.setUint32(0, Math.round(1000000 / frequency), true);
       volume = Math.round(volume * 0xff / 100);
@@ -4767,54 +4371,49 @@ var MbitMore = /*#__PURE__*/function () {
         message: new Uint8Array([frequencyData.getUint8(0), frequencyData.getUint8(1), frequencyData.getUint8(2), frequencyData.getUint8(3), volume])
       }], util);
     }
+
     /**
      * Stop playing tone on the speaker.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves to send command or undefined if this process was yield.
      */
-
   }, {
     key: "stopTone",
     value: function stopTone(util) {
       if (!this.isConnected()) {
         return Promise.resolve();
       }
-
       return this.sendCommandSet([{
         id: BLECommand.CMD_AUDIO << 5 | MbitMoreAudioCommand.STOP_TONE,
         message: new Uint8Array([])
       }], util);
     }
+
     /**
      * Read sound level.
      * @return {number} - level of loudness (0 .. 255).
      */
-
   }, {
     key: "readSoundLevel",
     value: function readSoundLevel() {
       if (!this.isConnected()) {
         return 0;
       }
-
       return this.soundLevel;
     }
+
     /**
      * Update data of acceleration, magnetic force.
      * @return {Promise} - a Promise that resolves updated data holder.
      */
-
   }, {
     key: "updateMotion",
     value: function updateMotion() {
       var _this6 = this;
-
       if (!this.isConnected()) return Promise.resolve(this);
-
       if (this.bleBusy) {
         return Promise.resolve(this);
       }
-
       this.bleBusy = true;
       this.bleBusyTimeoutID = window.setTimeout(function () {
         _this6.bleBusy = false;
@@ -4825,113 +4424,104 @@ var MbitMore = /*#__PURE__*/function () {
           _this6.bleBusy = false;
           if (!result) return resolve(_this6);
           var data = base64ToUint8Array(result.message);
-          var dataView = new DataView(data.buffer, 0); // Accelerometer
-
+          var dataView = new DataView(data.buffer, 0);
+          // Accelerometer
           _this6.pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
           _this6.roll = Math.round(dataView.getInt16(2, true) * 180 / Math.PI / 1000);
           _this6.acceleration.x = 1000 * dataView.getInt16(4, true) / G;
           _this6.acceleration.y = 1000 * dataView.getInt16(6, true) / G;
-          _this6.acceleration.z = 1000 * dataView.getInt16(8, true) / G; // Magnetometer
-
+          _this6.acceleration.z = 1000 * dataView.getInt16(8, true) / G;
+          // Magnetometer
           _this6.compassHeading = dataView.getUint16(10, true);
           _this6.magneticForce.x = dataView.getInt16(12, true);
           _this6.magneticForce.y = dataView.getInt16(14, true);
           _this6.magneticForce.z = dataView.getInt16(16, true);
-
           _this6.resetConnectionTimeout();
-
           resolve(_this6);
         });
       });
     }
+
     /**
      * Read pitch [degrees] of the micro:bit heading direction.
      * @return {number} - degree of pitch.
      */
-
   }, {
     key: "readPitch",
     value: function readPitch() {
       if (!this.isConnected()) {
         return 0;
       }
-
       return this.pitch;
     }
+
     /**
      * Read roll [degrees] of the micro:bit heading direction.
      * @return {number} - degree of roll.
      */
-
   }, {
     key: "readRoll",
     value: function readRoll() {
       if (!this.isConnected()) {
         return 0;
       }
-
       return this.roll;
     }
+
     /**
      * Read the value of gravitational acceleration [milli-g] for the axis.
      * @param {AxisSymbol} axis - direction of acceleration.
      * @return {number} - value of acceleration.
      */
-
   }, {
     key: "readAcceleration",
     value: function readAcceleration(axis) {
       if (!this.isConnected()) {
         return 0;
       }
-
-      if (axis === AxisSymbol.Absolute) {
+      if (axis === AxisSymbol$1.Absolute) {
         return Math.round(Math.sqrt(Math.pow(this.acceleration.x, 2) + Math.pow(this.acceleration.y, 2) + Math.pow(this.acceleration.z, 2)));
       }
-
       return this.acceleration[axis];
     }
+
     /**
      * Read the angle (degrees) of heading direction from the north.
      * @return {number} - degree of compass heading.
      */
-
   }, {
     key: "readCompassHeading",
     value: function readCompassHeading() {
       if (!this.isConnected()) {
         return 0;
       }
-
       return this.compassHeading;
     }
+
     /**
      * Read value of magnetic force [micro teslas] for the axis.
      * @param {AxisSymbol} axis - direction of magnetic force.
      * @return {number} - value of magnetic force.
      */
-
   }, {
     key: "readMagneticForce",
     value: function readMagneticForce(axis) {
       if (!this.isConnected()) {
         return 0;
       }
-
-      if (axis === AxisSymbol.Absolute) {
+      if (axis === AxisSymbol$1.Absolute) {
         return Math.round(Math.sqrt(Math.pow(this.magneticForce.x, 2) + Math.pow(this.magneticForce.y, 2) + Math.pow(this.magneticForce.z, 2)));
       }
-
       return this.magneticForce[axis];
     }
+
     /**
      * Start to scan Bluetooth LE devices to find micro:bit with MicroBit More service.
      */
-
   }, {
     key: "scanBLE",
     value: function scanBLE() {
-      var connectorClass = ble;
+      var connectorClass = BLE$1;
       this._ble = new connectorClass(this.runtime, this._extensionId, {
         filters: [{
           namePrefix: 'BBC micro:bit'
@@ -4940,26 +4530,26 @@ var MbitMore = /*#__PURE__*/function () {
         }]
       }, this._onConnect, this.onDisconnect);
     }
+
     /**
      * Start to scan USB serial devices to find micro:bit v2.
      */
-
   }, {
     key: "scanSerial",
     value: function scanSerial() {
-      this._ble = new serialWeb(this.runtime, this._extensionId, {
+      this._ble = new WebSerial$1(this.runtime, this._extensionId, {
         filters: [{
           usbVendorId: 0x0d28,
           usbProductId: 0x0204
         }]
       }, this._onConnect, this.onDisconnect);
     }
+
     /**
      * Whether the key is pressed at this moment.
      * @param {string} key - key in keyboard event
      * @returns {boolean} - return true when the key is pressed
      */
-
   }, {
     key: "isKeyPressing",
     value: function isKeyPressing(key) {
@@ -4967,33 +4557,30 @@ var MbitMore = /*#__PURE__*/function () {
         return state.key === key;
       });
     }
+
     /**
      * Called by the runtime when user wants to scan for a peripheral.
      */
-
   }, {
     key: "scan",
     value: function scan() {
       if (this._ble) {
         this._ble.disconnect();
       }
-
       this.bleBusy = true;
-
       if ('serial' in navigator && this.isKeyPressing('Shift')) {
         this.scanSerial();
       } else {
         this.scanBLE();
-      } // The key state is cleared because the keyup event will be dropped by the browser dialog.
-
-
+      }
+      // The key state is cleared because the keyup event will be dropped by the browser dialog.
       this.keyState = {};
     }
+
     /**
      * Called by the runtime when user wants to connect to a certain peripheral.
      * @param {number} id - the id of the peripheral to connect to.
      */
-
   }, {
     key: "connect",
     value: function connect(id) {
@@ -5001,49 +4588,46 @@ var MbitMore = /*#__PURE__*/function () {
         this._ble.connectPeripheral(id);
       }
     }
+
     /**
      * Disconnect from the micro:bit.
      */
-
   }, {
     key: "disconnect",
     value: function disconnect() {
       if (this._ble) {
         this._ble.disconnect();
       }
-
       this.onDisconnect();
     }
+
     /**
      * Reset all the state and timeout/interval ids.
      */
-
   }, {
     key: "onDisconnect",
     value: function onDisconnect() {
       this.stopUpdater();
-
       if (this._timeoutID) {
         window.clearTimeout(this._timeoutID);
         this._timeoutID = null;
       }
     }
+
     /**
      * Return true if connected to the micro:bit.
      * @return {boolean} - whether the micro:bit is connected.
      */
-
   }, {
     key: "isConnected",
     value: function isConnected() {
       var connected = false;
-
       if (this._ble) {
         connected = this._ble.isConnected();
       }
-
       return connected;
     }
+
     /**
      * Send a command to micro:bit.
      * @param {object} command command to send.
@@ -5051,38 +4635,32 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {Uint8Array} command.message Contents of the command.
      * @return {Promise} a Promise that resolves when the data was sent and after send command interval.
      */
-
   }, {
     key: "sendCommand",
     value: function sendCommand(command) {
       var _this7 = this;
-
-      var data = uint8ArrayToBase64(new Uint8Array([command.id].concat(_toConsumableArray(command.message))));
+      var data = uint8ArrayToBase64(new Uint8Array([command.id].concat(_toConsumableArray$1(command.message))));
       return new Promise(function (resolve) {
         _this7._ble.write(MM_SERVICE.ID, MM_SERVICE.COMMAND_CH, data, 'base64', false);
-
         setTimeout(function () {
           return resolve();
         }, _this7.sendCommandInterval);
       });
     }
+
     /**
      * Send multiple commands sequentially.
      * @param {Array.<{id: number, message: Uint8Array}>} commands array of command.
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when the all commands was sent.
      */
-
   }, {
     key: "sendCommandSet",
     value: function sendCommandSet(commands, util) {
       var _this8 = this;
-
       if (!this.isConnected()) return Promise.resolve();
-
       if (this.bleBusy) {
         this.bleAccessWaiting = true;
-
         if (util) {
           util.yield(); // re-try this call after a while.
         } else {
@@ -5090,12 +4668,10 @@ var MbitMore = /*#__PURE__*/function () {
             return _this8.sendCommandSet(commands, util);
           }, 1);
         }
-
         return; // Do not return Promise.resolve() to re-try.
       }
-
-      this.bleBusy = true; // Clear busy and BLE access waiting flag when the scratch-link does not respond.
-
+      this.bleBusy = true;
+      // Clear busy and BLE access waiting flag when the scratch-link does not respond.
       this.bleBusyTimeoutID = window.setTimeout(function () {
         _this8.bleBusy = false;
         _this8.bleAccessWaiting = false;
@@ -5108,8 +4684,6 @@ var MbitMore = /*#__PURE__*/function () {
         }, Promise.resolve()).then(function () {
           window.clearTimeout(_this8.bleBusyTimeoutID);
         }).catch(function (err) {
-          log$2.log(err);
-
           _this8._ble.handleDisconnectError(err);
         }).finally(function () {
           _this8.bleBusy = false;
@@ -5118,71 +4692,58 @@ var MbitMore = /*#__PURE__*/function () {
         });
       });
     }
+
     /**
      * Starts reading data from peripheral after BLE has connected to it.
      */
-
   }, {
     key: "_onConnect",
     value: function _onConnect() {
       var _this9 = this;
-
       this._ble.read(MM_SERVICE.ID, MM_SERVICE.COMMAND_CH, false).then(function (result) {
         if (!result) {
           throw new Error('Config is not readable');
         }
-
         var data = base64ToUint8Array(result.message);
         var dataView = new DataView(data.buffer, 0);
         _this9.hardware = dataView.getUint8(0);
         _this9.protocol = dataView.getUint8(1);
         _this9.route = dataView.getUint8(2);
-
         _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.ACTION_EVENT_CH, _this9.onNotify);
-
         _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.PIN_EVENT_CH, _this9.onNotify);
-
         if (_this9.hardware === MbitMoreHardwareVersion.MICROBIT_V1) {
           _this9.microbitUpdateInterval = 100; // milliseconds
         } else {
           _this9._ble.startNotifications(MM_SERVICE.ID, MM_SERVICE.MESSAGE_CH, _this9.onNotify);
-
           _this9.microbitUpdateInterval = 50; // milliseconds
         }
-
         if (_this9.route === CommunicationRoute.SERIAL) {
           _this9.sendCommandInterval = 100; // milliseconds
         } else {
           _this9.sendCommandInterval = 30; // milliseconds
         }
-
         _this9.initConfig();
-
         _this9.bleBusy = false;
-
         _this9.startUpdater();
-
         _this9.resetConnectionTimeout();
       }).catch(function (err) {
         return _this9._ble.handleDisconnectError(err);
       });
     }
+
     /**
      * Process the data from the incoming BLE characteristic.
      * @param {string} msg - the incoming BLE data.
      * @private
      */
-
   }, {
     key: "onNotify",
     value: function onNotify(msg) {
       var data = base64ToUint8Array(msg);
       var dataView = new DataView(data.buffer, 0);
       var dataFormat = dataView.getUint8(19);
-
       if (dataFormat === MbitMoreDataFormat.ACTION_EVENT) {
         var actionEventType = dataView.getUint8(0);
-
         if (actionEventType === MbitMoreActionEvent.BUTTON) {
           var buttonName = MbitMoreButtonID[dataView.getUint16(1, true)];
           var eventName = MbitMoreButtonEventID[dataView.getUint8(3)];
@@ -5193,17 +4754,14 @@ var MbitMore = /*#__PURE__*/function () {
         }
       } else if (dataFormat === MbitMoreDataFormat.PIN_EVENT) {
         var pinIndex = dataView.getUint8(0);
-
         if (!this._pinEvents[pinIndex]) {
           this._pinEvents[pinIndex] = {};
         }
-
         var event = dataView.getUint8(1);
         this._pinEvents[pinIndex][event] = {
           value: dataView.getUint32(2, true),
           // timesamp of the edge or duration of the pulse
           timestamp: Date.now() // received time
-
         };
       } else if (dataFormat === MbitMoreDataFormat.DATA_NUMBER) {
         var label = new TextDecoder().decode(data.slice(0, 8).filter(function (char) {
@@ -5217,7 +4775,6 @@ var MbitMore = /*#__PURE__*/function () {
         var _label = new TextDecoder().decode(data.slice(0, 8).filter(function (char) {
           return char !== 0;
         }));
-
         this.receivedData[_label] = {
           content: new TextDecoder().decode(data.slice(8, 20).filter(function (char) {
             return char !== 0;
@@ -5225,187 +4782,174 @@ var MbitMore = /*#__PURE__*/function () {
           timestamp: Date.now()
         };
       }
-
       this.resetConnectionTimeout();
     }
+
     /**
      * Cancel disconnect timeout and start counting again.
      */
-
   }, {
     key: "resetConnectionTimeout",
     value: function resetConnectionTimeout() {
       var _this10 = this;
-
       if (this._timeoutID) window.clearTimeout(this._timeoutID);
       this._timeoutID = window.setTimeout(function () {
         return _this10._ble.handleDisconnectError(BLEDataStoppedError);
       }, BLETimeout);
     }
+
     /**
      * Return whether the pin value is high.
      * @param {number} pin - the pin to check.
      * @return {boolean} - whether the pin is high or not.
      */
-
   }, {
     key: "isPinHigh",
     value: function isPinHigh(pin) {
       var level = this.readDigitalLevel(pin);
       return level === 1;
     }
+
     /**
      * Read digital input from the pin.
      * @param {number} pin - the pin to read.
      * @return {number} - digital input value of the pin [0|1].
      */
-
   }, {
     key: "readDigitalLevel",
     value: function readDigitalLevel(pin) {
       if (!this.isConnected()) {
         return 0;
       }
-
       return this.digitalLevel[pin];
     }
+
     /**
      * Return whether the button is pressed.
      * @param {string} buttonName - name of the button
      * @return {boolean} - true when it is pressed
      */
-
   }, {
     key: "isButtonPressed",
     value: function isButtonPressed(buttonName) {
       if (!this.isConnected()) {
         return false;
       }
-
       return this.buttonState[buttonName] === 1;
     }
+
     /**
      * Return whether the pin is touch-mode.
      * @param {number} pinIndex - indesx of the pin
      * @return {boolean} - true when it is touch-mode
      */
-
   }, {
     key: "isPinTouchMode",
     value: function isPinTouchMode(pinIndex) {
       return this.config.pinMode[pinIndex] === MbitMorePinMode.TOUCH;
     }
+
     /**
      * Configurate touch mode of the pin.
      * @param {number} pinIndex - index of the pin as a button.
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves when configured or undefined if the process was yield.
      */
-
   }, {
     key: "configTouchPin",
     value: function configTouchPin(pinIndex, util) {
       var _this11 = this;
-
       if (!this.isConnected()) {
         return Promise.resolve();
       }
-
       if (this.isPinTouchMode(pinIndex)) {
         return Promise.resolve();
       }
-
       var sendPromise = this.sendCommandSet([{
         id: BLECommand.CMD_CONFIG << 5 | MbitMoreConfig.TOUCH,
         message: new Uint8Array([pinIndex, 1])
       }], util);
-
       if (sendPromise) {
         return sendPromise.then(function () {
           _this11.config.pinMode[pinIndex] = MbitMorePinMode.TOUCH;
         });
       }
-
       return;
     }
+
     /**
      * Return whether the touche-pin is touched.
      * @param {string} buttonName - ID to check.
      * @return {boolean} - whether the id is high or not.
      */
-
   }, {
     key: "isTouched",
     value: function isTouched(buttonName) {
       if (!this.isConnected()) {
         return false;
       }
-
       return this.buttonState[buttonName] === 1;
     }
+
     /**
      * Return the last timestamp of the button event or undefined if the event is not received.
      * @param {MbitMoreButtonName} buttonName - name of the button to get the event.
      * @param {MbitMoreButtonEventName} eventName - name of event to get.
      * @return {?number} Timestamp of the last event or null.
      */
-
   }, {
     key: "getButtonEventTimestamp",
     value: function getButtonEventTimestamp(buttonName, eventName) {
       if (this.buttonEvents[buttonName] && this.buttonEvents[buttonName][eventName]) {
         return this.buttonEvents[buttonName][eventName];
       }
-
       return null;
     }
+
     /**
      * Return the last timestamp of the gesture event or undefined if the event is not received.
      * @param {MbitMoreGestureName} gestureName - name of the event.
      * @return {?number} Timestamp of the last event or null.
      */
-
   }, {
     key: "getGestureEventTimestamp",
     value: function getGestureEventTimestamp(gestureName) {
       if (this.gestureEvents[gestureName]) {
         return this.gestureEvents[gestureName];
       }
-
       return null;
     }
+
     /**
      * Return the last value of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MbitMorePinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
-
   }, {
     key: "getPinEventValue",
     value: function getPinEventValue(pinIndex, event) {
       if (this._pinEvents[pinIndex] && this._pinEvents[pinIndex][event]) {
         return this._pinEvents[pinIndex][event].value;
       }
-
       return null;
     }
+
     /**
      * Return the last timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MbitMorePinEvent} event - event to get.
      * @return {?number} Timestamp of the last event or null.
      */
-
   }, {
     key: "getPinEventTimestamp",
     value: function getPinEventTimestamp(pinIndex, event) {
       if (this._pinEvents[pinIndex] && this._pinEvents[pinIndex][event]) {
         return this._pinEvents[pinIndex][event].timestamp;
       }
-
       return null;
     }
+
     /**
      * Set event type to be get from the pin.
      * @param {number} pinIndex - Index of the pin to set.
@@ -5413,7 +4957,6 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when command sending done or undefined if this process was yield.
      */
-
   }, {
     key: "listenPinEventType",
     value: function listenPinEventType(pinIndex, eventType, util) {
@@ -5422,6 +4965,7 @@ var MbitMore = /*#__PURE__*/function () {
         message: new Uint8Array([pinIndex, eventType])
       }], util);
     }
+
     /**
      * Send data to micro:bit.
      * @param {string} label - label of the data [ascii]
@@ -5429,7 +4973,6 @@ var MbitMore = /*#__PURE__*/function () {
      * @param {BlockUtility} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves when sending done or undefined if this process was yield.
      */
-
   }, {
     key: "sendData",
     value: function sendData(label, content, util) {
@@ -5439,7 +4982,6 @@ var MbitMore = /*#__PURE__*/function () {
       var contentNumber = Number(content);
       var contentData;
       var type;
-
       if (Number.isNaN(contentNumber)) {
         type = MbitMoreSendingDataType.TEXT;
         contentData = content.split('').map(function (ascii) {
@@ -5451,103 +4993,232 @@ var MbitMore = /*#__PURE__*/function () {
         dataView.setFloat32(0, contentNumber, true);
         contentData = [dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3)];
       }
-
       return this.sendCommandSet([{
         id: BLECommand.CMD_DATA << 5 | type,
-        message: new Uint8Array([].concat(_toConsumableArray(labelData), _toConsumableArray(contentData)))
+        message: new Uint8Array([].concat(_toConsumableArray$1(labelData), _toConsumableArray$1(contentData)))
       }], util);
     }
+
     /**
      * Return the last data with the label or undefined if no data received with the label.
      * @param {string} label - label to get.
      * @return {?(number | string)} data of the label or null.
      */
-
   }, {
     key: "getDataLabeled",
     value: function getDataLabeled(label) {
       if (this.receivedData[label]) {
         return this.receivedData[label].content;
       }
-
       return null;
     }
+
     /**
      * Return the last timestamp of the data or undefined if the data is not received.
      * @param {string} label - label of the data.
      * @return {?number} Timestamp of the last data or null.
      */
-
   }, {
     key: "getDataTimestamp",
     value: function getDataTimestamp(label) {
       if (this.receivedData[label]) {
         return this.receivedData[label].timestamp;
       }
-
       return null;
     }
   }]);
-
-  return MbitMore;
+  return MicrobitMore;
 }();
+
+var formatMessage = function formatMessage(messageData) {
+  return messageData.defaultMessage;
+};
+
+/**
+ * Setup format-message for this extension.
+ */
+var setupTranslations = function setupTranslations() {
+  var localeSetup = formatMessage.setup();
+  if (localeSetup && localeSetup.translations[localeSetup.locale]) {
+    Object.assign(localeSetup.translations[localeSetup.locale], translations[localeSetup.locale]);
+  }
+};
+var EXTENSION_ID = 'microbitMore';
+
+/**
+ * URL to get this extension as a module.
+ * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
+ * @type {string}
+ */
+var extensionURL = 'https://microbit-more.github.io/dist/microbitMore.mjs';
+
+/**
+ * Enum for name of pull mode.
+ * @readonly
+ * @enum {number}
+ */
+var MbitMorePullModeName = {
+  NONE: 'NONE',
+  DOWN: 'DOWN',
+  UP: 'UP'
+};
+
+/**
+ * Enum for ID of pull mode.
+ * @readonly
+ * @enum {number}
+ */
+var MbitMorePullModeID = {
+  NONE: 0,
+  DOWN: 1,
+  UP: 2
+};
+
+/**
+ * Enum for ID of buttons
+ * @readonly
+ * @enum {string}
+ */
+var MbitMoreButtonName = {
+  P0: 'P0',
+  P1: 'P1',
+  P2: 'P2',
+  A: 'A',
+  B: 'B',
+  LOGO: 'LOGO'
+};
+
+/**
+ * Enum for index of pin for buttons
+ * @readonly
+ * @enum {number}
+ */
+var MbitMoreButtonPinIndex = {
+  P0: 0,
+  P1: 1,
+  P2: 2
+};
+
+/**
+ * Enum for name of event from button
+ * @readonly
+ * @enum {string}
+ */
+var MbitMoreButtonEventName = {
+  DOWN: 'DOWN',
+  UP: 'UP',
+  CLICK: 'CLICK',
+  LONG_CLICK: 'LONG_CLICK',
+  HOLD: 'HOLD',
+  DOUBLE_CLICK: 'DOUBLE_CLICK'
+};
+
+/**
+ * Enum for name of gesture.
+ * @readonly
+ * @enum {string}
+ */
+var MbitMoreGestureName = {
+  TILT_UP: 'TILT_UP',
+  TILT_DOWN: 'TILT_DOWN',
+  TILT_LEFT: 'TILT_LEFT',
+  TILT_RIGHT: 'TILT_RIGHT',
+  FACE_UP: 'FACE_UP',
+  FACE_DOWN: 'FACE_DOWN',
+  FREEFALL: 'FREEFALL',
+  G3: 'G3',
+  G6: 'G6',
+  G8: 'G8',
+  SHAKE: 'SHAKE'
+};
+
+/**
+ * Enum for event type in the micro:bit runtime.
+ * @readonly
+ * @enum {number}
+ */
+var MbitMorePinEventType = {
+  NONE: 0,
+  ON_EDGE: 1,
+  ON_PULSE: 2,
+  ON_TOUCH: 3
+};
+
+/**
+ * Enum for event value in the micro:bit runtime.
+ * @readonly
+ * @enum {number}
+ */
+var MbitMorePinEvent = {
+  RISE: 2,
+  FALL: 3,
+  PULSE_HIGH: 4,
+  PULSE_LOW: 5
+};
+
+/**
+ * Enum for axis menu options.
+ * @readonly
+ * @enum {string}
+ */
+var AxisSymbol = {
+  X: 'x',
+  Y: 'y',
+  Z: 'z',
+  Absolute: 'absolute'
+};
+
 /**
  * Scratch 3.0 blocks to interact with a MicroBit peripheral.
  */
-
-
-var MbitMoreBlocks = /*#__PURE__*/function () {
+var MicrobitMoreBlocks = /*#__PURE__*/function () {
   /**
    * Construct a set of MicroBit blocks.
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
    */
-  function MbitMoreBlocks(runtime) {
-    _classCallCheck(this, MbitMoreBlocks);
-
+  function MicrobitMoreBlocks(runtime) {
+    _classCallCheck$1(this, MicrobitMoreBlocks);
     /**
      * The Scratch 3.0 runtime.
      * @type {Runtime}
      */
     this.runtime = runtime;
-
     if (runtime.formatMessage) {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
-    } // Create a new MicroBit peripheral instance
+    }
+    // Create a new MicroBit peripheral instance
+    this.microbit = new MicrobitMore(this.runtime, MicrobitMoreBlocks.EXTENSION_ID);
 
-
-    this._peripheral = new MbitMore(this.runtime, MbitMoreBlocks.EXTENSION_ID);
     /**
      * The previous timestamps of button events.
      * @type {Object.<number, Object.<number, number>>} button ID to object with event and timestamp.
      */
-
     this.prevButtonEvents = {};
+
     /**
      * The previous timestamps of gesture events.
      * @type {Object.<number, number>} key: event ID, value: timestamp.
      */
-
     this.prevGestureEvents = {};
+
     /**
      * The previous timestamps of pin events.
      * @type {Object.<number, Object.<number, number>>} pin index to object with event and timestamp.
      */
-
     this.prevPinEvents = {};
+
     /**
      * The previous timestamps of messages.
      * @type {Object.<number, Object>} pin index to object with event and timestamp.
      */
-
     this.prevReceivedData = {};
   }
+
   /**
    * @returns {object} metadata for this extension and its blocks.
    */
-
-
-  _createClass(MbitMoreBlocks, [{
+  _createClass$1(MicrobitMoreBlocks, [{
     key: "GESTURES_MENU",
     get:
     /**
@@ -5633,10 +5304,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: MbitMoreGestureName.SHAKE
       }];
     }
+
     /**
      * @return {array} - text and values for each buttons menu element
      */
-
   }, {
     key: "BUTTON_ID_MENU",
     get: function get() {
@@ -5656,10 +5327,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: MbitMoreButtonName.B
       }];
     }
+
     /**
      * @return {array} - Menu items for button event selector.
      */
-
   }, {
     key: "BUTTON_EVENT_MENU",
     get: function get() {
@@ -5683,7 +5354,8 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
           default: 'click',
           description: 'label for button click event'
         }),
-        value: MbitMoreButtonEventName.CLICK // },
+        value: MbitMoreButtonEventName.CLICK
+        // },
         // // These events are not in use because they are unstable in coal-microbit-v2.
         // {
         //     text: formatMessage({
@@ -5708,13 +5380,12 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         description: 'label for button double click event'
         //     }),
         //     value: MbitMoreButtonEventName.DOUBLE_CLICK
-
       }];
     }
+
     /**
      * @return {array} - text and values for each buttons menu element
      */
-
   }, {
     key: "TOUCH_ID_MENU",
     get: function get() {
@@ -5736,10 +5407,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: MbitMoreButtonName.P2
       }];
     }
+
     /**
      * @return {array} - Menu items for touch event selector.
      */
-
   }, {
     key: "TOUCH_EVENT_MENU",
     get: function get() {
@@ -5763,7 +5434,8 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
           default: 'tapped',
           description: 'label for tapped event'
         }),
-        value: MbitMoreButtonEventName.CLICK // },
+        value: MbitMoreButtonEventName.CLICK
+        // },
         // // These events are not in use because they are unstable in coal-microbit-v2.
         // {
         //     text: formatMessage({
@@ -5788,13 +5460,12 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         //         description: 'label for double click event in touch'
         //     }),
         //     value: MbitMoreButtonEventName.DOUBLE_CLICK
-
       }];
     }
   }, {
     key: "ANALOG_IN_PINS_MENU",
     get: function get() {
-      return this._peripheral.analogIn.map(function (pinIndex) {
+      return this.microbit.analogIn.map(function (pinIndex) {
         return Object.create({
           text: "P".concat(pinIndex.toString()),
           value: pinIndex.toString()
@@ -5804,7 +5475,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
   }, {
     key: "GPIO_MENU",
     get: function get() {
-      return this._peripheral.gpio.map(function (pinIndex) {
+      return this.microbit.gpio.map(function (pinIndex) {
         return Object.create({
           text: "P".concat(pinIndex.toString()),
           value: pinIndex.toString()
@@ -5863,10 +5534,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: AxisSymbol.Absolute
       }];
     }
+
     /**
      * @return {array} - text and values for each pin mode menu element
      */
-
   }, {
     key: "PIN_MODE_MENU",
     get: function get() {
@@ -5893,10 +5564,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: MbitMorePullModeName.DOWN
       }];
     }
+
     /**
      * @return {array} - Menu items for event selector.
      */
-
   }, {
     key: "PIN_EVENT_MENU",
     get: function get() {
@@ -5930,10 +5601,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: 'RISE'
       }];
     }
+
     /**
      * @return {array} - Menu items for event selector.
      */
-
   }, {
     key: "PIN_EVENT_TIMESTAMP_MENU",
     get: function get() {
@@ -5967,10 +5638,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: 'RISE'
       }];
     }
+
     /**
      * @return {array} - Menu items for event listening.
      */
-
   }, {
     key: "PIN_EVENT_TYPE_MENU",
     get: function get() {
@@ -5997,10 +5668,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         value: 'ON_EDGE'
       }];
     }
+
     /**
      * @return {array} - Menu items for connection state.
      */
-
   }, {
     key: "CONNECTION_STATE_MENU",
     get: function get() {
@@ -6025,9 +5696,9 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
     value: function getInfo() {
       setupTranslations();
       return {
-        id: MbitMoreBlocks.EXTENSION_ID,
-        name: MbitMoreBlocks.EXTENSION_NAME,
-        extensionURL: MbitMoreBlocks.extensionURL,
+        id: MicrobitMoreBlocks.EXTENSION_ID,
+        name: MicrobitMoreBlocks.EXTENSION_NAME,
+        extensionURL: MicrobitMoreBlocks.extensionURL,
         blockIconURI: img,
         showStatusButton: true,
         blocks: [{
@@ -6037,10 +5708,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'when micro:bit [STATE]',
             description: 'when a micro:bit connection state changed'
           }),
-          blockType: blockType.HAT,
+          blockType: BlockType$1.HAT,
           arguments: {
             STATE: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'connectionStateMenu',
               defaultValue: 'connected'
             }
@@ -6052,15 +5723,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'when button [NAME] is [EVENT]',
             description: 'when the selected button on the micro:bit get the selected event'
           }),
-          blockType: blockType.HAT,
+          blockType: BlockType$1.HAT,
           arguments: {
             NAME: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'buttonIDMenu',
               defaultValue: MbitMoreButtonName.A
             },
             EVENT: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'buttonEventMenu',
               defaultValue: MbitMoreButtonEventName.DOWN
             }
@@ -6072,10 +5743,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'button [NAME] pressed?',
             description: 'is the selected button on the micro:bit pressed?'
           }),
-          blockType: blockType.BOOLEAN,
+          blockType: BlockType$1.BOOLEAN,
           arguments: {
             NAME: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'buttonIDMenu',
               defaultValue: MbitMoreButtonName.A
             }
@@ -6087,15 +5758,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'when pin [NAME] is [EVENT]',
             description: 'when the selected touch pin on the micro:bit is touched'
           }),
-          blockType: blockType.HAT,
+          blockType: BlockType$1.HAT,
           arguments: {
             NAME: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'touchIDMenu',
               defaultValue: MbitMoreButtonName.LOGO
             },
             EVENT: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'touchEventMenu',
               defaultValue: MbitMoreButtonEventName.DOWN
             }
@@ -6107,10 +5778,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'pin [NAME] is touched?',
             description: 'is the selected pin is touched?'
           }),
-          blockType: blockType.BOOLEAN,
+          blockType: BlockType$1.BOOLEAN,
           arguments: {
             NAME: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'touchIDMenu',
               defaultValue: MbitMoreButtonName.LOGO
             }
@@ -6122,10 +5793,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'when [GESTURE]',
             description: 'when the selected gesture is detected by the micro:bit'
           }),
-          blockType: blockType.HAT,
+          blockType: BlockType$1.HAT,
           arguments: {
             GESTURE: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gestures',
               defaultValue: MbitMoreGestureName.SHAKE
             }
@@ -6137,10 +5808,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'display pattern [MATRIX] ',
             description: 'display a pattern on the micro:bit display'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             MATRIX: {
-              type: argumentType.MATRIX,
+              type: ArgumentType$1.MATRIX,
               defaultValue: '0101010101100010101000100'
             }
           }
@@ -6151,14 +5822,14 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'display text [TEXT] delay [DELAY] ms',
             description: 'display text on the micro:bit display'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             TEXT: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               defaultValue: 'Hello!'
             },
             DELAY: {
-              type: argumentType.NUMBER,
+              type: ArgumentType$1.NUMBER,
               defaultValue: 120
             }
           }
@@ -6169,7 +5840,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'clear display',
             description: 'display nothing on the micro:bit display'
           }),
-          blockType: blockType.COMMAND
+          blockType: BlockType$1.COMMAND
         }, '---', {
           opcode: 'getLightLevel',
           text: formatMessage({
@@ -6177,7 +5848,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'light intensity',
             description: 'how much the amount of light falling on the LEDs on micro:bit'
           }),
-          blockType: blockType.REPORTER
+          blockType: BlockType$1.REPORTER
         }, {
           opcode: 'getTemperature',
           text: formatMessage({
@@ -6185,7 +5856,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'temperature',
             description: 'temperature (celsius) on the surface of CPU of micro:bit'
           }),
-          blockType: blockType.REPORTER
+          blockType: BlockType$1.REPORTER
         }, {
           opcode: 'getCompassHeading',
           text: formatMessage({
@@ -6193,7 +5864,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'angle with the North',
             description: 'angle from the North to the micro:bit heading direction'
           }),
-          blockType: blockType.REPORTER
+          blockType: BlockType$1.REPORTER
         }, {
           opcode: 'getPitch',
           text: formatMessage({
@@ -6201,7 +5872,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'pitch',
             description: 'nose up movement of the micro:bit from level'
           }),
-          blockType: blockType.REPORTER
+          blockType: BlockType$1.REPORTER
         }, {
           opcode: 'getRoll',
           text: formatMessage({
@@ -6209,7 +5880,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'roll',
             description: 'clockwise circular movement of the micro:bit from level'
           }),
-          blockType: blockType.REPORTER
+          blockType: BlockType$1.REPORTER
         }, {
           opcode: 'getSoundLevel',
           text: formatMessage({
@@ -6217,7 +5888,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'sound level',
             description: 'level of the sound from microphone on micro:bit'
           }),
-          blockType: blockType.REPORTER
+          blockType: BlockType$1.REPORTER
         }, {
           opcode: 'getMagneticForce',
           text: formatMessage({
@@ -6225,10 +5896,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'magnetic force',
             description: 'value of magnetic force (micro tesla)'
           }),
-          blockType: blockType.REPORTER,
+          blockType: BlockType$1.REPORTER,
           arguments: {
             AXIS: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'axis',
               defaultValue: AxisSymbol.Absolute
             }
@@ -6240,10 +5911,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'acceleration [AXIS]',
             description: 'value of acceleration on the axis (milli-g)'
           }),
-          blockType: blockType.REPORTER,
+          blockType: BlockType$1.REPORTER,
           arguments: {
             AXIS: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'axis',
               defaultValue: AxisSymbol.X
             }
@@ -6255,10 +5926,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'analog value of pin [PIN]',
             description: 'analog input value of the pin'
           }),
-          blockType: blockType.REPORTER,
+          blockType: BlockType$1.REPORTER,
           arguments: {
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'analogInPins',
               defaultValue: '0'
             }
@@ -6270,15 +5941,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'set pin [PIN] to input [MODE]',
             description: 'set a pin into the mode'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             },
             MODE: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'pinMode',
               defaultValue: MbitMorePullModeName.UP
             }
@@ -6290,10 +5961,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: '[PIN] pin is high?',
             description: 'is the selected pin high as digital?'
           }),
-          blockType: blockType.BOOLEAN,
+          blockType: BlockType$1.BOOLEAN,
           arguments: {
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             }
@@ -6305,15 +5976,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'set [PIN] Digital [LEVEL]',
             description: 'set pin to Digital Output mode and the level(High = true)'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             },
             LEVEL: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'digitalValueMenu',
               defaultValue: 'false'
             }
@@ -6325,15 +5996,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'set [PIN] analog [LEVEL] %',
             description: 'set pin to PWM mode and the level(0 to 1023)'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             },
             LEVEL: {
-              type: argumentType.NUMBER,
+              type: ArgumentType$1.NUMBER,
               defaultValue: 0
             }
           }
@@ -6344,23 +6015,23 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'set [PIN] Servo [ANGLE]',
             description: 'set pin to Servo mode and the angle(0 to 180)'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             },
             ANGLE: {
-              type: argumentType.NUMBER,
+              type: ArgumentType$1.NUMBER,
               defaultValue: 0
             },
             RANGE: {
-              type: argumentType.NUMBER,
+              type: ArgumentType$1.NUMBER,
               defaultValue: 2000
             },
             CENTER: {
-              type: argumentType.NUMBER,
+              type: ArgumentType$1.NUMBER,
               defaultValue: 1500
             }
           }
@@ -6371,14 +6042,14 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'play tone [FREQ] Hz volume [VOL] %',
             description: 'play tone on the speaker'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             FREQ: {
-              type: argumentType.NUMBER,
+              type: ArgumentType$1.NUMBER,
               defaultValue: 440
             },
             VOL: {
-              type: argumentType.NUMBER,
+              type: ArgumentType$1.NUMBER,
               defaultValue: 100
             }
           }
@@ -6389,7 +6060,7 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'stop tone',
             description: 'stop tone on the speaker'
           }),
-          blockType: blockType.COMMAND
+          blockType: BlockType$1.COMMAND
         }, '---', {
           opcode: 'listenPinEventType',
           text: formatMessage({
@@ -6397,15 +6068,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'listen [EVENT_TYPE] event on [PIN]',
             description: 'listen the event on the pin'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             EVENT_TYPE: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'pinEventTypeMenu',
               defaultValue: 'NONE'
             },
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             }
@@ -6417,15 +6088,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'when catch [EVENT] at pin [PIN]',
             description: 'when catch the event at the pin'
           }),
-          blockType: blockType.HAT,
+          blockType: BlockType$1.HAT,
           arguments: {
             EVENT: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'pinEventMenu',
               defaultValue: 'PULSE_LOW'
             },
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             }
@@ -6437,15 +6108,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'value of [EVENT] at [PIN]',
             description: 'value of the value of the event (timestamp of the edge or duration of the pulse)'
           }),
-          blockType: blockType.REPORTER,
+          blockType: BlockType$1.REPORTER,
           arguments: {
             EVENT: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'pinEventTimestampMenu',
               defaultValue: 'PULSE_LOW'
             },
             PIN: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               menu: 'gpio',
               defaultValue: '0'
             }
@@ -6457,10 +6128,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'when data with label [LABEL] received from micro:bit',
             description: 'when the data which has the label received'
           }),
-          blockType: blockType.HAT,
+          blockType: BlockType$1.HAT,
           arguments: {
             LABEL: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               defaultValue: 'label-01'
             }
           }
@@ -6471,10 +6142,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'data of label [LABEL]',
             description: 'the last data which has the label'
           }),
-          blockType: blockType.REPORTER,
+          blockType: BlockType$1.REPORTER,
           arguments: {
             LABEL: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               defaultValue: 'label-01'
             }
           }
@@ -6485,14 +6156,14 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
             default: 'send data [DATA] with label [LABEL] to micro:bit',
             description: 'send data content with label to micro:bit'
           }),
-          blockType: blockType.COMMAND,
+          blockType: BlockType$1.COMMAND,
           arguments: {
             LABEL: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               defaultValue: 'label-01'
             },
             DATA: {
-              type: argumentType.STRING,
+              type: ArgumentType$1.STRING,
               defaultValue: 'data'
             }
           }
@@ -6558,31 +6229,29 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         translationMap: translations
       };
     }
+
     /**
      * Update the previous occured time of all button events.
      */
-
   }, {
     key: "updatePrevButtonEvents",
     value: function updatePrevButtonEvents() {
-      var _this12 = this;
-
+      var _this = this;
       this.prevButtonEvents = {};
-      Object.entries(this._peripheral.buttonEvents).forEach(function (_ref) {
+      Object.entries(this.microbit.buttonEvents).forEach(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
-            componentID = _ref2[0],
-            events = _ref2[1];
-
-        _this12.prevButtonEvents[componentID] = {};
+          componentID = _ref2[0],
+          events = _ref2[1];
+        _this.prevButtonEvents[componentID] = {};
         Object.entries(events).forEach(function (_ref3) {
           var _ref4 = _slicedToArray(_ref3, 2),
-              eventName = _ref4[0],
-              timestamp = _ref4[1];
-
-          _this12.prevButtonEvents[componentID][eventName] = timestamp;
+            eventName = _ref4[0],
+            timestamp = _ref4[1];
+          _this.prevButtonEvents[componentID][eventName] = timestamp;
         });
       });
     }
+
     /**
      * Test whether the event raised at the button.
      * @param {object} args - the block's arguments.
@@ -6590,29 +6259,24 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {string} args.EVENT - name of event to catch.
      * @return {boolean} - true if the event raised.
      */
-
   }, {
     key: "whenButtonEvent",
     value: function whenButtonEvent(args) {
-      var _this13 = this;
-
+      var _this2 = this;
       if (!this.updateLastButtonEventTimer) {
         this.updateLastButtonEventTimer = setTimeout(function () {
-          _this13.updatePrevButtonEvents();
-
-          _this13.updateLastButtonEventTimer = null;
+          _this2.updatePrevButtonEvents();
+          _this2.updateLastButtonEventTimer = null;
         }, this.runtime.currentStepTime);
       }
-
       var buttonName = args.NAME;
       var eventName = args.EVENT;
-
-      var lastTimestamp = this._peripheral.getButtonEventTimestamp(buttonName, eventName);
-
+      var lastTimestamp = this.microbit.getButtonEventTimestamp(buttonName, eventName);
       if (lastTimestamp === null) return false;
       if (!this.prevButtonEvents[buttonName]) return true;
       return lastTimestamp !== this.prevButtonEvents[buttonName][eventName];
     }
+
     /**
      * Test whether the A or B button is pressed
      * @param {object} args - the block's arguments.
@@ -6620,45 +6284,39 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {object} util - utility object provided by the runtime.
      * @return {boolean} - whether the button is pressed or not.
      */
-
   }, {
     key: "isButtonPressed",
     value: function isButtonPressed(args) {
       var buttonName = args.NAME;
-      return this._peripheral.isButtonPressed(buttonName);
+      return this.microbit.isButtonPressed(buttonName);
     }
+
     /**
      * Test whether the touch event raised at the pin.
-     * @param {object} args - the block's arguments.
+     * @param {object} args - the block's arguments.q
      * @param {string} args.NAME - name of the pin to catch.
      * @param {string} args.EVENT - event to catch.
      * @param {object} util - utility object provided by the runtime.
      * @return {boolean|Promise<boolean>|undefined} - true if the event raised or promise that or undefinde if yield.
      */
-
   }, {
     key: "whenTouchEvent",
     value: function whenTouchEvent(args, util) {
-      var _this14 = this;
-
+      var _this3 = this;
       var buttonName = args.NAME;
-
       if (buttonName === MbitMoreButtonName.LOGO) {
         return this.whenButtonEvent(args);
       }
-
-      if (this._peripheral.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
+      if (this.microbit.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
         return this.whenButtonEvent(args);
       }
-
-      var configPromise = this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
-
+      var configPromise = this.microbit.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
       if (!configPromise) return; // This thread was yielded.
-
       return configPromise.then(function () {
-        return _this14.whenButtonEvent(args);
+        return _this3.whenButtonEvent(args);
       });
     }
+
     /**
      * Test whether the touch-pin is touched.
      * @param {object} args - the block's arguments.
@@ -6666,76 +6324,63 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {object} util - utility object provided by the runtime.
      * @return {boolean|Promise<boolean>|undefined} - true if touched or promise that or undefinde if yield.
      */
-
   }, {
     key: "isPinTouched",
     value: function isPinTouched(args, util) {
-      var _this15 = this;
-
+      var _this4 = this;
       var buttonName = args.NAME;
-
       if (buttonName === MbitMoreButtonName.LOGO) {
-        return this._peripheral.isTouched(buttonName);
+        return this.microbit.isTouched(buttonName);
       }
-
-      if (this._peripheral.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
-        return this._peripheral.isTouched(buttonName);
+      if (this.microbit.isPinTouchMode(MbitMoreButtonPinIndex[buttonName])) {
+        return this.microbit.isTouched(buttonName);
       }
-
-      var configPromise = this._peripheral.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
-
+      var configPromise = this.microbit.configTouchPin(MbitMoreButtonPinIndex[buttonName], util);
       if (!configPromise) return; // This thread was yielded.
-
       return configPromise.then(function () {
-        return _this15._peripheral.isTouched(buttonName);
+        return _this4.microbit.isTouched(buttonName);
       });
     }
+
     /**
      * Update the last occured time of all gesture events.
      */
-
   }, {
     key: "updatePrevGestureEvents",
     value: function updatePrevGestureEvents() {
-      var _this16 = this;
-
+      var _this5 = this;
       this.prevGestureEvents = {};
-      Object.entries(this._peripheral.gestureEvents).forEach(function (_ref5) {
+      Object.entries(this.microbit.gestureEvents).forEach(function (_ref5) {
         var _ref6 = _slicedToArray(_ref5, 2),
-            gestureName = _ref6[0],
-            timestamp = _ref6[1];
-
-        _this16.prevGestureEvents[gestureName] = timestamp;
+          gestureName = _ref6[0],
+          timestamp = _ref6[1];
+        _this5.prevGestureEvents[gestureName] = timestamp;
       });
     }
+
     /**
      * Test whether the gesture event raised.
      * @param {object} args - the block's arguments.
      * @param {string} args.GESTURE - name of the gesture.
      * @return {boolean} - true if the event raised.
      */
-
   }, {
     key: "whenGesture",
     value: function whenGesture(args) {
-      var _this17 = this;
-
+      var _this6 = this;
       if (!this.updateLastGestureEventTimer) {
         this.updateLastGestureEventTimer = setTimeout(function () {
-          _this17.updatePrevGestureEvents();
-
-          _this17.updateLastGestureEventTimer = null;
+          _this6.updatePrevGestureEvents();
+          _this6.updateLastGestureEventTimer = null;
         }, this.runtime.currentStepTime);
       }
-
       var gestureName = args.GESTURE;
-
-      var lastTimestamp = this._peripheral.getGestureEventTimestamp(gestureName);
-
+      var lastTimestamp = this.microbit.getGestureEventTimestamp(gestureName);
       if (lastTimestamp === null) return false;
       if (!this.prevGestureEvents[gestureName]) return true;
       return lastTimestamp !== this.prevGestureEvents[gestureName];
     }
+
     /**
      * Display pixcel pattern on the 5x5 LED matrix with brightness and write mode.
      * @param {object} args - the block's arguments.
@@ -6743,16 +6388,13 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves after a tick or undefinde if yield.
      */
-
   }, {
     key: "displayMatrix",
     value: function displayMatrix(args, util) {
-      var matrixString = cast.toString(args.MATRIX).replace(/[０-９，]/g, function (ws) {
+      var matrixString = Cast$1.toString(args.MATRIX).replace(/[０-９，]/g, function (ws) {
         return String.fromCharCode(ws.charCodeAt(0) - 0xFEE0);
       }); // zenkaku to hankaku
-
       var matrixData;
-
       if (matrixString.includes(',')) {
         // comma separated values
         matrixData = matrixString.split(/[,\n]/);
@@ -6766,23 +6408,19 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
           return level === '0' ? 0 : 100;
         });
       }
-
       matrixData = matrixData.map(function (brightness) {
         return Math.max(0, Math.min(100, Number(brightness)) * 255 / 100);
       }); // percent to 8bits value
-
       var matrix = [];
-
       for (var line = 0; line < 5; line++) {
         matrix[line] = [];
-
         for (var col = 0; col < 5; col++) {
           matrix[line][col] = matrixData[line * 5 + col];
         }
       }
-
-      return this._peripheral.displayPixels(matrix, util);
+      return this.microbit.displayPixels(matrix, util);
     }
+
     /**
      * Display text on the 5x5 LED matrix.
      * Displayable character is ascii and non-ascii is replaced to '?'.
@@ -6797,22 +6435,19 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * The number of horizontal pixels = 6px for each character in the string,
      * 1px before the string, and 5px after the string.
      */
-
   }, {
     key: "displayText",
     value: function displayText(args, util) {
       // zenkaku to hankaku
-      var text = cast.toString(args.TEXT).replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, function (ws) {
+      var text = Cast$1.toString(args.TEXT).replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, function (ws) {
         return String.fromCharCode(ws.charCodeAt(0) - 0xFEE0);
-      }).replace(/”/g, '"').replace(/’/g, "'").replace(/‘/g, '`').replace(/￥/g, '\\') // eslint-disable-next-line no-irregular-whitespace
+      }).replace(/”/g, '"').replace(/’/g, "'").replace(/‘/g, '`').replace(/￥/g, '\\')
+      // eslint-disable-next-line no-irregular-whitespace
       .replace(/　/g, ' ').replace(/〜/g, '~');
       var delay = parseInt(args.DELAY, 10);
       delay = isNaN(delay) ? 120 : delay; // Use default delay if NaN.
-
-      var resultPromise = this._peripheral.displayText(text, delay, util);
-
+      var resultPromise = this.microbit.displayText(text, delay, util);
       if (!resultPromise) return; // This thread was yielded.
-
       var yieldDelay = delay * (6 * text.length + 6);
       return new Promise(function (resolve) {
         setTimeout(function () {
@@ -6820,89 +6455,85 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         }, yieldDelay);
       });
     }
+
     /**
      * Turn all 5x5 matrix LEDs off.
      * @param {object} args - the block's arguments.
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves after a tick or undefinde if yield.
      */
-
   }, {
     key: "displayClear",
     value: function displayClear(args, util) {
       var matrix = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
-      return this._peripheral.displayPixels(matrix, util);
+      return this.microbit.displayPixels(matrix, util);
     }
+
     /**
      * Test the selected pin is high as digital.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @return {boolean} - true if the pin is high.
      */
-
   }, {
     key: "isPinHigh",
     value: function isPinHigh(args) {
-      return this._peripheral.isPinHigh(parseInt(args.PIN, 10));
+      return this.microbit.isPinHigh(parseInt(args.PIN, 10));
     }
+
     /**
      * Get amount of light (0 - 255) on the LEDs.
      * @param {object} args - the block's arguments.
      * @return {number} - light level.
      */
-
   }, {
     key: "getLightLevel",
     value: function getLightLevel() {
-      var level = this._peripheral.readLightLevel();
-
+      var level = this.microbit.readLightLevel();
       return Math.round(level * 1000 / 255) / 10;
     }
+
     /**
      * Get temperature (integer in celsius) of micro:bit.
      * @param {object} args - the block's arguments.
      * @return {number} - value of temperature [centigrade].
      */
-
   }, {
     key: "getTemperature",
     value: function getTemperature() {
-      return this._peripheral.readTemperature();
+      return this.microbit.readTemperature();
     }
+
     /**
      * Get loudness of the sound from microphone on micro:bit.
      * @param {object} args - the block's arguments.
      * @param {object} util - utility object provided by the runtime.
      * @return {Promise} - a Promise that resolves digital input value of the pin or undefinde if yield.
      */
-
   }, {
     key: "getSoundLevel",
     value: function getSoundLevel(args, util) {
-      var _this18 = this;
-
-      var resultPromise = this._peripheral.configMic(true, util);
-
+      var _this7 = this;
+      var resultPromise = this.microbit.configMic(true, util);
       if (!resultPromise) return; // This thread was yielded.
-
       return resultPromise.then(function (micState) {
         if (micState) {
-          return Math.round(_this18._peripheral.readSoundLevel() * 1000 / 255) / 10;
+          return Math.round(_this7.microbit.readSoundLevel() * 1000 / 255) / 10;
         }
-
         return 0;
       });
     }
+
     /**
      * Return angle from the north to the micro:bit heading direction.
      * @return {number} - degree of compass heading angle from the north (0 - 359 degrees).
      */
-
   }, {
     key: "getCompassHeading",
     value: function getCompassHeading() {
-      return this._peripheral.readCompassHeading();
+      return this.microbit.readCompassHeading();
     }
+
     /**
      * Return analog value of the pin.
      * @param {object} args - the block's arguments.
@@ -6910,31 +6541,29 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} a Promise that resolves analog input value of the pin or undefined if this process was yield.
      */
-
   }, {
     key: "getAnalogValue",
     value: function getAnalogValue(args, util) {
       var pinIndex = parseInt(args.PIN, 10);
-
-      var resultPromise = this._peripheral.readAnalogIn(pinIndex, util);
-
+      var resultPromise = this.microbit.readAnalogIn(pinIndex, util);
       if (!resultPromise) return;
       return resultPromise.then(function (level) {
         return Math.round(level * 100 * 10 / 1024) / 10;
       });
     }
+
     /**
      * Return digital value of the pin.
      * @param {object} args - the block's arguments.
      * @param {number} args.PIN - pin ID.
      * @return {number} - digital input value of the pin.
      */
-
   }, {
     key: "getDigitalValue",
     value: function getDigitalValue(args) {
-      return this._peripheral.readDigitalLevel(parseInt(args.PIN, 10));
+      return this.microbit.readDigitalLevel(parseInt(args.PIN, 10));
     }
+
     /**
      * Send data with label.
      * @param {object} args - the block's arguments.
@@ -6943,16 +6572,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {object} util - utility object provided by the runtime.
      * @return {?Promise} - a Promise that resolves when the process was done or undefined if this process was yield.
      */
-
   }, {
     key: "sendData",
     value: function sendData(args, util) {
       if (args.LABEL.length <= 0) {
         return;
       }
-
-      return this._peripheral.sendData(args.LABEL, args.DATA, util);
+      return this.microbit.sendData(args.LABEL, args.DATA, util);
     }
+
     /**
      * Set pull mode of the pin.
      * @param {object} args - the block's arguments.
@@ -6962,12 +6590,12 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {promise | undefined} - a Promise that resolves when the command was sent
      *                                 or undefined if this process was yield.
      */
-
   }, {
     key: "setPullMode",
     value: function setPullMode(args, util) {
-      return this._peripheral.setPullMode(parseInt(args.PIN, 10), MbitMorePullModeID[args.MODE], util);
+      return this.microbit.setPullMode(parseInt(args.PIN, 10), MbitMorePullModeID[args.MODE], util);
     }
+
     /**
      * Set the pin to Output mode and level.
      * @param {object} args - the block's arguments.
@@ -6977,23 +6605,20 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {promise | undefined} - a Promise that resolves when the command was sent
      *                                 or undefined if this process was yield.
      */
-
   }, {
     key: "setDigitalOut",
     value: function setDigitalOut(args, util) {
       var level = args.LEVEL === true;
       level = level || args.LEVEL === 'true';
-
       if (!level) {
         var num = Number(args.LEVEL);
-
         if (!isNaN(num)) {
           level = num > 0;
         }
       }
-
-      return this._peripheral.setPinOutput(parseInt(args.PIN, 10), level, util);
+      return this.microbit.setPinOutput(parseInt(args.PIN, 10), level, util);
     }
+
     /**
      * Set the pin to PWM mode and level.
      * @param {object} args - the block's arguments.
@@ -7003,20 +6628,18 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {promise | undefined} - a Promise that resolves when the command was sent
      *                                 or undefined if this process was yield.
      */
-
   }, {
     key: "setAnalogOut",
     value: function setAnalogOut(args, util) {
       var percent = parseInt(args.LEVEL, 10);
-
       if (isNaN(percent)) {
         return;
       }
-
       percent = Math.max(0, Math.min(percent, 100));
       var level = Math.round(percent * 1024 / 100);
-      return this._peripheral.setPinPWM(parseInt(args.PIN, 10), level, util);
+      return this.microbit.setPinPWM(parseInt(args.PIN, 10), level, util);
     }
+
     /**
      * Set the pin to Servo mode and angle.
      * @param {object} args - the block's arguments.
@@ -7025,66 +6648,66 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {promise | undefined} - a Promise that resolves when the command was sent
      *                                 or undefined if this process was yield.
      */
-
   }, {
     key: "setServo",
     value: function setServo(args, util) {
       var angle = parseInt(args.ANGLE, 10);
       if (isNaN(angle)) return;
       angle = Math.max(0, angle);
-      angle = Math.min(angle, 180); // let range = parseInt(args.RANGE, 10);
+      angle = Math.min(angle, 180);
+      // let range = parseInt(args.RANGE, 10);
       // if (isNaN(range)) range = 0;
       // range = Math.max(0, range);
       // let center = parseInt(args.CENTER, 10);
       // if (isNaN(center)) range = 0;
       // center = Math.max(0, center);
-
-      return this._peripheral.setPinServo(parseInt(args.PIN, 10), angle, null, null, util);
+      return this.microbit.setPinServo(parseInt(args.PIN, 10), angle, null, null, util);
     }
+
     /**
      * Return the value of magnetic force [micro tesla] on axis.
      * @param {object} args - the block's arguments.
      * @property {AxisSymbol} AXIS - the axis (X, Y, Z, Absolute).
      * @return {number} - value of magnetic force.
      */
-
   }, {
     key: "getMagneticForce",
     value: function getMagneticForce(args) {
-      return this._peripheral.readMagneticForce(args.AXIS);
+      return this.microbit.readMagneticForce(args.AXIS);
     }
+
     /**
      * Return the value of acceleration on the specified axis.
      * @param {object} args - the block's arguments.
      * @param {AxisSymbol} args.AXIS - direction to get.
      * @return {number} - value of acceleration.
      */
-
   }, {
     key: "getAcceleration",
     value: function getAcceleration(args) {
-      return this._peripheral.readAcceleration(args.AXIS);
+      return this.microbit.readAcceleration(args.AXIS);
     }
+
     /**
      * Return pitch [degrees] of the micro:bit heading direction.
      * @return {number} - degree of pitch.
      */
-
   }, {
     key: "getPitch",
     value: function getPitch() {
-      return this._peripheral.readPitch();
+      return this.microbit.readPitch();
     }
+
     /**
      * Read roll [degrees] of the micro:bit heading direction.
      * @return {number} - degree of roll.
      */
-
   }, {
     key: "getRoll",
     value: function getRoll() {
-      return this._peripheral.readRoll();
+      return this.microbit.readRoll();
     }
+
     /**
      * Play tone on the speaker.
      * @param {object} args - the block's arguments.
@@ -7094,15 +6717,15 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {promise | undefined} - a Promise that resolves when the command was sent
      *                                 or undefined if this process was yield.
      */
-
   }, {
     key: "playTone",
     value: function playTone(args, util) {
       var frequency = parseFloat(args.FREQ);
       var volume = parseInt(args.VOL, 10);
       volume = Math.min(100, Math.max(0, volume));
-      return this._peripheral.playTone(frequency, volume, util);
+      return this.microbit.playTone(frequency, volume, util);
     }
+
     /**
      * Stop playing tone on the speaker.
      * @param {object} args - the block's arguments.
@@ -7110,12 +6733,12 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {promise | undefined} - a Promise that resolves when the command was sent
      *                                 or undefined if this process was yield.
      */
-
   }, {
     key: "stopTone",
     value: function stopTone(args, util) {
-      return this._peripheral.stopTone(util);
+      return this.microbit.stopTone(util);
     }
+
     /**
      * Set listening event type at the pin.
      * @param {object} args - the block's arguments.
@@ -7125,12 +6748,12 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @return {promise | undefined} - a Promise that resolves when the command was sent
      *                                 or undefined if this process was yield.
     */
-
   }, {
     key: "listenPinEventType",
     value: function listenPinEventType(args, util) {
-      return this._peripheral.listenPinEventType(parseInt(args.PIN, 10), MbitMorePinEventType[args.EVENT_TYPE], util);
+      return this.microbit.listenPinEventType(parseInt(args.PIN, 10), MbitMorePinEventType[args.EVENT_TYPE], util);
     }
+
     /**
      * Rerutn value (timestamp of the edge or duration of the pulse) of the event or 0 when the event is not received.
      * @param {object} args - the block's arguments.
@@ -7139,62 +6762,56 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {object} util - utility object provided by the runtime.
      * @return {number} - timestamp of the event or 0.
      */
-
   }, {
     key: "getPinEventValue",
     value: function getPinEventValue(args) {
-      var value = this._peripheral.getPinEventValue(parseInt(args.PIN, 10), MbitMorePinEvent[args.EVENT]);
-
+      var value = this.microbit.getPinEventValue(parseInt(args.PIN, 10), MbitMorePinEvent[args.EVENT]);
       return value ? value : 0;
     }
+
     /**
      * Update the previous occured time of all pin events.
      */
-
   }, {
     key: "updatePrevPinEvents",
     value: function updatePrevPinEvents() {
-      var _this19 = this;
-
+      var _this8 = this;
       this.prevPinEvents = {};
-      Object.entries(this._peripheral._pinEvents).forEach(function (_ref7) {
+      Object.entries(this.microbit._pinEvents).forEach(function (_ref7) {
         var _ref8 = _slicedToArray(_ref7, 2),
-            pinIndex = _ref8[0],
-            events = _ref8[1];
-
-        _this19.prevPinEvents[pinIndex] = {};
+          pinIndex = _ref8[0],
+          events = _ref8[1];
+        _this8.prevPinEvents[pinIndex] = {};
         Object.entries(events).forEach(function (_ref9) {
           var _ref10 = _slicedToArray(_ref9, 2),
-              eventID = _ref10[0],
-              eventData = _ref10[1];
-
-          _this19.prevPinEvents[pinIndex][eventID] = {};
+            eventID = _ref10[0],
+            eventData = _ref10[1];
+          _this8.prevPinEvents[pinIndex][eventID] = {};
           Object.entries(eventData).forEach(function (_ref11) {
             var _ref12 = _slicedToArray(_ref11, 2),
-                key = _ref12[0],
-                value = _ref12[1];
-
-            _this19.prevPinEvents[pinIndex][eventID][key] = value;
+              key = _ref12[0],
+              value = _ref12[1];
+            _this8.prevPinEvents[pinIndex][eventID][key] = value;
           });
         });
       });
     }
+
     /**
      * Return the previous timestamp of the pin event or undefined if the event was not received.
      * @param {number} pinIndex - index of the pin to get the event.
      * @param {MbitMorePinEvent} eventID - ID of the event to get.
      * @return {?number} Timestamp of the previous event or null.
      */
-
   }, {
     key: "getPrevPinEventTimestamp",
     value: function getPrevPinEventTimestamp(pinIndex, eventID) {
       if (this.prevPinEvents[pinIndex] && this.prevPinEvents[pinIndex][eventID]) {
         return this.prevPinEvents[pinIndex][eventID].timestamp;
       }
-
       return null;
     }
+
     /**
      * Test whether the event raised at the pin.
      * @param {object} args - the block's arguments.
@@ -7202,129 +6819,112 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
      * @param {string} args.EVENT - event to catch.
      * @return {boolean} - true if the event raised.
      */
-
   }, {
     key: "whenPinEvent",
     value: function whenPinEvent(args) {
-      var _this20 = this;
-
+      var _this9 = this;
       if (!this.updateLastPinEventTimer) {
         this.updateLastPinEventTimer = setTimeout(function () {
-          _this20.updatePrevPinEvents();
-
-          _this20.updateLastPinEventTimer = null;
+          _this9.updatePrevPinEvents();
+          _this9.updateLastPinEventTimer = null;
         }, this.runtime.currentStepTime);
       }
-
       var pinIndex = parseInt(args.PIN, 10);
       var eventID = MbitMorePinEvent[args.EVENT];
-
-      var lastTimestamp = this._peripheral.getPinEventTimestamp(pinIndex, eventID);
-
+      var lastTimestamp = this.microbit.getPinEventTimestamp(pinIndex, eventID);
       if (lastTimestamp === null) return false;
       var prevTimestamp = this.getPrevPinEventTimestamp(pinIndex, eventID);
       if (prevTimestamp === null) return true;
       return lastTimestamp !== prevTimestamp;
     }
+
     /**
      * Rerutn the last content of the messge or undefined if the data which has the label is not received.
      * @param {object} args - the block's arguments.
      * @param {number} args.LABEL - label of the data.
      * @return {?(string | number)} - content of the data or empty string when the data was null
      */
-
   }, {
     key: "getDataLabeled",
     value: function getDataLabeled(args) {
-      var data = this._peripheral.getDataLabeled(args.LABEL);
-
+      var data = this.microbit.getDataLabeled(args.LABEL);
       if (data === null) {
         return '';
       }
-
       return data;
     }
+
     /**
      * Update the previous occured time of all received data.
      */
-
   }, {
     key: "updatePrevReceivedData",
     value: function updatePrevReceivedData() {
-      var _this21 = this;
-
+      var _this10 = this;
       this.prevReceivedData = {};
-      Object.entries(this._peripheral.receivedData).forEach(function (_ref13) {
+      Object.entries(this.microbit.receivedData).forEach(function (_ref13) {
         var _ref14 = _slicedToArray(_ref13, 2),
-            label = _ref14[0],
-            contentObject = _ref14[1];
-
-        _this21.prevReceivedData[label] = {};
+          label = _ref14[0],
+          contentObject = _ref14[1];
+        _this10.prevReceivedData[label] = {};
         Object.entries(contentObject).forEach(function (_ref15) {
           var _ref16 = _slicedToArray(_ref15, 2),
-              key = _ref16[0],
-              value = _ref16[1];
-
-          _this21.prevReceivedData[label][key] = value;
+            key = _ref16[0],
+            value = _ref16[1];
+          _this10.prevReceivedData[label][key] = value;
         });
       });
     }
+
     /**
      * Return the previous timestamp of the data or undefined if the data was not received.
      * @param {string} label - label of the data.
      * @return {?number} Timestamp of the previous data or null.
      */
-
   }, {
     key: "getPrevReceivedDataTimestamp",
     value: function getPrevReceivedDataTimestamp(label) {
       if (this.prevReceivedData[label]) {
         return this.prevReceivedData[label].timestamp;
       }
-
       return null;
     }
+
     /**
      * Test whether the data received which had the label.
      * @param {object} args - the block's arguments.
      * @param {number} args.LABEL - label of the data.
      * @return {boolean} - true if the data received.
      */
-
   }, {
     key: "whenDataReceived",
     value: function whenDataReceived(args) {
-      var _this22 = this;
-
+      var _this11 = this;
       if (!this.updateLastDataTimer) {
         this.updateLastDataTimer = setTimeout(function () {
-          _this22.updatePrevReceivedData();
-
-          _this22.updateLastDataTimer = null;
+          _this11.updatePrevReceivedData();
+          _this11.updateLastDataTimer = null;
         }, this.runtime.currentStepTime);
       }
-
       var label = args.LABEL;
-
-      var lastTimestamp = this._peripheral.getDataTimestamp(label);
-
+      var lastTimestamp = this.microbit.getDataTimestamp(label);
       if (lastTimestamp === null) return false;
       var prevTimestamp = this.getPrevReceivedDataTimestamp(label);
       if (prevTimestamp === null) return true;
       return lastTimestamp !== prevTimestamp;
     }
+
     /**
      * Test whether a micro:bit connected.
      * @param {object} args - the block's arguments.
      * @property {string} args.STATE - the state of connection to check.
      * @return {boolean} - true if the state is matched.
      */
-
   }, {
     key: "whenConnectionChanged",
     value: function whenConnectionChanged(args) {
       var state = args.STATE === 'connected';
-      return state === this._peripheral.isConnected();
+      return state === this.microbit.isConnected();
     }
   }], [{
     key: "formatMessage",
@@ -7337,10 +6937,10 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
       formatMessage = formatter;
       if (formatMessage) setupTranslations();
     }
+
     /**
      * @return {string} - the name of this extension.
      */
-
   }, {
     key: "EXTENSION_NAME",
     get: function get() {
@@ -7350,36 +6950,35 @@ var MbitMoreBlocks = /*#__PURE__*/function () {
         description: 'name of the extension'
       });
     }
+
     /**
      * @return {string} - the ID of this extension.
      */
-
   }, {
     key: "EXTENSION_ID",
     get: function get() {
       return EXTENSION_ID;
     }
+
     /**
      * URL to get this extension.
      * @type {string}
      */
-
   }, {
     key: "extensionURL",
     get: function get() {
       return extensionURL;
     }
+
     /**
      * Set URL to get this extension.
      * @param {string} url - URL
-     */
-    ,
+     */,
     set: function set(url) {
       extensionURL = url;
     }
   }]);
-
-  return MbitMoreBlocks;
+  return MicrobitMoreBlocks;
 }();
 
-export { MbitMoreBlocks as blockClass, entry };
+export { MicrobitMoreBlocks as blockClass, entry };
