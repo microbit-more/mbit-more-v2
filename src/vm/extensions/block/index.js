@@ -1473,6 +1473,7 @@ class MicrobitMoreBlocks {
             // 0|1 pattern.
             matrixData = matrixString.replace(/\s/g, '')
                 .split('');
+            // eslint-disable-next-line no-confusing-arrow
             matrixData = matrixData.map(level => ((level === '0') ? 0 : 100));
         }
         matrixData = matrixData.map(brightness =>
