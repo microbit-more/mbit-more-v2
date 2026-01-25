@@ -2,15 +2,39 @@
   "name": "mbit-more-v2",
   "version": "0.2.5",
   "description": "Full-functional extension of micro:bit for Scratch3",
-  "module": "./dist/microbitMore.mjs",
+  "extensionId": "microbitMore",
   "scripts": {
-    "register": "npx xcratch-register --id=microbitMore --gui=../scratch-gui --block=./src/vm/extensions/block --entry=./src/gui/lib/libraries/extensions/entry --core --link --use=extension-support util io",
-    "build": "npx xcratch-build --module=microbitMore --gui=../scratch-gui --block=./src/vm/extensions/block --entry=./src/gui/lib/libraries/extensions/entry",
-    "start:local": "cd ../scratch-gui && npm run start -- --https",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup-dev": "node ./scripts/setup-dev.mjs",
+    "build": "rollup -c ./scripts/rollup.config.mjs",
+    "watch": "rollup -c ./scripts/rollup.config.mjs --watch",
+    "start:local": "cd ../scratch-editor/packages/scratch-gui && npm run start -- --https",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "node ./scripts/version-build.mjs && git add dist"
   },
   "devDependencies": {
-    "xcratch-build": "^0.5.0",
-    "xcratch-register": "^0.4.2"
+    "@babel/core": "^7.28.0",
+    "@babel/eslint-parser": "^7.28.0",
+    "@babel/plugin-transform-react-jsx": "^7.27.1",
+    "@babel/plugin-transform-runtime": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/register": "^7.27.1",
+    "@babel/runtime": "^7.28.2",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-image": "^3.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-multi-entry": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "core-js": "^3.44.0",
+    "eslint": "^8.57.1",
+    "eslint-config-scratch": "^9.0.9",
+    "eslint-plugin-import": "^2.32.0",
+    "fs-extra": "^11.3.0",
+    "rollup": "^4.46.1",
+    "rollup-plugin-polyfill-node": "^0.13.0"
+  },
+  "dependencies": {
+    "tslog": "^4.10.2"
   }
 }
