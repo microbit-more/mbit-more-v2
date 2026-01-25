@@ -32,6 +32,7 @@ const entry = {
             id: 'mbitMore.entry.description'
         });
     },
+    tags: ['device', 'hardware', 'microbit'],
     featured: true,
     disabled: false,
     bluetoothRequired: true,
