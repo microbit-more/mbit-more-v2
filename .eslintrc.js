@@ -6,10 +6,14 @@ module.exports = {
         "es6": true,
         "node": true,
         "browser": true,
+        "jest": true
     },
     "parserOptions": {
         "sourceType": "module",
-        "ecmaVersion": 2017,
+        "ecmaVersion": 2020,
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
     "globals":{
     },

@@ -10,3 +10,7 @@ npm-*
 
 src/vm/*
 !src/vm/extensions/
+
+# test
+coverage/
+.coverage

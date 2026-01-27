@@ -8,7 +8,8 @@
     "build": "rollup -c ./scripts/rollup.config.mjs",
     "watch": "rollup -c ./scripts/rollup.config.mjs --watch",
     "start:local": "cd ../scratch-editor/packages/scratch-gui && npm run start -- --https",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "version": "node ./scripts/version-build.mjs && git add dist"
   },
   "devDependencies": {
@@ -32,7 +33,10 @@
     "eslint-plugin-import": "^2.32.0",
     "fs-extra": "^11.3.0",
     "rollup": "^4.46.1",
-    "rollup-plugin-polyfill-node": "^0.13.0"
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   },
   "dependencies": {
     "tslog": "^4.10.2"
