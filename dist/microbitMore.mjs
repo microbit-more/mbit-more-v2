@@ -5148,6 +5148,84 @@ function requireSerialWeb() {
 var serialWebExports = requireSerialWeb();
 var WebSerial = /*@__PURE__*/getDefaultExportFromCjs(serialWebExports);
 
+/**
+ * MbitMore button state bit index map
+ */
+var BUTTON_STATE_INDEX = {
+  P0: 0,
+  P1: 1,
+  P2: 2,
+  A: 3,
+  B: 4,
+  LOGO: 5
+};
+
+/**
+ * Parse binary state data buffer from micro:bit.
+ * @param {DataView} dataView - DataView of the state buffer (8 bytes)
+ * @param {Array<number>} gpioPins - List of GPIO pin numbers to extract
+ * @returns {object} Parsed state data
+ */
+var parseStateData = function parseStateData(dataView) {
+  var gpioPins = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [0, 1, 2, 8, 12, 13, 14, 15, 16];
+  if (!dataView || dataView.byteLength < 7) {
+    return null;
+  }
+  var gpioData = dataView.getUint32(0, true);
+  var digitalLevel = {};
+  for (var i = 0; i < gpioPins.length; i++) {
+    var pin = gpioPins[i];
+    digitalLevel[pin] = gpioData >> pin & 1;
+  }
+  var buttonState = {};
+  Object.keys(BUTTON_STATE_INDEX).forEach(function (name) {
+    buttonState[name] = gpioData >> 24 + BUTTON_STATE_INDEX[name] & 1;
+  });
+  var lightLevel = dataView.getUint8(4);
+  var temperature = dataView.getUint8(5) - 128;
+  var soundLevel = dataView.getUint8(6);
+  return {
+    digitalLevel: digitalLevel,
+    buttonState: buttonState,
+    lightLevel: lightLevel,
+    temperature: temperature,
+    soundLevel: soundLevel
+  };
+};
+
+var G = 1000;
+
+/**
+ * Parse motion data buffer (20 bytes) from micro:bit.
+ * @param {DataView} dataView - DataView of the motion buffer
+ * @returns {object|null} Parsed motion parameters or null if invalid
+ */
+var parseMotionData = function parseMotionData(dataView) {
+  if (!dataView || dataView.byteLength < 18) {
+    return null;
+  }
+  var pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
+  var roll = Math.round(dataView.getInt16(2, true) * 180 / Math.PI / 1000);
+  var acceleration = {
+    x: 1000 * dataView.getInt16(4, true) / G,
+    y: 1000 * dataView.getInt16(6, true) / G,
+    z: 1000 * dataView.getInt16(8, true) / G
+  };
+  var compassHeading = dataView.getUint16(10, true);
+  var magneticForce = {
+    x: dataView.getInt16(12, true),
+    y: dataView.getInt16(14, true),
+    z: dataView.getInt16(16, true)
+  };
+  return {
+    pitch: pitch,
+    roll: roll,
+    acceleration: acceleration,
+    compassHeading: compassHeading,
+    magneticForce: magneticForce
+  };
+};
+
 var uint8ArrayToBase64 = function uint8ArrayToBase64(array) {
   return window.btoa(String.fromCharCode.apply(String, _toConsumableArray$1(array)));
 };
@@ -5369,12 +5447,6 @@ var MM_SERVICE = {
 var AxisSymbol$1 = {
   Absolute: 'absolute'
 };
-
-/**
- * The unit-value of the gravitational acceleration from Micro:bit.
- * @type {number}
- */
-var G = 1024;
 
 /**
  * Manage communication with a MicroBit peripheral over a Scrath Link client socket.
@@ -5762,17 +5834,14 @@ var MicrobitMore = /*#__PURE__*/function () {
           if (!result) return resolve(_this4);
           var data = base64ToUint8Array(result.message);
           var dataView = new DataView(data.buffer, 0);
-          // Digital Input
-          var gpioData = dataView.getUint32(0, true);
-          for (var i = 0; i < _this4.gpio.length; i++) {
-            _this4.digitalLevel[_this4.gpio[i]] = gpioData >> _this4.gpio[i] & 1;
+          var parsed = parseStateData(dataView, _this4.gpio);
+          if (parsed) {
+            _this4.digitalLevel = parsed.digitalLevel;
+            _this4.buttonState = parsed.buttonState;
+            _this4.lightLevel = parsed.lightLevel;
+            _this4.temperature = parsed.temperature;
+            _this4.soundLevel = parsed.soundLevel;
           }
-          Object.keys(MbitMoreButtonStateIndex).forEach(function (name) {
-            _this4.buttonState[name] = gpioData >> 24 + MbitMoreButtonStateIndex[name] & 1;
-          });
-          _this4.lightLevel = dataView.getUint8(4);
-          _this4.temperature = dataView.getUint8(5) - 128;
-          _this4.soundLevel = dataView.getUint8(6);
           _this4.resetConnectionTimeout();
           resolve(_this4);
         });
@@ -5897,17 +5966,14 @@ var MicrobitMore = /*#__PURE__*/function () {
           if (!result) return resolve(_this6);
           var data = base64ToUint8Array(result.message);
           var dataView = new DataView(data.buffer, 0);
-          // Accelerometer
-          _this6.pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
-          _this6.roll = Math.round(dataView.getInt16(2, true) * 180 / Math.PI / 1000);
-          _this6.acceleration.x = 1000 * dataView.getInt16(4, true) / G;
-          _this6.acceleration.y = 1000 * dataView.getInt16(6, true) / G;
-          _this6.acceleration.z = 1000 * dataView.getInt16(8, true) / G;
-          // Magnetometer
-          _this6.compassHeading = dataView.getUint16(10, true);
-          _this6.magneticForce.x = dataView.getInt16(12, true);
-          _this6.magneticForce.y = dataView.getInt16(14, true);
-          _this6.magneticForce.z = dataView.getInt16(16, true);
+          var parsed = parseMotionData(dataView);
+          if (parsed) {
+            _this6.pitch = parsed.pitch;
+            _this6.roll = parsed.roll;
+            _this6.acceleration = parsed.acceleration;
+            _this6.compassHeading = parsed.compassHeading;
+            _this6.magneticForce = parsed.magneticForce;
+          }
           _this6.resetConnectionTimeout();
           resolve(_this6);
         });

@@ -1,7 +1,10 @@
 import BLE from './ble';
 import WebSerial from './serial-web';
+import { parseStateData } from './parsers/state-parser';
+import { parseMotionData } from './parsers/motion-parser';
 
 const uint8ArrayToBase64 = array => window.btoa(String.fromCharCode(...array));
+
 const base64ToUint8Array = base64 => {
     const raw = window.atob(base64);
     return Uint8Array.from(Array.prototype.map.call(raw, x => x.charCodeAt(0)));
@@ -673,18 +676,14 @@ export class MicrobitMore {
                     if (!result) return resolve(this);
                     const data = base64ToUint8Array(result.message);
                     const dataView = new DataView(data.buffer, 0);
-                    // Digital Input
-                    const gpioData = dataView.getUint32(0, true);
-                    for (let i = 0; i < this.gpio.length; i++) {
-                        this.digitalLevel[this.gpio[i]] = (gpioData >> this.gpio[i]) & 1;
+                    const parsed = parseStateData(dataView, this.gpio);
+                    if (parsed) {
+                        this.digitalLevel = parsed.digitalLevel;
+                        this.buttonState = parsed.buttonState;
+                        this.lightLevel = parsed.lightLevel;
+                        this.temperature = parsed.temperature;
+                        this.soundLevel = parsed.soundLevel;
                     }
-                    Object.keys(MbitMoreButtonStateIndex).forEach(
-                        name => {
-                            this.buttonState[name] = (gpioData >> (24 + MbitMoreButtonStateIndex[name])) & 1;
-                        });
-                    this.lightLevel = dataView.getUint8(4);
-                    this.temperature = dataView.getUint8(5) - 128;
-                    this.soundLevel = dataView.getUint8(6);
                     this.resetConnectionTimeout();
                     resolve(this);
                 });
@@ -815,17 +814,14 @@ export class MicrobitMore {
                     if (!result) return resolve(this);
                     const data = base64ToUint8Array(result.message);
                     const dataView = new DataView(data.buffer, 0);
-                    // Accelerometer
-                    this.pitch = Math.round(dataView.getInt16(0, true) * 180 / Math.PI / 1000);
-                    this.roll = Math.round(dataView.getInt16(2, true) * 180 / Math.PI / 1000);
-                    this.acceleration.x = 1000 * dataView.getInt16(4, true) / G;
-                    this.acceleration.y = 1000 * dataView.getInt16(6, true) / G;
-                    this.acceleration.z = 1000 * dataView.getInt16(8, true) / G;
-                    // Magnetometer
-                    this.compassHeading = dataView.getUint16(10, true);
-                    this.magneticForce.x = dataView.getInt16(12, true);
-                    this.magneticForce.y = dataView.getInt16(14, true);
-                    this.magneticForce.z = dataView.getInt16(16, true);
+                    const parsed = parseMotionData(dataView);
+                    if (parsed) {
+                        this.pitch = parsed.pitch;
+                        this.roll = parsed.roll;
+                        this.acceleration = parsed.acceleration;
+                        this.compassHeading = parsed.compassHeading;
+                        this.magneticForce = parsed.magneticForce;
+                    }
                     this.resetConnectionTimeout();
                     resolve(this);
                 });

@@ -72,4 +72,18 @@ describe('MicrobitMoreBlocks', () => {
         expect(info.extensionURL).toBe(MicrobitMoreBlocks.extensionURL);
         expect(info.blocks.length).toBeGreaterThan(0);
     });
+
+    test('block methods delegate to microbit instance', () => {
+        const blocks = new MicrobitMoreBlocks(makeRuntime());
+        blocks.microbit.readTemperature = jest.fn(() => 25);
+        blocks.microbit.isButtonPressed = jest.fn(() => true);
+
+        expect(blocks.getTemperature()).toBe(25);
+        expect(blocks.microbit.readTemperature).toHaveBeenCalled();
+
+        expect(blocks.isButtonPressed({ NAME: 'A' })).toBe(true);
+        expect(blocks.microbit.isButtonPressed).toHaveBeenCalledWith('A');
+    });
 });
+
+
