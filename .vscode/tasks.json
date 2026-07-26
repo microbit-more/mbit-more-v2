@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "npx --yes live-server . --host=0.0.0.0 --port=5500 --https=./.vscode/live-server-https.cjs --cors --no-browser",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": { "regexp": "^$" },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": ".*Serving.*"
+        }
+      },
+      "label": "start live server"
+    }
+  ]
+}

@@ -38,6 +38,12 @@ This extension can be used with other extension in [Xcratch](https://xcratch.git
 https://microbit-more.github.io/dist/microbitMore.mjs
 ```
 
+## Development & Debugging
+
+For details on local development and debugging with VS Code and Xcratch Editor, see:
+- [Debugging Guide (English)](./docs/debugging.md)
+- [デバッグガイド (日本語)](./docs/debugging-ja.md)
+
 ## Author
 
 👤 **Koji Yokokawa**

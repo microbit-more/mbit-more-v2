@@ -25,5 +25,38 @@
       "timeout": 30000,
       "outputCapture": "std"
     },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "start live server",
+      "name": "debug extension on xcratch.github.io editor",
+      "url": "https://xcratch.github.io/editor/?extension=${input:extensionUrl}",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "sourceMapPathOverrides": {
+        "https://0.0.0.0:5500/*": "${webRoot}/*"
+      }
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "attach on xcratch.github.io editor",
+      "url": "https://xcratch.github.io/editor/?extension=${input:extensionUrl}",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapRenames": true,
+      "sourceMapPathOverrides": {
+        "https://0.0.0.0:5500/*": "${webRoot}/*"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "extensionUrl",
+      "type": "promptString",
+      "description": "Extension URL to load, for example: https://0.0.0.0:5500/dist/microbitMore.mjs",
+      "default": "https://0.0.0.0:5500/dist/microbitMore.mjs"
+    }
   ]
 }

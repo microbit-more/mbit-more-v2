@@ -22,3 +22,7 @@ logs/
 
 # APM dependencies
 apm_modules/
+
+# Local SSL Certificates
+*.pem
+
