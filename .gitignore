@@ -14,3 +14,11 @@ src/vm/*
 # test
 coverage/
 .coverage
+
+# temporary log or memo files
+*.log
+logs/
+
+
+# APM dependencies
+apm_modules/
