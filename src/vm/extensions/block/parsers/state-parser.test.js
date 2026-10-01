@@ -1,4 +1,4 @@
-import { parseStateData, BUTTON_STATE_INDEX } from './state-parser';
+import { parseStateData } from './state-parser';
 
 describe('state-parser', () => {
     test('should return null if dataView is invalid or too small', () => {

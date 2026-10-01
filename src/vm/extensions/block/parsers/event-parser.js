@@ -47,7 +47,7 @@ export const GESTURE_ID = {
  * @param {DataView} dataView - DataView of 20-byte notification buffer
  * @returns {object|null} Parsed event object or null if unrecognized
  */
-export const parseEventData = (dataView) => {
+export const parseEventData = dataView => {
     if (!dataView || dataView.byteLength < 20) {
         return null;
     }
