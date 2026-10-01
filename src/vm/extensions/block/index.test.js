@@ -10,6 +10,7 @@ jest.mock('./microbit-more', () => ({
 }));
 
 import MicrobitMoreBlocks from './index';
+import translations from './translations.json';
 
 describe('MicrobitMoreBlocks', () => {
     const makeRuntime = (overrides = {}) => {
@@ -84,6 +85,36 @@ describe('MicrobitMoreBlocks', () => {
         expect(blocks.isButtonPressed({ NAME: 'A' })).toBe(true);
         expect(blocks.microbit.isButtonPressed).toHaveBeenCalledWith('A');
     });
+
+    describe('translations setup', () => {
+        const makeLocaleRuntime = locale => {
+            const localeTranslations = {[locale]: {}};
+            const formatter = data => data.defaultMessage || data.id;
+            formatter.setup = () => ({locale, translations: localeTranslations});
+            return {
+                runtime: makeRuntime({formatMessage: formatter}),
+                localeTranslations
+            };
+        };
+
+        test('uses exact locale match', () => {
+            const {runtime, localeTranslations} = makeLocaleRuntime('ja-Hira');
+            new MicrobitMoreBlocks(runtime).getInfo();
+            expect(localeTranslations['ja-Hira']['mbitMore.isButtonPressed'])
+                .toBe(translations['ja-Hira']['mbitMore.isButtonPressed']);
+        });
+
+        test.each(['de-DE', 'de_DE'])('falls back to base locale for %s', locale => {
+            const {runtime, localeTranslations} = makeLocaleRuntime(locale);
+            new MicrobitMoreBlocks(runtime).getInfo();
+            expect(localeTranslations[locale]['mbitMore.isButtonPressed'])
+                .toBe(translations.de['mbitMore.isButtonPressed']);
+        });
+
+        test('leaves unknown locale untouched', () => {
+            const {runtime, localeTranslations} = makeLocaleRuntime('fr-FR');
+            new MicrobitMoreBlocks(runtime).getInfo();
+            expect(localeTranslations['fr-FR']).toEqual({});
+        });
+    });
 });
-
-

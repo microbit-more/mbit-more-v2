@@ -14,10 +14,22 @@ let formatMessage = messageData => messageData.defaultMessage;
  */
 const setupTranslations = () => {
     const localeSetup = formatMessage.setup();
-    if (localeSetup && localeSetup.translations[localeSetup.locale]) {
+    if (!localeSetup) return;
+
+    const currentLocale = localeSetup.locale;
+    if (!currentLocale) return;
+
+    // Try exact match first, then fall back to base locale (e.g., 'de-DE' -> 'de')
+    const baseLocale = currentLocale.split('-')[0].split('_')[0];
+    let translationKey = translations[currentLocale] ? currentLocale : null;
+    if (!translationKey && baseLocale !== currentLocale) {
+        translationKey = translations[baseLocale] ? baseLocale : null;
+    }
+
+    if (localeSetup.translations[currentLocale] && translationKey) {
         Object.assign(
-            localeSetup.translations[localeSetup.locale],
-            translations[localeSetup.locale]
+            localeSetup.translations[currentLocale],
+            translations[translationKey]
         );
     }
 };
