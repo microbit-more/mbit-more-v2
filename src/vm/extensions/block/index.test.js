@@ -1,3 +1,19 @@
+// scratch-vm modules are linked by `npm run setup-dev` and are not available in CI.
+jest.mock('../../extension-support/argument-type', () => ({
+    MATRIX: 'matrix',
+    NUMBER: 'number',
+    STRING: 'string'
+}), {virtual: true});
+jest.mock('../../extension-support/block-type', () => ({
+    BOOLEAN: 'Boolean',
+    COMMAND: 'command',
+    HAT: 'hat',
+    REPORTER: 'reporter'
+}), {virtual: true});
+jest.mock('../../util/cast', () => ({
+    toString: value => String(value)
+}), {virtual: true});
+
 jest.mock('./microbit-more', () => ({
     MicrobitMore: class MicrobitMoreMock {
         constructor (runtime, extensionId) {
