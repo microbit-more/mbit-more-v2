@@ -30,7 +30,7 @@ This document defines the overall architecture, component composition, data flow
         ▼                      ▼                      ▼
 ┌──────────────┐       ┌──────────────┐       ┌──────────────┐
 │   parsers/   │       │   encoders/  │       │  BLE / Serial│
-│ state-parser │       │ command-     │       │ ble-web.js   │
+│ state-parser │       │ command-     │       │ ble.js       │
 │ motion-parser│       │ encoder      │       │ serial-web.js│
 │ event-parser │       │              │       │              │
 └──────────────┘       └──────────────┘       └──────────────┘
@@ -73,7 +73,7 @@ sequenceDiagram
     autonumber
     participant Scratch as Scratch VM
     participant Ext as MicrobitMore
-    participant Trans as BLE (ble-web)
+    participant Trans as BLE (io/ble)
     participant Mbit as micro:bit
 
     Scratch->>Ext: scan()

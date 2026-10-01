@@ -20,9 +20,7 @@ mbit-more-v2/
 │   │   ├── extensions/block/  # Main extension block implementation
 │   │   │   ├── index.js       # Export
 │   │   │   ├── microbit-more.js # Core functionality
-│   │   │   ├── ble.js         # BLE communication abstraction
-│   │   │   ├── ble-web.js     # Web Bluetooth API
-│   │   │   ├── ble-llk.js     # Scratch Link (LLK)
+│   │   │   ├── ble.js         # BLE (scratch-vm io/ble: Web Bluetooth / Scratch Link)
 │   │   │   └── serial-web.js  # Serial communication
 │   │   ├── extension-support  # Extension support
 │   │   ├── io                 # I/O handling
