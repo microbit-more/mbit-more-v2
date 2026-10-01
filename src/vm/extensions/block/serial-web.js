@@ -80,14 +80,14 @@ class WebSerial {
         this.sendDataInterval = 10; // Time for receiving process in micro:bit
 
         /**
-         * Store of received type and value for each characteristics.
-         * @type {Object.<number, Object.<number, Uint8Array>>} - { ch: { type: value }}.
+         * Store of received type and value for each characteristics: { ch: { type: value } }.
+         * @type {Object.<number, Object.<number, Uint8Array>>}
          */
         this.chValues = {};
 
         /**
-         * Notification callbacks.
-         * @type {Object.<number, function>} - { ch: callback }
+         * Notification callbacks: { ch: callback }.
+         * @type {Object.<number, function>}
          */
         this.notifyListeners = {};
 

@@ -4615,14 +4615,14 @@ function requireSerialWeb() {
       this.sendDataInterval = 10; // Time for receiving process in micro:bit
 
       /**
-       * Store of received type and value for each characteristics.
-       * @type {Object.<number, Object.<number, Uint8Array>>} - { ch: { type: value }}.
+       * Store of received type and value for each characteristics: { ch: { type: value } }.
+       * @type {Object.<number, Object.<number, Uint8Array>>}
        */
       this.chValues = {};
 
       /**
-       * Notification callbacks.
-       * @type {Object.<number, function>} - { ch: callback }
+       * Notification callbacks: { ch: callback }.
+       * @type {Object.<number, function>}
        */
       this.notifyListeners = {};
       this.requestPeripheral();
@@ -5513,7 +5513,7 @@ var MicrobitMore = /*#__PURE__*/function () {
 
     /**
      * The most recently received button events for each buttons.
-     * @type {Object} - Store of buttons which has events.
+     * @type {Object}
      * @private
      */
     this.buttonEvents = {};
@@ -5522,22 +5522,22 @@ var MicrobitMore = /*#__PURE__*/function () {
     });
 
     /**
-     * The most recently received gesture events.
-     * @type {Object <number, number>} - Store of gesture ID and timestamp.
+     * The most recently received gesture events: gesture ID to timestamp.
+     * @type {Object.<number, number>}
      * @private
      */
     this.gestureEvents = {};
 
     /**
      * The most recently received events for each pin.
-     * @type {Object} - Store of pins which has events.
+     * @type {Object}
      * @private
      */
     this._pinEvents = {};
 
     /**
      * The most recently received data from micro:bit.
-     * @type {Object} - Store of received data
+     * @type {Object}
      * @private
      */
     this.receivedData = {};
@@ -6747,26 +6747,26 @@ var MicrobitMoreBlocks = /*#__PURE__*/function () {
     this.microbit = new MicrobitMore(this.runtime, MicrobitMoreBlocks.EXTENSION_ID);
 
     /**
-     * The previous timestamps of button events.
-     * @type {Object.<number, Object.<number, number>>} button ID to object with event and timestamp.
+     * The previous timestamps of button events: button ID to object with event and timestamp.
+     * @type {Object.<number, Object.<number, number>>}
      */
     this.prevButtonEvents = {};
 
     /**
-     * The previous timestamps of gesture events.
-     * @type {Object.<number, number>} key: event ID, value: timestamp.
+     * The previous timestamps of gesture events: event ID to timestamp.
+     * @type {Object.<number, number>}
      */
     this.prevGestureEvents = {};
 
     /**
-     * The previous timestamps of pin events.
-     * @type {Object.<number, Object.<number, number>>} pin index to object with event and timestamp.
+     * The previous timestamps of pin events: pin index to object with event and timestamp.
+     * @type {Object.<number, Object.<number, number>>}
      */
     this.prevPinEvents = {};
 
     /**
      * The previous timestamps of messages.
-     * @type {Object.<number, Object>} pin index to object with event and timestamp.
+     * @type {Object.<number, Object>}
      */
     this.prevReceivedData = {};
   }

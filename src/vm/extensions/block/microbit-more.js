@@ -300,7 +300,7 @@ export class MicrobitMore {
 
         /**
          * The most recently received button events for each buttons.
-         * @type {Object} - Store of buttons which has events.
+         * @type {Object}
          * @private
          */
         this.buttonEvents = {};
@@ -309,8 +309,8 @@ export class MicrobitMore {
         });
 
         /**
-         * The most recently received gesture events.
-         * @type {Object <number, number>} - Store of gesture ID and timestamp.
+         * The most recently received gesture events: gesture ID to timestamp.
+         * @type {Object.<number, number>}
          * @private
          */
         this.gestureEvents = {};
@@ -318,14 +318,14 @@ export class MicrobitMore {
 
         /**
          * The most recently received events for each pin.
-         * @type {Object} - Store of pins which has events.
+         * @type {Object}
          * @private
          */
         this._pinEvents = {};
 
         /**
          * The most recently received data from micro:bit.
-         * @type {Object} - Store of received data
+         * @type {Object}
          * @private
          */
         this.receivedData = {};

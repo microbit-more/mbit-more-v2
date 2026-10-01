@@ -738,26 +738,26 @@ class MicrobitMoreBlocks {
         this.microbit = new MicrobitMore(this.runtime, MicrobitMoreBlocks.EXTENSION_ID);
 
         /**
-         * The previous timestamps of button events.
-         * @type {Object.<number, Object.<number, number>>} button ID to object with event and timestamp.
+         * The previous timestamps of button events: button ID to object with event and timestamp.
+         * @type {Object.<number, Object.<number, number>>}
          */
         this.prevButtonEvents = {};
 
         /**
-         * The previous timestamps of gesture events.
-         * @type {Object.<number, number>} key: event ID, value: timestamp.
+         * The previous timestamps of gesture events: event ID to timestamp.
+         * @type {Object.<number, number>}
          */
         this.prevGestureEvents = {};
 
         /**
-         * The previous timestamps of pin events.
-         * @type {Object.<number, Object.<number, number>>} pin index to object with event and timestamp.
+         * The previous timestamps of pin events: pin index to object with event and timestamp.
+         * @type {Object.<number, Object.<number, number>>}
          */
         this.prevPinEvents = {};
 
         /**
          * The previous timestamps of messages.
-         * @type {Object.<number, Object>} pin index to object with event and timestamp.
+         * @type {Object.<number, Object>}
          */
         this.prevReceivedData = {};
     }
