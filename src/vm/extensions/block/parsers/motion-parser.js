@@ -1,11 +1,15 @@
-const G = 1000;
+/**
+ * The unit-value of the gravitational acceleration from Micro:bit.
+ * @type {number}
+ */
+const G = 1024;
 
 /**
  * Parse motion data buffer (20 bytes) from micro:bit.
  * @param {DataView} dataView - DataView of the motion buffer
  * @returns {object|null} Parsed motion parameters or null if invalid
  */
-export const parseMotionData = (dataView) => {
+export const parseMotionData = dataView => {
     if (!dataView || dataView.byteLength < 18) {
         return null;
     }

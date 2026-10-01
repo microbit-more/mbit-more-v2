@@ -35,7 +35,7 @@ describe('motion-parser', () => {
         expect(result).not.toBeNull();
         expect(result.pitch).toBe(57); // 1000 * 180 / PI / 1000 ~ 57.295 -> 57
         expect(result.roll).toBe(-29);
-        expect(result.acceleration).toEqual({ x: 500, y: -250, z: 1000 });
+        expect(result.acceleration).toEqual({ x: 488.28125, y: -244.140625, z: 976.5625 });
         expect(result.compassHeading).toBe(180);
         expect(result.magneticForce).toEqual({ x: 10, y: -20, z: 30 });
     });

@@ -5206,7 +5206,11 @@ var parseStateData = function parseStateData(dataView) {
   };
 };
 
-var G = 1000;
+/**
+ * The unit-value of the gravitational acceleration from Micro:bit.
+ * @type {number}
+ */
+var G = 1024;
 
 /**
  * Parse motion data buffer (20 bytes) from micro:bit.

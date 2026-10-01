@@ -241,12 +241,6 @@ const AxisSymbol = {
 };
 
 /**
- * The unit-value of the gravitational acceleration from Micro:bit.
- * @type {number}
- */
-const G = 1024;
-
-/**
  * Manage communication with a MicroBit peripheral over a Scrath Link client socket.
  */
 export class MicrobitMore {
