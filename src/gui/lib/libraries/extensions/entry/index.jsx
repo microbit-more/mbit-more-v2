@@ -9,8 +9,9 @@ import microbitMoreInsetIconURL from './inset-icon.svg';
 import microbitMoreConnectionIconURL from './connection-icon.svg';
 import microbitMoreConnectionSmallIconURL from './connection-small-icon.svg';
 import translations from './translations.json';
+import {version as packageVersion} from '../../../../../../package.json';
 
-const version = 'v2-0.2.5';
+const version = `v2-${packageVersion}`;
 
 const entry = {
     get name () {

@@ -1,4 +1,5 @@
 import entry, {entry as namedEntry} from './index.jsx';
+import {version as packageVersion} from '../../../../../../package.json';
 
 describe('MicroBit More entry metadata', () => {
     beforeEach(() => {
@@ -10,7 +11,7 @@ describe('MicroBit More entry metadata', () => {
 
     test('name includes default label and version', () => {
         expect(entry.name).toContain('MicroBit More');
-        expect(entry.name).toContain('v2-0.2.5');
+        expect(entry.name).toContain(`v2-${packageVersion}`);
     });
 
     test('setFormatMessage customizes name and description', () => {

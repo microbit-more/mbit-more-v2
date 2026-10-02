@@ -10,7 +10,7 @@ import microbitMoreConnectionIconURL from './connection-icon.svg';
 import microbitMoreConnectionSmallIconURL from './connection-small-icon.svg';
 import translations from './translations.json';
 
-const version = 'v2-0.2.5';
+const version = 'v2-0.3.2';
 
 const entry = {
     get name () {
