@@ -640,7 +640,7 @@ export class MicrobitMore {
                 const data = base64ToUint8Array(result.message);
                 const dataView = new DataView(data.buffer, 0);
                 this.analogValue[pinIndex] = dataView.getUint16(0, true);
-                this.analogInLastUpdated = Date.now();
+                this.analogInLastUpdated[pinIndex] = Date.now();
                 resolve(this.analogValue[pinIndex]);
             })
         );
