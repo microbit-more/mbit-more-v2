@@ -2,10 +2,15 @@
   "extensionId": "microbitMore",
   "versions": [
     {
+      "version": "0.3.1",
+      "buildDate": "2026-10-02T00:37:04.423Z",
+      "module": "0.3.1/microbitMore.mjs"
+    },
+    {
       "version": "0.3.0",
       "buildDate": "2026-01-25T05:35:52.938Z",
       "module": "0.3.0/microbitMore.mjs"
     }
   ],
-  "latest": "0.3.0"
+  "latest": "0.3.1"
 }
