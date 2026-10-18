@@ -15,9 +15,12 @@ module.exports = {
             "jsx": true
         }
     },
+    "plugins": ["react"],
     "globals":{
     },
     "rules":{
+        'react/jsx-uses-react': 2,
+        'react/jsx-uses-vars': 2,
         'arrow-body-style': [2, 'as-needed'],
         'arrow-parens': [2, 'as-needed'],
         'arrow-spacing': [2, {

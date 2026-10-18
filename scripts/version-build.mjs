@@ -19,6 +19,21 @@ if (!EXTENSION_ID) {
     process.exit(1);
 }
 
+// Sync the hard-coded version label in the Stretch3 entry (copied verbatim by install-stretch3.sh)
+const stretch3EntryPath = path.join(projectRoot, 'src/gui/lib/libraries/extensions/entry/index-stretch3.jsx');
+const versionPattern = /const version = 'v2-[^']*';/;
+const stretch3Source = fs.readFileSync(stretch3EntryPath, 'utf-8');
+if (!versionPattern.test(stretch3Source)) {
+    console.error(`Error: "const version = 'v2-...';" not found in ${stretch3EntryPath}`);
+    process.exit(1);
+}
+fs.writeFileSync(
+    stretch3EntryPath,
+    stretch3Source.replace(versionPattern, `const version = 'v2-${version}';`),
+    'utf-8'
+);
+console.log('✓ Updated: src/gui/lib/libraries/extensions/entry/index-stretch3.jsx');
+
 console.log(`Building ${EXTENSION_ID} version ${version}...`);
 
 // Run rollup build
