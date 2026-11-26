@@ -10,7 +10,7 @@
     "start:local": "cd ../scratch-editor/packages/scratch-gui && npm run start -- --https",
     "test": "jest",
     "test:watch": "jest --watch",
-    "version": "node ./scripts/version-build.mjs && git add dist"
+    "version": "node ./scripts/version-build.mjs && git add dist src/gui/lib/libraries/extensions/entry/index-stretch3.jsx"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
@@ -27,16 +27,20 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-multi-entry": "^6.0.1",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "babel-jest": "^29.7.0",
     "core-js": "^3.44.0",
     "eslint": "^8.57.1",
     "eslint-config-scratch": "^9.0.9",
     "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
     "fs-extra": "^11.3.0",
-    "rollup": "^4.46.1",
-    "rollup-plugin-polyfill-node": "^0.13.0",
-    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0"
+    "jest-environment-jsdom": "^29.7.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-intl": "^2.9.0",
+    "rollup": "^4.46.1",
+    "rollup-plugin-polyfill-node": "^0.13.0"
   },
   "dependencies": {
     "tslog": "^4.10.2"

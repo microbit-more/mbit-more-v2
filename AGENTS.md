@@ -106,6 +106,8 @@ The build generates `dist/microbitMore.mjs`, which is consumed by Xcratch and th
 https://microbit-more.github.io/dist/microbitMore.mjs
 ```
 
+The Stretch3 build is pinned by the `stretch3` branch (fast-forward from `master` only); see `docs/release.md` before updating it.
+
 ## BLE Communication Architecture
 
 ```
