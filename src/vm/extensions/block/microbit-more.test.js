@@ -753,16 +753,20 @@ describe('MicrobitMore Connection Logic', () => {
             jest.advanceTimersByTime(microbit.analogInUpdateInterval);
         });
 
-        test('should read analog value from the pin characteristic', async () => {
+        test('should return cached value immediately and update it in the background', async () => {
+            microbit.analogValue[0] = 123;
             const value = await microbit.readAnalogIn(0);
 
-            expect(value).toBe(512);
+            expect(value).toBe(123);
             expect(mockBLEInstance.read).toHaveBeenCalledTimes(1);
             expect(mockBLEInstance.read.mock.calls[0][1]).toBe(ANALOG_IN_P0_CH);
+            await Promise.resolve();
+            expect(microbit.analogValue[0]).toBe(512);
         });
 
         test('should keep per-pin timestamps as an array after reading', async () => {
             await microbit.readAnalogIn(1);
+            await Promise.resolve();
 
             expect(Array.isArray(microbit.analogInLastUpdated)).toBe(true);
             expect(microbit.analogInLastUpdated[1]).toBe(Date.now());
@@ -770,6 +774,7 @@ describe('MicrobitMore Connection Logic', () => {
 
         test('should return cached value within the update interval', async () => {
             await microbit.readAnalogIn(0);
+            await Promise.resolve();
             mockBLEInstance.read.mockResolvedValue({message: createMockAnalogData(100)});
 
             const value = await microbit.readAnalogIn(0);
@@ -780,23 +785,40 @@ describe('MicrobitMore Connection Logic', () => {
 
         test('should read again after the update interval has passed', async () => {
             await microbit.readAnalogIn(0);
+            await Promise.resolve();
+            await Promise.resolve();
             mockBLEInstance.read.mockResolvedValue({message: createMockAnalogData(100)});
             jest.advanceTimersByTime(microbit.analogInUpdateInterval);
 
             const value = await microbit.readAnalogIn(0);
 
-            expect(value).toBe(100);
+            expect(value).toBe(512);
             expect(mockBLEInstance.read).toHaveBeenCalledTimes(2);
+            await Promise.resolve();
+            expect(microbit.analogValue[0]).toBe(100);
         });
 
         test('should not share the update interval between pins', async () => {
             await microbit.readAnalogIn(0);
+            await Promise.resolve();
+            await Promise.resolve();
             await microbit.readAnalogIn(1);
 
             expect(mockBLEInstance.read).toHaveBeenCalledTimes(2);
         });
+
+        test('should not wait or request another read while BLE is busy', async () => {
+            microbit.analogValue[0] = 321;
+            microbit.bleBusy = true;
+            const util = {yield: jest.fn()};
+
+            const value = await microbit.readAnalogIn(0, util);
+
+            expect(value).toBe(321);
+            expect(mockBLEInstance.read).not.toHaveBeenCalled();
+            expect(util.yield).not.toHaveBeenCalled();
+            expect(microbit.bleAccessWaiting).not.toBe(true);
+        });
     });
 });
-
-
 

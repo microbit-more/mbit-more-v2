@@ -606,44 +606,44 @@ export class MicrobitMore {
     /**
      * Update data of the analog input.
      * @param {number} pinIndex - index of the pin to get value.
-     * @param {object} util - utility object provided by the runtime.
-     * @return {?Promise} a Promise that resolves value of analog input or undefined if this process was yield.
+     * @return {Promise<number>} a Promise that immediately resolves the latest cached analog value.
      */
-    readAnalogIn (pinIndex, util) {
+    readAnalogIn (pinIndex) {
         if (!this.isConnected()) {
             return Promise.resolve(0);
         }
         if ((Date.now() - this.analogInLastUpdated[pinIndex]) < this.analogInUpdateInterval) {
             return Promise.resolve(this.analogValue[pinIndex]);
         }
-        if (this.bleBusy) {
-            this.bleAccessWaiting = true;
-            if (util) util.yield(); // re-try this call after a while.
-            return; // Do not return Promise.resolve() to re-try.
-        }
+        // Analog reporters must not wait for BLE access. Returning the cached
+        // value keeps a continuously running reporter from starving output
+        // commands such as servo and motor control.
+        if (this.bleBusy) return Promise.resolve(this.analogValue[pinIndex]);
         this.bleBusy = true;
         this.bleBusyTimeoutID = window.setTimeout(() => {
             this.bleBusy = false;
-            this.bleAccessWaiting = false;
         }, 1000);
-        return new Promise(resolve => this._ble.read(
+        this._ble.read(
             MM_SERVICE.ID,
             MM_SERVICE.ANALOG_IN_CH[pinIndex],
-            false)
+            false
+        )
             .then(result => {
-                window.clearTimeout(this.bleBusyTimeoutID);
-                this.bleBusy = false;
-                this.bleAccessWaiting = false;
-                if (!result) {
-                    return resolve(this.analogValue[pinIndex]);
-                }
+                if (!result) return;
                 const data = base64ToUint8Array(result.message);
                 const dataView = new DataView(data.buffer, 0);
                 this.analogValue[pinIndex] = dataView.getUint16(0, true);
                 this.analogInLastUpdated[pinIndex] = Date.now();
-                resolve(this.analogValue[pinIndex]);
             })
-        );
+            .catch(err => this._ble.handleDisconnectError(err))
+            .finally(() => {
+                window.clearTimeout(this.bleBusyTimeoutID);
+                this.bleBusy = false;
+                // Do not clear bleAccessWaiting here. If an output command
+                // arrived during this read, startUpdater must keep yielding
+                // until that command has been retried.
+            });
+        return Promise.resolve(this.analogValue[pinIndex]);
     }
 
     /**
